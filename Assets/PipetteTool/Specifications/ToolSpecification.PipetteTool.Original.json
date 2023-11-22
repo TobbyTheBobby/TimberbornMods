@@ -1,0 +1,14 @@
+{
+  "Id": "PipetteTool",
+  "Type": "PipetteTool",
+  "Layout": "blue",
+  "Order": 81,
+  "Icon": "tobbert.pipettetool/tobbert_pipettetool/PipetteToolIcon",
+  "NameLocKey": "Tobbert.PipetteTool.DisplayName",
+  "DescriptionLocKey": "Tobbert.PipetteTool.Description",
+  "DevMode": false,
+  "Hidden": false,
+  "ToolInformation": {
+    "BottomBarSection": 0
+  }
+}

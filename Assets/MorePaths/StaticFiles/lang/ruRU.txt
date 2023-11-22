@@ -1,0 +1,34 @@
+ID,Text,Comment
+Tobbert.BrickPath.DisplayName,Кирпичная дорога,-
+Tobbert.BrickPath.Description,"Дорога с другим покрытием, чтобы разнообразить ваш город.",-
+Tobbert.BrickPath.FlavorDescription,"А из жёлтого кирпича есть?",-
+
+Tobbert.FrogPath.DisplayName,Лягушачья дорога,-
+Tobbert.FrogPath.Description,"Дорога с другим покрытием, чтобы разнообразить ваш город.",-
+Tobbert.FrogPath.FlavorDescription,"Прыг-скок!",-
+
+Tobbert.Gravel1Path.DisplayName,Гравийная дорога А,-
+Tobbert.Gravel1Path.Description,"Дорога с другим покрытием, чтобы разнообразить ваш город.",-
+Tobbert.Gravel1Path.FlavorDescription,"«Надеюсь, лапы потом болеть не будут?» – один бобёр",-
+
+Tobbert.Gravel2Path.DisplayName,Гравийная дорога Б,-
+Tobbert.Gravel2Path.Description,"Дорога с другим покрытием, чтобы разнообразить ваш город.",-
+Tobbert.Gravel2Path.FlavorDescription,"«Надеюсь, лапы потом болеть не будут?» – один бобёр",-
+
+Tobbert.StonePath.DisplayName,Мощенная дорога,-
+Tobbert.StonePath.Description,"Дорога с другим покрытием, чтобы разнообразить ваш город.",-
+Tobbert.StonePath.FlavorDescription,"Лучше по ней не ходить под палящим солнцем!",-
+
+Tobbert.MetalPath.DisplayName,Металлическая дорога,-
+Tobbert.MetalPath.Description,"Дорога с другим покрытием, чтобы разнообразить ваш город.",-
+Tobbert.MetalPath.FlavorDescription,"А эта прохладная на ощупь. Надолго ли?",-
+
+Tobbert.WoodFolktails.DisplayName,Деревянная дорога Мирохвостов,-
+Tobbert.WoodFolktails.Description,"Дорога с другим покрытием, чтобы разнообразить ваш город.",-
+Tobbert.WoodFolktails.FlavorDescription,"",-
+
+Tobbert.WoodIronTeeth.DisplayName,Деревянная дорога Железных Зубов,-
+Tobbert.WoodIronTeeth.Description,"Дорога с другим покрытием, чтобы разнообразить ваш город.",-
+Tobbert.WoodIronTeeth.FlavorDescription,"",-
+
+"Tobbert.CategoryPaths.DisplayName",Дороги,-

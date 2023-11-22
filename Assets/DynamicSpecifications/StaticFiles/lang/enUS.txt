@@ -1,0 +1,4 @@
+ID,Text,Comment
+Tobbert.DynamicSpecifications.SettingsHeader,Dynamic Specifications,-
+Tobbert.DynamicSpecifications.GenerateSpecificationsDescription,"The following button will generate ALL Dynamic Specifications This is meant for modding certain things in the game. This CAN take several minutes to generate and both write to disk. Check console to see when it is finished. NOTE: this will only generate Dynamic Specifications for objects in the current scene. In order to generate specifications, you need to have the game loaded and only specifications for that Faction will be generated.",-
+Tobbert.DynamicSpecifications.GenerateSpecificationsButton,Generate ALL,-

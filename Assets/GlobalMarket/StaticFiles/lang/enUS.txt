@@ -1,0 +1,8 @@
+ID,Text,Comment
+Tobbert.GlobalMarket.DisplayName,Global Market,Name of the building.
+Tobbert.GlobalMarket.Description,Stores a large amount of goods. Inventory is shared with other Global Markets.,Same description as large warehouse.
+Tobbert.GlobalMarket.FlavorDescription,What is that in the sky?,Reference to the air balloon.
+
+Tobbert.GlobalMarket.EnableAirBalloon,Air Balloon Enabled,Text for button to enable or disable the air balloon.
+
+Tobbert.AirBalloon.Name,Air Balloon,The name of the balloon when you click on it. 

@@ -1,0 +1,5 @@
+ID,Text,Comment
+Tobbert.FerrisWheel.DisplayName,Riesenrad,-
+Tobbert.FerrisWheel.Description,Ein Riesenrad an dem sich deine Biber erfreuen können!,-
+Tobbert.FerrisWheel.FlavorDiscription,\u201EWheeeeeeeeeeeeeeeee\u201C \u2013 Jungtiere,-
+Tobbert.FerrisWheelNeed.DisplaynameLocKey,Riesenrad,-

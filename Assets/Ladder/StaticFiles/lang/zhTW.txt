@@ -1,0 +1,4 @@
+ID,Text,Comment
+Tobbert.Ladder.DisplayName,梯子,-
+Tobbert.Ladder.Description,一個裡頭有梯子的平台。,-
+Tobbert.Ladder.FlavorDiscription,''但是他們應該如何儲存物品呢？'' -Pmduda,-

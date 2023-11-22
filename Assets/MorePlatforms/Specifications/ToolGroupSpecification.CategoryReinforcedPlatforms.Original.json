@@ -1,0 +1,11 @@
+{
+  "Id": "CategorySidePlatforms",
+  "GroupId": "Paths",
+  "Order": 6980,
+  "Icon": "tobbert.moreplatforms/tobbert_moreplatforms/CategorySidePlatformsIcon",
+  "NameLocKey": "Tobbert.CategorySidePlatforms.DisplayName",
+  "FallbackGroup": false,
+  "GroupInformation": {
+    "BottomBarSection": 1
+  }
+}

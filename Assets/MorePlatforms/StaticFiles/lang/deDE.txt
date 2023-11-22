@@ -1,0 +1,40 @@
+ID,Text,Comment
+Tobbert.HorizontalPlatformEnd1x1.DisplayName,Seitenplattform 1x1,-
+Tobbert.HorizontalPlatformEnd1x1.Description,"Eine Plattform, die an der Seite von Geländeblöcken, Deichen oder verstärkten 
+Plattformen platziert werden kann.",-
+Tobbert.HorizontalPlatformEnd1x1.FlavorDescription,"Stell dir vor, du könntest diese auf sich selbst stapeln.",-
+Tobbert.HorizontalPlatformEnd2x1.DisplayName,Seitenplattform 2x1,-
+Tobbert.HorizontalPlatformEnd2x1.Description,"Eine Plattform, die an der Seite von Geländeblöcken, Deichen oder verstärkten 
+Plattformen platziert werden kann.",-
+Tobbert.HorizontalPlatformEnd2x1.FlavorDescription,"Verdopple die Plattform, verdopple den Spaß!",-
+Tobbert.HorizontalPlatformEnd3x1.DisplayName,Seitenplattform 3x1,-
+Tobbert.HorizontalPlatformEnd3x1.Description,"Eine Plattform, die an der Seite von Geländeblöcken, Deichen oder verstärkten 
+Plattformen platziert werden kann.",-
+Tobbert.HorizontalPlatformEnd3x1.FlavorDescription,Diese ist für die langen Kerle.,-
+Tobbert.HorizontalPlatformEnd4x1.DisplayName,Seitenplattform 4x1,-
+Tobbert.HorizontalPlatformEnd4x1.Description,"Eine Plattform, die an der Seite von Geländeblöcken, Deichen oder verstärkten 
+Plattformen platziert werden kann.",-
+Tobbert.HorizontalPlatformEnd4x1.FlavorDescription,So funktioniert Physik nicht.,-
+
+Tobbert.HorizontalPlatformMiddle1x1.DisplayName,Seitenplattform Mittelstück\r\nHöhe 1,-
+Tobbert.HorizontalPlatformMiddle1x1.Description,"Eine Plattform, die überall platziert werden kann. Lass deiner Kreativität freien Lauf!",-
+Tobbert.HorizontalPlatformMiddle1x1.FlavorDescription,Laßt uns eine schwebende Stadt bauen!,-
+Tobbert.HorizontalPlatformMiddle1x2.DisplayName,"Seitenplattform Mittelstück\r\nHöhe 1,5",-
+Tobbert.HorizontalPlatformMiddle1x2.Description,"Eine Plattform, die überall platziert werden kann. Lass deiner Kreativität freien Lauf!",-
+Tobbert.HorizontalPlatformMiddle1x2.FlavorDescription,Wenn Höhe 1 einfach nicht hoch genug ist.,-
+
+Tobbert.ReinforcedLadder.DisplayName,Verstärkte Leiter,-
+Tobbert.ReinforcedLadder.Description,"Eine Leiter, die in Kombination mit Seitenplattformen genutzt werden kann. Es ist eine besser aussehende Option als Deiche.",-
+Tobbert.ReinforcedLadder.FlavorDescription,"Wenn eine normale Leiter nicht ausreicht.",-
+Tobbert.ReinforcedPlatform.DisplayName,Verstärkte Plattform,-
+Tobbert.ReinforcedPlatform.Description,"Eine Plattform, die in Kombination mit Seitenplattformen genutzt werden kann. Es ist eine besser aussehende Option als Deiche.",-
+Tobbert.ReinforcedPlatform.FlavorDescription,"Stapeln bis ganz nach oben!",-
+Tobbert.DoubleReinforcedPlatform.DisplayName,Verstärkte Doppelplattform,-
+Tobbert.DoubleReinforcedPlatform.Description,"Eine Plattform, die in Kombination mit Seitenplattformen genutzt werden kann. Es ist eine besser aussehende Option als Deiche.",-
+Tobbert.DoubleReinforcedPlatform.FlavorDescription,"Stapeln, stapeln bis ganz nach oben!",-
+Tobbert.TripleReinforcedPlatform.DisplayName,Verstärkte Dreifachplattform,-
+Tobbert.TripleReinforcedPlatform.Description,"Eine Plattform, die in Kombination mit Seitenplattformen genutzt werden kann. Es ist eine besser aussehende Option als Deiche.",-
+Tobbert.TripleReinforcedPlatform.FlavorDescription,"Stapeln, stapeln, stapeln bis ganz nach oben!",-
+
+Tobbert.CategoryReinforcedPlatforms.DisplayName,"Verstärkte Plattformen",-
+Tobbert.CategorySidePlatforms.DisplayName,"Seitenplattformen",-

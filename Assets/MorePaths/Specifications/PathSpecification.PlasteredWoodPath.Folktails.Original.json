@@ -1,0 +1,13 @@
+{
+  "Name": "PlasteredWoodPath.Folktails",
+  "PathTexture": "GroundTexture.png",
+  "ToolGroup": "CategoryPaths",
+  "ToolOrder": 80,
+  "PathIcon": "PlasteredWoodIcon.Folktails.png",
+  "DisplayNameLocKey": "Tobbert.PlasteredWoodPath.Folktails.DisplayName",
+  "DescriptionLocKey": "Tobbert.PlasteredWoodPath.Folktails.Description",
+  "FlavorDescriptionLocKey": "Tobbert.PlasteredWoodPath.Folktails.FlavorDescription",
+
+  "MainTextureScale": 0.5,
+  "NoiseTexScale": 0.5
+}

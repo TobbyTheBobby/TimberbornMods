@@ -1,0 +1,19 @@
+{
+  "Buildings": [
+    "tobbert.choochoo/tobbert_choochoo/TrackOneWay.Folktails",
+    "tobbert.choochoo/tobbert_choochoo/TrackCrossing.Folktails",
+    "tobbert.choochoo/tobbert_choochoo/TrackHill1x2.Folktails",
+    "tobbert.choochoo/tobbert_choochoo/TrackCorner1x1.Folktails",
+    "tobbert.choochoo/tobbert_choochoo/TrackCorner2x2.Folktails",
+    "tobbert.choochoo/tobbert_choochoo/TrackTIntersection1x1.Folktails",
+    "tobbert.choochoo/tobbert_choochoo/TrackTIntersection2x3.Folktails",
+    "tobbert.choochoo/tobbert_choochoo/TrackXIntersection1x1.Folktails",
+    "tobbert.choochoo/tobbert_choochoo/TrackXIntersection3x3.Folktails",
+    "tobbert.choochoo/tobbert_choochoo/TrackRIntersectionLeft2x3.Folktails",
+    "tobbert.choochoo/tobbert_choochoo/TrackRIntersectionRight2x3.Folktails",
+    "tobbert.choochoo/tobbert_choochoo/TrainYard.Folktails",
+    "tobbert.choochoo/tobbert_choochoo/WaitingStation.Folktails",
+    "tobbert.choochoo/tobbert_choochoo/GoodsStation.Folktails",
+    "tobbert.choochoo/tobbert_choochoo/PassengerStation.Folktails"
+  ]
+}

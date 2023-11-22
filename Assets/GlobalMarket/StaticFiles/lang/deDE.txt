@@ -1,0 +1,8 @@
+ID,Text,Comment
+Tobbert.GlobalMarket.DisplayName,Globaler Markt,Gebäudename.
+Tobbert.GlobalMarket.Description,Lagert eine große Menge an Waren. Das Inventar wird mit anderen globalen Märkten geteilt.,Erweiterte Beschreibung des großen Lagerhauses.
+Tobbert.GlobalMarket.FlavorDescription,Was ist das da am Himmel?,Hinweis auf den Ballon.
+
+Tobbert.GlobalMarket.EnableAirBalloon,Ballon Aktiviert,Text für die Schaltfläche zum Aktivieren oder Deaktivieren des Ballons.
+
+Tobbert.AirBalloon.Name,Ballon,"Der Name des Ballons, wenn man darauf klickt."

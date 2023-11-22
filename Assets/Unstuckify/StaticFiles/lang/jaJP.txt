@@ -1,0 +1,2 @@
+ID,Text,Comment
+Tobbert.Unstuckify.UnstuckifyButton,最寄りの地区に解放,-

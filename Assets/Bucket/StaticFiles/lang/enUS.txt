@@ -1,0 +1,4 @@
+ID,Text,Comment
+Tobbert.Bucket.DisplayName,Bucket,-
+Tobbert.Bucket.Description,A bucket that holds a liquid.,-
+Tobbert.Bucket.FlaverDescription,''BUCKET BUCKET BUCKET BUCKET BUCKET BUCKET BUCKET BUCKET BUCKET BUCKET BUCKET BUCKET BUCKET BUCKET BUCKET'' --Bucket,-

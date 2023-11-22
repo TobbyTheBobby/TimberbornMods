@@ -1,0 +1,10 @@
+{
+  "name": "Global_Market",
+  "version_number": "1.0.6",
+  "website_url": "https://github.com/TobbyTheBobby",
+  "description": "Features a building that has a shared inventory. (Cute balloon included ^.^)",
+  "dependencies": [
+    "BepInEx-BepInExPack_Timberborn-5.4.19",
+    "Timberborn_Central-TimberAPI-0.5.2"
+  ]
+}

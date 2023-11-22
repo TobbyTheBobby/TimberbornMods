@@ -1,0 +1,14 @@
+{
+  "Name": "WoodPath.Folktails",
+  "PathTexture": "GroundTexture.jpg", 
+  "RailingTexture": "GroundTexture.jpg",
+  "ToolGroup": "CategoryPaths",
+  "ToolOrder": 60,
+  "PathIcon": "WoodIcon.Folktails.png",
+  "DisplayNameLocKey": "Tobbert.WoodFolktails.DisplayName",
+  "DescriptionLocKey": "Tobbert.WoodFolktails.Description",
+  "FlavorDescriptionLocKey": "Tobbert.WoodFolktails.FlavorDescription",
+  
+  "MainTextureScale": 0.5,
+  "NoiseTexScale": 2.5
+}

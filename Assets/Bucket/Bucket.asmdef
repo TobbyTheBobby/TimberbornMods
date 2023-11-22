@@ -1,0 +1,28 @@
+{
+    "name": "Bucket",
+    "rootNamespace": "",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "BepInEx.dll",
+        "TimberApi.dll",
+        "0Harmony.dll",
+        "Bindito.Core.dll",
+        "Timberborn.SingletonSystem.dll",
+        "Timberborn.InputSystem.dll",
+        "Timberborn.TemplateSystem.dll",
+        "Timberborn.CameraSystem.dll",
+        "Timberborn.SettingsSystemUI.dll",
+        "Timberborn.SettingsSystem.dll",
+        "Timberborn.ToolSystem.dll",
+        "Timberborn.StockpileVisualization.dll",
+        "System.Collections.Immutable.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,33 @@
+{
+    "name": "VerticalPowerShaft",
+    "rootNamespace": "",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "BepInEx.dll",
+        "TimberApi.dll",
+        "Bindito.Core.dll",
+        "0Harmony.dll",
+        "Timberborn.SingletonSystem.dll",
+        "Timberborn.TemplateSystem.dll",
+        "Timberborn.BlockSystem.dll",
+        "Timberborn.MechanicalSystem.dll",
+        "Timberborn.Coordinates.dll",
+        "Timberborn.BlockObjectTools.dll",
+        "Timberborn.Clusters.dll",
+        "Timberborn.BaseComponentSystem.dll",
+        "Timberborn.Animations.dll",
+        "Timberborn.ConstructibleSystem.dll",
+        "Timberborn.TickSystem.dll",
+        "Timberborn.TimeSystem.dll",
+        "Timberborn.MechanicalSystemUI.dll",
+        "System.Collections.Immutable.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

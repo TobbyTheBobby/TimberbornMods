@@ -1,0 +1,48 @@
+{
+  "GameValueSpecifications": [
+    {
+      "ClassName": "BeaverStatue.Folktails",
+      "FieldName": "Building.ScienceCost",
+      "Value": 2
+    },
+    {
+      "ClassName": "BeaverBust.IronTeeth",
+      "FieldName": "BlockObject.BlocksSpecification",
+      "Value": [
+        {
+          "ClassName": "BlocksSpecification",
+          "FieldName": "BlocksSpecification.Size",
+          "Value": [
+            {
+              "ClassName": "Vector3Int",
+              "FieldName": "Vector3Int.m_X",
+              "Value": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ClassName": "BeaverBust.IronTeeth",
+      "FieldName": "Building.BuildingCost",
+      "Value": [
+        {
+          "ClassName": "BeaverBust.IronTeeth",
+          "FieldName": "Building.BuildingCost",
+          "Value": [
+            {
+              "ClassName": "GoodAmountSpecification",
+              "FieldName": "GoodAmountSpecification.Amount",
+              "Value": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ClassName": "BeaverBust.IronTeeth",
+      "FieldName": "Building.DrawRangeBoundsOnIt",
+      "Value": true
+    }
+  ]
+}

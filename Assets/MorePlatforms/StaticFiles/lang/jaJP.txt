@@ -1,0 +1,33 @@
+ID,Text,Comment
+Tobbert.HorizontalPlatformEnd1x1.DisplayName,突き出した足場 1x1,-
+Tobbert.HorizontalPlatformEnd1x1.Description,崖や堤防、強化された足場の側面に設置できる足場。,-
+Tobbert.HorizontalPlatformEnd1x1.FlavorDescription,これを積み重ねられたらどれほど楽しいんだろう？,-
+Tobbert.HorizontalPlatformEnd2x1.DisplayName,突き出した足場 2x1,-
+Tobbert.HorizontalPlatformEnd2x1.Description,崖や堤防、強化された足場の側面に設置できる足場。,-
+Tobbert.HorizontalPlatformEnd2x1.FlavorDescription,長さが倍になって、楽しさもニ倍！,-
+Tobbert.HorizontalPlatformEnd3x1.DisplayName,突き出した足場 3x1,-
+Tobbert.HorizontalPlatformEnd3x1.Description,崖や堤防、強化された足場の側面に設置できる足場。,-
+Tobbert.HorizontalPlatformEnd3x1.FlavorDescription,長ァァァァァいッ説明不要!!,-グラップラー刃牙より
+Tobbert.HorizontalPlatformEnd4x1.DisplayName,突き出した足場 4x1,-
+Tobbert.HorizontalPlatformEnd4x1.Description,崖や堤防、強化された足場の側面に設置できる足場。,-
+Tobbert.HorizontalPlatformEnd4x1.FlavorDescription,物理学的にあり得ない。,-
+
+Tobbert.HorizontalPlatformMiddle1x1.DisplayName,空中に突き出した足場 高さ1,-
+Tobbert.HorizontalPlatformMiddle1x1.Description,どこでも置ける足場。創造力を解放しよう。,-
+Tobbert.HorizontalPlatformMiddle1x1.FlavorDescription,空中に浮かぶ都市を建設しよう！,-
+Tobbert.HorizontalPlatformMiddle1x2.DisplayName,空中に突き出した足場 高さ1.5,-
+Tobbert.HorizontalPlatformMiddle1x2.Description,どこでも置ける足場。創造力を解放しよう。,-
+Tobbert.HorizontalPlatformMiddle1x2.FlavorDescription,高さ1じゃ物足りないときに。,-
+
+Tobbert.ReinforcedPlatform.DisplayName,強化された足場,-
+Tobbert.ReinforcedPlatform.Description,突き出した足場と組み合わせて使用する足場。堤防を積み上げるよりも見栄えが良い。,-
+Tobbert.ReinforcedPlatform.FlavorDescription,上まで積み重ねよう！,-
+Tobbert.DoubleReinforcedPlatform.DisplayName,強化された足場（ダブル）,-
+Tobbert.DoubleReinforcedPlatform.Description,突き出した足場と組み合わせて使用する足場。堤防を積み上げるよりも見栄えが良い。,-
+Tobbert.DoubleReinforcedPlatform.FlavorDescription,もっと上まで積み重ねよう！,-
+Tobbert.TripleReinforcedPlatform.DisplayName,強化された足場（トリプル）,-
+Tobbert.TripleReinforcedPlatform.Description,突き出した足場と組み合わせて使用する足場。堤防を積み上げるよりも見栄えが良い。,-
+Tobbert.TripleReinforcedPlatform.FlavorDescription,もっと、もっと上まで積み重ねよう！,-
+
+Tobbert.CategoryReinforcedPlatforms.DisplayName,強化された足場,-
+Tobbert.CategorySidePlatforms.DisplayName,突き出した足場,-

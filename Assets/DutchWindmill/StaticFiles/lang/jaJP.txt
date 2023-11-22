@@ -1,0 +1,4 @@
+ID,Text,Comment
+Tobbert.DutchWindmill.DisplayName,オランダ式風車,-
+Tobbert.DutchWindmill.Description,植物を挽いて粉にする。,-
+Tobbert.DutchWindmill.FlavorDiscription,"Zo gaan de wieken, de wieken, de wieken."―オランダの民謡,元がオランダ語なのでそのままで。

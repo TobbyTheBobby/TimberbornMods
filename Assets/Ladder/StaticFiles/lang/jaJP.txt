@@ -1,0 +1,4 @@
+ID,Text,Comment
+Tobbert.Ladder.DisplayName,ハシゴ,-
+Tobbert.Ladder.Description,ハシゴが中に入っている足場。,-
+Tobbert.Ladder.FlavorDiscription,「どうやって荷物を持ってるんだろう？」―ゲーム開発者, -

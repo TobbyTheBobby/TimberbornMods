@@ -1,0 +1,8 @@
+{
+  "Name": "Tobby Tools",
+  "Version": "1.0.0",
+  "UniqueId": "tobbert.tobbytools",
+  "MinimumApiVersion": "0.5.5",
+  "MinimumGameVersion": "0.4.9.0",
+  "EntryDll": "TobbyTools.dll"
+}

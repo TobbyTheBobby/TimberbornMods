@@ -1,0 +1,11 @@
+{
+  "Enabled": false,
+  "Name": "NoRailing",
+  "ToolGroup": "CategoryPaths",
+  "ToolOrder": 100,
+  "DisplayNameLocKey": "Tobbert.BrickPath.DisplayName",
+  "DescriptionLocKey": "Tobbert.BrickPath.Description",
+  "FlavorDescriptionLocKey": "Tobbert.BrickPath.FlavorDescription",
+
+  "RailingEnabled": false
+}

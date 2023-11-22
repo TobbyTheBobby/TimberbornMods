@@ -1,0 +1,2 @@
+ID,Text,Comment
+Tobbert.CustomCursors.SettingsHeader,Custom Cursors,-

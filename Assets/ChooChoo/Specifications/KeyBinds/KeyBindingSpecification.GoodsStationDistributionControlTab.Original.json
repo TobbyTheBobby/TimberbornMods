@@ -1,0 +1,13 @@
+{
+  "Id": "Tobbert.ChooChoo.KeyBinding.GoodsStationDistributionControlTab",
+  "GroupId": "ChooChoo",
+  "Order": 10,
+  "LocKey": "Tobbert.ChooChoo.KeyBinding.GoodsStationDistributionControlTab",
+  "PrimaryInputBindingSpecification": {
+    "Path": "/Keyboard/t",
+    "InputModifiers": {
+      "Value": "Ctrl"
+    }
+  },
+  "AllowOtherModifiers": true
+}

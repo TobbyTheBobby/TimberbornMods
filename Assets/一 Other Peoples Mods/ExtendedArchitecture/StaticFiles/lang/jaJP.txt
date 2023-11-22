@@ -1,0 +1,7 @@
+ID,Text,Comment
+Elec.ExtendedArchitecture.5x1Arch.DisplayName,アーチ 5x1
+Elec.ExtendedArchitecture.5x1Arch.Description,3マスを跨げる橋。
+Elec.ExtendedArchitecture.5x1Arch.Flavor,テクスチャ作るのが大変だった。,-Do you have any idea how difficult texturing is?
+Elec.ExtendedArchitecture.4x1Arch.DisplayName,アーチ 4x1
+Elec.ExtendedArchitecture.4x1Arch.Description,2マスを跨げる橋。
+Elec.ExtendedArchitecture.4x1Arch.Flavor,なんでこれデフォで無いの？,-Why isn't this in vanilla?

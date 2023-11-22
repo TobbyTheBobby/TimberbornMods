@@ -1,0 +1,44 @@
+ID,Text,Comment
+Tobbert.BrickPath.DisplayName,Brick path,-
+Tobbert.BrickPath.Description,"A different looking path to diversify your city.",-
+Tobbert.BrickPath.FlavorDescription,"Don't walk on these when it's hot outside.",-
+
+Tobbert.FrogPath.DisplayName,Frog path,-
+Tobbert.FrogPath.Description,"A different looking path to diversify your city.",-
+Tobbert.FrogPath.FlavorDescription,"Hop-pity hop",-
+
+Tobbert.Gravel1Path.DisplayName,Gravel path 1,-
+Tobbert.Gravel1Path.Description,"A different looking path to diversify your city.",-
+Tobbert.Gravel1Path.FlavorDescription,"Hope my feet won't hurt after walking on this. -- Some beaver",-
+
+Tobbert.Gravel2Path.DisplayName,Gravel path 2,-
+Tobbert.Gravel2Path.Description,"A different looking path to diversify your city.",-
+Tobbert.Gravel2Path.FlavorDescription,"Hope my feet won't hurt after walking on this. -- Some beaver",-
+
+Tobbert.StonePath.DisplayName,Stone path,-
+Tobbert.StonePath.Description,"A different looking path to diversify your city.",-
+Tobbert.StonePath.FlavorDescription,"Don't walk on these when it's hot outside.",-
+
+Tobbert.MetalPath.DisplayName,Metal path,-
+Tobbert.MetalPath.Description,"A different looking path to diversify your city.",-
+Tobbert.MetalPath.FlavorDescription,"This feels cold.",-
+
+Tobbert.WoodFolktails.DisplayName,Wood Folktails path,-
+Tobbert.WoodFolktails.Description,"A different looking path to diversify your city.",-
+Tobbert.WoodFolktails.FlavorDescription,"It's wood, but NOT plastered! OwO",-
+
+Tobbert.WoodIronTeeth.DisplayName,Wood Iron Teeth path,-
+Tobbert.WoodIronTeeth.Description,"A different looking path to diversify your city.",-
+Tobbert.WoodIronTeeth.FlavorDescription,"It's wood, but NOT plastered! OwO",-
+
+Tobbert.PlasteredWoodPath.Folktails.DisplayName,Plastered Wood Folktails path,-
+Tobbert.PlasteredWoodPath.Folktails.Description,"A different looking path to diversify your city.",-
+Tobbert.PlasteredWoodPath.Folktails.FlavorDescription,"It's wood, but plastered! OwO",-
+
+Tobbert.PlasteredWoodPath.IronTeeth.DisplayName,Plastered Wood Iron Teeth path,-
+Tobbert.PlasteredWoodPath.IronTeeth.Description,"A different looking path to diversify your city.",-
+Tobbert.PlasteredWoodPath.IronTeeth.FlavorDescription,"It's wood, but plastered! OwO",-
+
+"Tobbert.CategoryPaths.DisplayName",Paths,Name of the Path Category
+
+Tobbert.MorePaths.SettingsHeader,Path Settings,Header of the path settings

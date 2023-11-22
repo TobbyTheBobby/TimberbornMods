@@ -1,0 +1,7 @@
+ID,Text,Comment
+Elec.ExtendedArchitecture.5x1Arch.DisplayName,Arch 5x1
+Elec.ExtendedArchitecture.5x1Arch.Description,This bridges over 3 blocks.
+Elec.ExtendedArchitecture.5x1Arch.Flavor,Do you have any idea how difficult texturing is?
+Elec.ExtendedArchitecture.4x1Arch.DisplayName,Arch 4x1
+Elec.ExtendedArchitecture.4x1Arch.Description,This bridges over 2 blocks.
+Elec.ExtendedArchitecture.4x1Arch.Flavor,Why isn't this in vanilla?

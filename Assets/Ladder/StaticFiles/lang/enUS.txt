@@ -1,0 +1,4 @@
+ID,Text,Comment
+Tobbert.Ladder.DisplayName,Ladder,-
+Tobbert.Ladder.Description,A platform that has a ladder inside.,-
+Tobbert.Ladder.FlavorDiscription,''But how are they supposed to hold their items?'' -Pmduda,-

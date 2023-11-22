@@ -1,0 +1,4 @@
+ID,Text,Comment
+Tobbert.Ladder.DisplayName,Вертикальная лестница,-
+Tobbert.Ladder.Description,Платформа с лестницей внутри.,-
+Tobbert.Ladder.FlavorDiscription,"«А как они будут поднимать грузы?»" – Pmduda,-

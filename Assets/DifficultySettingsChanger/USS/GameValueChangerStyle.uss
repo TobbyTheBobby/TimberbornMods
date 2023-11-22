@@ -1,0 +1,281 @@
+.mods-box {
+    padding: 50px;
+    margin: 50px;
+    flex-grow: 1;
+}
+
+.mods-box__mods {
+    height: 100%;
+    /*margin-bottom: 20px;*/
+    /*flex-wrap: nowrap;*/
+    /*flex-direction: row;*/
+}
+
+.mods-box__value-changer-wrapper {
+    /*--background-image: resource('UI/Images/Backgrounds/bg-square-1');*/
+    /*--background-slice-scale: 0.5;*/
+    /*--background-slice: 10;*/
+    width: 1250px;
+    height: 88%;
+    /*margin: 8px 8px 0 0;*/
+    padding: 8px;
+    flex-shrink: 0;
+}
+
+.mods-box__game-value-changer {
+    height: 100%;
+    width: 450px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.mods-box__game-value-changer-line {
+    --background-image: resource('UI/Images/Backgrounds/bg-square-1');
+    --background-slice-scale: 0.5;
+    --background-slice: 10;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 5px;
+    margin-right: 4px;
+    justify-content: space-between;
+    flex-direction: row;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.mods-box__wrapper {
+    flex-direction: row;
+}
+
+.mods-box__navigation {
+    --background-image: resource('UI/Images/Backgrounds/bg-square-3');
+    --background-slice-scale: 0.5;
+    --background-slice: 10;
+    width: 250px;
+    height: 100;
+    margin: 8px 8px 0 0;
+    padding: 8px;
+    flex-shrink: 0;
+}
+
+.mods-box__search {
+    flex-grow: 1;
+    height: 24px;
+}
+
+.mods-box__search > .unity-base-field__input {
+    font-size: 18px;
+}
+
+.mods-box__search-button {
+    height: 24px;
+    width: 24px;
+    margin-left: 8px;
+    background-image: url('/assets/resources/UI/Images/Mods/search.png');
+}
+
+.mods-box__search-button:enabled:hover {
+    background-image: url('/assets/resources/UI/Images/Mods/search--hover.png');
+}
+
+.mods-box__tags-label {
+    margin-top: 8px;
+}
+
+.mods-box__tags .unity-radio-button__checkmark-background {
+    background-image: resource('UI/Images/Buttons/circle-off');
+    margin: 4px;
+}
+
+.mods-box__tags .unity-radio-button__input:enabled:hover .unity-radio-button__checkmark-background {
+    background-image: resource('UI/Images/Buttons/circle-hover');
+}
+
+.mods-box__tags .unity-radio-button__input:enabled:checked .unity-radio-button__checkmark-background {
+    background-image: resource('UI/Images/Buttons/circle-on');
+    margin: 4px;
+}
+
+.mods-box__tags .unity-radio-button__text {
+    color: rgb(204, 204, 204);
+    font-size: 14px;
+    white-space: normal;
+}
+
+.mods-box__tags .unity-radio-button__input:enabled:checked .unity-radio-button__text {
+    color: rgb(255, 255, 255);
+}
+
+.mods-box-item {
+    --background-image: resource('UI/Images/Backgrounds/bg-square-1');
+    --background-slice-scale: 0.5;
+    --background-slice: 10;
+    padding: 4px;
+    margin: 8px;
+    align-self: center;
+}
+
+.mods-box-item:hover:enabled {
+    --background-image: resource('UI/Images/Backgrounds/bg-square-4');
+}
+
+.mods-box-item__header {
+    padding-right: 4px;
+    width: 100%;
+}
+
+.mods-box-item__name {
+    margin-right: auto;
+    flex-grow: 1;
+    -unity-text-align: middle-left;
+}
+
+.mods-box-item__up-icon {
+    height: 14px;
+    width: 16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    background-image: url('/assets/resources/UI/Images/Mods/thumbs-up.png');
+}
+
+.mods-box-item__down-icon {
+    height: 14px;
+    width: 16px;
+    margin-left: 12px;
+    margin-right: 4px;
+    background-image: url('/assets/resources/UI/Images/Mods/thumbs-down.png');
+}
+
+.mods-box-item__logo {
+    width: 320px;
+    height: 180px;
+}
+
+.mods-box-item__footer {
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    padding-right: 4px;
+}
+
+.mods-box-item__download-icon {
+    height: 20px;
+    width: 23px;
+    margin-left: auto;
+    margin-right: 4px;
+    background-image: url('/assets/resources/UI/Images/Mods/download.png');
+}
+
+.mods-box-full-item {
+    padding: 45px;
+    margin: 45px;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.mods-box-full-item__logo {
+    width: 320px;
+    height: 180px;
+    margin-right: 20px;
+}
+
+.mods-box-full-item__header-item-wrapper {
+    width: 300px;
+}
+
+.mods-box-full-item__label {
+    margin-right: auto;
+    -unity-text-align: middle-left;
+}
+
+.mods-box-full-item__description {
+    margin-top: 8px;
+    max-width: 1000px;
+}
+
+.mods-box-full-item__image {
+    margin: 10px;
+}
+
+.mods-box__sorting {
+    flex-direction: row;
+}
+
+.mods-box__update-all {
+    margin-top: 4px;
+    flex-direction: row;
+}
+
+.mod-box__sort-button--selected {
+    background-image: resource('UI/Images/Buttons/button-hover');
+    color: black;
+}
+
+.mods-box-toggle {
+    --click-sound: "UI.Click";
+}
+
+.mods-box-toggle > .unity-toggle__input > .unity-toggle__checkmark {
+    background-image: resource('UI/Images/Buttons/checkbox_off');
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+}
+
+.mods-box-toggle > .unity-toggle__input:checked > .unity-toggle__checkmark {
+    background-image: resource('UI/Images/Buttons/checkbox_on');
+}
+
+.mods-box-toggle > .unity-toggle__input:checked:hover:enabled > .unity-toggle__checkmark {
+    background-image: resource('UI/Images/Buttons/checkbox_on_hover');
+}
+
+.mods-box-toggle > .unity-toggle__input:hover:enabled > .unity-toggle__checkmark {
+    background-image: resource('UI/Images/Buttons/checkbox_off_hover');
+}
+.mods-box-full-item__update-all-label {
+    -unity-text-align: middle-left;
+}
+
+.mods-box-full-item__dropdown {
+    flex-grow: 1;
+}
+
+.scroll--green-decorated .unity-scroll-view__content-and-horizontal-scroll-container > .unity-scroller > .unity-slider {
+    width: 20px;
+    min-width: 20px;
+}
+
+.scroll--green-decorated .unity-scroll-view__content-and-horizontal-scroll-container > .unity-scroller > .unity-slider .unity-base-slider__dragger {
+    min-height: 58px;
+    background-image: none;
+    left: 2px;
+}
+
+.scroll--green-decorated .scroll-view__nine-slice-dragger {
+    --background-image: resource('UI/Images/Core/scroll-button-nine-slice');
+    --background-slice-scale: 0.5;
+    --background-slice: 14;
+    width: 100%;
+    height: 100%;
+}
+
+.scroll--green-decorated .scroll-view__nine-slice-tracker {
+    --background-image: resource('UI/Images/Core/scroll-bar-nine-slice');
+    --background-slice-scale: 0.5;
+    --background-slice-top: 16;
+    --background-slice-right: 0;
+    --background-slice-bottom: 16;
+    --background-slice-left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.scroll--green-decorated .scroll-view__nine-slice-dragger:hover {
+    --background-image: resource('UI/Images/Core/scroll-button-nine-slice-highlight');
+}
+
+.scroll--green-decorated .unity-base-slider__drag-container:active .scroll-view__nine-slice-dragger {
+    --background-image: resource('UI/Images/Core/scroll-button-nine-slice-highlight');
+}

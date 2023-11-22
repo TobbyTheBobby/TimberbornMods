@@ -1,0 +1,17 @@
+ID,Text,Comment
+Tobbert.VerticalPowerShaft.DisplayName,Вертикальный вал, Vertical Power Shaft
+Tobbert.VerticalPowerShaft.Description,"Вал, который передаёт энергию по вертикали!",-
+Tobbert.VerticalPowerShaft.FlavorDiscription,"«Что если прямой вал взять и поставить на попа?» – бобр Смурт",-
+
+Tobbert.StraightToVerticalPowerShaft.DisplayName,Вертикальный вал с передачей,-
+Tobbert.StraightToVerticalPowerShaft.Description,"Вертикальный вал с горизонтальной передачей!",-
+Tobbert.StraightToVerticalPowerShaft.FlavorDiscription,"«Только бы им и пользовался, но это было бы некрасиво!» – бобр Смурт",-
+
+Tobbert.VerticalToStraightPowerShaft.DisplayName,Вертикальная угловая передача,-
+Tobbert.VerticalToStraightPowerShaft.Description,Передача c вертикального вала на горизонтальный,-
+Tobbert.VerticalToStraightPowerShaft.FlavorDiscription,"«Будет хорошо смотреться наверху!» – бобр Смурт",-
+
+Tobbert.UniversalPowerShaft.DisplayName,"Универсальная передача",-
+Tobbert.UniversalPowerShaft.Description,"Передача, которая сама подстраивается под соединения!",-
+Tobbert.UniversalPowerShaft.FlavorDiscription,"«БЕЗГРАНИЧНАЯ ВЛАСТЬ НАД ЭНЕРГОПЕРЕДАЧЕЙ» – сборник плохо переведённых каламбуров",-
+

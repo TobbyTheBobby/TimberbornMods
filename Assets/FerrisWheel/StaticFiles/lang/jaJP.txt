@@ -1,0 +1,5 @@
+ID,Text,Comment
+Tobbert.FerrisWheel.DisplayName,観覧車,-
+Tobbert.FerrisWheel.Description,子供から大人まで楽しめる、木造の観覧車。,-
+Tobbert.FerrisWheel.FlavorDiscription,＼ｷｪｪｪｪｪｪｱｧｧｧｧｧｧ!!!／―ビーバーの子供たち, ハッピーセットの喋るスポンジボブCMミームより
+Tobbert.FerrisWheelNeed.DisplaynameLocKey,観覧車,-

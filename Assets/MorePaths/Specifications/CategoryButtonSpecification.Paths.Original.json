@@ -1,0 +1,21 @@
+{
+  "Name": "CategoryPaths",
+  "ToolGroup": "Paths",
+  "ToolOrder": 0,
+  "ButtonIcon": "PathCategoryIcon.png",
+  "Buildings": [
+    "BrickPath",
+    "FrogPath",
+    "Gravel1Path",
+    "Gravel2Path",
+    "MetalPath",
+    "StonePath",
+    "WoodPath.Folktails",
+    "WoodPath.IronTeeth",
+    "PlasteredWoodPath.Folktails",
+    "PlasteredWoodPath.IronTeeth",
+    "Path.Folktails",
+    "Path.IronTeeth"
+  ],
+  "DisplayNameLocKey": "A.Tobbert.CategoryPaths.DisplayName"
+}

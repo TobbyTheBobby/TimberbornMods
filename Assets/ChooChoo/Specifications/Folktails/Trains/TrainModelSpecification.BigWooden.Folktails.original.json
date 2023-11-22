@@ -1,0 +1,10 @@
+{
+  "Faction": "Folktails",
+  "NameLocKey": "Tobbert.TrainModel.BigWooden",
+  "ModelLocation": "tobbert.choochoo/tobbert_choochoo/WoodenTrain.Folktails",
+  "Length": 1,
+  "MachinistSeatName": "#EmptySeat",
+  "MachinistScale": 0.7,
+  "MachinistAnimationName": "Sitting"
+}
+

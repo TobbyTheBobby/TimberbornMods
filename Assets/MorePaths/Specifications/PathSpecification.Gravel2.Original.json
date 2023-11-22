@@ -1,0 +1,13 @@
+{
+  "Name": "Gravel2Path",
+  "PathTexture": "GroundTexture.jpg",
+  "RailingTexture": "GroundTexture.jpg",
+  "ToolGroup": "CategoryPaths",
+  "ToolOrder": 30,
+  "PathIcon": "DarkPathIcon.png",
+  "DisplayNameLocKey": "Tobbert.Gravel2Path.DisplayName",
+  "DescriptionLocKey": "Tobbert.Gravel2Path.Description",
+  "FlavorDescriptionLocKey": "Tobbert.Gravel2Path.FlavorDescription",
+  
+  "NoiseTexScale": 10
+}

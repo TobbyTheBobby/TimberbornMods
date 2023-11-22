@@ -1,0 +1,3 @@
+ID,Text,Comment
+Tobbert.PipetteTool.DisplayName,スポイトツール,お絵かきソフトによくあるツール。
+Tobbert.PipetteTool.Description,建物をクリックすると、その建物を複製します。(ショートカットキー：CTRLキーを押しながらクリック),-

@@ -1,0 +1,2279 @@
+fileFormatVersion: 2
+guid: 24c1b5e0c9a4e70419bab4330b4519cc
+ModelImporter:
+  serializedVersion: 21202
+  internalIDToNameTable:
+  - first:
+      74: -9055513911264986986
+    second: CogBeam_Animated|_Slot_Seat2_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -5708020925785986233
+    second: CogBeam_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base Layer
+  - first:
+      74: -7320950543217010165
+    second: CogBeam_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base Layer.001
+  - first:
+      74: 8540274254584533497
+    second: CogBeam_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base Layer.002
+  - first:
+      74: 9101319274754101017
+    second: CogBeam_Animated|_Slot_Seat7_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 7802238191508045017
+    second: CogBeam_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base Layer
+  - first:
+      74: 2303614992550625883
+    second: CogBeam_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base Layer.001
+  - first:
+      74: 8037174899645645268
+    second: CogBeam_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base Layer.002
+  - first:
+      74: -6416778179560803697
+    second: CogBeam_Animated|_Slot_Seat8_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -1170870285958308396
+    second: CogBeam_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base Layer
+  - first:
+      74: -7378011457211104537
+    second: CogBeam_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base Layer.001
+  - first:
+      74: 854865749413609317
+    second: CogBeam_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base Layer.002
+  - first:
+      74: -7358490097715376374
+    second: CogBeam_Animated|Carousel_Animated_002.001|Carousel.Folktails|Animation
+      Base Lay
+  - first:
+      74: -2950547770322193426
+    second: CogBeam_Animated|Carousel_Animated_002|Carousel.Folktails|Animation Base
+      Lay
+  - first:
+      74: 6703975492455423533
+    second: CogBeam_Animated|Carousel_Animated_002|Carousel.Folktails|Animation Base
+      Lay.001
+  - first:
+      74: 5184668814436556192
+    second: CogBeam_Animated|Carousel_Animated_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 3756926789851241955
+    second: CogBeam_Animated|Cog_Animated|FerrisWheel.Rotation|Animation Base Layer
+  - first:
+      74: 8676973295780646985
+    second: CogBeam_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 3833447766910211165
+    second: CogBeam_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: -3410687323128363807
+    second: CogBeam_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 8713342217988744008
+    second: CogBeam_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: 3682509106004392458
+    second: CogBeam_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati
+  - first:
+      74: -2127349569537123950
+    second: CogBeam_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati.001
+  - first:
+      74: 710426196551943237
+    second: CogBeam_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animation
+      B
+  - first:
+      74: 6297865502728206560
+    second: CogBeam_Animated|Seats_001_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -4206815250564546067
+    second: CogBeam_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: -4424657852851957117
+    second: CogBeam_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -3719386745870336819
+    second: CogBeam_Animated|Seats_002_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 350314084302941197
+    second: CogBeam_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: 9066309450558478455
+    second: CogBeam_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 2170850751979248387
+    second: CogBeam_Animated|Seats_003_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -4415132747202217240
+    second: CogBeam_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: 2884348983482907356
+    second: CogBeam_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -3992248223444867467
+    second: CogBeam_Animated|Seats_004_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 7651005320077675901
+    second: CogBeam_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: -4784643996591623544
+    second: CogBeam_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 5023699160452937951
+    second: CogBeam_Animated|Seats_005_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -6915300733610474757
+    second: CogBeam_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: 2916940451110921380
+    second: CogBeam_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 3297885451470730367
+    second: CogBeam_Animated|Seats_006_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -210992600701579311
+    second: CogBeam_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: -5514888834674184436
+    second: CogBeam_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 4801786512290801820
+    second: CogBeam_Animated|Seats_007_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -8867530549226105602
+    second: CogBeam_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: -8465892468117560438
+    second: CogBeam_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -4766383826190503593
+    second: CogBeam_Animated|Seats_008_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -4744052368672418073
+    second: CogBeam_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: -3768217638937049870
+    second: CogBeam_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -8974759948237982718
+    second: CogBeam_Animated|Wheel_Animated.001|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -7604260503959414481
+    second: CogBeam_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base Layer
+  - first:
+      74: 992705012730673592
+    second: CogBeam_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base Layer.001
+  - first:
+      74: -8815381709183214078
+    second: CogGear_Animated|_Slot_Seat2_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -8637689166172478747
+    second: CogGear_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base Layer
+  - first:
+      74: 5445469316121683921
+    second: CogGear_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base Layer.001
+  - first:
+      74: -6367082473995065425
+    second: CogGear_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base Layer.002
+  - first:
+      74: -1125438719134597127
+    second: CogGear_Animated|_Slot_Seat7_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -2586959824601980100
+    second: CogGear_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base Layer
+  - first:
+      74: -6629504807290980292
+    second: CogGear_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base Layer.001
+  - first:
+      74: -559543548047840125
+    second: CogGear_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base Layer.002
+  - first:
+      74: 5796539535654817324
+    second: CogGear_Animated|_Slot_Seat8_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -3288913589268475044
+    second: CogGear_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base Layer
+  - first:
+      74: 8625262827592232184
+    second: CogGear_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base Layer.001
+  - first:
+      74: 6258269518037040406
+    second: CogGear_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base Layer.002
+  - first:
+      74: 7267289683636625176
+    second: CogGear_Animated|Carousel_Animated_002.001|Carousel.Folktails|Animation
+      Base Lay
+  - first:
+      74: 1823001976248550529
+    second: CogGear_Animated|Carousel_Animated_002|Carousel.Folktails|Animation Base
+      Lay
+  - first:
+      74: -1931070747455475913
+    second: CogGear_Animated|Carousel_Animated_002|Carousel.Folktails|Animation Base
+      Lay.001
+  - first:
+      74: 4107386514155327675
+    second: CogGear_Animated|Carousel_Animated_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 9183622256461988357
+    second: CogGear_Animated|Cog_Animated|FerrisWheel.Rotation|Animation Base Layer
+  - first:
+      74: -8034728520295787536
+    second: CogGear_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -7920457461262682181
+    second: CogGear_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: 1543870916831923519
+    second: CogGear_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -1988025141280166920
+    second: CogGear_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: -7013820695382138598
+    second: CogGear_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati
+  - first:
+      74: 4501998825007223274
+    second: CogGear_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati.001
+  - first:
+      74: 816180824374303322
+    second: CogGear_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animation
+      B
+  - first:
+      74: 3475427050000841702
+    second: CogGear_Animated|Seats_001_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -2446147751361504287
+    second: CogGear_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: -8211599840675874872
+    second: CogGear_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 8706561720000229070
+    second: CogGear_Animated|Seats_002_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 4268453145919466611
+    second: CogGear_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: -5595264522148479293
+    second: CogGear_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 7153387846694812848
+    second: CogGear_Animated|Seats_003_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -7720014364401791233
+    second: CogGear_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: -2185385296542585981
+    second: CogGear_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -7234033884863517061
+    second: CogGear_Animated|Seats_004_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -5608585716354829128
+    second: CogGear_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: 3279098715092970894
+    second: CogGear_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -5820856158767968802
+    second: CogGear_Animated|Seats_005_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -6179842562361261172
+    second: CogGear_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: 3286566235502852442
+    second: CogGear_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 8650946516960916470
+    second: CogGear_Animated|Seats_006_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 4701880324710228735
+    second: CogGear_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: -5923316536457850474
+    second: CogGear_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 6682255853700503367
+    second: CogGear_Animated|Seats_007_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 8302969391601127289
+    second: CogGear_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: -7450003925128539535
+    second: CogGear_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -907277904579380500
+    second: CogGear_Animated|Seats_008_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 1122712098114078343
+    second: CogGear_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: 3423836190647836771
+    second: CogGear_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -3251257610826642595
+    second: CogGear_Animated|Wheel_Animated.001|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 5206355569347543374
+    second: CogGear_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base Layer
+  - first:
+      74: -505066425112681301
+    second: CogGear_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base Layer.001
+  - first:
+      74: 1252250264272168181
+    second: Seats_001_Animated|_Slot_Seat2_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 7327690198262521813
+    second: Seats_001_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -2578311604001282765
+    second: Seats_001_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: -3235449941103669435
+    second: Seats_001_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: -5031795389025021478
+    second: Seats_001_Animated|_Slot_Seat7_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 5988534435377572114
+    second: Seats_001_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 5364172751040112163
+    second: Seats_001_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: -2165571410213664159
+    second: Seats_001_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: 1276759311237144171
+    second: Seats_001_Animated|_Slot_Seat8_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 4229091656803908326
+    second: Seats_001_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 9105843291407112347
+    second: Seats_001_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: 8554709560527884952
+    second: Seats_001_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: 5236250166647424890
+    second: Seats_001_Animated|Carousel_Animated_002.001|Carousel.Folktails|Animation
+      Base Lay
+  - first:
+      74: 219471617134091086
+    second: Seats_001_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Lay
+  - first:
+      74: -4076329210717215069
+    second: Seats_001_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Lay.001
+  - first:
+      74: -3793428254378587163
+    second: Seats_001_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Layer
+  - first:
+      74: -1360645744585029809
+    second: Seats_001_Animated|Cog_Animated|FerrisWheel.Rotation|Animation Base Layer
+  - first:
+      74: -8436919105399935390
+    second: Seats_001_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -4402828356088133492
+    second: Seats_001_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: 2714363604422749790
+    second: Seats_001_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 4639288763806534249
+    second: Seats_001_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: 6041669183950504323
+    second: Seats_001_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati
+  - first:
+      74: 4084884223495144049
+    second: Seats_001_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati.001
+  - first:
+      74: -1938193625408469491
+    second: Seats_001_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animation
+      B
+  - first:
+      74: 5572617892682943891
+    second: Seats_001_Animated|Seats_001_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 3066129919417867855
+    second: Seats_001_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 3324351905186623758
+    second: Seats_001_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 2713916075928707621
+    second: Seats_001_Animated|Seats_002_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 6005030920636606968
+    second: Seats_001_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -2067804378979450496
+    second: Seats_001_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -5699533063112070244
+    second: Seats_001_Animated|Seats_003_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 2715116874959436289
+    second: Seats_001_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -4808957247555528852
+    second: Seats_001_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -3580693034355045285
+    second: Seats_001_Animated|Seats_004_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 7705461504101954133
+    second: Seats_001_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -5556169573336864002
+    second: Seats_001_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 1009339311525136453
+    second: Seats_001_Animated|Seats_005_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -2505520545524870708
+    second: Seats_001_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 1749259203929511663
+    second: Seats_001_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 219755335552172177
+    second: Seats_001_Animated|Seats_006_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 7797357706028960130
+    second: Seats_001_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 2258140927155536017
+    second: Seats_001_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -9197381153065848688
+    second: Seats_001_Animated|Seats_007_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -8656798157998652719
+    second: Seats_001_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -3301428010307823831
+    second: Seats_001_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -7645369361115882742
+    second: Seats_001_Animated|Seats_008_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -1836997906411176954
+    second: Seats_001_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 3832481207886129171
+    second: Seats_001_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 7283535235502635133
+    second: Seats_001_Animated|Wheel_Animated.001|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 7143326634589141638
+    second: Seats_001_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 4847447660455579190
+    second: Seats_001_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: 834460655259053662
+    second: Seats_002_Animated|_Slot_Seat2_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 8794952993636530270
+    second: Seats_002_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 7980749587009461642
+    second: Seats_002_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: 3277826544625968703
+    second: Seats_002_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: -8560046947170885674
+    second: Seats_002_Animated|_Slot_Seat7_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 6099051740372506966
+    second: Seats_002_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 2205199567614990896
+    second: Seats_002_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: 3243171017303017361
+    second: Seats_002_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: 6121521405157568641
+    second: Seats_002_Animated|_Slot_Seat8_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -4533277432551692054
+    second: Seats_002_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -2733166117302890667
+    second: Seats_002_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: -3537065327847646129
+    second: Seats_002_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: 6286956090539644657
+    second: Seats_002_Animated|Carousel_Animated_002.001|Carousel.Folktails|Animation
+      Base Lay
+  - first:
+      74: 2790962448543094669
+    second: Seats_002_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Lay
+  - first:
+      74: 7719169800378869487
+    second: Seats_002_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Lay.001
+  - first:
+      74: 3472039293115012941
+    second: Seats_002_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Layer
+  - first:
+      74: 3514870327568219269
+    second: Seats_002_Animated|Cog_Animated|FerrisWheel.Rotation|Animation Base Layer
+  - first:
+      74: 2221444541115573868
+    second: Seats_002_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 6919444959757073743
+    second: Seats_002_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: 2772986739482669969
+    second: Seats_002_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 2060987583733752932
+    second: Seats_002_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: -1082849354222255851
+    second: Seats_002_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati
+  - first:
+      74: 7192311996271653121
+    second: Seats_002_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati.001
+  - first:
+      74: 4131475137262444276
+    second: Seats_002_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animation
+      B
+  - first:
+      74: -3800073695329027001
+    second: Seats_002_Animated|Seats_001_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -4933633798677425480
+    second: Seats_002_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 1715614879373443688
+    second: Seats_002_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -4371222383141362185
+    second: Seats_002_Animated|Seats_002_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 2545479578518717376
+    second: Seats_002_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -602879853306945960
+    second: Seats_002_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 6104834920867192992
+    second: Seats_002_Animated|Seats_003_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 4843034124929973050
+    second: Seats_002_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 831670362841084783
+    second: Seats_002_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -5532115269699333534
+    second: Seats_002_Animated|Seats_004_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -9073940932461606934
+    second: Seats_002_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 6860727154704973436
+    second: Seats_002_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -1351329350247631310
+    second: Seats_002_Animated|Seats_005_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -6127352492466398792
+    second: Seats_002_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 7345371613492075501
+    second: Seats_002_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 8725858218520120291
+    second: Seats_002_Animated|Seats_006_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -7863596650457165485
+    second: Seats_002_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 923811190361489708
+    second: Seats_002_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -4045852084405565771
+    second: Seats_002_Animated|Seats_007_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 9109855909591157088
+    second: Seats_002_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -8142311523613143149
+    second: Seats_002_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -483562885200207943
+    second: Seats_002_Animated|Seats_008_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 4012657561107784386
+    second: Seats_002_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 358985502207485739
+    second: Seats_002_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 4309319164207061408
+    second: Seats_002_Animated|Wheel_Animated.001|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -9167235365897680527
+    second: Seats_002_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -2903386726451025088
+    second: Seats_002_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: -5164140089175098013
+    second: Seats_003_Animated|_Slot_Seat2_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -9138010042771610523
+    second: Seats_003_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -3414875006984706054
+    second: Seats_003_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: -4580353626998078324
+    second: Seats_003_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: 8665512468940654492
+    second: Seats_003_Animated|_Slot_Seat7_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 4380029058746010514
+    second: Seats_003_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -2147273168990915215
+    second: Seats_003_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: -2236518279656439457
+    second: Seats_003_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: 5543169715356731689
+    second: Seats_003_Animated|_Slot_Seat8_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -8243298203177914870
+    second: Seats_003_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -6231083027361942185
+    second: Seats_003_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: -8766154077288774758
+    second: Seats_003_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: -8649971115439284216
+    second: Seats_003_Animated|Carousel_Animated_002.001|Carousel.Folktails|Animation
+      Base Lay
+  - first:
+      74: -2828386927097866445
+    second: Seats_003_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Lay
+  - first:
+      74: -9072860881805608145
+    second: Seats_003_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Lay.001
+  - first:
+      74: -2698965425206389456
+    second: Seats_003_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Layer
+  - first:
+      74: 299021037586581824
+    second: Seats_003_Animated|Cog_Animated|FerrisWheel.Rotation|Animation Base Layer
+  - first:
+      74: -3488471449744785529
+    second: Seats_003_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -6472497315214803906
+    second: Seats_003_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: 176976844969573315
+    second: Seats_003_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -1046190367152968156
+    second: Seats_003_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: 6491141839594555646
+    second: Seats_003_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati
+  - first:
+      74: -8558484211087836137
+    second: Seats_003_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati.001
+  - first:
+      74: 7048755889764620251
+    second: Seats_003_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animation
+      B
+  - first:
+      74: 4104802244207782919
+    second: Seats_003_Animated|Seats_001_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -3852207945899344874
+    second: Seats_003_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 7801267606544616487
+    second: Seats_003_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 38817295236104140
+    second: Seats_003_Animated|Seats_002_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 5696752108698667776
+    second: Seats_003_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -7156488927260684373
+    second: Seats_003_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -7061477089636555560
+    second: Seats_003_Animated|Seats_003_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -3094904710573325002
+    second: Seats_003_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -3759226422221163557
+    second: Seats_003_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -2323468877490452013
+    second: Seats_003_Animated|Seats_004_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -8961684981945632373
+    second: Seats_003_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 1128865779471060622
+    second: Seats_003_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -2156080281168754868
+    second: Seats_003_Animated|Seats_005_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -597766243419110958
+    second: Seats_003_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -7793825557431895621
+    second: Seats_003_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 5667861154225263309
+    second: Seats_003_Animated|Seats_006_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -8828288573137254095
+    second: Seats_003_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 7537815680747645169
+    second: Seats_003_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 8297077917370883793
+    second: Seats_003_Animated|Seats_007_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -8775653186002578242
+    second: Seats_003_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -554759843336114787
+    second: Seats_003_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 2405518785824990373
+    second: Seats_003_Animated|Seats_008_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -4330971843331019098
+    second: Seats_003_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -952058078469945714
+    second: Seats_003_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -1015360774122977202
+    second: Seats_003_Animated|Wheel_Animated.001|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 9142988487832628434
+    second: Seats_003_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -1413597315363635500
+    second: Seats_003_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: -8727177166088928001
+    second: Seats_004_Animated|_Slot_Seat2_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -5120199107917378075
+    second: Seats_004_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -2420218165714669821
+    second: Seats_004_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: 5168943405053617248
+    second: Seats_004_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: 4585409500296733849
+    second: Seats_004_Animated|_Slot_Seat7_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 9858496613219692
+    second: Seats_004_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 7094636430701087948
+    second: Seats_004_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: 3439643080260217497
+    second: Seats_004_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: -958576898428798964
+    second: Seats_004_Animated|_Slot_Seat8_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -2177207434782889385
+    second: Seats_004_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 6487371755580111747
+    second: Seats_004_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: 126638513898737597
+    second: Seats_004_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: 3930840573134132278
+    second: Seats_004_Animated|Carousel_Animated_002.001|Carousel.Folktails|Animation
+      Base Lay
+  - first:
+      74: -7752036098560824384
+    second: Seats_004_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Lay
+  - first:
+      74: 6528834312366927429
+    second: Seats_004_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Lay.001
+  - first:
+      74: 9032611686383253490
+    second: Seats_004_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Layer
+  - first:
+      74: 2100158900391982173
+    second: Seats_004_Animated|Cog_Animated|FerrisWheel.Rotation|Animation Base Layer
+  - first:
+      74: -3026960676879841329
+    second: Seats_004_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -4588039228729094449
+    second: Seats_004_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: -2945616930214168092
+    second: Seats_004_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 4001103583270462409
+    second: Seats_004_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: 6367343606919356487
+    second: Seats_004_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati
+  - first:
+      74: -5427474410657019055
+    second: Seats_004_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati.001
+  - first:
+      74: 7447382273901301065
+    second: Seats_004_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animation
+      B
+  - first:
+      74: -4644319913601474803
+    second: Seats_004_Animated|Seats_001_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -2560575319222632313
+    second: Seats_004_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -1070201016174485475
+    second: Seats_004_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -6001135467085926989
+    second: Seats_004_Animated|Seats_002_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -735032309748597303
+    second: Seats_004_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 5186442750437736150
+    second: Seats_004_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 5679855450505333488
+    second: Seats_004_Animated|Seats_003_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -3917870058022139690
+    second: Seats_004_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -6882997592431782730
+    second: Seats_004_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 4083200693984893522
+    second: Seats_004_Animated|Seats_004_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 3572028458521182298
+    second: Seats_004_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -6285482664892524581
+    second: Seats_004_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -6718754492846246708
+    second: Seats_004_Animated|Seats_005_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -3372557321739380367
+    second: Seats_004_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 3710985656199185983
+    second: Seats_004_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 5807688308567142776
+    second: Seats_004_Animated|Seats_006_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 2710250009480345223
+    second: Seats_004_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 7210244392373502857
+    second: Seats_004_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -3705973230859666473
+    second: Seats_004_Animated|Seats_007_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -7624390568018562755
+    second: Seats_004_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 1578460725465184880
+    second: Seats_004_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 6846880775726641374
+    second: Seats_004_Animated|Seats_008_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -5958013707995325450
+    second: Seats_004_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -1137323735384249026
+    second: Seats_004_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -6276828713820251631
+    second: Seats_004_Animated|Wheel_Animated.001|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 4021161608109351973
+    second: Seats_004_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 9041060162031556377
+    second: Seats_004_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: -895548900679384700
+    second: Seats_005_Animated|_Slot_Seat2_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 2472303342709940058
+    second: Seats_005_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -7429066396678713015
+    second: Seats_005_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: 9127867813416938704
+    second: Seats_005_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: 5920409328057089922
+    second: Seats_005_Animated|_Slot_Seat7_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -1884118437948210311
+    second: Seats_005_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 8135317382816810809
+    second: Seats_005_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: 8137192728658357627
+    second: Seats_005_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: 7689590660322986873
+    second: Seats_005_Animated|_Slot_Seat8_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -5068093564186973993
+    second: Seats_005_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -1645798517829279750
+    second: Seats_005_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: -6270504128852295826
+    second: Seats_005_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: -4338360679935957872
+    second: Seats_005_Animated|Carousel_Animated_002.001|Carousel.Folktails|Animation
+      Base Lay
+  - first:
+      74: 4973265376335781906
+    second: Seats_005_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Lay
+  - first:
+      74: 6162160001529891219
+    second: Seats_005_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Lay.001
+  - first:
+      74: -4348791551432999100
+    second: Seats_005_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Layer
+  - first:
+      74: -9197393172047862532
+    second: Seats_005_Animated|Cog_Animated|FerrisWheel.Rotation|Animation Base Layer
+  - first:
+      74: -8808968171680688665
+    second: Seats_005_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 7370182696342369125
+    second: Seats_005_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: 2353457173269184071
+    second: Seats_005_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 5826767409153563917
+    second: Seats_005_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: 1181617127298070686
+    second: Seats_005_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati
+  - first:
+      74: -8817466512812654209
+    second: Seats_005_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati.001
+  - first:
+      74: 2956716781548952544
+    second: Seats_005_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animation
+      B
+  - first:
+      74: -8777007102097417334
+    second: Seats_005_Animated|Seats_001_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 4605448938880620642
+    second: Seats_005_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -730596357645591600
+    second: Seats_005_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -7241419105081950346
+    second: Seats_005_Animated|Seats_002_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 7052845330796616726
+    second: Seats_005_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -4088665815477007496
+    second: Seats_005_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -7829921006082460032
+    second: Seats_005_Animated|Seats_003_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -8628759652381249736
+    second: Seats_005_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 722700830052876795
+    second: Seats_005_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 6517672149211766959
+    second: Seats_005_Animated|Seats_004_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -1232757268040582276
+    second: Seats_005_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 7110309215086412045
+    second: Seats_005_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -2880348764748042419
+    second: Seats_005_Animated|Seats_005_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 3777363591778577331
+    second: Seats_005_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 6716268017869471467
+    second: Seats_005_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -4474847241722297276
+    second: Seats_005_Animated|Seats_006_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -5658909137218705310
+    second: Seats_005_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 3599016533088796137
+    second: Seats_005_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 1158751749958643195
+    second: Seats_005_Animated|Seats_007_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 7989548313423677760
+    second: Seats_005_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -3871521484595827484
+    second: Seats_005_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -8402590274011547873
+    second: Seats_005_Animated|Seats_008_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 6772487602520823634
+    second: Seats_005_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -6223624126037955385
+    second: Seats_005_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 2434368362873332660
+    second: Seats_005_Animated|Wheel_Animated.001|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 6887731689763150042
+    second: Seats_005_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -3955458031772078265
+    second: Seats_005_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: 8629877156212730097
+    second: Seats_006_Animated|_Slot_Seat2_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -2463979841188954765
+    second: Seats_006_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 8547655689649261812
+    second: Seats_006_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: -2614591319043680655
+    second: Seats_006_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: -7767569918578967988
+    second: Seats_006_Animated|_Slot_Seat7_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -8855548318017376843
+    second: Seats_006_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -8972418165318541065
+    second: Seats_006_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: 73332864431454248
+    second: Seats_006_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: -2943843461994681779
+    second: Seats_006_Animated|_Slot_Seat8_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -6361690137837293334
+    second: Seats_006_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -7154799588793399796
+    second: Seats_006_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: -6922073134281736568
+    second: Seats_006_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: 5266353356118733694
+    second: Seats_006_Animated|Carousel_Animated_002.001|Carousel.Folktails|Animation
+      Base Lay
+  - first:
+      74: -1394539381996961102
+    second: Seats_006_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Lay
+  - first:
+      74: 6475697621856366764
+    second: Seats_006_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Lay.001
+  - first:
+      74: -3696232083388860823
+    second: Seats_006_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Layer
+  - first:
+      74: 7649489259615802516
+    second: Seats_006_Animated|Cog_Animated|FerrisWheel.Rotation|Animation Base Layer
+  - first:
+      74: -7982953367782917767
+    second: Seats_006_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -1679379757937167095
+    second: Seats_006_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: 2915937704174697659
+    second: Seats_006_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -1235184308218182789
+    second: Seats_006_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: -262527699066195601
+    second: Seats_006_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati
+  - first:
+      74: -6639164218325942729
+    second: Seats_006_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati.001
+  - first:
+      74: -8704697511688873323
+    second: Seats_006_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animation
+      B
+  - first:
+      74: 7566645355684196739
+    second: Seats_006_Animated|Seats_001_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -2262476541103782141
+    second: Seats_006_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 5133563323262949154
+    second: Seats_006_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -3216825624506714958
+    second: Seats_006_Animated|Seats_002_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 6283504166758307791
+    second: Seats_006_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 8016160647598061835
+    second: Seats_006_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 1177415051786000078
+    second: Seats_006_Animated|Seats_003_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 7910509283658767573
+    second: Seats_006_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 2953096142462865753
+    second: Seats_006_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -3129060225110986922
+    second: Seats_006_Animated|Seats_004_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 6230913524993302587
+    second: Seats_006_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 53905974002566812
+    second: Seats_006_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -4700794486503664450
+    second: Seats_006_Animated|Seats_005_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -4494922573071489131
+    second: Seats_006_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -7844386536956854266
+    second: Seats_006_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 8188987742639822681
+    second: Seats_006_Animated|Seats_006_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 7574320913792553621
+    second: Seats_006_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 568619120807802250
+    second: Seats_006_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -1668911797263383562
+    second: Seats_006_Animated|Seats_007_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -2197565158132606874
+    second: Seats_006_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 1619274294148374730
+    second: Seats_006_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 8318176084315766277
+    second: Seats_006_Animated|Seats_008_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 6188777989566635971
+    second: Seats_006_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 7990716678026892552
+    second: Seats_006_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -6743839691814935514
+    second: Seats_006_Animated|Wheel_Animated.001|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 828310367133152472
+    second: Seats_006_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -7020649520836770360
+    second: Seats_006_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: 8180835991335932293
+    second: Seats_007_Animated|_Slot_Seat2_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -7188477706562847471
+    second: Seats_007_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 252839745090584795
+    second: Seats_007_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: -2212173656010386543
+    second: Seats_007_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: 1855097691720429702
+    second: Seats_007_Animated|_Slot_Seat7_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -2366920823765010076
+    second: Seats_007_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -8046838961608237614
+    second: Seats_007_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: 1171685964911538225
+    second: Seats_007_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: 8454399580581163565
+    second: Seats_007_Animated|_Slot_Seat8_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 7385093984451082030
+    second: Seats_007_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 3689764959383588437
+    second: Seats_007_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: 6872143680931435688
+    second: Seats_007_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: -361335927952074496
+    second: Seats_007_Animated|Carousel_Animated_002.001|Carousel.Folktails|Animation
+      Base Lay
+  - first:
+      74: 3776502216745390895
+    second: Seats_007_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Lay
+  - first:
+      74: -8718993816436730592
+    second: Seats_007_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Lay.001
+  - first:
+      74: -5045981139798968636
+    second: Seats_007_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Layer
+  - first:
+      74: 4369025781914048577
+    second: Seats_007_Animated|Cog_Animated|FerrisWheel.Rotation|Animation Base Layer
+  - first:
+      74: 4444665403196826592
+    second: Seats_007_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 8694423775764747852
+    second: Seats_007_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: -5374454646084659949
+    second: Seats_007_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -1014641456301247162
+    second: Seats_007_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: -5508121015082224209
+    second: Seats_007_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati
+  - first:
+      74: 6080979224926241813
+    second: Seats_007_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati.001
+  - first:
+      74: -8002831811462016403
+    second: Seats_007_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animation
+      B
+  - first:
+      74: 8068338029298429161
+    second: Seats_007_Animated|Seats_001_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -7820926975451034006
+    second: Seats_007_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -4733633577577804973
+    second: Seats_007_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 7524871438870256320
+    second: Seats_007_Animated|Seats_002_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 1969143732621579732
+    second: Seats_007_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 1124514316029290291
+    second: Seats_007_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 4185383542070447644
+    second: Seats_007_Animated|Seats_003_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -4274708304219186507
+    second: Seats_007_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -2277429193853754638
+    second: Seats_007_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -6095416337305515181
+    second: Seats_007_Animated|Seats_004_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 1516516806563511568
+    second: Seats_007_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 7376964815262644725
+    second: Seats_007_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -6228020583246872110
+    second: Seats_007_Animated|Seats_005_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -2864270169555866973
+    second: Seats_007_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 1491559991111715892
+    second: Seats_007_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 259914604800470234
+    second: Seats_007_Animated|Seats_006_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 1483425526803383343
+    second: Seats_007_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -7885524273934271046
+    second: Seats_007_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 8569349382069929483
+    second: Seats_007_Animated|Seats_007_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 5163564483380693087
+    second: Seats_007_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 5704301147094382789
+    second: Seats_007_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -9105724125052023239
+    second: Seats_007_Animated|Seats_008_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 7873420358622006195
+    second: Seats_007_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -3975248619374977682
+    second: Seats_007_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 7622873063598383785
+    second: Seats_007_Animated|Wheel_Animated.001|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 5926253228288334013
+    second: Seats_007_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -8543061672826782867
+    second: Seats_007_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: 9132255813434165942
+    second: Seats_008_Animated|_Slot_Seat2_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -2980066791398568370
+    second: Seats_008_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 9152604149997292170
+    second: Seats_008_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: -5792853852292530199
+    second: Seats_008_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: -5068566884291309828
+    second: Seats_008_Animated|_Slot_Seat7_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -1181147849575747130
+    second: Seats_008_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 6035498847726413211
+    second: Seats_008_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: 4509150493117796170
+    second: Seats_008_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: -1182678486274322690
+    second: Seats_008_Animated|_Slot_Seat8_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -8354429631295704931
+    second: Seats_008_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 6965292829485019529
+    second: Seats_008_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer.001
+  - first:
+      74: -8612164482006878551
+    second: Seats_008_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base
+      Layer.002
+  - first:
+      74: 7821103761731700347
+    second: Seats_008_Animated|Carousel_Animated_002.001|Carousel.Folktails|Animation
+      Base Lay
+  - first:
+      74: -6484576824546112823
+    second: Seats_008_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Lay
+  - first:
+      74: -1913631087594391244
+    second: Seats_008_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Lay.001
+  - first:
+      74: -1703393370851986817
+    second: Seats_008_Animated|Carousel_Animated_002|Carousel.Folktails|Animation
+      Base Layer
+  - first:
+      74: 974727302900276167
+    second: Seats_008_Animated|Cog_Animated|FerrisWheel.Rotation|Animation Base Layer
+  - first:
+      74: -4907959038508621202
+    second: Seats_008_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -5465210834065433502
+    second: Seats_008_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: 8838419415211910678
+    second: Seats_008_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -1340165141009223317
+    second: Seats_008_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: -2982018623482388430
+    second: Seats_008_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati
+  - first:
+      74: -80204673651435678
+    second: Seats_008_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati.001
+  - first:
+      74: 1906957572757980496
+    second: Seats_008_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animation
+      B
+  - first:
+      74: 152157364501640641
+    second: Seats_008_Animated|Seats_001_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -8402718247043627665
+    second: Seats_008_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 5964535714960990085
+    second: Seats_008_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 2357278698667543619
+    second: Seats_008_Animated|Seats_002_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 2686945579759762908
+    second: Seats_008_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 1046612182052545138
+    second: Seats_008_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -1388648671167697548
+    second: Seats_008_Animated|Seats_003_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -3637608979012074635
+    second: Seats_008_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -3475384442166205263
+    second: Seats_008_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -1751015656563949031
+    second: Seats_008_Animated|Seats_004_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 1660232530120345398
+    second: Seats_008_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -1422376014839215721
+    second: Seats_008_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 8991439898847096035
+    second: Seats_008_Animated|Seats_005_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 552969542442158346
+    second: Seats_008_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -1222998582775633155
+    second: Seats_008_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 1332432086514220956
+    second: Seats_008_Animated|Seats_006_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 2545545260322275011
+    second: Seats_008_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 1014483389093518160
+    second: Seats_008_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -7564327146075367027
+    second: Seats_008_Animated|Seats_007_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 7575366150723514489
+    second: Seats_008_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 7969244601852227394
+    second: Seats_008_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -2980028118458691762
+    second: Seats_008_Animated|Seats_008_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 5974946282826912029
+    second: Seats_008_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 6611178265652172366
+    second: Seats_008_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: 1662373282649617035
+    second: Seats_008_Animated|Wheel_Animated.001|FerrisWheel.Rotation|Animation
+      Base Layer
+  - first:
+      74: -759202001278697600
+    second: Seats_008_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -6558813782210449621
+    second: Seats_008_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base
+      Layer.001
+  - first:
+      74: -699291416525734582
+    second: Wheel_Animated|_Slot_Seat2_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -2094756138444240924
+    second: Wheel_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base Layer
+  - first:
+      74: -1988862213430747374
+    second: Wheel_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base Layer.001
+  - first:
+      74: -1758378279818296537
+    second: Wheel_Animated|_Slot_Seat2_002|Carousel.Folktails|Animation Base Layer.002
+  - first:
+      74: -8387361141652510655
+    second: Wheel_Animated|_Slot_Seat7_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -6546823421296792235
+    second: Wheel_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base Layer
+  - first:
+      74: -6938587380560717161
+    second: Wheel_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base Layer.001
+  - first:
+      74: -3873401429159423527
+    second: Wheel_Animated|_Slot_Seat7_002|Carousel.Folktails|Animation Base Layer.002
+  - first:
+      74: 8340007379172161166
+    second: Wheel_Animated|_Slot_Seat8_002.001|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: 3186810950158503897
+    second: Wheel_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base Layer
+  - first:
+      74: -210268464995387922
+    second: Wheel_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base Layer.001
+  - first:
+      74: -3056713028296008660
+    second: Wheel_Animated|_Slot_Seat8_002|Carousel.Folktails|Animation Base Layer.002
+  - first:
+      74: 5187894205946033178
+    second: Wheel_Animated|Carousel_Animated_002.001|Carousel.Folktails|Animation
+      Base Lay
+  - first:
+      74: -3926192812604501911
+    second: Wheel_Animated|Carousel_Animated_002|Carousel.Folktails|Animation Base
+      Lay
+  - first:
+      74: 49519819073849152
+    second: Wheel_Animated|Carousel_Animated_002|Carousel.Folktails|Animation Base
+      Lay.001
+  - first:
+      74: -6380526056245145073
+    second: Wheel_Animated|Carousel_Animated_002|Carousel.Folktails|Animation Base
+      Layer
+  - first:
+      74: -4289592699779531910
+    second: Wheel_Animated|Cog_Animated|FerrisWheel.Rotation|Animation Base Layer
+  - first:
+      74: 3391156682700299953
+    second: Wheel_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base Layer
+  - first:
+      74: 1353650608299624854
+    second: Wheel_Animated|CogBeam_Animated|FerrisWheel.Rotation|Animation Base Layer.001
+  - first:
+      74: 3851586118530156326
+    second: Wheel_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base Layer
+  - first:
+      74: 2380904361511812100
+    second: Wheel_Animated|CogGear_Animated|FerrisWheel.Rotation|Animation Base Layer.001
+  - first:
+      74: -8883603143124127735
+    second: Wheel_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati
+  - first:
+      74: 8093420971699542588
+    second: Wheel_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animati.001
+  - first:
+      74: -4544490533413638395
+    second: Wheel_Animated|MineWheel_Animated_002|EfficientMine.IronTeeth.Work|Animation
+      B
+  - first:
+      74: -3971687730430320046
+    second: Wheel_Animated|Seats_001_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -2622977487747904393
+    second: Wheel_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: 1291040316973284805
+    second: Wheel_Animated|Seats_001_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 2479682429992755552
+    second: Wheel_Animated|Seats_002_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -11866980883866845
+    second: Wheel_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: -5939810771702531735
+    second: Wheel_Animated|Seats_002_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -1551301677075502302
+    second: Wheel_Animated|Seats_003_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 5082370504649267414
+    second: Wheel_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: -1300912152619697890
+    second: Wheel_Animated|Seats_003_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 2868479559204010909
+    second: Wheel_Animated|Seats_004_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 8286896883843904000
+    second: Wheel_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: 5906655857969018453
+    second: Wheel_Animated|Seats_004_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 2379430732238672054
+    second: Wheel_Animated|Seats_005_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 6224531531989937570
+    second: Wheel_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: -4825393432921717646
+    second: Wheel_Animated|Seats_005_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -827019848279623200
+    second: Wheel_Animated|Seats_006_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 8312312982415275972
+    second: Wheel_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: 4784665600093282464
+    second: Wheel_Animated|Seats_006_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: 6832990947640176204
+    second: Wheel_Animated|Seats_007_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: 1002097960595815022
+    second: Wheel_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: -4402581123933151948
+    second: Wheel_Animated|Seats_007_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -7221958397527938753
+    second: Wheel_Animated|Seats_008_Animated.001|FerrisWheel.Rotation|Animation
+      Base Laye
+  - first:
+      74: -3116905317282070812
+    second: Wheel_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation Base
+      Laye
+  - first:
+      74: -486973873068266312
+    second: Wheel_Animated|Seats_008_Animated|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -827497089759060374
+    second: Wheel_Animated|Wheel_Animated.001|FerrisWheel.Rotation|Animation Base
+      Layer
+  - first:
+      74: -9007417326449233395
+    second: Wheel_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base Layer
+  - first:
+      74: -5431047153429972079
+    second: Wheel_Animated|Wheel_Animated|FerrisWheel.Rotation|Animation Base Layer.001
+  externalObjects: {}
+  materials:
+    materialImportMode: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

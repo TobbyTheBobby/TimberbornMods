@@ -1,0 +1,4 @@
+ID,Text,Comment
+Tobbert.Ladder.DisplayName,사다리,-
+Tobbert.Ladder.Description,사다리가 내장된 플랫폼,-
+Tobbert.Ladder.FlavorDiscription,"하지만 어떻게 물건을 들고 이동할 수 있는거죠?" - Pmduda,-

@@ -1,0 +1,4 @@
+ID,Text,Comment
+Tobbert.Bucket.DisplayName,桶,-
+Tobbert.Bucket.Description,水を保持する桶。,-
+Tobbert.Bucket.FlaverDescription,わぁいバケツ　ビーバーバケツ大好き,わぁいうすしおあかりうすしお大好きミームより

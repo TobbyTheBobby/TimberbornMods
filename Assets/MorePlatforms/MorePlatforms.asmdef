@@ -1,0 +1,33 @@
+{
+    "name": "MorePlatforms",
+    "rootNamespace": "",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "BepInEx.dll",
+        "TimberApi.dll",
+        "0Harmony.dll",
+        "Timberborn.BlockObjectTools.dll",
+        "Timberborn.ToolSystem.dll",
+        "Timberborn.BottomBarSystem.dll",
+        "Timberborn.BlockSystem.dll",
+        "Timberborn.BlockObjectAccesses.dll",
+        "Timberborn.Common.dll",
+        "Bindito.Core.dll",
+        "Timberborn.BaseComponentSystem.dll",
+        "Timberborn.Buildings.dll",
+        "Timberborn.Coordinates.dll",
+        "Timberborn.PreviewSystem.dll",
+        "Timberborn.TerrainSystem.dll",
+        "Timberborn.ConstructibleSystem.dll",
+        "Timberborn.SingletonSystem.dll",
+        "System.Collections.Immutable.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

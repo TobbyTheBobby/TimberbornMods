@@ -1,0 +1,4 @@
+ID,Text,Comment
+Tobbert.Ladder.DisplayName,Leiter,-
+Tobbert.Ladder.Description,Eine Plattform mit einer Leiter.,-
+Tobbert.Ladder.FlavorDiscription,\u201EBut how are they supposed to hold their items?\u201C\r\n(Aber wie sollen sie ihre Gegenstände halten?) \u2013 pmduda,-

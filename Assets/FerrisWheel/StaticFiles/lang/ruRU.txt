@@ -1,0 +1,5 @@
+ID,Text,Comment
+Tobbert.FerrisWheel.DisplayName,Колесо обозрения,-
+Tobbert.FerrisWheel.Description,"Колесо обозрения для увеселительных поездок.",-
+Tobbert.FerrisWheel.FlavorDiscription,"«Высокооооооооо!» – бобрята",-
+Tobbert.FerrisWheelNeed.DisplaynameLocKey,Колесо обозрения,-

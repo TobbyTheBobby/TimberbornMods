@@ -1,0 +1,8 @@
+{
+  "Faction": "Folktails",
+  "NameLocKey": "Tobbert.WagonModel.PassengerWagon",
+  "ModelLocation": "tobbert.choochoo/tobbert_choochoo/PassengerWagon.Folktails",
+  "DependentModel": "Tobbert.WagonModel.WagonWheels",
+  "Length": 0.96
+} 
+

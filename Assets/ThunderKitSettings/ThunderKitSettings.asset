@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9057f7f601990a4883b2cb295c4f43e, type: 3}
+  m_Name: ThunderKitSettings
+  m_EditorClassIdentifier: 
+  FirstLoad: 1
+  ShowOnStartup: 0
+  GameExecutable: Timberborn.exe
+  GamePath: C:\Program Files (x86)\Steam\steamapps\common\Timberborn
+  Is64Bit: 0
+  DateTimeFormat: HH:mm:ss:fff
+  CreatedDateFormat: MMM/dd HH:mm:ss
+  ShowLogWindow: 0
+  LogPackageSourceTimings: 0
+  GenerateAssetsProject: 0
+  FixLocalDiskPackages: 0
+  ImageCachePath: Library/MarkdownImageCache
+  CachedImageCount: 0
+  CacheSize: 0
+  MarkdownOpenMode: 1
+  SelectedPipeline: {fileID: 11400000, guid: 4dd48049486e9ce49bfcb65be4435455, type: 2}
+  SelectedManifest: {fileID: 11400000, guid: 1d51ae3b49a50e0478501d631619a806, type: 2}
+  QuickAccessPipelines:
+  - {fileID: 11400000, guid: 4dd48049486e9ce49bfcb65be4435455, type: 2}
+  - {fileID: 11400000, guid: 550958c91afe9844e990bf2acc7db9dd, type: 2}
+  QuickAccessManifests:
+  - {fileID: 11400000, guid: af7eb581fd1b749449e993e98ecc046f, type: 2}
+  - {fileID: 11400000, guid: 34977de843a78df40916ae632b54af0c, type: 2}
+  - {fileID: 11400000, guid: 1d51ae3b49a50e0478501d631619a806, type: 2}
+  - {fileID: 11400000, guid: 4db0228fa57fb8c49a97dcd66a14bb0d, type: 2}
+  - {fileID: 11400000, guid: af4c538b713c35f4d853cdbc32b8b882, type: 2}
+  - {fileID: 11400000, guid: 07fe8d9796a3f8049bd821b812f80ff2, type: 2}
+  - {fileID: 11400000, guid: a91d7742c3dfb0243be974ca0b5e7d78, type: 2}
+  - {fileID: 11400000, guid: 9d8203a1c8464974586f50cb40f42426, type: 2}
+  - {fileID: 11400000, guid: 0365323acd7fc3344ae21674fa2aeda8, type: 2}
+  - {fileID: 11400000, guid: a5890e1ec3cc3064bbf76ae9a068cbd3, type: 2}
+  - {fileID: 11400000, guid: 7dd71bf3a056d484086c00bc923a49cb, type: 2}
+  - {fileID: 11400000, guid: b9b73eebf85f9df488fc243573a756bb, type: 2}
+  - {fileID: 11400000, guid: a6f3717cff2ab2741bfc380918cd7360, type: 2}
+  - {fileID: 11400000, guid: 5c529e7d46dfa334fac959bfdcafdc46, type: 2}
+  - {fileID: 11400000, guid: b67f55c646d99214f99f86e2955e0e5d, type: 2}
+  - {fileID: 11400000, guid: 9f817448856a9a6469769039c3943600, type: 2}
+  - {fileID: 11400000, guid: 341623cfe39dc284498271e2322ca4b1, type: 2}
+  - {fileID: 11400000, guid: eed42b6f0bbce364eb756026a268af7f, type: 2}
+  - {fileID: 11400000, guid: e43a111cf898e77408e9a61537f2c663, type: 2}
+  - {fileID: 11400000, guid: 5422ab06384942da9cc483e0c915d24e, type: 2}
+  - {fileID: 11400000, guid: 685e8244600d4934bac7729f6b4a193b, type: 2}
+  ImportConfiguration: {fileID: 11400000, guid: b734a407c6a399b4180597e5763a487b, type: 2}

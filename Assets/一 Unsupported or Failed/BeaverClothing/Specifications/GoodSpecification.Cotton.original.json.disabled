@@ -1,0 +1,18 @@
+﻿{
+  "Id": "Cotton",
+  "BackwardCompatibleIds": [
+  ],
+  "DisplayNameLocKey": "Tobbert.Cotton.DisplayName",
+  "PluralDisplayNameLocKey": "Tobbert.Cotton.PluralDisplayName",
+  "ConsumptionEffects": [
+  ],
+  "GoodType": "Box",
+  "VisibleContainer": {
+    "Value": "Box"
+  },
+  "CarryingAnimation": "CarryInHands",
+  "Weight": 2,
+  "TopBarGroupId": "Materials",
+  "Icon": "tobbert.beaverhats/tobbert_beaverhats/CottonIcon",
+  "RequiredFeatureToggle": ""
+}

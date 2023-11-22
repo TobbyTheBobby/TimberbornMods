@@ -1,0 +1,91 @@
+ID,Text,Comment
+Tobbert.TrackStraight.DisplayName,直線軌道,-
+Tobbert.TrackStraight.Description,讓火車直線前進的軌道。,-
+Tobbert.TrackStraight.FlavorDescription,Choo! Choo!,-
+
+Tobbert.TrackOneWay.DisplayName,單向訊號軌道,-
+Tobbert.TrackOneWay.Description,它會告訴火車只能以綠色指標方向通過。,-
+Tobbert.TrackOneWay.FlavorDescription,不准逆向！,-
+
+Tobbert.TrackCrossing.DisplayName,平交道,-
+Tobbert.TrackCrossing.Description,海狸可以在這裡穿過鐵軌。不會有碰撞因為會大大影響效能。,-
+Tobbert.TrackCrossing.FlavorDescription,誒誒你看，火車往我們這來...,RIP
+
+Tobbert.TrackHillStart.DisplayName,斜坡軌道,-
+Tobbert.TrackHillStart.Description,讓火車能夠上下坡的軌道。,-
+Tobbert.TrackHillStart.FlavorDescription,這輛火車不會太重嗎？,-
+
+Tobbert.TrackCorner1x1.DisplayName,轉角1x1軌道,-
+Tobbert.TrackCorner1x1.Description,一個用來轉彎的轉角軌道。,-
+Tobbert.TrackCorner1x1.FlavorDescription,這彎好像有點急。,-
+
+Tobbert.TrackCorner2x2.DisplayName,轉角2x2軌道,-
+Tobbert.TrackCorner2x2.Description,一個更大的轉角軌道。,-
+Tobbert.TrackCorner2x2.FlavorDescription,多麼漂亮的曲線。,-
+
+Tobbert.TrackTIntersection1x1.DisplayName,T字交叉軌道1x1,-
+Tobbert.TrackTIntersection1x1.Description,火車的 T 形交叉路口。,-
+Tobbert.TrackTIntersection1x1.FlavorDescription,我該去哪個方向？,-
+
+Tobbert.TrackTIntersection2x3.DisplayName,T字交叉軌道2x3,-
+Tobbert.TrackTIntersection2x3.Description,火車的 T 形交叉路口。,-
+Tobbert.TrackTIntersection2x3.FlavorDescription,這些軌道會通向哪裡？,-
+
+Tobbert.TrackRIntersectionLeft2x3.DisplayName,左開道岔 2x3,-
+Tobbert.TrackRIntersectionLeft2x3.Description,一個往左開的火車岔路。,-
+Tobbert.TrackRIntersectionLeft2x3.FlavorDescription,左開高衩？,A joke of the letter R
+
+Tobbert.TrackRIntersectionRight2x3.DisplayName,右開道岔 2x3,-
+Tobbert.TrackRIntersectionRight2x3.Description,一個往右開的火車岔路。,-
+Tobbert.TrackRIntersectionRight2x3.FlavorDescription,右開高衩？,A joke of the letter R
+
+Tobbert.TrainStation.DisplayName,火車站,-
+Tobbert.TrainStation.Description,火車的目的地。,-
+Tobbert.TrainStation.FlavorDescription,Choo! Choo!,-
+
+Tobbert.GoodsStation.DisplayName,貨物站,-
+Tobbert.GoodsStation.Description,"一座建築物，用於存放準備好從火車上取貨和送貨的物品。編輯允許的貨物以指定可以接收和交付的貨物。",-
+Tobbert.GoodsStation.FlavorDescription,看看它能裝下的所有貨物。,-
+Tobbert.GoodsStation.GoodSelector,編輯允許的貨物,-
+Tobbert.GoodsStation.Loading,送出：,-
+Tobbert.GoodsStation.Unloading,接收：,-
+
+Tobbert.WaitingStation.DisplayName,待避線,-
+Tobbert.WaitingStation.Description,火車沒事的時候可以在這裡等待，可以防止火車佔用軌道。火車不會用它進行尋路，因此請確保它不在任何關鍵路徑上。,-
+Tobbert.WaitingStation.FlavorDescription,我什麼時候可以再出發？,-
+
+Tobbert.TrainYard.DisplayName,火車場,-
+Tobbert.TrainYard.Description,建造火車的建築。,-
+Tobbert.TrainYard.FlavorDescription,這裡就是火車誕生的地方。,-
+Tobbert.TrainYard.CostOfTrain,一輛火車的材料：,-
+Tobbert.TrainYard.CreateTrain,建造火車,-
+
+Tobbert.Train.PrefabName,火車頭,-
+Tobbert.Wagon.PrefabName,車廂,-
+
+Tobbert.BatchControl.Trains,火車,-
+Tobbert.Train.Length,火車車廂數：,-
+Tobbert.Train.Destroy,你確定要摧毀這列火車嗎？,-
+
+Tobbert.TrainSchedule.AddNewStation,增加新站,-
+Tobbert.TrainSchedule.AddNewTrainAction,增加火車時刻表,-
+
+Tobbert.TrainAction.Wait,等待,-
+Tobbert.TrainAction.Wait.WaitingInMinutes,等待時間：,-
+
+Tobbert.TrainAction.TakeGoods,卸貨,-
+Tobbert.TrainAction.TakeGoods.TakeGoodAmount,貨物裝卸：,-
+
+Tobbert.TrackSystem.ToggleSectionDivider,劃分路段,-
+Tobbert.TrackSystem.ButtonChangeDirection,改變方向,-
+Tobbert.TrackSystem.CollidingSectionDividers,無法連接兩個路段,-
+
+Tobbert.ToolGroup.Trains,火車,-
+
+Tobbert.TrainYard.PreviewErrorMessage,只能建造一個火車場,-
+
+Tobbert.Trains.UnlockPrompt,你必須先解鎖{0}才能建造{1}。,{0} stands for <Building>.DisplayName {1} stands for <TrackPiece>.DisplayName.
+
+Tobbert.DistributionTrain.MinimumOfItemsToMove,最低運輸物品量：,-
+
+Tobbert.TrainNavigation.Unstuck,調頭,-

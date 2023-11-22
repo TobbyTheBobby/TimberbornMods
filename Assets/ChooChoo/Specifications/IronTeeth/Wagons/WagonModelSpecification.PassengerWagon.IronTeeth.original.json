@@ -1,0 +1,8 @@
+{
+  "Faction": "IronTeeth",
+  "NameLocKey": "Tobbert.WagonModel.PassengerWagon",
+  "ModelLocation": "tobbert.choochoo/tobbert_choochoo/PassengerWagon.IronTeeth",
+  "DependentModel": "Tobbert.WagonModel.WagonWheels",
+  "Length": 0.96
+} 
+

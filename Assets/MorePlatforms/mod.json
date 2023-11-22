@@ -1,0 +1,16 @@
+{
+  "Name": "More Platforms",
+  "Version": "1.4.0",
+  "UniqueId": "tobbert.moreplatforms",
+  "MinimumApiVersion": "0.5.0",
+  "MinimumGameVersion": "0.2.8.1",
+  "EntryDll": "MorePlatforms.dll",
+  "Assets": [
+    {
+      "Prefix": "tobbert.moreplatforms",
+      "Scenes": [
+        "All"
+      ]
+    }
+  ]
+}

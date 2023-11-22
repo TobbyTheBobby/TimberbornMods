@@ -1,0 +1,11 @@
+{
+  "Id": "CategoryReinforcedPlatforms",
+  "GroupId": "Paths",
+  "Order": 6990,
+  "Icon": "tobbert.moreplatforms/tobbert_moreplatforms/CategoryReinforcedPlatformsIcon",
+  "NameLocKey": "Tobbert.CategoryReinforcedPlatforms.DisplayName",
+  "FallbackGroup": false,
+  "GroupInformation": {
+    "BottomBarSection": 1
+  }
+}

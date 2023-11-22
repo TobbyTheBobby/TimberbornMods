@@ -1,0 +1,13 @@
+{
+  "Id": "Tobbert.GameValueChanger.KeyBinding.OpenUi",
+  "GroupId": "GameValueChanger",
+  "Order": 10,
+  "LocKey": "Tobbert.GameValueChanger.KeyBinding.OpenUi",
+  "PrimaryInputBindingSpecification": {
+    "Path": "/Keyboard/d",
+    "InputModifiers": {
+      "Value": "Ctrl"
+    }
+  },
+  "AllowOtherModifiers": true
+}

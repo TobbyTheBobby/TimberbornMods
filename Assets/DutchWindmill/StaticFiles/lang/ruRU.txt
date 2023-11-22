@@ -1,0 +1,4 @@
+ID,Text,Comment
+Tobbert.DutchWindmill.DisplayName,Голландская мельница,-
+Tobbert.DutchWindmill.Description,"Размалывает растительное сырьё в муку.",-
+Tobbert.DutchWindmill.FlavorDiscription,"«Zo gaan de wieken, de wieken, de wieken.» – Голландская народная песня",-

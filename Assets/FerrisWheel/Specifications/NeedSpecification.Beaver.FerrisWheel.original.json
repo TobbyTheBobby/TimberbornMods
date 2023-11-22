@@ -1,0 +1,23 @@
+{
+  "Id": "FerrisWheel",
+  "BackwardCompatibleIds": [],
+  "Order": 48,
+  "NeedGroupId": "Fun",
+  "CharacterType": "Beaver",
+  "DisplayNameLocKey": "Tobbert.FerrisWheelNeed.DisplaynameLocKey",
+  "StartingValue": 0.0,
+  "MinimumValue": 0.0,
+  "MaximumValue": 1.0,
+  "DailyDelta": -0.1,
+  "ImportanceMultiplier": 1.0,
+  "CriticalNeedType": {
+    "Value": "None"
+  },
+  "CriticalSpriteName": "",
+  "CriticalDescriptionLocKey": "",
+  "DeathOnMinValue": false,
+  "DeathMessageLocKey": "",
+  "Effectiveness": 1.0,
+  "Wastable": false,
+  "FavorableWellbeing": 4
+}

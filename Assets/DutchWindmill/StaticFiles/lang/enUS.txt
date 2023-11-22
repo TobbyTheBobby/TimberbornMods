@@ -1,0 +1,4 @@
+ID,Text,Comment
+Tobbert.DutchWindmill.DisplayName,Dutch Windmill,-
+Tobbert.DutchWindmill.Description,"Grinds plant matter into flour.",-
+Tobbert.DutchWindmill.FlavorDiscription,"Zo gaan de wieken, de wieken, de wieken.",-

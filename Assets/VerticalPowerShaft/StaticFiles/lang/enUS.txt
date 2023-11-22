@@ -1,0 +1,16 @@
+ID,Text,Comment
+Tobbert.VerticalPowerShaft.DisplayName,Vertical Power Shaft,-
+Tobbert.VerticalPowerShaft.Description,A power shaft that transfers power vertically!,-
+Tobbert.VerticalPowerShaft.FlavorDiscription,''What if I were to rotate a power shaft 90 degrees?'' -Smurt beaver,-
+
+Tobbert.StraightToVerticalPowerShaft.DisplayName,Straight to Vertical Power Shaft,-
+Tobbert.StraightToVerticalPowerShaft.Description,A power shaft that transfers power vertically and horizontally!,-
+Tobbert.StraightToVerticalPowerShaft.FlavorDiscription,''Technically I would only have to use this one. But that wouldn't look good!'' -Smurt beaver,-
+
+Tobbert.VerticalToStraightPowerShaft.DisplayName,Vertical to Straight Power Shaft,-
+Tobbert.VerticalToStraightPowerShaft.Description,A power shaft that transfers power from vertically to horizontally!,-
+Tobbert.VerticalToStraightPowerShaft.FlavorDiscription,''Would look nice at the top!'' -Smurt beaver,-
+
+Tobbert.UniversalPowerShaft.DisplayName,Universal Power Shaft,-
+Tobbert.UniversalPowerShaft.Description,A power shaft that changes based on the connections it has!,-
+Tobbert.UniversalPowerShaft.FlavorDiscription,UNLIMITED POWER!,-

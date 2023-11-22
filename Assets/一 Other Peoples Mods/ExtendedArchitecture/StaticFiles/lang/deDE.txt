@@ -1,0 +1,7 @@
+ID,Text,Comment
+Elec.ExtendedArchitecture.5x1Arch.DisplayName,Bogen 5x1
+Elec.ExtendedArchitecture.5x1Arch.Description,Dies überbrückt 3 Blöcke.
+Elec.ExtendedArchitecture.5x1Arch.Flavor,"\u201EDo you have any idea how difficult texturing is?\u201C\r\n(Habt Ihr eine Ahnung, wie schwierig die Texturierung ist?) \u2013 Elec"
+Elec.ExtendedArchitecture.4x1Arch.DisplayName,Bogen 4x1
+Elec.ExtendedArchitecture.4x1Arch.Description,Dies überbrückt 2 Blöcke.
+Elec.ExtendedArchitecture.4x1Arch.Flavor,"\u201EWhy isn't this in vanilla?\u201C\r\n(Warum ist das nicht in Vanilla enthalten?) \u2013 Elec"

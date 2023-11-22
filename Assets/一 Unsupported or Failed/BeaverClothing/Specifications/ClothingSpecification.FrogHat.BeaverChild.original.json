@@ -1,0 +1,17 @@
+{
+  "Enabled": true,
+  "PrefabPath": "tobbert.beaverclothing/tobbert_beaverhats/FrogHat",
+  "CharacterType": "BeaverChild",
+  "BodyPartName": "DEF-head",
+  "WorkPlaces": [],
+  "WearChance": 50,
+  "PositionX": 0,
+  "PositionY": 0.07,
+  "PositionZ": -0.02,
+  "RotationX": -64,
+  "RotationY": 0,
+  "RotationZ": 0,
+  "ScaleX": 0.75,
+  "ScaleY": 0.75,
+  "ScaleZ": 0.75
+}

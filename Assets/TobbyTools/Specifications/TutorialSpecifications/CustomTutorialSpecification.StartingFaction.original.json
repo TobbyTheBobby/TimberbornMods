@@ -1,0 +1,289 @@
+{
+  "StartingConditions": {
+    "RunAtStart": true,
+    "Faction": "Folktails"
+  },
+  "TutorialStages": [
+    {
+      "LocKey": "Tutorial.Stage.PlaceLumberjacks",
+      "Steps": [
+        {
+          "StepType": "AnyBuildingTutorialStep",
+          "StepSettings": {
+            "RequiredAmount": 2,
+            "PrefabNames": [
+              "LumberjackFlag.Folktails"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "LocKey": "Tutorial.Stage.FinishLumberjacks",
+      "Steps": [
+        {
+          "StepType": "FinishedBuildingTutorialStep",
+          "StepSettings": {
+            "RequiredAmount": 2,
+            "PrefabNames": [
+              "LumberjackFlag.Folktails"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "LocKey": "Tutorial.Stage.ConnectLumberjacks",
+      "Steps": [
+        {
+          "StepType": "ConnectBuildingsTutorialStep",
+          "StepSettings": {
+            "RequiredAmount": 2,
+            "PrefabNames": [
+              "LumberjackFlag.Folktails"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "LocKey": "Tutorial.Stage.MarkTrees",
+      "Steps": [
+        {
+          "StepType": "MarkTreesTutorialStep"
+        }
+      ]
+    },
+    {
+      "LocKey": "Tutorial.Stage.WaterPump",
+      "Steps": [
+        {
+          "StepType": "FinishedBuildingTutorialStep",
+          "StepSettings": {
+            "RequiredAmount": 1,
+            "PrefabNames": [
+              "WaterPump.Folktails"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "LocKey": "Tutorial.Stage.Gatherer",
+      "Steps": [
+        {
+          "StepType": "FinishedBuildingTutorialStep",
+          "StepSettings": {
+            "RequiredAmount": 1,
+            "PrefabNames": [
+              "GathererFlag.Folktails"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "LocKey": "Tutorial.Stage.Farmhouse",
+      "Steps": [
+        {
+          "StepType": "FinishedBuildingTutorialStep",
+          "StepSettings": {
+            "RequiredAmount": 1,
+            "PrefabNames": [
+              "EfficientFarmHouse.Folktails"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "LocKey": "Tutorial.Stage.MarkCarrots",
+      "Steps": [
+        {
+          "StepType": "MarkPlantablesTutorialStep",
+          "StepSettings": {
+            "RequiredAmount": 100,
+            "PrefabNames": [
+              "Carrot"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "LocKey": "Tutorial.Stage.BasicStorage",
+      "Steps": [
+        {
+          "StepType": "FinishedBuildingTutorialStep",
+          "StepSettings": {
+            "RequiredAmount": 1,
+            "PrefabNames": [
+              "LargePile.Folktails"
+            ]
+          }
+        },
+        {
+          "StepType": "SelectStockpileGoodTutorialStep",
+          "StepSettings": {
+            "RequiredAmount": 1,
+            "PrefabNames": [
+              "LargePile.Folktails"
+            ],
+            "GoodId": "Log"
+          }
+        },
+        {
+          "StepType": "FinishedBuildingTutorialStep",
+          "StepSettings": {
+            "RequiredAmount": 3,
+            "PrefabNames": [
+              "SmallTank.Folktails"
+            ]
+          }
+        },
+        {
+          "StepType": "SelectStockpileGoodTutorialStep",
+          "StepSettings": {
+            "RequiredAmount": 3,
+            "PrefabNames": [
+              "SmallTank.Folktails"
+            ],
+            "GoodId": "Water"
+          }
+        }
+      ]
+    },
+    {
+      "LocKey": "Tutorial.Stage.ExpandStorage",
+      "Steps": [
+        {
+          "StepType": "FinishedBuildingTutorialStep",
+          "StepSettings": {
+            "RequiredAmount": 2,
+            "PrefabNames": [
+              "MediumWarehouse.Folktails"
+            ]
+          }
+        },
+        {
+          "StepType": "SelectStockpileGoodTutorialStep",
+          "StepSettings": {
+            "RequiredAmount": 1,
+            "PrefabNames": [
+              "MediumWarehouse.Folktails"
+            ],
+            "GoodId": "Carrot"
+          }
+        },
+        {
+          "StepType": "SelectStockpileGoodTutorialStep",
+          "StepSettings": {
+            "RequiredAmount": 1,
+            "PrefabNames": [
+              "MediumWarehouse.Folktails"
+            ],
+            "GoodId": "Berries"
+          }
+        }
+      ]
+    },
+    {
+      "LocKey": "Tutorial.Stage.Lodges",
+      "Steps": [
+        {
+          "StepType": "FinishedBuildingTutorialStep",
+          "StepSettings": {
+            "RequiredAmount": 6,
+            "PrefabNames": [
+              "Lodge.Folktails",
+              "FlippedLodge.Folktails"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "LocKey": "Tutorial.Stage.Inventor",
+      "Steps": [
+        {
+          "StepType": "FinishedBuildingTutorialStep",
+          "StepSettings": {
+            "RequiredAmount": 1,
+            "PrefabNames": [
+              "Inventor.Folktails"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "LocKey": "Tutorial.Stage.WaterWheel",
+      "Steps": [
+        {
+          "StepType": "FinishedBuildingTutorialStep",
+          "StepSettings": {
+            "RequiredAmount": 1,
+            "PrefabNames": [
+              "WaterWheel.Folktails"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "LocKey": "Tutorial.Stage.LumberMill",
+      "Steps": [
+        {
+          "StepType": "FinishedBuildingTutorialStep",
+          "StepSettings": {
+            "RequiredAmount": 1,
+            "PrefabNames": [
+              "LumberMill.Folktails"
+            ]
+          }
+        },
+        {
+          "StepType": "PowerBuildingsTutorialStep",
+          "StepSettings": {
+            "RequiredAmount": 1,
+            "PrefabNames": [
+              "LumberMill.Folktails"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "LocKey": "Tutorial.Stage.Forester",
+      "Steps": [
+        {
+          "StepType": "FinishedBuildingTutorialStep",
+          "StepSettings": {
+            "RequiredAmount": 1,
+            "PrefabNames": [
+              "Forester.Folktails"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "LocKey": "Tutorial.Stage.MarkPinesForPlanting",
+      "Steps": [
+        {
+          "StepType": "MarkPlantablesTutorialStep",
+          "StepSettings": {
+            "RequiredAmount": 20,
+            "PrefabNames": [
+              "Pine"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "LocKey": "Tutorial.Stage.KeepPlaying",
+      "Steps": []
+    }
+  ]
+}

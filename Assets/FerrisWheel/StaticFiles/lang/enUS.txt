@@ -1,0 +1,5 @@
+ID,Text,Comment
+Tobbert.FerrisWheel.DisplayName,Ferris Wheel,-
+Tobbert.FerrisWheel.Description,A ferris wheel for your beavers to enjoy!,-
+Tobbert.FerrisWheel.FlavorDiscription,''Wheeeeeeeeeeeeeeeee'' -kits,-
+Tobbert.FerrisWheelNeed.DisplaynameLocKey,Ferris Wheel,-

@@ -1,0 +1,19 @@
+{
+  "Buildings": [
+    "tobbert.choochoo/tobbert_choochoo/TrackOneWay.IronTeeth",
+    "tobbert.choochoo/tobbert_choochoo/TrackCrossing.IronTeeth",
+    "tobbert.choochoo/tobbert_choochoo/TrackHill1x2.IronTeeth",
+    "tobbert.choochoo/tobbert_choochoo/TrackCorner1x1.IronTeeth",
+    "tobbert.choochoo/tobbert_choochoo/TrackCorner2x2.IronTeeth",
+    "tobbert.choochoo/tobbert_choochoo/TrackTIntersection1x1.IronTeeth",
+    "tobbert.choochoo/tobbert_choochoo/TrackTIntersection2x3.IronTeeth",
+    "tobbert.choochoo/tobbert_choochoo/TrackXIntersection1x1.IronTeeth",
+    "tobbert.choochoo/tobbert_choochoo/TrackXIntersection3x3.IronTeeth",
+    "tobbert.choochoo/tobbert_choochoo/TrackRIntersectionLeft2x3.IronTeeth",
+    "tobbert.choochoo/tobbert_choochoo/TrackRIntersectionRight2x3.IronTeeth",
+    "tobbert.choochoo/tobbert_choochoo/TrainYard.IronTeeth",
+    "tobbert.choochoo/tobbert_choochoo/WaitingStation.IronTeeth",
+    "tobbert.choochoo/tobbert_choochoo/GoodsStation.IronTeeth",
+    "tobbert.choochoo/tobbert_choochoo/PassengerStation.IronTeeth"
+  ]
+}

@@ -1,0 +1,4 @@
+ID,Text,Comment
+Tobbert.DutchWindmill.DisplayName,Niederländische Windmühle,-
+Tobbert.DutchWindmill.Description,"Mahlt Getreide zu Mehl.",-
+Tobbert.DutchWindmill.FlavorDiscription,"\u201EZo gaan de wieken, de wieken, de wieken.\u201C\r\n(So fliegen die Flügel, die Flügel, die Flügel.)\r\n \u2013 Niederländisches Kinderlied",-

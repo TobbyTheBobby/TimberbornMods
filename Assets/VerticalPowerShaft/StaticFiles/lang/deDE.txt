@@ -1,0 +1,16 @@
+ID,Text,Comment
+Tobbert.VerticalPowerShaft.DisplayName,Vertikale Antriebswelle,-
+Tobbert.VerticalPowerShaft.Description,Eine Antriebswelle die Energie vertikal überträgt!,-
+Tobbert.VerticalPowerShaft.FlavorDiscription,"\u201EWas passiert, falls ich eine Antriebswelle um\r\n90 Grad drehe?\u201C \u2013 Smurt Biber",-
+
+Tobbert.StraightToVerticalPowerShaft.DisplayName,"Horizontal-zu-Vertikal-Antriebswelle",-
+Tobbert.StraightToVerticalPowerShaft.Description,Eine Antriebswelle die Energie horizontal und vertikal\r\nüberträgt!,-
+Tobbert.StraightToVerticalPowerShaft.FlavorDiscription,\u201ETechnisch gesehen könnte ich nur diese verwenden.\r\nAber das wäre nicht sehr ästhetisch!\u201C \u2013 Smurt Biber,-
+
+Tobbert.VerticalToStraightPowerShaft.DisplayName,"Vertikal-zu-Horizontal-Antriebswelle",-
+Tobbert.VerticalToStraightPowerShaft.Description,Eine Antriebswelle die Energie von vertikal zu horizontal überträgt!,-
+Tobbert.VerticalToStraightPowerShaft.FlavorDiscription,\u201EKönnte oben gut aussehen!\u201C \u2013 Smurt Biber,-
+
+Tobbert.UniversalPowerShaft.DisplayName,Universelle Antriebswelle,-
+Tobbert.UniversalPowerShaft.Description,Eine Antriebswelle die sich basierend ihrer Verbindungen ändert!,-
+Tobbert.UniversalPowerShaft.FlavorDiscription,UNBEGRENZTE MACHT!,-

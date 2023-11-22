@@ -1,0 +1,25 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:VisualElement name="game-configuration-section" class="section">
+        <ui:VisualElement class="setting-section">
+            <ui:Label text="Select files containing the APIkey and Auth Token" class="thunderkit-header" />
+        </ui:VisualElement>
+        <ui:VisualElement class="thunderkit-field">
+            <ui:Label text="APIkey file" class="thunderkit-field-label" />
+            <ui:TextField name="asset-name-field" binding-path="ApiKeyFilePath" class="thunderkit-field-input" />
+        </ui:VisualElement>
+        <ui:VisualElement name="game-config-button-container">
+            <ui:Button name="apikey-browse-button" text="Browse" class="standardbutton" style="width: 100px; align-self: flex-end;" />
+        </ui:VisualElement>
+        <ui:VisualElement class="thunderkit-field">
+            <ui:Label text="Auth token file" class="thunderkit-field-label" />
+            <ui:TextField binding-path="AuthTokenFilePath" class="thunderkit-field-input" />
+        </ui:VisualElement>
+        <ui:VisualElement name="game-config-button-container">
+            <ui:Button name="authtoken-browse-button" text="Browse" class="standardbutton" style="width: 100px; align-self: flex-end;" />
+        </ui:VisualElement>
+        <ui:VisualElement class="thunderkit-field">
+            <ui:Label text="Game id" name="Label" class="thunderkit-field-label" />
+            <ui:IntegerField value="42" binding-path="GameId" name="asset-integer-field" style="width: 150px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

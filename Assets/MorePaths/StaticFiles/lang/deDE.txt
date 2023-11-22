@@ -1,0 +1,44 @@
+ID,Text,Comment
+Tobbert.BrickPath.DisplayName,"Klinker-Pfad",-
+Tobbert.BrickPath.Description,"Ein anderer Pfad um deine Stadt abwechslungsreicher zu gestalten.",-
+Tobbert.BrickPath.FlavorDescription,"Lauft nicht darauf, wenn es draußen heiß ist.",-
+
+Tobbert.FrogPath.DisplayName,"Frosch-Pfad",-
+Tobbert.FrogPath.Description,"Ein anderer Pfad um deine Stadt abwechslungsreicher zu gestalten.",-
+Tobbert.FrogPath.FlavorDescription,"Hü-hüpf",-
+
+Tobbert.Gravel1Path.DisplayName,"Kies-Pfad",-
+Tobbert.Gravel1Path.Description,"Ein anderer Pfad um deine Stadt abwechslungsreicher zu gestalten.",-
+Tobbert.Gravel1Path.FlavorDescription,"\u201EHoffentlich tun mir die Füße nicht weh,\r\n wenn ich darauf laufe.\u201C \u2013 Manche Biber",-
+
+Tobbert.Gravel2Path.DisplayName,"Schotter-Pfad",-
+Tobbert.Gravel2Path.Description,"Ein anderer Pfad um deine Stadt abwechslungsreicher zu gestalten.",-
+Tobbert.Gravel2Path.FlavorDescription,"\u201EHoffentlich tun mir die Füße nicht weh,\r\n wenn ich darauf laufe.\u201C \u2013 Manche Biber",-
+
+Tobbert.StonePath.DisplayName,"Stein-Pfad",-
+Tobbert.StonePath.Description,"Ein anderer Pfad um deine Stadt abwechslungsreicher zu gestalten.",-
+Tobbert.StonePath.FlavorDescription,"Lauft nicht darauf, wenn es draußen heiß ist.",-
+
+Tobbert.MetalPath.DisplayName,"Metall-Pfad",-
+Tobbert.MetalPath.Description,"Ein anderer Pfad um deine Stadt abwechslungsreicher zu gestalten.",-
+Tobbert.MetalPath.FlavorDescription,"Das fühlt sich kalt an.",-
+
+Tobbert.WoodFolktails.DisplayName,"Holz-Pfad Rustikalruten",-
+Tobbert.WoodFolktails.Description,"Ein anderer Pfad um deine Stadt abwechslungsreicher zu gestalten.",-
+Tobbert.WoodFolktails.FlavorDescription,"Es ist Holz, aber NICHT verputzt! OwO",-
+
+Tobbert.WoodIronTeeth.DisplayName,"Holz-Pfad Eisenzähne",-
+Tobbert.WoodIronTeeth.Description,"Ein anderer Pfad um deine Stadt abwechslungsreicher zu gestalten.",-
+Tobbert.WoodIronTeeth.FlavorDescription,"Es ist Holz, aber NICHT verputzt! OwO",-
+
+Tobbert.PlasteredWoodPath.Folktails.DisplayName,"Verputzter-Holz-Pfad Rustikalruten",-
+Tobbert.PlasteredWoodPath.Folktails.Description,"Ein anderer Pfad um deine Stadt abwechslungsreicher zu gestalten.",-
+Tobbert.PlasteredWoodPath.Folktails.FlavorDescription,"Es ist Holz, aber verputzt! OwO",-
+
+Tobbert.PlasteredWoodPath.IronTeeth.DisplayName,"Verputzter-Holz-Pfad Eisenzähne",-
+Tobbert.PlasteredWoodPath.IronTeeth.Description,"Ein anderer Pfad um deine Stadt abwechslungsreicher zu gestalten.",-
+Tobbert.PlasteredWoodPath.IronTeeth.FlavorDescription,"Es ist Holz, aber verputzt! OwO",-
+
+"Tobbert.CategoryPaths.DisplayName",Pfade,-
+
+Tobbert.MorePaths.SettingsHeader,Pfade,Überschrift in Einstellungen
