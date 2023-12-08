@@ -170,19 +170,23 @@ namespace PipetteTool
       SwitchToSelectedBuildingTool(toolButton, hitObject);
     }
 
-     private void ChangeToolOrientation(Tool tool, Orientation orientation)
+     private void ChangeToolOrientation(Tool tool, BlockObject blockObject)
      {
-       if (tool.GetType() != typeof(BlockObjectTool)) 
+       if (tool is not BlockObjectTool blockObjectTool) 
          return;
-       
-       BlockObjectTool blockObjectTool = tool as BlockObjectTool;
 
-       _blockObjectToolOrientationField.SetValue(blockObjectTool, orientation);
+       _blockObjectToolOrientationField.SetValue(blockObjectTool, blockObject.Orientation);
+       
+       if ((blockObject.FlipMode.IsFlipped && blockObjectTool.FlipMode.IsUnflipped) ||
+           (blockObject.FlipMode.IsUnflipped && blockObjectTool.FlipMode.IsFlipped))
+       {
+         blockObjectTool.Flip();
+       }
      }
      
      protected virtual void SwitchToSelectedBuildingTool(ToolButton toolButton, BaseComponent hitObject)
      {
-       ChangeToolOrientation(toolButton.Tool, hitObject.GetComponentFast<BlockObject>().Orientation);
+       ChangeToolOrientation(toolButton.Tool, hitObject.GetComponentFast<BlockObject>());
        _toolManager.SwitchTool(toolButton.Tool);
        _shouldPipetNextSelection = false;
        _cursorService.ResetTemporaryCursor();

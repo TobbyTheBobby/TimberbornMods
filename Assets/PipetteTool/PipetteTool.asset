@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagingPaths: []
   ModId: 2519576
-  Version: 1.5.0
+  Version: 1.5.1
   SetLive: 0
-  Description: "[Game Version 0.5]\nUpdated to work on update 5. \n"
+  Description: "[Game Version 0.5]\nNow also flips the building if the pipetted building
+    was flipped. \n"
 --- !u!114 &-3931462110823901632
 MonoBehaviour:
   m_ObjectHideFlags: 0
