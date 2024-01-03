@@ -69,14 +69,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagingPaths: []
   ModId: 2671489
-  Version: 0.8.4
+  Version: 0.8.5
   SetLive: 0
   Description: '[Game version 0.5.5]
 
-    Fixed issues that result in a crash because
-    of update 5 changes.
-
-    The mod now includes the base game flipping system. '
+    Fixed an issue on IT.'
 --- !u!114 &2590189338767857166
 MonoBehaviour:
   m_ObjectHideFlags: 0
