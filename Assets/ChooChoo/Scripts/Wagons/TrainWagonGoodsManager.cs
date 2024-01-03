@@ -25,9 +25,9 @@ namespace ChooChoo
         public bool IsCarrying => GoodCarrier.IsCarrying;
         
         public bool IsFullOrReserved =>
-            GoodCarrier.IsCarrying && 
+            IsCarrying && 
             _chooChooCarryAmountCalculator.IsAtMaximumCarryCapacity(GoodCarrier.LiftingCapacity, GoodCarrier.CarriedGoods) ||
-            (GoodReserver.HasReservedStock && 
+            (HasReservedStock && 
              _chooChooCarryAmountCalculator.IsAtMaximumCarryCapacity(GoodCarrier.LiftingCapacity, GoodReserver.StockReservation.GoodAmount));
         
         public bool IsCarryingOrReserved => GoodCarrier.IsCarrying || GoodReserver.HasReservedStock;
@@ -188,6 +188,8 @@ namespace ChooChoo
             string goodId,
             int goodAmount)
         {
+            if (ShouldLog) Plugin.Log.LogInfo("MaxTakeableAmount     UnreservedAmountInStock: " + inventory.UnreservedAmountInStock(goodId) + "   goodAmount: " + goodAmount);
+            
             int amount = Mathf.Min(inventory.UnreservedAmountInStock(goodId), goodAmount);
             return new GoodAmount(goodId, amount);
         }

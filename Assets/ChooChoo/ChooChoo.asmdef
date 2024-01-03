@@ -104,7 +104,8 @@
         "System.Runtime.CompilerServices.Unsafe.dll",
         "Timberborn.WindSystem.dll",
         "Timberborn.Debugging.dll",
-        "Timberborn.InventoryNeedSystem.dll"
+        "Timberborn.InventoryNeedSystem.dll",
+        "Timberborn.WalkingSystemUI.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],

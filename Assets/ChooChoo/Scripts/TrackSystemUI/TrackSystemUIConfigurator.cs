@@ -12,6 +12,7 @@ namespace ChooChoo
     public void Configure(IContainerDefinition containerDefinition)
     {
       containerDefinition.Bind<TrackSectionDividerFragment>().AsSingleton();
+      containerDefinition.Bind<TrackPieceDebugger>().AsSingleton();
       containerDefinition.MultiBind<EntityPanelModule>().ToProvider<EntityPanelModuleProvider>().AsSingleton();
       containerDefinition.MultiBind<TemplateModule>().ToProvider(ProvideTemplateModule).AsSingleton();
     }

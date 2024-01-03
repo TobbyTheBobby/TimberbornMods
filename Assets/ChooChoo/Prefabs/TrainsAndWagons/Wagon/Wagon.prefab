@@ -211,11 +211,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _componentCache: {fileID: 0}
   _started: 0
-  _baseWalkingSpeed: 7
+  _baseWalkingSpeed: 8
   _baseSlowedSpeed: 1
   <Speed>k__BackingField: 1
   <MovementSpeedMultiplier>k__BackingField: 1
   _bonusManager: {fileID: 0}
+  _minWalkingSpeedMultiplier: 0
 --- !u!114 &6479493708352514342
 MonoBehaviour:
   m_ObjectHideFlags: 0

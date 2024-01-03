@@ -39,13 +39,9 @@ Tobbert.TrackXIntersection3x3.DisplayName,X intersection Train Track 3x3,-
 Tobbert.TrackXIntersection3x3.Description,A intersection in the form of a X for trains.,-
 Tobbert.TrackXIntersection3x3.FlavorDescription,I just cannot choose where to go...,-
 
-Tobbert.TrackRIntersectionLeft2x3.DisplayName,Switch (left) Train Track 2x3,-
-Tobbert.TrackRIntersectionLeft2x3.Description,A switch in the form of a R for trains.,-
-Tobbert.TrackRIntersectionLeft2x3.FlavorDescription,Where R we going?,A joke of the letter R
-
-Tobbert.TrackRIntersectionRight2x3.DisplayName,Switch (right) Train Track 2x3,-
-Tobbert.TrackRIntersectionRight2x3.Description,A switch in the form of a R for trains.,-
-Tobbert.TrackRIntersectionRight2x3.FlavorDescription,Where R we going?,A joke of the letter R
+Tobbert.TrackRIntersection2x3.DisplayName,Switch Train Track 2x3,-
+Tobbert.TrackRIntersection2x3.Description,A switch in the form of a R for trains.,-
+Tobbert.TrackRIntersection2x3.FlavorDescription,Where R we going?,A joke of the letter R
 
 Tobbert.GoodsStation.DisplayName,Goods station,-
 Tobbert.GoodsStation.Description,"Allows for transportation of goods by trains. A good can either be send or received at a station. Goods received will only be moved to storages that are set to obtain.",-

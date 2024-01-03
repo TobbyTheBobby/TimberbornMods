@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace ChooChoo
 {
-    public class TrackPiece : BaseComponent, IFinishedStateListener
+    public class TrackPiece : BaseComponent, IFinishedStateListener, IPostTransformChangeListener
     {
         [SerializeField]
         private int _trackDistance;
@@ -65,7 +65,15 @@ namespace ChooChoo
                 {
                     _trackRouteWeightCache.Add(trackRoute);
                     var position = _blockObjectCenter.WorldCenterGrounded;
-                    trackRoute.RouteCorners = trackRoute.RouteCorners.Select(vector3 => _blockObject.Orientation.TransformInWorldSpace(vector3) + position).ToArray();
+                    trackRoute.RouteCorners = trackRoute.RouteCorners.Select(vector3 =>
+                    {
+                        var orientation = _blockObject.FlipMode.IsFlipped &&
+                                          _blockObject.Orientation is Orientation.Cw90 or Orientation.Cw270 ? 
+                            _blockObject.Orientation.Flip() : 
+                            _blockObject.Orientation;
+                        
+                        return  _blockObject.FlipMode.Transform(orientation.TransformInWorldSpace(vector3), 0) + position;
+                    }).ToArray();
                 }
                 _trackConnections = trackRoutes;
                 return _trackConnections;
@@ -84,7 +92,11 @@ namespace ChooChoo
                 var uniqueTrackConnections = trackConnections.GroupBy(connection => connection.Direction).SelectMany(directionGroup => directionGroup.GroupBy(connection => connection.Coordinates).Select(group => group.First())).ToArray();
                 // foreach (var trackConnection in uniqueTrackConnections)
                 //     Plugin.Log.LogInfo(trackConnection.Coordinates + "   " + trackConnection.Direction);
-                _positionedTrackConnections = uniqueTrackConnections.Select(trackConnection => PositionedTrackConnection.From(trackConnection, _blockObject.Coordinates, _blockObject.Orientation)).ToArray();
+                _positionedTrackConnections = uniqueTrackConnections.Select((trackConnection) =>
+                {
+                    trackConnection.Coordinates = _blockObject.FlipMode.Transform(trackConnection.Coordinates, _blockObject.Blocks.Size.x);
+                    return PositionedTrackConnection.From(trackConnection, _blockObject.Coordinates, _blockObject.Orientation);
+                }).ToArray();
 
                 return _positionedTrackConnections;
             }
@@ -98,9 +110,11 @@ namespace ChooChoo
             CanPathFindOverIt = !TryGetComponentFast(out TrainWaitingLocation _);
         }
 
-        public void UpdateValues()
+        public void OnPostTransformChanged()
         {
+            _trackRouteWeightCache.Remove(TrackRoutes);
             _positionedTrackConnections = null;
+            _trackConnections = null;
         }
 
         public void OnEnterFinishedState()

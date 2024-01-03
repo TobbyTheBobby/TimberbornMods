@@ -1,3 +1,4 @@
+using Timberborn.BlockSystem;
 using Timberborn.Coordinates;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ namespace ChooChoo
             ConnectedTrackRoutes = null;
         }
 
-        public Vector3Int Coordinates { get; }
+        public Vector3Int Coordinates { get; set; }
 
         public Direction2D Direction { get; }
 

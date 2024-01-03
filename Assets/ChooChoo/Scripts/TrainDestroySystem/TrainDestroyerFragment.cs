@@ -62,7 +62,7 @@ namespace ChooChoo
 
     public bool ProcessInput()
     {
-      if (_destroyable && _inputService.IsKeyHeld(SkipDeleteConfirmationKey))
+      if (_destroyable && _inputService.IsKeyHeld(SkipDeleteConfirmationKey) && _inputService.IsKeyDown(DeleteObjectKey))
       {
         DeleteBuilding();
         return true;
@@ -76,7 +76,7 @@ namespace ChooChoo
 
     private void OnClick()
     {
-      if (_inputService.IsKeyHeld(SkipDeleteConfirmationKey))
+      if (_inputService.IsKeyHeld(SkipDeleteConfirmationKey) && _inputService.IsKeyDown(DeleteObjectKey))
         DeleteBuilding();
       else
         ShowDialogBox();

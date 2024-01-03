@@ -81,8 +81,8 @@ namespace ChooChoo
         var trainYard = blockObjectTool?.Prefab.GetComponentFast<TrainYard>();
         if (trackPiece != null && !trainYard && TrainsAreLocked())
         {
-          blockObjectTool.Locked = true;
-          toolButton.ButtonClicked += (_1, _2) => OnButtonClicked(blockObjectTool);
+          // blockObjectTool.Locked = true;
+          // toolButton.ButtonClicked += (_1, _2) => OnButtonClicked(blockObjectTool);
         }
       }
     }
@@ -97,7 +97,7 @@ namespace ChooChoo
         var trainYard = blockObjectTool?.Prefab.GetComponentFast<TrainYard>();
         if (trackPiece != null && !trainYard && !TrainsAreLocked())
         {
-          blockObjectTool.Locked = false;
+          // blockObjectTool.Locked = false;
         }
       }
     }

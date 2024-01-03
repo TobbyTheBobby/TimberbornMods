@@ -171,12 +171,17 @@ MonoBehaviour:
   _unfinishedModel: {fileID: 1937769883314588243}
   _finishedUncoveredModel: {fileID: 0}
   <IsModelShown>k__BackingField: 0
+  <IsFinishedModelShown>k__BackingField: 0
+  _blockObject: {fileID: 0}
   _constructible: {fileID: 0}
   _showFinishedModel: 0
   _showFinishedUncoveredModel: 0
   _blockUnfinishedModel: 0
   _blockBothModels: 0
   _ignoreModelBlockade: 0
+  _defaultFinishedPosition: {x: 0, y: 0, z: 0}
+  _defaultUnfinishedPosition: {x: 0, y: 0, z: 0}
+  _defaultFinishedUncoveredPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &2072078459731165253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +254,7 @@ MonoBehaviour:
     _coordinates: {x: 0, y: 0, z: 0}
   _baseZ: 0
   _overridable: 0
+  _flippable: 0
   <Coordinates>k__BackingField: {x: 0, y: 0, z: 0}
   <CoordinatesAtBaseZ>k__BackingField: {x: 0, y: 0, z: 0}
   <Orientation>k__BackingField: 0

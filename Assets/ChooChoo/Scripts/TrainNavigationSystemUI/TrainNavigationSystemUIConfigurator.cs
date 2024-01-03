@@ -10,6 +10,7 @@ namespace ChooChoo
     {
         public void Configure(IContainerDefinition containerDefinition)
         {
+            containerDefinition.Bind<PathFollowerDebugger>().AsSingleton();
             containerDefinition.MultiBind<TemplateModule>().ToProvider(ProvideTemplateModule).AsSingleton();
         }
 

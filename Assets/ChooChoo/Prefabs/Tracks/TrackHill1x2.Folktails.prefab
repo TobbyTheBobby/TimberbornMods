@@ -32,6 +32,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135628514543214075}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -39,7 +40,6 @@ Transform:
   m_Children:
   - {fileID: 2184352721110657616}
   m_Father: {fileID: 4573744665058708955}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2658140118515169270
 BoxCollider:
@@ -253,6 +253,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937769883314588243}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -260,7 +261,6 @@ Transform:
   m_Children:
   - {fileID: 5267219489848814854}
   m_Father: {fileID: 4573744665058708955}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5338206533014369884
 GameObject:
@@ -294,6 +294,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5338206533014369884}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -302,7 +303,6 @@ Transform:
   - {fileID: 3336589163391838871}
   - {fileID: 2916081291776459117}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7480801390252336142
 MonoBehaviour:
@@ -316,6 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: -790041461, guid: 1bd6ccb667024f9c2b77daf7f62a4eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _selectionSoundName: Default
   _loopingSoundName: 
   _buildingCost:
@@ -328,6 +329,7 @@ MonoBehaviour:
   _finishableWithBeaversOnSite: 1
   _path: 0
   _drawRangeBoundsOnIt: 0
+  _blockObject: {fileID: 0}
 --- !u!114 &7560474341834773086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,9 +342,22 @@ MonoBehaviour:
   m_Script: {fileID: -460516431, guid: 1bd6ccb667024f9c2b77daf7f62a4eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _finishedModel: {fileID: 1135628514543214075}
   _unfinishedModel: {fileID: 1937769883314588243}
   _finishedUncoveredModel: {fileID: 0}
+  <IsModelShown>k__BackingField: 0
+  <IsFinishedModelShown>k__BackingField: 0
+  _blockObject: {fileID: 0}
+  _constructible: {fileID: 0}
+  _showFinishedModel: 0
+  _showFinishedUncoveredModel: 0
+  _blockUnfinishedModel: 0
+  _blockBothModels: 0
+  _ignoreModelBlockade: 0
+  _defaultFinishedPosition: {x: 0, y: 0, z: 0}
+  _defaultUnfinishedPosition: {x: 0, y: 0, z: 0}
+  _defaultFinishedUncoveredPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &2072078459731165253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,6 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: -731835049, guid: b5f268a4cb31a93ed707a95d3a502b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _prefabName: TrackHill1x2.Folktails
   _backwardCompatiblePrefabNames:
   - TrackHill1x2
@@ -372,6 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: -1604455801, guid: fb0076526bca5246b24d6c818d68ce00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
 --- !u!114 &426163337955813881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,6 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 1800879565, guid: c1ff95bb5ae0e8b420075ec58add6f36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _blocksSpecification:
     _size: {x: 1, y: 2, z: 2}
     _blockSpecifications:
@@ -412,6 +430,19 @@ MonoBehaviour:
     _coordinates: {x: 0, y: 0, z: 0}
   _baseZ: 0
   _overridable: 0
+  _flippable: 0
+  <Coordinates>k__BackingField: {x: 0, y: 0, z: 0}
+  <CoordinatesAtBaseZ>k__BackingField: {x: 0, y: 0, z: 0}
+  <Orientation>k__BackingField: 0
+  <Finished>k__BackingField: 0
+  <Preview>k__BackingField: 0
+  <Solid>k__BackingField: 0
+  <GroundOnly>k__BackingField: 0
+  <AboveGround>k__BackingField: 0
+  <AddedToService>k__BackingField: 0
+  _entityService: {fileID: 0}
+  _transformChangeNotifier: {fileID: 0}
+  _blockObjectCenter: {fileID: 0}
 --- !u!114 &5232831697191421784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,6 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: -871492198, guid: c1ff95bb5ae0e8b420075ec58add6f36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _toolGroupId: TobbertTrains
   _toolOrder: 60
   _layout: 0
@@ -443,6 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fc23297c2042b49bd7e0edee84ce49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _trackDistance: 2
   DividesSection: 0
 --- !u!114 &8047990534395334500
@@ -457,6 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f3b6c1c127e437e8d3f5a2ed5c25f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _trackSectionMesh: {fileID: 5931273832805667591}
   _trackEntranceSectionMesh: {fileID: 0}
   _trackExitSectionMesh: {fileID: 0}
@@ -473,6 +507,7 @@ MonoBehaviour:
   m_Script: {fileID: -1115175677, guid: b5f268a4cb31a93ed707a95d3a502b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _displayNameLocKey: Tobbert.TrackHillStart.DisplayName
   _descriptionLocKey: Tobbert.TrackHillStart.Description
   _flavorDescriptionLocKey: Tobbert.TrackHillStart.FlavorDescription
@@ -534,19 +569,19 @@ PrefabInstance:
       value: TrackHillStartModel
       objectReference: {fileID: 0}
     - target: {fileID: 1779917378012884787, guid: c374f2506ba37944e91a297e1a6b8cf4, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 184657205e504834eb7274963c621fdc, type: 2}
     - target: {fileID: 1904097232095724933, guid: c374f2506ba37944e91a297e1a6b8cf4, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 67994ecbb9674c54f81c354ecfdc795d, type: 2}
     - target: {fileID: 3855937482087671896, guid: c374f2506ba37944e91a297e1a6b8cf4, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 67994ecbb9674c54f81c354ecfdc795d, type: 2}
     - target: {fileID: 9194509242015492025, guid: c374f2506ba37944e91a297e1a6b8cf4, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 67994ecbb9674c54f81c354ecfdc795d, type: 2}
     m_RemovedComponents: []
@@ -617,11 +652,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1654863418134030522, guid: 72727544ed9fc4a4d856218ab5e6d753, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: b64248bd04e1a004da0e9adbfc99a78a, type: 2}
     - target: {fileID: -1654863418134030522, guid: 72727544ed9fc4a4d856218ab5e6d753, type: 3}
-      propertyPath: m_Materials.Array.data[1]
+      propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 5f1506d9a863d7b4387972e2aab71cb1, type: 2}
     - target: {fileID: 919132149155446097, guid: 72727544ed9fc4a4d856218ab5e6d753, type: 3}
@@ -629,7 +664,7 @@ PrefabInstance:
       value: ConstructionSite1x2
       objectReference: {fileID: 0}
     - target: {fileID: 4653743251349190662, guid: 72727544ed9fc4a4d856218ab5e6d753, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fc5430ca44bc3d740817e410c7a38384, type: 2}
     m_RemovedComponents: []
