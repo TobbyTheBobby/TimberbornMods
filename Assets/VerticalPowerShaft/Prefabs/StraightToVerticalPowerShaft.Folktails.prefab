@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 499706295518064153}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7214674614870983840}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6418067028433121640
 MeshFilter:
@@ -108,6 +108,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822619999456548503}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -115,7 +116,6 @@ Transform:
   m_Children:
   - {fileID: 3278613199993403391}
   m_Father: {fileID: 2888645673861371338}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4798060620853563040
 BoxCollider:
@@ -161,6 +161,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5000514283370679816}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -168,7 +169,6 @@ Transform:
   m_Children:
   - {fileID: 7214674614870983840}
   m_Father: {fileID: 4232700489673801508}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7426821017109623627
 GameObject:
@@ -193,6 +193,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7426821017109623627}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -200,7 +201,6 @@ Transform:
   m_Children:
   - {fileID: 4611499598846988649}
   m_Father: {fileID: 4232700489673801508}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7920717842479758718
 GameObject:
@@ -222,7 +222,6 @@ GameObject:
   - component: {fileID: 886053317471163093}
   - component: {fileID: 3499995719616494126}
   - component: {fileID: 6475112889464737786}
-  - component: {fileID: 4041618944777183189}
   m_Layer: 0
   m_Name: StraightToVerticalPowerShaft.Folktails
   m_TagString: Untagged
@@ -237,6 +236,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7920717842479758718}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -245,7 +245,6 @@ Transform:
   - {fileID: 1244169256125081554}
   - {fileID: 2888645673861371338}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3966071610342845751
 MonoBehaviour:
@@ -259,6 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: -790041461, guid: 1bd6ccb667024f9c2b77daf7f62a4eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _selectionSoundName: Default
   _loopingSoundName: 
   _buildingCost:
@@ -273,6 +273,7 @@ MonoBehaviour:
   _finishableWithBeaversOnSite: 0
   _path: 0
   _drawRangeBoundsOnIt: 0
+  _blockObject: {fileID: 0}
 --- !u!114 &6556608972293177770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,9 +286,22 @@ MonoBehaviour:
   m_Script: {fileID: -460516431, guid: 1bd6ccb667024f9c2b77daf7f62a4eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _finishedModel: {fileID: 7426821017109623627}
   _unfinishedModel: {fileID: 5000514283370679816}
   _finishedUncoveredModel: {fileID: 0}
+  <IsModelShown>k__BackingField: 0
+  <IsFinishedModelShown>k__BackingField: 0
+  _blockObject: {fileID: 0}
+  _constructible: {fileID: 0}
+  _showFinishedModel: 0
+  _showFinishedUncoveredModel: 0
+  _blockUnfinishedModel: 0
+  _blockBothModels: 0
+  _ignoreModelBlockade: 0
+  _defaultFinishedPosition: {x: 0, y: 0, z: 0}
+  _defaultUnfinishedPosition: {x: 0, y: 0, z: 0}
+  _defaultFinishedUncoveredPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &2155075235241386286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828c3829b8d7ac5488ed5d6f28e30218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
+  _started: 0
 --- !u!114 &4128189768745481001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,6 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: -731835049, guid: b5f268a4cb31a93ed707a95d3a502b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _prefabName: StraightToVerticalPowerShaft.Folktails
   _backwardCompatiblePrefabNames: []
   _requiredFeatureToggle: 
@@ -328,6 +345,10 @@ MonoBehaviour:
   m_Script: {fileID: -742245366, guid: b5b585a072a703d32743ea54a035c96c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
+  _shaftSoundController: {fileID: 0}
+  _mechanicalNode: {fileID: 0}
+  _oldIsOn: 0
 --- !u!114 &2713238950628878465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,10 +361,12 @@ MonoBehaviour:
   m_Script: {fileID: 406104335, guid: 79523a2b71f4fae881a60ad2e723d456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _noAutoWalls: 0
   _generateFloorsOnStackable: 1
   _blockAllEdges: 0
   _addedEdges: []
+  _blockObject: {fileID: 0}
 --- !u!114 &8122642523512591112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,6 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 1800879565, guid: c1ff95bb5ae0e8b420075ec58add6f36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _blocksSpecification:
     _size: {x: 1, y: 1, z: 1}
     _blockSpecifications:
@@ -369,6 +393,19 @@ MonoBehaviour:
     _coordinates: {x: 0, y: 0, z: 0}
   _baseZ: 0
   _overridable: 0
+  _flippable: 0
+  <Coordinates>k__BackingField: {x: 0, y: 0, z: 0}
+  <CoordinatesAtBaseZ>k__BackingField: {x: 0, y: 0, z: 0}
+  <Orientation>k__BackingField: 0
+  <Finished>k__BackingField: 0
+  <Preview>k__BackingField: 0
+  <Solid>k__BackingField: 0
+  <GroundOnly>k__BackingField: 0
+  <AboveGround>k__BackingField: 0
+  <AddedToService>k__BackingField: 0
+  _entityService: {fileID: 0}
+  _transformChangeNotifier: {fileID: 0}
+  _blockObjectCenter: {fileID: 0}
 --- !u!114 &2574786979834514803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,6 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: -1514884223, guid: a01d35f43886f4b46e413d3c2ea20811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _powerOutput: 0
   _powerInput: 0
   _isShaft: 1
@@ -396,6 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 1385319953, guid: a01d35f43886f4b46e413d3c2ea20811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _transputSpecifications:
   - _offset: {x: 0, y: 0, z: 0}
     _direction3D: 2
@@ -418,6 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: -871492198, guid: c1ff95bb5ae0e8b420075ec58add6f36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _toolGroupId: Power
   _toolOrder: 2004
   _layout: 0
@@ -437,22 +477,11 @@ MonoBehaviour:
   m_Script: {fileID: -1115175677, guid: b5f268a4cb31a93ed707a95d3a502b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _displayNameLocKey: Tobbert.StraightToVerticalPowerShaft.DisplayName
   _descriptionLocKey: Tobbert.StraightToVerticalPowerShaft.Description
   _flavorDescriptionLocKey: Tobbert.StraightToVerticalPowerShaft.FlavorDiscription
   _image: {fileID: 21300000, guid: b075b21a4f30fdc4086cdceaa3109a56, type: 3}
---- !u!114 &4041618944777183189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7920717842479758718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1604455801, guid: fb0076526bca5246b24d6c818d68ce00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &4068420684787545730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -510,11 +539,11 @@ PrefabInstance:
       value: ShaftStraightToVertical1_Animated
       objectReference: {fileID: 0}
     - target: {fileID: -4879962612821326166, guid: aa238efe0b5eb1049b3f6fbe4774f70e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 67994ecbb9674c54f81c354ecfdc795d, type: 2}
     - target: {fileID: -4879962612821326166, guid: aa238efe0b5eb1049b3f6fbe4774f70e, type: 3}
-      propertyPath: m_Materials.Array.data[1]
+      propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 67994ecbb9674c54f81c354ecfdc795d, type: 2}
     - target: {fileID: -4675739116224821191, guid: aa238efe0b5eb1049b3f6fbe4774f70e, type: 3}
@@ -522,15 +551,15 @@ PrefabInstance:
       value: ShaftStraightToVertical2_Animated
       objectReference: {fileID: 0}
     - target: {fileID: -2615804484262473647, guid: aa238efe0b5eb1049b3f6fbe4774f70e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: bdba096d0985ecf4f8d2fa21aaee91fb, type: 2}
     - target: {fileID: -2615804484262473647, guid: aa238efe0b5eb1049b3f6fbe4774f70e, type: 3}
-      propertyPath: m_Materials.Array.data[1]
+      propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 523627e0db69554438ae0e647e2fa123, type: 2}
     - target: {fileID: -2615804484262473647, guid: aa238efe0b5eb1049b3f6fbe4774f70e, type: 3}
-      propertyPath: m_Materials.Array.data[2]
+      propertyPath: 'm_Materials.Array.data[2]'
       value: 
       objectReference: {fileID: 2100000, guid: 67994ecbb9674c54f81c354ecfdc795d, type: 2}
     - target: {fileID: 919132149155446097, guid: aa238efe0b5eb1049b3f6fbe4774f70e, type: 3}
@@ -538,39 +567,39 @@ PrefabInstance:
       value: StraightToVerticalPowerShaft
       objectReference: {fileID: 0}
     - target: {fileID: 2080257108659811768, guid: aa238efe0b5eb1049b3f6fbe4774f70e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: bdba096d0985ecf4f8d2fa21aaee91fb, type: 2}
     - target: {fileID: 2080257108659811768, guid: aa238efe0b5eb1049b3f6fbe4774f70e, type: 3}
-      propertyPath: m_Materials.Array.data[1]
+      propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 523627e0db69554438ae0e647e2fa123, type: 2}
     - target: {fileID: 2080257108659811768, guid: aa238efe0b5eb1049b3f6fbe4774f70e, type: 3}
-      propertyPath: m_Materials.Array.data[2]
+      propertyPath: 'm_Materials.Array.data[2]'
       value: 
       objectReference: {fileID: 2100000, guid: 67994ecbb9674c54f81c354ecfdc795d, type: 2}
     - target: {fileID: 3367568223855704066, guid: aa238efe0b5eb1049b3f6fbe4774f70e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 523627e0db69554438ae0e647e2fa123, type: 2}
     - target: {fileID: 3367568223855704066, guid: aa238efe0b5eb1049b3f6fbe4774f70e, type: 3}
-      propertyPath: m_Materials.Array.data[1]
+      propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bdba096d0985ecf4f8d2fa21aaee91fb, type: 2}
     - target: {fileID: 3367568223855704066, guid: aa238efe0b5eb1049b3f6fbe4774f70e, type: 3}
-      propertyPath: m_Materials.Array.data[2]
+      propertyPath: 'm_Materials.Array.data[2]'
       value: 
       objectReference: {fileID: 2100000, guid: 67994ecbb9674c54f81c354ecfdc795d, type: 2}
     - target: {fileID: 3701459751649684144, guid: aa238efe0b5eb1049b3f6fbe4774f70e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 523627e0db69554438ae0e647e2fa123, type: 2}
     - target: {fileID: 3701459751649684144, guid: aa238efe0b5eb1049b3f6fbe4774f70e, type: 3}
-      propertyPath: m_Materials.Array.data[1]
+      propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: bdba096d0985ecf4f8d2fa21aaee91fb, type: 2}
     - target: {fileID: 3701459751649684144, guid: aa238efe0b5eb1049b3f6fbe4774f70e, type: 3}
-      propertyPath: m_Materials.Array.data[2]
+      propertyPath: 'm_Materials.Array.data[2]'
       value: 
       objectReference: {fileID: 2100000, guid: 67994ecbb9674c54f81c354ecfdc795d, type: 2}
     m_RemovedComponents: []
@@ -591,7 +620,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &4111513533428062168
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -605,6 +634,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
