@@ -2,6 +2,7 @@
 using TimberApi.ConfiguratorSystem;
 using TimberApi.SceneSystem;
 using Timberborn.Beavers;
+using Timberborn.Bots;
 using Timberborn.EntityPanelSystem;
 using Timberborn.TemplateSystem;
 
@@ -22,6 +23,7 @@ namespace Unstuckify
     {
       TemplateModule.Builder builder = new TemplateModule.Builder();
       builder.AddDecorator<Beaver, UnstuckifyComponent>();
+      builder.AddDecorator<Bot, UnstuckifyComponent>();
       return builder.Build();
     }
 

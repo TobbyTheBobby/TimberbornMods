@@ -44,7 +44,8 @@
         "Timberborn.WalkingSystem.dll",
         "Timberborn.GameDistricts.dll",
         "Timberborn.BaseComponentSystem.dll",
-        "Timberborn.Beavers.dll"
+        "Timberborn.Beavers.dll",
+        "Timberborn.Bots.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],

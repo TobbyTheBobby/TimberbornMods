@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagingPaths: []
   ModId: 2830213
-  Version: 1.1.0
+  Version: 1.2.0
   SetLive: 1
-  Description: '[Game version 0.4.9.2]
+  Description: '[Game version 0.5.5]
 
-    Added automatic mode in the settings.
-    This mode is now on per default.'
+    Fixed an issue resulting from the latest
+    update.'
 --- !u!114 &-3931462110823901632
 MonoBehaviour:
   m_ObjectHideFlags: 0
