@@ -14,9 +14,9 @@ namespace ChooChoo
             _resourceAssetLoader = resourceAssetLoader;
         }
         
-        public IEnumerable<Object> GetObjects()
+        public IEnumerable<GameObject> GetObjects()
         {
-            List<Object> list = new List<Object>
+            List<GameObject> list = new List<GameObject>
             {
                 _resourceAssetLoader.Load<GameObject>("tobbert.choochoo/tobbert_choochoo/Train"),
                 _resourceAssetLoader.Load<GameObject>("tobbert.choochoo/tobbert_choochoo/Wagon")

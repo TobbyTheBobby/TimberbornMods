@@ -352,7 +352,6 @@ GameObject:
   - component: {fileID: 5068261943755323801}
   - component: {fileID: 5428281783411589887}
   - component: {fileID: 4788415743777580813}
-  - component: {fileID: 5854636552973474968}
   - component: {fileID: 3868357480441904374}
   - component: {fileID: 2518867606775076956}
   - component: {fileID: 137144700941575449}
@@ -454,19 +453,6 @@ MonoBehaviour:
   - TrackTIntersection1x1
   _requiredFeatureToggle: 
   _disablingFeatureToggle: 
---- !u!114 &5854636552973474968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8200966818214084348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1604455801, guid: fb0076526bca5246b24d6c818d68ce00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _componentCache: {fileID: 0}
 --- !u!114 &3868357480441904374
 MonoBehaviour:
   m_ObjectHideFlags: 0
