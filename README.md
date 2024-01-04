@@ -8,9 +8,9 @@ Welcome to my Timberborn Mods Repository! This repository is a collection of the
 
 ### Prerequisites
 
-Before you start using mods from this repository, make sure you have the following:
+To work on the mods or just play with them, make sure you have the following:
 
-- **Timberborn Game**: Ensure that you have Timberborn installed on your system. Mods are designed to work with specific game versions, so please check compatibility details in each mod's documentation.
+- **Timberborn Game**: Ensure that you have Timberborn installed on your system. Mods are designed to work with specific game versions, so please check compatibility details in each mod's mod.io page. Depending on when you use the mods and the updates of the game, mods will not work. 
 
 - **Mod Loader**: [Here](https://mod.io/g/timberborn/r/how-to-install-mods) you can find a guide on how to setup mods for the game. If you need more help installing mods, you can join the official Timberborn discord. I and many others try to respond to your questions as soon as possible.
 
