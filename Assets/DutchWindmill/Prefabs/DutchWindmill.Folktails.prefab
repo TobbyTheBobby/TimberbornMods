@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4219811955146344602}
   - component: {fileID: 5383853355513652224}
   - component: {fileID: 4318564599807269598}
-  - component: {fileID: 1231912288368695082}
   - component: {fileID: 5529609151682128095}
   - component: {fileID: 5941021604140599527}
   - component: {fileID: 2138373564119312801}
@@ -25,7 +24,6 @@ GameObject:
   - component: {fileID: 3121974704915813129}
   - component: {fileID: 1973065910032734438}
   - component: {fileID: 8868690544960562016}
-  - component: {fileID: 1465625173639742317}
   m_Layer: 0
   m_Name: DutchWindmill.Folktails
   m_TagString: Untagged
@@ -95,25 +93,17 @@ MonoBehaviour:
   _unfinishedModel: {fileID: 2507324931890729040}
   _finishedUncoveredModel: {fileID: 0}
   <IsModelShown>k__BackingField: 0
+  <IsFinishedModelShown>k__BackingField: 0
+  _blockObject: {fileID: 0}
   _constructible: {fileID: 0}
   _showFinishedModel: 0
   _showFinishedUncoveredModel: 0
   _blockUnfinishedModel: 0
   _blockBothModels: 0
   _ignoreModelBlockade: 0
---- !u!114 &1231912288368695082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589452218276890100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1604455801, guid: fb0076526bca5246b24d6c818d68ce00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _componentCache: {fileID: 0}
+  _defaultFinishedPosition: {x: 0, y: 0, z: 0}
+  _defaultUnfinishedPosition: {x: 0, y: 0, z: 0}
+  _defaultFinishedUncoveredPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &5529609151682128095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,6 +418,7 @@ MonoBehaviour:
     _coordinates: {x: 1, y: 0, z: 0}
   _baseZ: 0
   _overridable: 0
+  _flippable: 0
   <Coordinates>k__BackingField: {x: 0, y: 0, z: 0}
   <CoordinatesAtBaseZ>k__BackingField: {x: 0, y: 0, z: 0}
   <Orientation>k__BackingField: 0
@@ -553,21 +544,6 @@ MonoBehaviour:
     <Transform>k__BackingField: {fileID: 0}
   _nonlinearAnimationManager: {fileID: 0}
   _animationSuspended: 0
---- !u!114 &1465625173639742317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589452218276890100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -935546291, guid: 9d9a15fd937d3c3e3eda286523371813, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _componentCache: {fileID: 0}
-  _nonlinearAnimationManager: {fileID: 0}
-  _workshop: {fileID: 0}
 --- !u!1 &2507324931890729040
 GameObject:
   m_ObjectHideFlags: 0
