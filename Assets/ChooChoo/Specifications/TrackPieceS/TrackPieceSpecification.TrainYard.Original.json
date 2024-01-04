@@ -1,0 +1,63 @@
+{
+  "Name": "TrainYard",
+  "TrackRoutes": [
+    {
+      "Entrance": {
+        "Coordinates": {
+          "X": 0,
+          "Y": 2,
+          "Z": 0
+        },
+        "Direction": {
+          "Value": "Down"
+        }
+      },
+      "Exit": {
+        "Coordinates": {
+          "X": 0,
+          "Y": 0,
+          "Z": 0
+        },
+        "Direction": {
+          "Value": "Up"
+        }
+      },
+      "RouteCorners": [
+        {
+          "X": -0.5,
+          "Y": 0,
+          "Z": -1.1
+        }
+      ]
+    },
+    {
+      "Entrance": {
+        "Coordinates": {
+          "X": 0,
+          "Y": 0,
+          "Z": 0
+        },
+        "Direction": {
+          "Value": "Up"
+        }
+      },
+      "Exit": {
+        "Coordinates": {
+          "X": 0,
+          "Y": 2,
+          "Z": 0
+        },
+        "Direction": {
+          "Value": "Down"
+        }
+      },
+      "RouteCorners": [
+        {
+          "X": -0.5,
+          "Y": 0,
+          "Z": 1.1
+        }
+      ]
+    }
+  ]
+}

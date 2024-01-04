@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ChooChoo
 {
-  public class TrackConnectionObjectSerializer : IObjectSerializer<TrackConnection>
+  public class TrackConnectionObjectDeserializer : IObjectSerializer<TrackConnection>
   {
     private static readonly PropertyKey<Vector3Int> CoordinatesKey = new("Coordinates");
     private static readonly PropertyKey<Direction2D> DirectionKey = new("Direction");
@@ -12,7 +12,7 @@ namespace ChooChoo
 
     private readonly EnumObjectSerializer<Direction2D> _direction2DSerializer;
 
-    public TrackConnectionObjectSerializer(EnumObjectSerializer<Direction2D> direction2DSerializer)
+    public TrackConnectionObjectDeserializer(EnumObjectSerializer<Direction2D> direction2DSerializer)
     {
       _direction2DSerializer = direction2DSerializer;
     }
@@ -27,7 +27,9 @@ namespace ChooChoo
 
     public Obsoletable<TrackConnection> Deserialize(IObjectLoader objectLoader)
     {
-      var trackConnection = new TrackConnection(objectLoader.Get(CoordinatesKey), objectLoader.Get(DirectionKey, _direction2DSerializer));
+      var trackConnection = new TrackConnection(
+        objectLoader.Get(CoordinatesKey), 
+        objectLoader.Get(DirectionKey, _direction2DSerializer));
       if (objectLoader.Has(ConnectedTrackPieceKey))
         trackConnection.ConnectedTrackPiece = objectLoader.Get(ConnectedTrackPieceKey);
       return trackConnection;

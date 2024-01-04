@@ -9,6 +9,8 @@ namespace ChooChoo
 {
     public class TrainNavigationService
     {
+        private const bool ShouldLog = false;
+        
         private readonly TrackRouteWeightsCalculator _trackRouteWeightsCalculator;
         
         private readonly TrainDestinationService _trainDestinationService;
@@ -37,14 +39,14 @@ namespace ChooChoo
             if (startTrackPiece == null || endTrackPiece == null) 
                 return false;
             
-            // Plugin.Log.LogWarning("TrackPieces valid");
+            if (ShouldLog) Plugin.Log.LogInfo("TrackPieces valid");
             var startTrainDestination = startTrackPiece.GetComponentFast<TrainDestination>();
             if (!_trainDestinationService.TrainDestinationsConnectedOneWay(startTrainDestination, destination))
             {
-                // Plugin.Log.LogError("Destinations Not Connected");
+                if (ShouldLog) Plugin.Log.LogError("Destinations Not Connected");
                 if (!_trainDestinationService.DestinationReachableOneWay(startTrackPiece, destination))
                 {
-                    // Plugin.Log.LogError("Destinations Unreachable");
+                    if (ShouldLog) Plugin.Log.LogError("Destinations Unreachable");
                     return false;
                 }
             }
@@ -53,8 +55,8 @@ namespace ChooChoo
 
             foreach (var trackRoute in facingDirectionRoutes)
             {
-                // Plugin.Log.LogWarning("Looking in direction: " + trackRoute.Exit.Direction);
-                // Plugin.Log.LogWarning("startTrackPiece == endTrackPiece: "+ (startTrackPiece == endTrackPiece));
+                if (ShouldLog) Plugin.Log.LogWarning("Looking in direction: " + trackRoute.Exit.Direction);
+                if (ShouldLog) Plugin.Log.LogWarning("startTrackPiece == endTrackPiece: "+ (startTrackPiece == endTrackPiece));
                 if (startTrackPiece == endTrackPiece)
                 {
                     tempPathTrackRoutes.Add(trackRoute);
@@ -65,7 +67,7 @@ namespace ChooChoo
                 int distance = 0;
                 var trackRouteWeights = new Dictionary<TrackRoute, int?>(_trackRouteWeightCache.TrackRouteWeights);
                 _trackRouteWeightsCalculator.CalculateTrackRouteWeight(trackRoute, endTrackPiece, trackRouteWeights, distance, ref maxDistance);
-                // Plugin.Log.LogError("Weights calculated");
+                if (ShouldLog) Plugin.Log.LogError("Weights calculated");
                 if (maxDistance == null)
                     continue;
                 var trackRoutes = new List<TrackRoute>();
@@ -76,7 +78,7 @@ namespace ChooChoo
                 return true;
             }
             
-            // Plugin.Log.LogInfo("Couldnt find path");
+            if (ShouldLog) Plugin.Log.LogInfo("Couldnt find path");
             // _stopwatch.Stop();
             // var secondPart = _stopwatch.ElapsedTicks;
             // Plugin.Log.LogWarning("First: " + firstPart + " Second: " + secondPart + " Total: " + (firstPart + secondPart) + " (10.000 Ticks = 1ms)");

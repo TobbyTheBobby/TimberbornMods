@@ -1,4 +1,3 @@
-using Timberborn.BlockSystem;
 using Timberborn.Coordinates;
 using UnityEngine;
 
@@ -21,5 +20,10 @@ namespace ChooChoo
         public TrackPiece ConnectedTrackPiece { get; set; }
         
         public TrackRoute[] ConnectedTrackRoutes { get; set; }
+
+        public TrackConnection CreateCopy()
+        {
+            return new TrackConnection(Coordinates, Direction);
+        }
     }
 }

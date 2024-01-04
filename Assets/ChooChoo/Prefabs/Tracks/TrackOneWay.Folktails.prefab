@@ -388,6 +388,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _componentCache: {fileID: 0}
   _trackDistance: 1
+  TrackRouteSpecifications:
+  - _matterBelow: 0
+    _occupation: 0
+    _stackable: 0
+    _optionallyUnderground: 0
+    _occupyAllBelow: 0
+  - _matterBelow: 0
+    _occupation: 0
+    _stackable: 0
+    _optionallyUnderground: 0
+    _occupyAllBelow: 0
+  - _matterBelow: 0
+    _occupation: 0
+    _stackable: 0
+    _optionallyUnderground: 0
+    _occupyAllBelow: 0
   DividesSection: 0
   Building: {fileID: 7930892333328463455}
   Sign: {fileID: 8230271292405952154}

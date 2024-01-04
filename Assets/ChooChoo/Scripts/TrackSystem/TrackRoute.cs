@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 namespace ChooChoo
@@ -19,5 +20,10 @@ namespace ChooChoo
         public readonly TrackConnection Exit;
         
         public Vector3[] RouteCorners { get; set; }
+
+        public TrackRoute CreateCopy()
+        {
+            return new TrackRoute(Entrance.CreateCopy(), Exit.CreateCopy(), RouteCorners.ToArray());
+        }
     }
 }

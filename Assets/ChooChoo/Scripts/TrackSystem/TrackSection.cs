@@ -35,9 +35,9 @@ public class TrackSection
     
     public void Dissolve(TrackPiece trackPiece)
     {
-        TrackPieces.Remove(trackPiece);
         foreach (var track in TrackPieces)
             track.ResetTrackPiece();
+        TrackPieces.Remove(trackPiece);
         foreach (var track in TrackPieces)
             track.LookForTrackSection();
     }

@@ -1,0 +1,39 @@
+{
+  "Name": "WaitingStation",
+  "TrackRoutes": [
+    {
+      "Entrance": {
+        "Coordinates": {
+          "X": 0,
+          "Y": 0,
+          "Z": 0
+        },
+        "Direction": {
+          "Value": "Up"
+        }
+      },
+      "Exit": {
+        "Coordinates": {
+          "X": 0,
+          "Y": 3,
+          "Z": 0
+        },
+        "Direction": {
+          "Value": "Down"
+        }
+      },
+      "RouteCorners": [
+        {
+          "X": 0,
+          "Y": 0,
+          "Z": -2.0
+        },
+        {
+          "X": 0,
+          "Y": 0,
+          "Z": 1.7
+        }
+      ]
+    }
+  ]
+}

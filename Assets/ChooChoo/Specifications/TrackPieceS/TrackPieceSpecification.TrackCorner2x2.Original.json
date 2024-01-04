@@ -1,0 +1,103 @@
+{
+  "Name": "TrackCorner2x2",
+  "TrackRoutes": [
+    {
+      "Entrance": {
+        "Coordinates": {
+          "X": 1,
+          "Y": 0,
+          "Z": 0
+        },
+        "Direction": {
+          "Value": "Up"
+        }
+      },
+      "Exit": {
+        "Coordinates": {
+          "X": 0,
+          "Y": 1,
+          "Z": 0
+        },
+        "Direction": {
+          "Value": "Right"
+        }
+      },
+      "RouteCorners": [
+        {
+          "X": 0.5,
+          "Y": 0,
+          "Z": -1
+        },
+        {
+          "X": 0.4,
+          "Y": 0,
+          "Z": -0.35
+        },
+        {
+          "X": 0.1,
+          "Y": 0,
+          "Z": 0.1
+        },
+        {
+          "X": -0.35,
+          "Y": 0,
+          "Z": 0.4
+        },
+        {
+          "X": -1,
+          "Y": 0,
+          "Z": 0.5
+        }
+      ]
+    },
+    {
+      "Entrance": {
+        "Coordinates": {
+          "X": 0,
+          "Y": 1,
+          "Z": 0
+        },
+        "Direction": {
+          "Value": "Right"
+        }
+      },
+      "Exit": {
+        "Coordinates": {
+          "X": 1,
+          "Y": 0,
+          "Z": 0
+        },
+        "Direction": {
+          "Value": "Up"
+        }
+      },
+      "RouteCorners": [
+        {
+          "X": -1,
+          "Y": 0,
+          "Z": 0.5
+        },
+        {
+          "X": -0.35,
+          "Y": 0,
+          "Z": 0.4
+        },
+        {
+          "X": 0.1,
+          "Y": 0,
+          "Z": 0.1
+        },
+        {
+          "X": 0.4,
+          "Y": 0,
+          "Z": -0.35
+        },
+        {
+          "X": 0.5,
+          "Y": 0,
+          "Z": -1
+        }
+      ]
+    }
+  ]
+}

@@ -27,7 +27,7 @@ namespace ChooChoo
 
         private BlockObjectCenter _blockObjectCenter;
 
-        private TrackRoute[] _trackConnections;
+        private TrackRoute[] _trackRoutes;
         
         private PositionedTrackConnection[] _positionedTrackConnections;
 
@@ -58,8 +58,8 @@ namespace ChooChoo
         {
             get
             {
-                if (_trackConnections != null && Application.isPlaying) 
-                    return _trackConnections;
+                if (_trackRoutes != null && Application.isPlaying) 
+                    return _trackRoutes;
                 var trackRoutes = _trackArrayProvider.GetConnections(GameObjectFast.name);
                 foreach (var trackRoute in trackRoutes)
                 {
@@ -75,8 +75,8 @@ namespace ChooChoo
                         return  _blockObject.FlipMode.Transform(orientation.TransformInWorldSpace(vector3), 0) + position;
                     }).ToArray();
                 }
-                _trackConnections = trackRoutes;
-                return _trackConnections;
+                _trackRoutes = trackRoutes;
+                return _trackRoutes;
             }
         }
 
@@ -112,9 +112,7 @@ namespace ChooChoo
 
         public void OnPostTransformChanged()
         {
-            _trackRouteWeightCache.Remove(TrackRoutes);
-            _positionedTrackConnections = null;
-            _trackConnections = null;
+            ResetTrackPiece();
         }
 
         public void OnEnterFinishedState()
@@ -162,20 +160,15 @@ namespace ChooChoo
         {
             enabled = false;
             TrackSection.Dissolve(this);
-            _trackRouteWeightCache.Remove(TrackRoutes);
             EventBus.Post(new OnTracksUpdatedEvent());
         }
 
         public void ResetTrackPiece()
         {
+            _trackRouteWeightCache.Remove(TrackRoutes);
             TrackSection = new TrackSection(this);
-            foreach (var trackRoute in TrackRoutes)
-            {
-                trackRoute.Entrance.ConnectedTrackPiece = null;
-                trackRoute.Exit.ConnectedTrackPiece = null;
-                trackRoute.Entrance.ConnectedTrackRoutes = null;
-                trackRoute.Exit.ConnectedTrackRoutes = null;
-            }
+            _trackRoutes = null;
+            _positionedTrackConnections = null;
         }
         
         public void LookForTrackSection()
