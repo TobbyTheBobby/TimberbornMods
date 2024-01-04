@@ -1,6 +1,6 @@
 {
   "Name": "ChooChoo",
-  "Version": "0.8.6",
+  "Version": "0.8.7",
   "UniqueId": "tobbert.choochoo",
   "MinimumApiVersion": "0.5.5",
   "MinimumGameVersion": "0.5.2.0",
@@ -9,7 +9,7 @@
     {
       "Prefix": "tobbert.choochoo",
       "Scenes": [
-        "All"
+        "InGame"
       ]
     }
   ]
