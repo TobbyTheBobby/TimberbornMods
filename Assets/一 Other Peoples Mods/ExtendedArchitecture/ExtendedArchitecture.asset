@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagingPaths: []
   ModId: 2660849
-  Version: 0.4.0
+  Version: 0.4.1
   SetLive: 0
-  Description: '[Game version 0.5.1]
+  Description: '[Game version 0.5.5]
 
-    Updated to work on update 5.'
+    Fixed an issue resulting from the latest
+    update.'
 --- !u!114 &-3931462110823901632
 MonoBehaviour:
   m_ObjectHideFlags: 0

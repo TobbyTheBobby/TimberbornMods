@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 8430808874427591512}
   - component: {fileID: 60543110129476197}
   - component: {fileID: 1908915550622226378}
-  - component: {fileID: 1332381503466014121}
   m_Layer: 0
   m_Name: Elec.ExtendedArchitecture.4x1Arch.IronTeeth
   m_TagString: Untagged
@@ -31,6 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668602528646462413}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,7 +40,6 @@ Transform:
   - {fileID: 668602530014743214}
   - {fileID: 3902939203100304032}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2798115664809762090
 MonoBehaviour:
@@ -54,6 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: -790041461, guid: 1bd6ccb667024f9c2b77daf7f62a4eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _selectionSoundName: Default
   _loopingSoundName: 
   _buildingCost:
@@ -66,6 +66,7 @@ MonoBehaviour:
   _finishableWithBeaversOnSite: 1
   _path: 0
   _drawRangeBoundsOnIt: 0
+  _blockObject: {fileID: 0}
 --- !u!114 &1657559671978582740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,9 +79,22 @@ MonoBehaviour:
   m_Script: {fileID: -460516431, guid: 1bd6ccb667024f9c2b77daf7f62a4eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _finishedModel: {fileID: 668602529670855749}
   _unfinishedModel: {fileID: 668602530014743215}
   _finishedUncoveredModel: {fileID: 3902939203100304039}
+  <IsModelShown>k__BackingField: 0
+  <IsFinishedModelShown>k__BackingField: 0
+  _blockObject: {fileID: 0}
+  _constructible: {fileID: 0}
+  _showFinishedModel: 0
+  _showFinishedUncoveredModel: 0
+  _blockUnfinishedModel: 0
+  _blockBothModels: 0
+  _ignoreModelBlockade: 0
+  _defaultFinishedPosition: {x: 0, y: 0, z: 0}
+  _defaultUnfinishedPosition: {x: 0, y: 0, z: 0}
+  _defaultFinishedUncoveredPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &930634309657076883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,6 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: -731835049, guid: b5f268a4cb31a93ed707a95d3a502b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _prefabName: Elec.ExtendedArchitecture.4x1Arch.IronTeeth
   _backwardCompatiblePrefabNames: []
   _requiredFeatureToggle: 
@@ -109,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 1800879565, guid: c1ff95bb5ae0e8b420075ec58add6f36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _blocksSpecification:
     _size: {x: 4, y: 1, z: 1}
     _blockSpecifications:
@@ -137,6 +153,19 @@ MonoBehaviour:
     _coordinates: {x: 0, y: 0, z: 0}
   _baseZ: 0
   _overridable: 0
+  _flippable: 0
+  <Coordinates>k__BackingField: {x: 0, y: 0, z: 0}
+  <CoordinatesAtBaseZ>k__BackingField: {x: 0, y: 0, z: 0}
+  <Orientation>k__BackingField: 0
+  <Finished>k__BackingField: 0
+  <Preview>k__BackingField: 0
+  <Solid>k__BackingField: 0
+  <GroundOnly>k__BackingField: 0
+  <AboveGround>k__BackingField: 0
+  <AddedToService>k__BackingField: 0
+  _entityService: {fileID: 0}
+  _transformChangeNotifier: {fileID: 0}
+  _blockObjectCenter: {fileID: 0}
 --- !u!114 &8430808874427591512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,10 +178,12 @@ MonoBehaviour:
   m_Script: {fileID: 406104335, guid: 79523a2b71f4fae881a60ad2e723d456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _noAutoWalls: 0
   _generateFloorsOnStackable: 1
   _blockAllEdges: 0
   _addedEdges: []
+  _blockObject: {fileID: 0}
 --- !u!114 &60543110129476197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: -871492198, guid: c1ff95bb5ae0e8b420075ec58add6f36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _toolGroupId: Paths
   _toolOrder: 400
   _layout: 0
@@ -184,22 +216,11 @@ MonoBehaviour:
   m_Script: {fileID: -1115175677, guid: b5f268a4cb31a93ed707a95d3a502b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
   _displayNameLocKey: Elec.ExtendedArchitecture.4x1Arch.DisplayName
   _descriptionLocKey: Elec.ExtendedArchitecture.4x1Arch.Description
   _flavorDescriptionLocKey: Elec.ExtendedArchitecture.4x1Arch.Flavor
   _image: {fileID: 21300000, guid: b44ee21a659942a5ac576364d104c37f, type: 3}
---- !u!114 &1332381503466014121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 668602528646462413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1604455801, guid: fb0076526bca5246b24d6c818d68ce00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &668602529670855749
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,6 +250,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668602529670855749}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -236,7 +258,6 @@ Transform:
   m_Children:
   - {fileID: 1012466643553171471}
   m_Father: {fileID: 668602528646462412}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &668602529670855748
 BoxCollider:
@@ -389,6 +410,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668602530014743215}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -396,7 +418,6 @@ Transform:
   m_Children:
   - {fileID: 885335153271815179}
   m_Father: {fileID: 668602528646462412}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5518412500894629920
 BoxCollider:
@@ -468,6 +489,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3902939203100304039}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -475,7 +497,6 @@ Transform:
   m_Children:
   - {fileID: 3097024353176789756}
   m_Father: {fileID: 668602528646462412}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &906673279472626920
 BoxCollider:
@@ -635,7 +656,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2416733968201007103, guid: 3a644344cc534702a44907d4cb81a7c1, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: b64248bd04e1a004da0e9adbfc99a78a, type: 2}
     - target: {fileID: -927199367670048503, guid: 3a644344cc534702a44907d4cb81a7c1, type: 3}
@@ -706,7 +727,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2416733968201007103, guid: 21a86bfc48b74891b6b693e5cf4b64dd, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: f0673e1fae278014881868c946434506, type: 2}
     - target: {fileID: -927199367670048503, guid: 21a86bfc48b74891b6b693e5cf4b64dd, type: 3}
@@ -777,7 +798,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2416733968201007103, guid: 25944a2120a2429ba0a49b897fd7d862, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: f0673e1fae278014881868c946434506, type: 2}
     - target: {fileID: -927199367670048503, guid: 25944a2120a2429ba0a49b897fd7d862, type: 3}
