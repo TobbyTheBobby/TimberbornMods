@@ -628,7 +628,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _componentCache: {fileID: 0}
   _prefabName: VerticalToStraight.WaterBeavers
-  _backwardCompatiblePrefabNames: []
+  _backwardCompatiblePrefabNames:
+  - VerticalToStraight.Folktails
   _requiredFeatureToggle: 
   _disablingFeatureToggle: 
 --- !u!114 &1492864840959851983

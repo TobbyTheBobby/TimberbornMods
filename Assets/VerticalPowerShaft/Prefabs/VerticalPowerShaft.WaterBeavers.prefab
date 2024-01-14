@@ -272,7 +272,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _componentCache: {fileID: 0}
   _prefabName: VerticalPowerShaft.WaterBeavers
-  _backwardCompatiblePrefabNames: []
+  _backwardCompatiblePrefabNames:
+  - VerticalPowerShaft.Folktails
   _requiredFeatureToggle: 
   _disablingFeatureToggle: 
 --- !u!114 &1523563842628586645

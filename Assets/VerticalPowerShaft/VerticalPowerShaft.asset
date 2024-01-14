@@ -89,12 +89,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagingPaths: []
   ModId: 2519566
-  Version: 1.3.1
+  Version: 1.3.2
   SetLive: 0
   Description: '[Game version 0.5.5]
 
-    Fixed an issue resulting from the latest
-    update.'
+    Fixed an issue where the Water Beaver Versions
+    werent active. '
 --- !u!114 &2590189338767857166
 MonoBehaviour:
   m_ObjectHideFlags: 0
