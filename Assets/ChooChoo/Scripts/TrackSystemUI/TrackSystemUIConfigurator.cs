@@ -1,45 +1,47 @@
 ﻿using Bindito.Core;
-using TimberApi.ConfiguratorSystem;
+using ChooChoo.Debugging;
+using ChooChoo.TrackSystem;
 using TimberApi.SceneSystem;
 using Timberborn.EntityPanelSystem;
 using Timberborn.TemplateSystem;
+using TobbyTools.UsedImplicitlySystem;
 
-namespace ChooChoo
+namespace ChooChoo.TrackSystemUI
 {
-  [Configurator(SceneEntrypoint.InGame)]
-  public class TrackSystemUIConfigurator : IConfigurator
-  {
-    public void Configure(IContainerDefinition containerDefinition)
+    [Configurator(SceneEntrypoint.InGame)]
+    public class TrackSystemUIConfigurator : IConfigurator
     {
-      containerDefinition.Bind<TrackSectionDividerFragment>().AsSingleton();
-      containerDefinition.Bind<TrackPieceDebugger>().AsSingleton();
-      containerDefinition.MultiBind<EntityPanelModule>().ToProvider<EntityPanelModuleProvider>().AsSingleton();
-      containerDefinition.MultiBind<TemplateModule>().ToProvider(ProvideTemplateModule).AsSingleton();
-    }
-    
-    private static TemplateModule ProvideTemplateModule()
-    {
-      TemplateModule.Builder builder = new TemplateModule.Builder();
-      builder.AddDecorator<TrackPiece, TileTrackConnectionMarkerDrawer>();
-      builder.AddDecorator<OneWayTrack, TileTrackConnectionMarkerDrawer>();
-      return builder.Build();
-    }
+        public void Configure(IContainerDefinition containerDefinition)
+        {
+            containerDefinition.Bind<TrackSectionDividerFragment>().AsSingleton();
+            containerDefinition.Bind<TrackPieceDebugger>().AsSingleton();
+            containerDefinition.MultiBind<EntityPanelModule>().ToProvider<EntityPanelModuleProvider>().AsSingleton();
+            containerDefinition.MultiBind<TemplateModule>().ToProvider(ProvideTemplateModule).AsSingleton();
+        }
 
-    private class EntityPanelModuleProvider : IProvider<EntityPanelModule>
-    {
-      private readonly TrackSectionDividerFragment _trackSectionDividerFragment;
+        private static TemplateModule ProvideTemplateModule()
+        {
+            var builder = new TemplateModule.Builder();
+            builder.AddDecorator<TrackPiece, TileTrackConnectionMarkerDrawer>();
+            builder.AddDecorator<OneWayTrack, TileTrackConnectionMarkerDrawer>();
+            return builder.Build();
+        }
 
-      public EntityPanelModuleProvider(TrackSectionDividerFragment trackSectionDividerFragment)
-      {
-        _trackSectionDividerFragment = trackSectionDividerFragment;
-      }
+        private class EntityPanelModuleProvider : IProvider<EntityPanelModule>
+        {
+            private readonly TrackSectionDividerFragment _trackSectionDividerFragment;
 
-      public EntityPanelModule Get()
-      {
-        EntityPanelModule.Builder builder = new EntityPanelModule.Builder();
-        builder.AddMiddleFragment(_trackSectionDividerFragment);
-        return builder.Build();
-      }
+            public EntityPanelModuleProvider(TrackSectionDividerFragment trackSectionDividerFragment)
+            {
+                _trackSectionDividerFragment = trackSectionDividerFragment;
+            }
+
+            public EntityPanelModule Get()
+            {
+                var builder = new EntityPanelModule.Builder();
+                builder.AddMiddleFragment(_trackSectionDividerFragment);
+                return builder.Build();
+            }
+        }
     }
-  }
 }

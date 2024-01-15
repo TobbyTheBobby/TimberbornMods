@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Reflection;
 using System.Reflection.Emit;
 using Bindito.Core;
@@ -7,7 +6,7 @@ using HarmonyLib;
 
 namespace TobbyTools.CustomTutorialSystem
 {
-    [HarmonyPatch]
+    [UsedImplicitlySystem.UsedImplicitlyHarmonyPatch]
     public class TutorialConfigurationProviderPatch
     {
         public static IEnumerable<MethodInfo> TargetMethods()

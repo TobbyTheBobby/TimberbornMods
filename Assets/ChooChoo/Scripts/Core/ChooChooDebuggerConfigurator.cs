@@ -2,7 +2,7 @@
 // using TimberApi.ConfiguratorSystem;
 // using TimberApi.SceneSystem;
 //
-// namespace ChooChoo
+// namespace ChooChoo.Core
 // {
 //     [Configurator(SceneEntrypoint.MainMenu | SceneEntrypoint.InGame)]
 //     public class ChooChooDebuggerConfigurator : IConfigurator

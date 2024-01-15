@@ -1,10 +1,11 @@
 ﻿using Bindito.Core;
-using TimberApi.ConfiguratorSystem;
+using ChooChoo.Trains;
 using TimberApi.SceneSystem;
 using Timberborn.EntityPanelSystem;
 using Timberborn.TemplateSystem;
+using TobbyTools.UsedImplicitlySystem;
 
-namespace ChooChoo
+namespace ChooChoo.TrainsUI
 {
   [Configurator(SceneEntrypoint.InGame)]
   public class TrainsUIConfigurator : IConfigurator
@@ -19,7 +20,7 @@ namespace ChooChoo
     
     private static TemplateModule ProvideTemplateModule()
     {
-      TemplateModule.Builder builder = new TemplateModule.Builder();
+      var builder = new TemplateModule.Builder();
       builder.AddDecorator<Train, TrainEntityBadge>();
       builder.AddDecorator<Train, TrainTypeDropdownProvider>();
       return builder.Build();
@@ -36,7 +37,7 @@ namespace ChooChoo
 
       public EntityPanelModule Get()
       {
-        EntityPanelModule.Builder builder = new EntityPanelModule.Builder();
+        var builder = new EntityPanelModule.Builder();
         builder.AddMiddleFragment(_trainTypeSelectorFragment);
         return builder.Build();
       }

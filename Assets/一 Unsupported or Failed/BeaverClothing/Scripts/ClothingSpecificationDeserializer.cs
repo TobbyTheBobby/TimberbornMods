@@ -1,7 +1,7 @@
 using System;
 using Timberborn.Persistence;
 
-namespace BeaverHats
+namespace BeaverClothing
 {
     public class ClothingSpecificationDeserializer : IObjectSerializer<ClothingSpecification>
     {

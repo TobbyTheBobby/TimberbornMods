@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
-using HarmonyLib;
-using Timberborn.Common;
 
 namespace TobbyTools.InaccessibilityUtilitySystem
 {
@@ -13,43 +11,57 @@ namespace TobbyTools.InaccessibilityUtilitySystem
 
         private const BindingFlags BindingFlags = System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Static;
 
-        public static object InvokeInaccesableMethod(object instance, string methodName, object[] args = null)
-        {
-            var instanceName = instance.GetType().Name;
-            return MethodInfos.GetOrAdd(
-                $"{instanceName}.{methodName}", 
-                () => AccessTools.TypeByName(instanceName).GetMethod(methodName, BindingFlags)).Invoke(instance, args);
-        }
-        
-        public static void SetInaccesibleProperty(object instance, string fieldName, object newValue)
-        {
-            var instanceName = instance.GetType().Name;
-            var key = $"{instanceName}.{fieldName}";
-            var propertyInfo = PropertyInfos.GetOrAdd(key, () => AccessTools.TypeByName(instance.GetType().Name).GetProperty(fieldName, BindingFlags));
-
-            propertyInfo.SetValue(instance, newValue);
-        }
-        
         public static object GetInaccessibleField(object instance, string fieldName)
         {
-            var instanceName = instance.GetType().Name;
-            var key = $"{instanceName}.{fieldName}";
-            if (!FieldInfos.ContainsKey(key))
-            {
-                FieldInfos.Add(key, AccessTools.TypeByName(instanceName).GetField(fieldName, BindingFlags));
-            }
-
-            return FieldInfos[key].GetValue(instance);
+            return GetOrCreateFieldInfo(instance, fieldName).GetValue(instance);
         }
         
         public static void SetInaccessibleField(object instance, string fieldName, object newValue)
         {
-            if (!FieldInfos.ContainsKey(fieldName))
-            {
-                FieldInfos.Add(fieldName, AccessTools.TypeByName(instance.GetType().Name).GetField(fieldName, BindingFlags));
-            }
-
-            FieldInfos[fieldName].SetValue(instance, newValue);
+            GetOrCreateFieldInfo(instance, fieldName).SetValue(instance, newValue);
+        }
+        
+        public static object InvokeInaccessibleMethod(object instance, string methodName, object[] args = null)
+        {
+            var instanceType = instance.GetType();
+            var instanceName = instanceType.Name;
+            var key = $"{instanceName}.{methodName}";
+            MethodInfos.TryAdd(key, instanceType.GetMethod(methodName, BindingFlags));
+            return MethodInfos[key].Invoke(instance, args);
+        }
+        
+        public static object GetInaccessibleProperty(object instance, string propertyName)
+        {
+            return GetOrCreatePropertyInfo(instance, propertyName).GetValue(instance);
+        }
+        
+        public static void SetInaccessibleProperty(object instance, string propertyName, object newValue)
+        {
+            GetOrCreatePropertyInfo(instance, propertyName).SetValue(instance, newValue);
+        }
+        
+        private static FieldInfo GetOrCreateFieldInfo(object instance, string fieldName)
+        {
+            var instanceType = instance.GetType();
+            var instanceName = instanceType.Name;
+            var key = $"{instanceName}.{fieldName}";
+            if (FieldInfos.TryGetValue(key, out var fieldInfo)) 
+                return fieldInfo;
+            fieldInfo = instanceType.GetField(fieldName, BindingFlags);
+            FieldInfos.TryAdd(key, fieldInfo);
+            return fieldInfo;
+        }
+        
+        private static PropertyInfo GetOrCreatePropertyInfo(object instance, string propertyName)
+        {
+            var instanceType = instance.GetType();
+            var instanceName = instanceType.Name;
+            var key = $"{instanceName}.{propertyName}";
+            if (PropertyInfos.TryGetValue(key, out var fieldInfo)) 
+                return fieldInfo;
+            fieldInfo = instanceType.GetProperty(propertyName, BindingFlags);
+            PropertyInfos.TryAdd(key, fieldInfo);
+            return fieldInfo;
         }
     }
 }

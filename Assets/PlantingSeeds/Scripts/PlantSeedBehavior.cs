@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Bindito.Core;
 using Timberborn.AssetSystem;
 using Timberborn.BaseComponentSystem;
@@ -9,12 +8,8 @@ using Timberborn.Buildings;
 using Timberborn.Carrying;
 using Timberborn.Common;
 using Timberborn.ConstructionSites;
-using Timberborn.Coordinates;
-using Timberborn.EntitySystem;
-using Timberborn.GameDistricts;
 using Timberborn.Goods;
 using Timberborn.InventorySystem;
-using Timberborn.Navigation;
 using Timberborn.Planting;
 using Timberborn.PrefabSystem;
 using Timberborn.WorkSystem;
@@ -84,19 +79,19 @@ namespace PlantingSeeds
             var plantingSeedComponent = _prefabNameMapper.GetPrefab(plantId).GetComponentFast<PlantingSeedComponent>();
             if (plantingSeedComponent == null)
                 return true;
-            var receivingInventory = _constructionFactory.CreateAsFinished(SeedsPrefab, coordinates, Orientation.Cw0).GetComponentFast<SeedReceiver>().Inventory;
-            receivingInventory.GetComponentFast<EntityComponent>().Start();
-            // Plugin.Log.LogInfo((_carrierInventoryFinder == null) + "");
-            // Plugin.Log.LogInfo((plantingSeedComponent == null) + "");
-            // Plugin.Log.LogInfo((receivingInventory == null) + "");
-            var givingInventory = _worker.Workplace.GetComponentFast<DistrictBuilding>().District.GetComponentFast<DistrictInventoryPicker>().ClosestInventoryWithStock(_worker.Workplace.GetComponentFast<Accessible>(), plantingSeedComponent.GoodId, _ => true);
-            
-            // if (_carrierInventoryFinder.TryCarryFromAnyInventoryLimited(plantingSeedComponent.GoodId, inventory, plantingSeedComponent.GoodAmount))
-            if (givingInventory != null && TryReserveInventories(plantingSeedComponent.GoodId, receivingInventory, givingInventory, plantingSeedComponent.GoodAmount))
-            {
-                decision = Decision.ReleaseNextTick();
-                return false;
-            }
+            // var receivingInventory = _constructionFactory.CreateAsFinished(SeedsPrefab, coordinates, Orientation.Cw0).GetComponentFast<SeedReceiver>().Inventory;
+            // receivingInventory.GetComponentFast<EntityComponent>().Start();
+            // // Plugin.Log.LogInfo((_carrierInventoryFinder == null) + "");
+            // // Plugin.Log.LogInfo((plantingSeedComponent == null) + "");
+            // // Plugin.Log.LogInfo((receivingInventory == null) + "");
+            // var givingInventory = _worker.Workplace.GetComponentFast<DistrictBuilding>().District.GetComponentFast<DistrictInventoryPicker>().ClosestInventoryWithStock(_worker.Workplace.GetComponentFast<Accessible>(), plantingSeedComponent.GoodId, _ => true);
+            //
+            // // if (_carrierInventoryFinder.TryCarryFromAnyInventoryLimited(plantingSeedComponent.GoodId, inventory, plantingSeedComponent.GoodAmount))
+            // if (givingInventory != null && TryReserveInventories(plantingSeedComponent.GoodId, receivingInventory, givingInventory, plantingSeedComponent.GoodAmount))
+            // {
+            //     decision = Decision.ReleaseNextTick();
+            //     return false;
+            // }
             
             return false;
         }

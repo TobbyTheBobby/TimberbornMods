@@ -18,7 +18,8 @@ MonoBehaviour:
   Name: ChooChoo
   Description: 
   Version: 
-  Dependencies: []
+  Dependencies:
+  - {fileID: 11400000, guid: 341623cfe39dc284498271e2322ca4b1, type: 2}
 --- !u!114 &-1800585617083543040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,13 +70,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagingPaths: []
   ModId: 2671489
-  Version: 0.8.8
+  Version: 0.8.9
   SetLive: 0
-  Description: "[Game version 0.5.5]\nTrackPieces now use specifications. This means
-    its more easy to add external mods that add tracks. \nFixed a massive bug which
-    was often causing trains to randomly stop moving. \nAdded several debugging tools.
-    \nMoved passenger station to Dev Mode to discourage the building while working
-    on an improved system. "
+  Description: "[Game version 0.5.5]\nCleanup the whole codebase. \nAdded TobbyTools
+    as requirement"
 --- !u!114 &2590189338767857166
 MonoBehaviour:
   m_ObjectHideFlags: 0

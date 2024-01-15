@@ -4,7 +4,7 @@ using HarmonyLib;
 
 namespace TobbyTools
 {
-    [HarmonyPatch]
+    [UsedImplicitlySystem.UsedImplicitlyHarmonyPatch]
     public class BuildingSpecificationConfiguratorPatch
     {
         static MethodInfo TargetMethod()

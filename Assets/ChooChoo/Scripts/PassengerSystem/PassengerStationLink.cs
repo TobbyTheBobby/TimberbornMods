@@ -1,21 +1,21 @@
-﻿namespace ChooChoo
+﻿namespace ChooChoo.PassengerSystem
 {
-  public class PassengerStationLink
-  {
-    public readonly PassengerStation StartLinkPoint;
-    public readonly PassengerStation EndLinkPoint;
-    public readonly float WaitingTimeInHours;
-
-    public PassengerStationLink(
-      PassengerStation startLinkPoint,
-      PassengerStation endLinkPoint,
-      float waitingTimeInHours)
+    public class PassengerStationLink
     {
-      StartLinkPoint = startLinkPoint;
-      EndLinkPoint = endLinkPoint;
-      WaitingTimeInHours = waitingTimeInHours;
-    }
+        public readonly PassengerStation StartLinkPoint;
+        public readonly PassengerStation EndLinkPoint;
+        public readonly float WaitingTimeInHours;
 
-    public bool ValidLink() => StartLinkPoint != null && StartLinkPoint.enabled && EndLinkPoint != null && EndLinkPoint.enabled;
-  }
+        public PassengerStationLink(
+            PassengerStation startLinkPoint,
+            PassengerStation endLinkPoint,
+            float waitingTimeInHours)
+        {
+            StartLinkPoint = startLinkPoint;
+            EndLinkPoint = endLinkPoint;
+            WaitingTimeInHours = waitingTimeInHours;
+        }
+
+        public bool ValidLink() => StartLinkPoint != null && StartLinkPoint.enabled && EndLinkPoint != null && EndLinkPoint.enabled;
+    }
 }

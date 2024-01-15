@@ -1,7 +1,6 @@
-﻿namespace ChooChoo
+﻿namespace ChooChoo.PassengerSystem
 {
-  public class OnConnectedPassengerStationsUpdated
-  {
-    
-  }
+    public class OnConnectedPassengerStationsUpdated
+    {
+    }
 }

@@ -4,7 +4,7 @@ using TimberApi.ConsoleSystem;
 using TimberApi.ModSystem;
 using UnityEngine;
 
-namespace CustomCursors
+namespace Bucket
 {
     public class Plugin : IModEntrypoint
     {
@@ -23,12 +23,12 @@ namespace CustomCursors
     [HarmonyPatch]
     public class SettingsPatch
     {
-        static MethodInfo TargetMethod()
+        private static MethodInfo TargetMethod()
         {
             return AccessTools.Method(AccessTools.TypeByName("StockpileBannerSetter"), "Awake");
         }
         
-        static void Postfix(ref MeshRenderer ____meshRenderer)
+        private static void Postfix(ref MeshRenderer ____meshRenderer)
         {
             ____meshRenderer = ____meshRenderer.GetComponentInChildren<MeshRenderer>();
         }

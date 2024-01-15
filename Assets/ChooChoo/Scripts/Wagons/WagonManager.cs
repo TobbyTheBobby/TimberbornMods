@@ -1,48 +1,44 @@
 using System.Collections.Generic;
 using Bindito.Core;
+using ChooChoo.ModelSystem;
+using ChooChoo.TrainYards;
 using Timberborn.BaseComponentSystem;
 using Timberborn.EntitySystem;
 using Timberborn.Persistence;
 
-namespace ChooChoo
+namespace ChooChoo.Wagons
 {
     public class WagonManager : BaseComponent, IDeletableEntity, IPersistentEntity
     {
         private static readonly ComponentKey TrainWagonManagerKey = new(nameof(TrainYard));
-
         private static readonly ListKey<TrainWagon> WagonsKey = new("TrainWagons");
 
-        private EntityService _entityService;
-
         private WagonsObjectSerializer _wagonsObjectSerializer;
-
         private WagonInitializer _wagonInitializer;
-
-        private WagonModelManager _wagonModelManager;
+        private EntityService _entityService;
 
         public List<TrainWagon> Wagons { get; private set; }
 
         public int MinimumNumberOfWagons = 2;
-        
+
         public int MaximumNumberOfWagons = 4;
 
         [Inject]
         public void InjectDependencies(
-            EntityService entityService, 
             WagonsObjectSerializer wagonsObjectSerializer,
-            WagonInitializer wagonInitializer)
+            WagonInitializer wagonInitializer,
+            EntityService entityService)
         {
-            _entityService = entityService;
             _wagonsObjectSerializer = wagonsObjectSerializer;
             _wagonInitializer = wagonInitializer;
+            _entityService = entityService;
         }
 
         public void Start()
         {
-            if (Wagons == null)
-                InitializeWagons();
+            Wagons ??= CreateWagons();
             SetObjectToFollow();
-            foreach (var trainWagon in Wagons) 
+            foreach (var trainWagon in Wagons)
                 trainWagon.Train = this;
         }
 
@@ -69,17 +65,18 @@ namespace ChooChoo
 
         public void SetObjectToFollow()
         {
-            for (int i = Wagons.Count - 1; i > 0; i--)
-                Wagons[i].InitializeObjectFollower(Wagons[i - 1].TransformFast, Wagons[i - 1].GetComponentFast<WagonModelManager>().ActiveWagonModel.WagonModelSpecification.Length);
+            for (var i = Wagons.Count - 1; i > 0; i--)
+                Wagons[i].InitializeObjectFollower(Wagons[i - 1].TransformFast,
+                    Wagons[i - 1].GetComponentFast<WagonModelManager>().ActiveWagonModel.WagonModelSpecification.Length);
             Wagons[0].InitializeObjectFollower(TransformFast, GetComponentFast<TrainModelManager>().ActiveTrainModel.TrainModelSpecification.Length);
         }
 
-        private void InitializeWagons()
+        private List<TrainWagon> CreateWagons()
         {
             var trainWagons = new List<TrainWagon>();
-            for (int i = 0; i < MaximumNumberOfWagons; i++)
+            for (var i = 0; i < MaximumNumberOfWagons; i++)
                 trainWagons.Add(_wagonInitializer.InitializeWagon(this, i));
-            Wagons = trainWagons;
+            return trainWagons;
         }
     }
 }

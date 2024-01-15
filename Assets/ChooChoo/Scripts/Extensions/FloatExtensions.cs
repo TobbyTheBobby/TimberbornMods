@@ -1,7 +1,7 @@
 using System;
 using Timberborn.Coordinates;
 
-namespace ChooChoo
+namespace ChooChoo.Extensions
 {
     public static class FloatExtensions
     {
@@ -9,13 +9,13 @@ namespace ChooChoo
         {
             if (@float is <= 45 or > 315)
                 return Direction2D.Down;
-            if (@float > 225) 
+            if (@float > 225)
                 return Direction2D.Right;
-            if (@float > 135 ) 
+            if (@float > 135)
                 return Direction2D.Up;
-            if (@float > 45) 
+            if (@float > 45)
                 return Direction2D.Left;
-            
+
             throw new ArgumentOutOfRangeException(nameof(@float), @float, null);
         }
     }

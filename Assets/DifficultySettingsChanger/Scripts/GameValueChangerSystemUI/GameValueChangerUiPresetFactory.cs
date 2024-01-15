@@ -87,10 +87,9 @@ namespace DifficultySettingsChanger
                         throw new ArgumentOutOfRangeException($"UiTemplate for type '{gameValueChanger.FieldRef.Value.GetType()}' is not supported.");
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Plugin.Log.LogError("Something went wrong during UI generation. Check to make sure you are using the correct preset.");
-                throw e;
+                throw new Exception("Something went wrong during UI generation. Check to make sure you are using the correct preset.");
             }
         }
         

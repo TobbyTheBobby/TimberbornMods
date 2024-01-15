@@ -5,7 +5,6 @@ using Timberborn.BehaviorSystem;
 using Timberborn.Carrying;
 using Timberborn.InventorySystem;
 using Timberborn.Navigation;
-using Timberborn.Planting;
 
 namespace PlantingSeeds
 {

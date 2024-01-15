@@ -1,15 +1,17 @@
+using ChooChoo.Extensions;
 using Timberborn.Coordinates;
+using TobbyTools.Extensions;
 using UnityEngine;
 
-namespace ChooChoo
+namespace ChooChoo.TrackSystem
 {
     public class PositionedTrackConnection
     {
         public Vector3Int Coordinates { get; }
 
         public Direction2D Direction2D { get; }
-        
-        public PositionedTrackConnection(Vector3Int coordinate, Direction2D direction2D)
+
+        private PositionedTrackConnection(Vector3Int coordinate, Direction2D direction2D)
         {
             Coordinates = coordinate;
             Direction2D = direction2D;
@@ -20,11 +22,10 @@ namespace ChooChoo
             Vector3Int coordinates,
             Orientation orientation)
         {
-            Vector3Int coordinates1 = specification.Coordinates;
-            Direction2D direction2D = orientation.Transform(specification.Direction.ToOppositeDirection());
-            Vector3Int coordinates2 = coordinates;
-            int num = (int) orientation;
-            return new PositionedTrackConnection(BlockCalculations.Transform(coordinates1, coordinates2, (Orientation) num), direction2D);
+            var coordinates1 = specification.Coordinates;
+            var direction2D = orientation.Transform(specification.Direction.ToOppositeDirection());
+            var num = (int)orientation;
+            return new PositionedTrackConnection(BlockCalculations.Transform(coordinates1, coordinates, (Orientation)num), direction2D);
         }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ChooChoo
+namespace ChooChoo.ModelSystem
 {
     public class TrainModel
     {

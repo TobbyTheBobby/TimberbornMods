@@ -1,7 +1,7 @@
 using System;
 using Timberborn.Persistence;
 
-namespace TobbyTools.TextureReplacementTool
+namespace TobbyTools.TextureReplacementSystem
 {
     public class ReplaceTextureSpecificationDeserializer : IObjectSerializer<ReplaceTextureSpecification>
     {

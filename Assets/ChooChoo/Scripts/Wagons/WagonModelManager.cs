@@ -1,10 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using Bindito.Core;
+using ChooChoo.Core;
+using ChooChoo.ModelSystem;
+using ChooChoo.Settings;
 using Timberborn.BaseComponentSystem;
 using Timberborn.Persistence;
 
-namespace ChooChoo
+namespace ChooChoo.Wagons
 {
     public class WagonModelManager : BaseComponent, IPersistentEntity
     {

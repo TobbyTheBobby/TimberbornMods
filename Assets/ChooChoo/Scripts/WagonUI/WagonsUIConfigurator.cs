@@ -1,11 +1,12 @@
 ﻿using Bindito.Core;
-using ChooChoo;
-using TimberApi.ConfiguratorSystem;
+using ChooChoo.TrainsUI;
+using ChooChoo.Wagons;
 using TimberApi.SceneSystem;
 using Timberborn.EntityPanelSystem;
 using Timberborn.TemplateSystem;
+using TobbyTools.UsedImplicitlySystem;
 
-namespace GlobalMarket
+namespace ChooChoo.WagonUI
 {
   [Configurator(SceneEntrypoint.InGame)]
   public class WagonsUIConfigurator : IConfigurator
@@ -19,7 +20,7 @@ namespace GlobalMarket
     
     private static TemplateModule ProvideTemplateModule()
     {
-      TemplateModule.Builder builder = new TemplateModule.Builder();
+      var builder = new TemplateModule.Builder();
       builder.AddDecorator<TrainWagon, TrainEntityBadge>();
       builder.AddDecorator<TrainWagon, WagonTypeDropdownProvider>();
       builder.AddDecorator<WagonManager, TrainWagonsGoodsManager>();
@@ -38,7 +39,7 @@ namespace GlobalMarket
 
       public EntityPanelModule Get()
       {
-        EntityPanelModule.Builder builder = new EntityPanelModule.Builder();
+        var builder = new EntityPanelModule.Builder();
         builder.AddBottomFragment(_wagonTypeSelectorFragment);
         return builder.Build();
       }

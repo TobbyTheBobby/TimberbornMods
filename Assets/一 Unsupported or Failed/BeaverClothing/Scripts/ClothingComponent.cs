@@ -8,7 +8,7 @@ using Timberborn.Bots;
 using Timberborn.WorkSystem;
 using UnityEngine;
 
-namespace BeaverHats
+namespace BeaverClothing
 {
     public class ClothingComponent : BaseComponent
     {
@@ -26,12 +26,12 @@ namespace BeaverHats
             _beaverClothingService = beaverClothingService;
         }
 
-        void Awake()
+        private void Awake()
         {
             _beaverClothingService.InitiateClothing(GameObjectFast);
         }
 
-        void Start()
+        private void Start()
         {
             foreach (var specification in _beaverClothingService.ClothingSpecifications)
             {

@@ -1,4 +1,5 @@
 ﻿using Bindito.Core;
+using ChooChoo.TrackSystem;
 using Timberborn.BaseComponentSystem;
 using Timberborn.BlockSystem;
 using Timberborn.ConstructibleSystem;
@@ -7,19 +8,18 @@ using Timberborn.Persistence;
 using Timberborn.SingletonSystem;
 using UnityEngine;
 
-namespace ChooChoo
+namespace ChooChoo.PassengerSystem
 {
     public class PassengerStationDistrictObject : BaseComponent, IFinishedStateListener, IPersistentEntity
     {
         private static readonly ComponentKey PassengerStationDistrictObjectKey = new(nameof(PassengerStationDistrictObject));
         private static readonly PropertyKey<bool> GoesAcrossDistrictKey = new("GoesAcrossDistrict");
-        
-        [SerializeField]
-        private Vector3Int _coordinateOffset;
+
+        [SerializeField] private Vector3Int _coordinateOffset;
         private IDistrictService _districtService;
         private EventBus _eventBus;
         private BlockObject _blockObject;
-        
+
         public bool GoesAcrossDistrict { get; private set; }
 
         [Inject]
@@ -40,7 +40,7 @@ namespace ChooChoo
         {
             entitySaver.GetComponent(PassengerStationDistrictObjectKey).Set(GoesAcrossDistrictKey, GoesAcrossDistrict);
         }
-        
+
         public void Load(IEntityLoader entityLoader)
         {
             if (!entityLoader.HasComponent(PassengerStationDistrictObjectKey))
@@ -49,7 +49,7 @@ namespace ChooChoo
                 return;
             UpdateDistrictObject(entityLoader.GetComponent(PassengerStationDistrictObjectKey).Get(GoesAcrossDistrictKey));
         }
-        
+
         public void OnEnterFinishedState()
         {
             enabled = true;
@@ -59,7 +59,7 @@ namespace ChooChoo
         {
             enabled = false;
         }
-        
+
         public void UpdateDistrictObject(bool newValue)
         {
             if (GoesAcrossDistrict == false && newValue == false)
@@ -74,6 +74,7 @@ namespace ChooChoo
             {
                 Disable();
             }
+
             _eventBus.Post(new OnTracksUpdatedEvent());
         }
 

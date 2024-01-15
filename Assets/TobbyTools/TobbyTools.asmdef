@@ -4,7 +4,7 @@
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
-    "allowUnsafeCode": false,
+    "allowUnsafeCode": true,
     "overrideReferences": true,
     "precompiledReferences": [
         "BepInEx.dll",
@@ -57,7 +57,9 @@
         "Timberborn.BehaviorSystem.dll",
         "Timberborn.Carrying.dll",
         "Timberborn.InventorySystem.dll",
-        "Timberborn.Coordinates.dll"
+        "Timberborn.Coordinates.dll",
+        "Timberborn.Meshy.dll",
+        "Timberborn.ConstructibleSystem.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],

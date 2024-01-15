@@ -88,6 +88,8 @@ namespace DifficultySettingsChanger
             if (gameValueChanger is CollectionSaveableGameValueChanger collectionSaveableGameValueChanger)
             {
                 Plugin.Log.LogInfo("Saving CollectionSaveableGameValueChanger");
+
+                var shouldSave = false;
                 
                 var values = new List<GameValueSpecification>();
                 foreach (var valueChanger in collectionSaveableGameValueChanger.GameValueChangers)
@@ -100,15 +102,17 @@ namespace DifficultySettingsChanger
                                        // valueChanger.ClassName + " " + valueChanger.FieldName + "   " +
                                        // valueChanger.SerializedInitialValue + "   " + valueChanger.FieldRef.Value);
             
-                    if (gameValueSpecification == null)
-                        continue;
-            
                     // Plugin.Log.LogWarning("Value added");
             
                     values.Add(gameValueSpecification);
+                    
+                    if (gameValueSpecification == null)
+                        continue;
+                    
+                    shouldSave = true;
                 }
             
-                if (!values.Any())
+                if (!shouldSave)
                     return null;
             
                 return new GameValueSpecification(
@@ -200,21 +204,21 @@ namespace DifficultySettingsChanger
 
             if (saveableGameValueChanger is CollectionSaveableGameValueChanger collectionSaveableGameValueChanger)
             {
-                var fieldGameValueSpecifications = (List<GameValueSpecification>)gameValueSpecification.Value;
-
-                if (!fieldGameValueSpecifications.Any())
-                    return;
-
-                collectionSaveableGameValueChanger.ClearCollection();
-                foreach (var fieldGameValueSpecification in fieldGameValueSpecifications)
-                {
-                    
-                    var test = collectionSaveableGameValueChanger.AddItem();
-
-                    UpdateValues(new[] { test }, fieldGameValueSpecification);
-
-                }
-                // collectionSaveableGameValueChanger.UpdateCollection();
+                // var fieldGameValueSpecifications = (List<GameValueSpecification>)gameValueSpecification.Value;
+                //
+                // if (!fieldGameValueSpecifications.Any())
+                //     return;
+                //
+                // collectionSaveableGameValueChanger.ClearCollection();
+                // foreach (var fieldGameValueSpecification in fieldGameValueSpecifications)
+                // {
+                //     
+                //     var test = collectionSaveableGameValueChanger.AddItem();
+                //
+                //     UpdateValues(new[] { test }, fieldGameValueSpecification);
+                //
+                // }
+                // // collectionSaveableGameValueChanger.UpdateCollection();
                 return;
             }
             

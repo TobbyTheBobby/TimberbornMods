@@ -1,15 +1,18 @@
 using System;
 using Timberborn.Persistence;
 
-namespace ChooChoo
+namespace ChooChoo.ModelSystem
 {
     public class WagonModelSpecificationDeserializer : IObjectSerializer<WagonModelSpecification>
     {
-        public void Serialize(WagonModelSpecification value, IObjectSaver objectSaver) => throw new NotSupportedException();
+        public void Serialize(WagonModelSpecification value, IObjectSaver objectSaver)
+        {
+            throw new NotSupportedException();
+        }
 
         public Obsoletable<WagonModelSpecification> Deserialize(IObjectLoader objectLoader)
         {
-            return (Obsoletable<WagonModelSpecification>) new WagonModelSpecification(
+            return (Obsoletable<WagonModelSpecification>)new WagonModelSpecification(
                 objectLoader.Get(new PropertyKey<string>("Faction")),
                 objectLoader.Get(new PropertyKey<string>("NameLocKey")),
                 objectLoader.Get(new PropertyKey<string>("ModelLocation")),

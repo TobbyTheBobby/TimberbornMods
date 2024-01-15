@@ -1,12 +1,15 @@
 using System.Collections.Generic;
 using System.Linq;
+using ChooChoo.Extensions;
+using ChooChoo.GoodsStations;
+using ChooChoo.NavigationSystem;
+using Timberborn.BaseComponentSystem;
 using Timberborn.Goods;
 using Timberborn.InventorySystem;
-using UnityEngine;
 
-namespace ChooChoo
+namespace ChooChoo.Wagons
 {
-    public class TrainWagonsGoodsManager : MonoBehaviour
+    public class TrainWagonsGoodsManager : BaseComponent
     {
         private List<TrainWagonGoodsManager> Wagons { get; } = new();
         public List<TrainWagonGoodsManager> MostRecentWagons { get; } = new();
@@ -14,16 +17,16 @@ namespace ChooChoo
         public bool IsCarrying => Wagons.Any(wagon => wagon.IsCarrying);
 
         public bool IsFullOrReserved => MostRecentWagons.All(wagon => wagon.IsFullOrReserved);
-        
+
         public bool IsCarryingOrReserved => MostRecentWagons.Any(wagon => wagon.IsCarryingOrReserved);
 
         public bool HasReservedCapacity => MostRecentWagons.Any(wagon => wagon.HasReservedCapacity);
-        
+
         public bool HasReservedStock => MostRecentWagons.Any(wagon => wagon.HasReservedStock);
 
         private void Start()
         {
-            foreach (var trainWagon in GetComponent<WagonManager>().Wagons)
+            foreach (var trainWagon in GetComponentFast<WagonManager>().Wagons)
             {
                 var trainWagonGoodsManager = trainWagon.GetComponentFast<TrainWagonGoodsManager>();
                 Wagons.Add(trainWagonGoodsManager);
@@ -34,11 +37,12 @@ namespace ChooChoo
         // Important to remember that reserving can be from a different inventory every time. So the stock reservation might be from a different inventory.
         public void TryReservingGood(GoodAmount goodAmount, GoodsStation sendingGoodsStation, GoodsStation receivingGoodsStation)
         {
-            int remainingToBeReservedAmount = goodAmount.Amount;
-            
+            var remainingToBeReservedAmount = goodAmount.Amount;
+
             foreach (var currentWagon in Wagons)
             {
-                if (currentWagon.TryReservingGood(goodAmount, sendingGoodsStation.SendingInventory, receivingGoodsStation.ReceivingInventory, ref remainingToBeReservedAmount))
+                if (currentWagon.TryReservingGood(goodAmount, sendingGoodsStation.SendingInventory, receivingGoodsStation.ReceivingInventory,
+                        ref remainingToBeReservedAmount))
                 {
                     MostRecentWagons.MoveItemToFront(currentWagon);
                 }
@@ -51,7 +55,7 @@ namespace ChooChoo
 
         public void TryDeliveringGoods(Inventory currentInvetory)
         {
-            foreach (var trainWagon in Wagons) 
+            foreach (var trainWagon in Wagons)
                 trainWagon.TryDeliveringGoods(currentInvetory);
         }
 
@@ -66,7 +70,7 @@ namespace ChooChoo
             foreach (var trainWagon in Wagons)
                 trainWagon.GoodReserver.UnreserveCapacity();
         }
-        
+
         public void UnreserveStock()
         {
             foreach (var trainWagon in Wagons)
@@ -75,7 +79,7 @@ namespace ChooChoo
 
         public void TryRetrievingGoods(TrainDestination destination)
         {
-            foreach (var trainWagon in Wagons) 
+            foreach (var trainWagon in Wagons)
                 trainWagon.TryRetrievingGoods(destination);
         }
     }

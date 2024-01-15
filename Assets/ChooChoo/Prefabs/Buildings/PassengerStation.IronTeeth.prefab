@@ -496,11 +496,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _componentCache: {fileID: 0}
-  teleportationEdge: {x: 0, y: 0, z: 0}
-  movementSpeedMultiplier: 1
-  uiEnabled: 1
-  connectsTwoWay: 0
-  maxPassengers: 20
+  _teleportationEdge: {x: 0, y: 0, z: 0}
+  _movementSpeedMultiplier: 1
+  _uiEnabled: 1
+  _connectsTwoWay: 0
+  _maxPassengers: 20
 --- !u!114 &8489360619482367317
 MonoBehaviour:
   m_ObjectHideFlags: 0

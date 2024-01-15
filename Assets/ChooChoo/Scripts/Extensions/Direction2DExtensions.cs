@@ -1,7 +1,7 @@
 using System;
 using Timberborn.Coordinates;
 
-namespace ChooChoo
+namespace ChooChoo.Extensions
 {
     public static class Direction2DExtensions
     {
@@ -18,10 +18,10 @@ namespace ChooChoo
                 case Direction2D.Right:
                     return Direction2D.Left;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof (direction2D), direction2D, null);
+                    throw new ArgumentOutOfRangeException(nameof(direction2D), direction2D, null);
             }
         }
-        
+
         public static Direction2D CorrectedNext(this Direction2D direction2D)
         {
             switch (direction2D)
@@ -35,7 +35,7 @@ namespace ChooChoo
                 case Direction2D.Left:
                     return Direction2D.Down;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof (direction2D), (object) direction2D, (string) null);
+                    throw new ArgumentOutOfRangeException(nameof(direction2D), direction2D, null);
             }
         }
     }

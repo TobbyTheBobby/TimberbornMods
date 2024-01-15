@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace BeaverHats
+namespace BeaverClothing
 {
     public class Clothing {
         public string Name { get; set; }

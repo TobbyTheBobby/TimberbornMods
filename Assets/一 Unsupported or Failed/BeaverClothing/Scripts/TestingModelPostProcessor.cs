@@ -1,6 +1,6 @@
 ﻿using Timberborn.Meshy;
 
-namespace BeaverHats
+namespace BeaverClothing
 {
     public class TestingModelPostProcessor : IModelPostprocessor
     {

@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _componentCache: {fileID: 0}
-  YRotationSpeedMultiplier: 2
+  _yRotationSpeedMultiplier: 2
 --- !u!114 &198264892705508533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,7 +269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c37558375147491f8ec2380b432cc54d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MeshyObject: {fileID: 4375421198014416642}
+  _componentCache: {fileID: 0}
+  _meshyObject: {fileID: 4375421198014416642}
 --- !u!1 &4375421198014416642
 GameObject:
   m_ObjectHideFlags: 0

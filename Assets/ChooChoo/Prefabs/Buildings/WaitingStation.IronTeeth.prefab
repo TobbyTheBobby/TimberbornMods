@@ -388,7 +388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _componentCache: {fileID: 0}
   _trackDistance: 3
-  DividesSection: 1
+  _dividesSection: 1
 --- !u!114 &8090384878591098087
 MonoBehaviour:
   m_ObjectHideFlags: 0

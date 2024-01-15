@@ -1,17 +1,19 @@
 using System.Collections.Generic;
-using UnityEngine;
+using ChooChoo.MovementSystem;
+using ChooChoo.TrackSystem;
+using Timberborn.BaseComponentSystem;
 
-namespace ChooChoo
+namespace ChooChoo.Wagons
 {
-    public class WagonMovementController : MonoBehaviour
+    public class WagonMovementController : BaseComponent
     {
         private WagonManager _wagonManager;
-        
+
         private void Awake()
         {
-            _wagonManager = GetComponent<WagonManager>();
+            _wagonManager = GetComponentFast<WagonManager>();
         }
-        
+
         public void SetNewPathConnections(ITrackFollower trackFollower, List<TrackRoute> pathConnections)
         {
             var trainWagons = _wagonManager.Wagons;
@@ -30,7 +32,7 @@ namespace ChooChoo
                 trainWagon.Move();
             }
         }
-        
+
         public void StopWagons()
         {
             foreach (var trainWagon in _wagonManager.Wagons)

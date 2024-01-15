@@ -1,13 +1,13 @@
 using System;
 using Timberborn.Persistence;
 
-namespace ChooChoo
+namespace ChooChoo.TrackSystem
 {
     public class TrackPieceSpecificationDeserializer : IObjectSerializer<TrackPieceSpecification>
     {
         private readonly TrackRouteObjectDeserializer _trackRouteObjectDeserializer;
-        
-        TrackPieceSpecificationDeserializer(TrackRouteObjectDeserializer trackRouteObjectDeserializer)
+
+        private TrackPieceSpecificationDeserializer(TrackRouteObjectDeserializer trackRouteObjectDeserializer)
         {
             _trackRouteObjectDeserializer = trackRouteObjectDeserializer;
         }

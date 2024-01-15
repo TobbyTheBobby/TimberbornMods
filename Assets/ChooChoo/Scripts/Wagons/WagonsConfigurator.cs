@@ -1,9 +1,9 @@
 ﻿using Bindito.Core;
-using TimberApi.ConfiguratorSystem;
 using TimberApi.SceneSystem;
 using Timberborn.TemplateSystem;
+using TobbyTools.UsedImplicitlySystem;
 
-namespace ChooChoo
+namespace ChooChoo.Wagons
 {
   [Configurator(SceneEntrypoint.InGame)]
   public class WagonsConfigurator : IConfigurator
@@ -17,7 +17,7 @@ namespace ChooChoo
 
     private static TemplateModule ProvideTemplateModule()
     {
-      TemplateModule.Builder builder = new TemplateModule.Builder();
+      var builder = new TemplateModule.Builder();
       builder.AddDecorator<TrainWagon, TrainWagonGoodsManager>();
       return builder.Build();
     }

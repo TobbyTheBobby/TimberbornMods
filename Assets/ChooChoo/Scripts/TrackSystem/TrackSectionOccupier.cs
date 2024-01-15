@@ -1,14 +1,15 @@
 using Bindito.Core;
+using ChooChoo.Extensions;
+using Timberborn.BaseComponentSystem;
 using Timberborn.BlockSystem;
 using Timberborn.EntitySystem;
-using UnityEngine;
 
-namespace ChooChoo
+namespace ChooChoo.TrackSystem
 {
-    public class TrackSectionOccupier : MonoBehaviour, IDeletableEntity
+    public class TrackSectionOccupier : BaseComponent, IDeletableEntity
     {
         private BlockService _blockService;
-        
+
         public TrackSection TrackSection { get; private set; }
 
         [Inject]
@@ -21,7 +22,7 @@ namespace ChooChoo
         {
             TrackSection?.Leave();
         }
-        
+
         public void OccupyNextTrackSection(TrackSection trackSection)
         {
             TrackSection?.Leave();
@@ -31,7 +32,7 @@ namespace ChooChoo
 
         public void OccupyCurrentTrackSection()
         {
-            var startTrackPiece = _blockService.GetFloorObjectComponentAt<TrackPiece>(transform.position.ToBlockServicePosition());
+            var startTrackPiece = _blockService.GetFloorObjectComponentAt<TrackPiece>(TransformFast.position.ToBlockServicePosition());
             if (startTrackPiece == null)
                 return;
             if (!startTrackPiece.TrackSection.Occupied)

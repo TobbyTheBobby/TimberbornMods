@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 using TimberApi.DependencyContainerSystem;
 using UnityEngine;
 
-namespace ChooChoo
+namespace ChooChoo.BeaverNavigationUtilities
 {
     [HarmonyPatch, UsedImplicitly(ImplicitUseTargetFlags.Members)]
     public class TiltVerticalEdgeListener
@@ -14,12 +14,12 @@ namespace ChooChoo
         {
             return AccessTools.Method(AccessTools.TypeByName("PathReconstructor"), "TiltVerticalEdge", new[]
             {
-                typeof(List<Vector3>), 
+                typeof(List<Vector3>),
                 typeof(int),
                 typeof(int)
             });
         }
-        
+
         public static bool Prefix(ref List<Vector3> pathCorners, int startIndex, int endIndex)
         {
             var runOriginal = !DependencyContainer.GetInstance<PathCorrector>().IsBetweenPassengerStations(ref pathCorners, startIndex, endIndex);

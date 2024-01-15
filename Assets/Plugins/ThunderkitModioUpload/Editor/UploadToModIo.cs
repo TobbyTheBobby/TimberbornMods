@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Modio;
-using Modio.Filters;
 using SharpCompress.Archives;
 using SharpCompress.Common;
 using SharpCompress.Writers;

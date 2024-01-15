@@ -1,10 +1,14 @@
 using Timberborn.BaseComponentSystem;
 using Timberborn.Goods;
+using UnityEngine;
 
-namespace ChooChoo
+namespace ChooChoo.Trains
 {
     public class Train : BaseComponent
     {
-        public GoodAmountSpecification[] TrainCost;
+        [SerializeField]
+        private GoodAmountSpecification[] _trainCost;
+
+        public GoodAmountSpecification[] TrainCost => _trainCost;
     }
 }

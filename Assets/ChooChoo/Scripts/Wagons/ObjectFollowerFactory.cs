@@ -2,17 +2,20 @@
 using Timberborn.Navigation;
 using UnityEngine;
 
-namespace  ChooChoo
+namespace ChooChoo.Wagons
 {
-  public class ObjectFollowerFactory
-  {
-    private readonly INavigationService _navigationService;
-
-    public ObjectFollowerFactory(INavigationService navigationService) 
+    public class ObjectFollowerFactory
     {
-      _navigationService = navigationService;
-    }
+        private readonly INavigationService _navigationService;
 
-    public ObjectFollower Create(GameObject owner) => new(_navigationService, owner.GetComponent<MovementAnimator>(), owner.transform, owner);
-  }
+        public ObjectFollowerFactory(INavigationService navigationService)
+        {
+            _navigationService = navigationService;
+        }
+
+        public ObjectFollower Create(GameObject owner)
+        {
+            return new ObjectFollower(_navigationService, owner.GetComponent<MovementAnimator>(), owner.transform, owner);
+        }
+    }
 }

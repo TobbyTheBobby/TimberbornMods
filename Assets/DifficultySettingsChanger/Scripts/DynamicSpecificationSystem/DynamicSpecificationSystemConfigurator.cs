@@ -1,6 +1,6 @@
 using Bindito.Core;
-using TimberApi.ConfiguratorSystem;
 using TimberApi.SceneSystem;
+using TobbyTools.UsedImplicitlySystem;
 
 namespace DifficultySettingsChanger
 {

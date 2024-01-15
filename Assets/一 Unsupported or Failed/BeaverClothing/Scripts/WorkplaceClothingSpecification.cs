@@ -1,4 +1,4 @@
-﻿namespace BeaverHats
+﻿namespace BeaverClothing
 {
     public class WorkplaceClothingSpecification 
     {

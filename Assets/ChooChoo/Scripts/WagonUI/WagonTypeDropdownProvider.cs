@@ -1,12 +1,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using Bindito.Core;
+using ChooChoo.ModelSystem;
+using ChooChoo.Wagons;
 using Timberborn.BaseComponentSystem;
 using Timberborn.Common;
 using Timberborn.DropdownSystem;
 using UnityEngine;
 
-namespace ChooChoo
+namespace ChooChoo.WagonUI
 {
     public class WagonTypeDropdownProvider : BaseComponent, IExtendedDropdownProvider
     {
@@ -15,7 +17,7 @@ namespace ChooChoo
         private WagonModelManager _wagonModelManager;
 
         public IReadOnlyList<string> Items { get; private set; }
-        
+
         [Inject]
         public void InjectDependencies(TrainModelSpecificationRepository trainModelSpecificationRepository)
         {
@@ -25,7 +27,7 @@ namespace ChooChoo
         private void Awake()
         {
             _wagonModelManager = GetComponentFast<WagonModelManager>();
-            
+
             Items = _trainModelSpecificationRepository.SelectableActiveWagonModels.Select(model => model.NameLocKey).ToList().AsReadOnlyList();
         }
 

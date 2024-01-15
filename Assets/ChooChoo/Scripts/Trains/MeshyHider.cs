@@ -1,14 +1,15 @@
-﻿using UnityEngine;
+﻿using Timberborn.BaseComponentSystem;
+using UnityEngine;
 
-namespace ChooChoo
+namespace ChooChoo.Trains
 {
-    public class MeshyHider : MonoBehaviour
+    public class MeshyHider : BaseComponent
     {
-        public GameObject MeshyObject;
-        
+        public GameObject _meshyObject;
+
         private void Start()
         {
-            MeshyObject.SetActive(false);
+            _meshyObject.SetActive(false);
         }
     }
 }

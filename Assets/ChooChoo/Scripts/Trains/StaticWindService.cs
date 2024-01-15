@@ -1,12 +1,12 @@
 ﻿using Timberborn.WindSystem;
 
-namespace ChooChoo
+namespace ChooChoo.Trains
 {
     public class StaticWindService
     {
         public static WindService WindService { get; private set; }
-        
-        StaticWindService(WindService windService)
+
+        private StaticWindService(WindService windService)
         {
             WindService = windService;
         }

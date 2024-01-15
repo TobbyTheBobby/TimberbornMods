@@ -1,10 +1,11 @@
 ﻿using Bindito.Core;
-using TimberApi.ConfiguratorSystem;
+using ChooChoo.NavigationSystem;
 using TimberApi.SceneSystem;
 using Timberborn.TemplateSystem;
 using Timberborn.WalkingSystem;
+using TobbyTools.UsedImplicitlySystem;
 
-namespace ChooChoo
+namespace ChooChoo.PassengerSystem
 {
   [Configurator(SceneEntrypoint.InGame)]
   public class PassengerSystemConfigurator : IConfigurator
@@ -19,7 +20,7 @@ namespace ChooChoo
     {
       public TemplateModule Get()
       {
-        TemplateModule.Builder builder = new TemplateModule.Builder();
+        var builder = new TemplateModule.Builder();
         builder.AddDecorator<Walker, Passenger>();
         builder.AddDecorator<PassengerStation, TrainDestination>();
         return builder.Build();

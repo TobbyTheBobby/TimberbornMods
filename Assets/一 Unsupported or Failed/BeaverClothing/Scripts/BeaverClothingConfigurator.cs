@@ -1,12 +1,11 @@
 using Bindito.Core;
-using TimberApi.ConfiguratorSystem;
 using TimberApi.SceneSystem;
 using Timberborn.Beavers;
 using Timberborn.Meshy;
 using Timberborn.TemplateSystem;
-using Timberborn.WorkSystem;
+using TobbyTools.UsedImplicitlySystem;
 
-namespace BeaverHats
+namespace BeaverClothing
 {
     [Configurator(SceneEntrypoint.InGame)]
     public class BeaverClothingConfigurator : IConfigurator
@@ -22,7 +21,7 @@ namespace BeaverHats
 
         private TemplateModule ProvideTemplateModule()
         {
-            TemplateModule.Builder builder = new TemplateModule.Builder();
+            var builder = new TemplateModule.Builder();
             builder.AddDecorator<Beaver, ClothingComponent>();
             return builder.Build();
         }

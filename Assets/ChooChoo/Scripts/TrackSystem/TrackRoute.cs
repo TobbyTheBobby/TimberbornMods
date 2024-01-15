@@ -1,13 +1,13 @@
 using System.Linq;
 using UnityEngine;
 
-namespace ChooChoo
+namespace ChooChoo.TrackSystem
 {
     public class TrackRoute
     {
         public TrackRoute(
-            TrackConnection entrance, 
-            TrackConnection exit, 
+            TrackConnection entrance,
+            TrackConnection exit,
             Vector3[] routeCorners)
         {
             Entrance = entrance;
@@ -18,7 +18,7 @@ namespace ChooChoo
         public readonly TrackConnection Entrance;
 
         public readonly TrackConnection Exit;
-        
+
         public Vector3[] RouteCorners { get; set; }
 
         public TrackRoute CreateCopy()

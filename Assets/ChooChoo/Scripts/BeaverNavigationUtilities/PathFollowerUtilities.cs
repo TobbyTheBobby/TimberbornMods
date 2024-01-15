@@ -4,16 +4,17 @@ using Timberborn.BaseComponentSystem;
 using Timberborn.BlockSystem;
 using Timberborn.CharacterMovementSystem;
 using Timberborn.WalkingSystem;
+using TobbyTools.InaccessibilityUtilitySystem;
 using UnityEngine;
 
-namespace ChooChoo
+namespace ChooChoo.BeaverNavigationUtilities
 {
     public class PathFollowerUtilities : BaseComponent
     {
         private PathConverter _pathConverter;
 
         private PathFollower _pathFollower;
-        
+
         private BlockObject[] _toBeVisitedBlockObjects;
 
         [Inject]
@@ -26,7 +27,7 @@ namespace ChooChoo
         {
             var walker = GetComponentFast<Walker>();
             walker.StartedNewPath += OnStartedNewPath;
-            _pathFollower = (PathFollower)ChooChooCore.GetInaccessibleField(walker, "_pathFollower");
+            _pathFollower = (PathFollower)InaccessibilityUtilities.GetInaccessibleField(walker, "_pathFollower");
         }
 
         public BlockObject GetBlockObjectAtIndex(int index)
@@ -36,10 +37,10 @@ namespace ChooChoo
 
             return index >= _toBeVisitedBlockObjects.Length ? null : _toBeVisitedBlockObjects[index];
         }
-        
+
         private void OnStartedNewPath(object sender, StartedNewPathEventArgs e)
         {
-            var pathCorners = (IReadOnlyList<Vector3>)ChooChooCore.GetInaccessibleField(_pathFollower, "_pathCorners");
+            var pathCorners = (IReadOnlyList<Vector3>)InaccessibilityUtilities.GetInaccessibleField(_pathFollower, "_pathCorners");
             _toBeVisitedBlockObjects = _pathConverter.ConvertPath(pathCorners);
         }
     }

@@ -14,12 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagingPaths: []
   ModId: 2645506
-  Version: 2.2.1
-  SetLive: 1
-  Description: '[Game version 0.4.9.2]
-
-    Fixed an issue where plastered wood had
-    the wrong texture.'
+  Version: 2.2.2
+  SetLive: 0
+  Description: "[Game version 0.5.5]\nFixed some issues that were caused by the latest
+    update. \nFixed an issue where driveways werent updating. "
 --- !u!114 &-3931462110823901632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,7 +37,7 @@ MonoBehaviour:
   Description: 
   Version: 
   Dependencies:
-  - {fileID: 11400000, guid: b9b73eebf85f9df488fc243573a756bb, type: 2}
+  - {fileID: 11400000, guid: 341623cfe39dc284498271e2322ca4b1, type: 2}
 --- !u!114 &-1800585617083543040
 MonoBehaviour:
   m_ObjectHideFlags: 0

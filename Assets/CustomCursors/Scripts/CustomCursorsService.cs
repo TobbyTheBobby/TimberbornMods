@@ -18,7 +18,7 @@ namespace CustomCursors
         private readonly ISettings _settings;
         private readonly EventBus _eventBus;
 
-        CustomCursorsService(UIBuilder uiBuilder, ISettings settings, EventBus eventBus)
+        private CustomCursorsService(UIBuilder uiBuilder, ISettings settings, EventBus eventBus)
         {
             _builder = uiBuilder;
             _settings = settings;
@@ -47,7 +47,7 @@ namespace CustomCursors
             foreach (var cursorPackPath in Directory.GetDirectories(path))
             {
                 var files = Directory.GetFiles(cursorPackPath).Where(s => !s.Contains(".meta")).ToList();
-                for (int i = 0; i < files.Count; i++)
+                for (var i = 0; i < files.Count; i++)
                 {
                     var filePath = files[i];
                     var cursorPackName = cursorPackPath.Split("\\").Last();
@@ -142,7 +142,7 @@ namespace CustomCursors
             }
             else
             {
-                for (int i = 0; i < texture2Ds.Count; i++)
+                for (var i = 0; i < texture2Ds.Count; i++)
                 {
                     switch (i)
                     {

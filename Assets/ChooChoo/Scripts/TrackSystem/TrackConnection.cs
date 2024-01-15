@@ -1,7 +1,7 @@
 using Timberborn.Coordinates;
 using UnityEngine;
 
-namespace ChooChoo
+namespace ChooChoo.TrackSystem
 {
     public class TrackConnection
     {
@@ -18,7 +18,7 @@ namespace ChooChoo
         public Direction2D Direction { get; }
 
         public TrackPiece ConnectedTrackPiece { get; set; }
-        
+
         public TrackRoute[] ConnectedTrackRoutes { get; set; }
 
         public TrackConnection CreateCopy()

@@ -1,11 +1,13 @@
 using Bindito.Core;
-using TimberApi.ConfiguratorSystem;
+using ChooChoo.MovementSystem;
+using ChooChoo.NavigationSystem;
 using TimberApi.SceneSystem;
 using Timberborn.Coordinates;
 using Timberborn.Persistence;
 using Timberborn.TemplateSystem;
+using TobbyTools.UsedImplicitlySystem;
 
-namespace ChooChoo
+namespace ChooChoo.TrackSystem
 {
     [Configurator(SceneEntrypoint.InGame)]
     public class TrackSystemConfigurator : IConfigurator
@@ -24,7 +26,7 @@ namespace ChooChoo
     
         private static TemplateModule ProvideTemplateModule()
         {
-            TemplateModule.Builder builder = new TemplateModule.Builder();
+            var builder = new TemplateModule.Builder();
             builder.AddDecorator<TrackObserver, TrackSectionOccupier>();
             return builder.Build();
         }

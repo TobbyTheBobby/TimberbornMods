@@ -1,20 +1,26 @@
 using System.Collections.Generic;
 using System.Linq;
+using MorePaths.Core;
+using MorePaths.CustomPaths;
+using MorePaths.Patches;
 using Timberborn.AssetSystem;
 using Timberborn.GameFactionSystem;
+using TobbyTools.ImageRepository;
 using UnityEngine;
 
 namespace MorePaths
 {
     public class CustomPathFactory
     {
+        private static ImageRepositoryService _imageRepositoryService;
         private static IResourceAssetLoader _resourceAssetLoader;
         private static FactionService _factionService;
         
         private readonly MorePathsCore _morePathsCore;
 
-        CustomPathFactory(IResourceAssetLoader resourceAssetLoader, FactionService factionService, MorePathsCore morePathsCore)
+        CustomPathFactory(ImageRepositoryService imageRepositoryService, IResourceAssetLoader resourceAssetLoader, FactionService factionService, MorePathsCore morePathsCore)
         {
+            _imageRepositoryService = imageRepositoryService;
             _resourceAssetLoader = resourceAssetLoader;
             _factionService = factionService;
             _morePathsCore = morePathsCore;
@@ -26,7 +32,7 @@ namespace MorePaths
         
         public List<CustomPath> CreatePathsFromSpecification()
         {
-            // Stopwatch stopwatch = Stopwatch.StartNew();
+            // var stopwatch = Stopwatch.StartNew();
 
             PreventInstantiatePatch.RunInstantiate = false;
 
@@ -34,19 +40,17 @@ namespace MorePaths
             originalPathGameObject.AddComponent<DynamicPathCorner>();
             originalPathGameObject.AddComponent<CustomPath>();
             
-            var test  = _morePathsCore.PathsSpecifications.Select(specification =>
+            var customPaths  = _morePathsCore.PathsSpecifications.Select(specification =>
             {
                 var customPath = Object.Instantiate(originalPathGameObject, new GameObject().transform).GetComponent<CustomPath>();
-                customPath.SetSpecification(_morePathsCore, specification);
+                customPath.SetSpecification(_imageRepositoryService, specification);
                 return customPath;
             }).ToList();
             PreventInstantiatePatch.RunInstantiate = true;
 
-            // _morePathsCore.CustomPaths = _morePathsCore.PathsSpecifications.Select(specification => new CustomPath(_prefabOptimizationChain, _materialRepository, _morePathsCore, _optimizedPrefabInstantiator.InstantiateInactive(originalPathGameObject, new GameObject().transform, out bool _), Object.Instantiate(PathCorner), specification)).ToList();
-
             // stopwatch.Stop();
-            // Plugin.Log.LogInfo("Total: " + stopwatch.ElapsedMilliseconds);
-            return test;
+            // Plugin.Log.LogInfo($"Created {customPaths.Count} paths in {stopwatch.ElapsedMilliseconds}ms.");
+            return customPaths;
         }
     }
 }

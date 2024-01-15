@@ -1,7 +1,9 @@
+using ChooChoo.Core;
+using ChooChoo.ModelSystem;
 using Timberborn.BaseComponentSystem;
 using UnityEngine;
 
-namespace ChooChoo
+namespace ChooChoo.Trains
 {
     public class MachinistCharacterManager : BaseComponent
     {
@@ -17,11 +19,12 @@ namespace ChooChoo
 
                 if (machinist == null)
                     continue;
-                
+
                 if (modelSpecification.MachinistScale == null)
                     continue;
 
-                machinist.transform.localScale = new Vector3((float)modelSpecification.MachinistScale, (float)modelSpecification.MachinistScale, (float)modelSpecification.MachinistScale);
+                machinist.transform.localScale = new Vector3((float)modelSpecification.MachinistScale, (float)modelSpecification.MachinistScale,
+                    (float)modelSpecification.MachinistScale);
             }
         }
     }

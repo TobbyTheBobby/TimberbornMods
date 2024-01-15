@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Bindito.Core;
+using ChooChoo.NavigationSystem;
+using ChooChoo.WaitingSystem;
 using Timberborn.BaseComponentSystem;
 using Timberborn.BlockSystem;
 using Timberborn.ConstructibleSystem;
@@ -8,12 +10,14 @@ using Timberborn.Coordinates;
 using Timberborn.SingletonSystem;
 using UnityEngine;
 
-namespace ChooChoo
+namespace ChooChoo.TrackSystem
 {
     public class TrackPiece : BaseComponent, IFinishedStateListener, IPostTransformChangeListener
     {
         [SerializeField]
         private int _trackDistance;
+        [SerializeField]
+        public bool _dividesSection;
         
         protected EventBus EventBus;
         
@@ -35,9 +39,7 @@ namespace ChooChoo
 
         public Vector3 CenterCoordinates { get; private set; }
         
-        public bool CanPathFindOverIt { get; set; }
-
-        public bool DividesSection;
+        public bool CanPathFindOverIt { get; private set; }
 
         public int TrackDistance => _trackDistance;
 
@@ -206,7 +208,6 @@ namespace ChooChoo
                 //     continue;
                 if (myTrackRouteExits.Length < 1 || (otherTrackRoutesExits.Length < 1 && otherTrackRoutesEntrances.Length < 1))
                 {
-                    // ResetConnection(myTrackRouteEntrances, myTrackRouteExits, otherTrackRoutesEntrances, otherTrackRoutesExits);
                     continue;
                 }
                 MakeConnection(trackPiece, myTrackRouteEntrances, myTrackRouteExits, otherTrackRoutesEntrances, otherTrackRoutesExits);
@@ -240,7 +241,6 @@ namespace ChooChoo
                 // if (myTrackRouteEntrances.Length < 1 || myTrackRouteExits.Length < 1 || otherTrackRoutesEntrances.Length < 1 || otherTrackRoutesExits.Length < 1)
                 if (myTrackRouteEntrances.Length < 1 || (otherTrackRoutesEntrances.Length < 1 && otherTrackRoutesExits.Length < 1))
                 {
-                    // ResetConnection(myTrackRouteEntrances, myTrackRouteExits, otherTrackRoutesEntrances, otherTrackRoutesExits);
                     continue;
                 }
                 MakeConnection(trackPiece, myTrackRouteEntrances, myTrackRouteExits, otherTrackRoutesEntrances, otherTrackRoutesExits);
@@ -319,8 +319,8 @@ namespace ChooChoo
                 return;
             }
             
-            var flag1 = DividesSection;
-            var flag2 = trackPiece.DividesSection;
+            var flag1 = _dividesSection;
+            var flag2 = trackPiece._dividesSection;
 
             if (flag1 || flag2)
             {
@@ -333,33 +333,6 @@ namespace ChooChoo
 
             if (trackPiece.TrackSection != TrackSection)
                 trackPiece.TrackSection.Merge(TrackSection);
-        }
-
-        private void ResetConnection(TrackRoute[] myTrackRouteEntrances, TrackRoute[] myTrackRouteExits, TrackRoute[] otherTrackRoutesEntrances, TrackRoute[] otherTrackRoutesExits)
-        {
-            foreach (var trackRoute in myTrackRouteExits)
-            {
-                trackRoute.Exit.ConnectedTrackPiece = null;
-                trackRoute.Exit.ConnectedTrackRoutes = null;
-            }
-            
-            foreach (var trackRoute in otherTrackRoutesExits)
-            {
-                trackRoute.Exit.ConnectedTrackPiece = null;
-                trackRoute.Exit.ConnectedTrackRoutes = null;
-            }
-            
-            foreach (var trackRoute in myTrackRouteEntrances)
-            {
-                trackRoute.Entrance.ConnectedTrackPiece = null;
-                // trackRoute.Entrance.ConnectedTrackRoutes = otherTrackRoutesExits;
-            }
-        
-            foreach (var trackRoute in otherTrackRoutesEntrances)
-            {
-                trackRoute.Entrance.ConnectedTrackPiece = null;
-                // trackRoute.Entrance.ConnectedTrackRoutes = myTrackRouteExits;
-            }
         }
     }
 }

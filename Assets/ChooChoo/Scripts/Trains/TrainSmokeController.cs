@@ -1,19 +1,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using Bindito.Core;
+using ChooChoo.Core;
 using Timberborn.BehaviorSystem;
 using Timberborn.TickSystem;
 using Timberborn.TimeSystem;
+using TobbyTools.InaccessibilityUtilitySystem;
 using UnityEngine;
 
-namespace ChooChoo
+namespace ChooChoo.Trains
 {
     public class TrainSmokeController : TickableComponent
     {
         private IEnumerable<GameObject> _smokeObjects;
 
         private IDayNightCycle _dayNightCycle;
-        
+
         private WaitExecutor _waitExecutor;
 
         [Inject]
@@ -37,7 +39,7 @@ namespace ChooChoo
 
         private bool IsWaiting()
         {
-            return !(_dayNightCycle.PartialDayNumber > (float)ChooChooCore.GetInaccessibleField(_waitExecutor, "_finishTimestamp"));
+            return !(_dayNightCycle.PartialDayNumber > (float)InaccessibilityUtilities.GetInaccessibleField(_waitExecutor, "_finishTimestamp"));
         }
     }
 }

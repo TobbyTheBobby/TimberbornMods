@@ -1,23 +1,27 @@
-﻿using Timberborn.BatchControl;
+﻿using ChooChoo.GoodsStations;
+using Timberborn.BatchControl;
 using Timberborn.GameDistrictsUI;
 using UnityEngine.UIElements;
 
-namespace ChooChoo
+namespace ChooChoo.GoodsStationBatchControl
 {
-  internal class GoodsStationRowItem : IBatchControlRowItem, IUpdateableBatchControlRowItem
-  {
-    private readonly GoodsStation _goodsStation;
-    private readonly Label _districtNameLabel;
-
-    public VisualElement Root { get; }
-
-    public GoodsStationRowItem(VisualElement root, GoodsStation goodsStation, Label districtNameLabel)
+    internal class GoodsStationRowItem : IBatchControlRowItem, IUpdateableBatchControlRowItem
     {
-      Root = root;
-      _goodsStation = goodsStation;
-      _districtNameLabel = districtNameLabel;
-    }
+        private readonly GoodsStation _goodsStation;
+        private readonly Label _districtNameLabel;
 
-    public void UpdateRowItem() => _districtNameLabel.text = _goodsStation.GetComponentFast<DistrictBuildingEntityBadge>().GetEntityName();
-  }
+        public VisualElement Root { get; }
+
+        public GoodsStationRowItem(VisualElement root, GoodsStation goodsStation, Label districtNameLabel)
+        {
+            Root = root;
+            _goodsStation = goodsStation;
+            _districtNameLabel = districtNameLabel;
+        }
+
+        public void UpdateRowItem()
+        {
+            _districtNameLabel.text = _goodsStation.GetComponentFast<DistrictBuildingEntityBadge>().GetEntityName();
+        }
+    }
 }

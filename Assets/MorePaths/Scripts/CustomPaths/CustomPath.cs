@@ -2,18 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Bindito.Core;
+using MorePaths.Core;
+using MorePaths.Specifications;
 using Timberborn.BaseComponentSystem;
 using Timberborn.BlockSystem;
 using Timberborn.Buildings;
 using Timberborn.Common;
 using Timberborn.PrefabSystem;
+using TobbyTools.ImageRepository;
+using TobbyTools.InaccessibilityUtilitySystem;
 using UnityEngine;
 
-namespace MorePaths
+namespace MorePaths.CustomPaths
 {
     public class CustomPath : BaseComponent
     {
-        private MorePathsCore _morePathsCore;
+        private ImageRepositoryService _imageRepositoryService;
         
         private PathSpecification _pathSpecification;
         private BuildingModel _buildingModel;
@@ -28,11 +32,11 @@ namespace MorePaths
         private bool IsDefaultPath => GetComponentFast<Prefab>().PrefabName is "Path.Folktails" or "Path.IronTeeth";
 
         [Inject]
-        public void InjectDependencies(MorePathsCore morePathsCore)
+        public void InjectDependencies(ImageRepositoryService imageRepositoryService, MorePathsCore morePathsCore)
         {
             var pathSpecification = morePathsCore.PathsSpecifications.First(spec => GetComponentFast<Prefab>().PrefabName.Equals(spec.Name) || (spec.Name == "DefaultPath" && IsDefaultPath));
             
-            SetSpecification(morePathsCore, pathSpecification);
+            SetSpecification(imageRepositoryService, pathSpecification);
         }
 
         private void Start()
@@ -48,18 +52,26 @@ namespace MorePaths
             }
         }
 
-        public void SetSpecification(MorePathsCore morePathsCore, PathSpecification pathSpecification)
+        public void SetSpecification(ImageRepositoryService imageRepositoryService, PathSpecification pathSpecification)
         {
-            _morePathsCore = morePathsCore;
+            _imageRepositoryService = imageRepositoryService;
             
             _pathSpecification = pathSpecification;
-            _pathCorner = Instantiate(CustomPathFactory.PathCorner);
-            _pathCorner.SetActive(false);
 
-            _groundTexture2D = _pathSpecification.GroundTexture2D(_morePathsCore);
-            _railingTexture2D = _pathSpecification.RailingTexture2D(_morePathsCore);
-            _spriteTexture2D = _pathSpecification.SpriteTexture2D(_morePathsCore, 112, 112);
+            _groundTexture2D = LoadImage(_pathSpecification.PathTexture);
+            _railingTexture2D = LoadImage(_pathSpecification.RailingTexture);
+            _spriteTexture2D = LoadImage(_pathSpecification.PathIcon);
             OverwriteVariables();
+        }
+
+        private Texture2D LoadImage(string search)
+        {
+            if (string.IsNullOrEmpty(search) || string.IsNullOrEmpty(_pathSpecification.Name))
+            {
+                return new Texture2D(0, 0);
+            }
+
+            return _imageRepositoryService.GetByName(search, _pathSpecification.Name);
         }
 
         private void OverwriteVariables()
@@ -120,35 +132,36 @@ namespace MorePaths
 
         private void SetPrefabName(string specificationName)
         {
-            _morePathsCore.ChangePrivateField(GameObjectFast.GetComponent<Prefab>(), "_prefabName", specificationName);
+            InaccessibilityUtilities.SetInaccessibleField(GameObjectFast.GetComponent<Prefab>(), "_prefabName", specificationName);
         }
 
         private void RemoveBackwardCompatiblePrefabNames()
         {
-            _morePathsCore.ChangePrivateField(GameObjectFast.GetComponent<Prefab>(), "_backwardCompatiblePrefabNames", new string[] { });
+            InaccessibilityUtilities.SetInaccessibleField(GameObjectFast.GetComponent<Prefab>(), "_backwardCompatiblePrefabNames", new string[] { });
         }
 
         private void SetToolGroup(string toolGroup)
         {
-            _morePathsCore.ChangePrivateField(GameObjectFast.GetComponent<PlaceableBlockObject>(), "_toolGroupId", toolGroup);
+            InaccessibilityUtilities.SetInaccessibleField(GameObjectFast.GetComponent<PlaceableBlockObject>(), "_toolGroupId", toolGroup);
         }
         
         private void SetToolOrder(int toolOrder)
         {
-            _morePathsCore.ChangePrivateField(GameObjectFast.GetComponent<PlaceableBlockObject>(), "_toolOrder", toolOrder);
+            InaccessibilityUtilities.SetInaccessibleField(GameObjectFast.GetComponent<PlaceableBlockObject>(), "_toolOrder", toolOrder);
         }
 
         private void SetLocalisationAndSprite()
         {
             var labeledPrefab = GameObjectFast.GetComponent<LabeledPrefab>();
-            _morePathsCore.ChangePrivateField(labeledPrefab, "_displayNameLocKey", _pathSpecification.DisplayNameLocKey);
-            _morePathsCore.ChangePrivateField(labeledPrefab, "_descriptionLocKey", _pathSpecification.DescriptionLocKey);
-            _morePathsCore.ChangePrivateField(labeledPrefab, "_flavorDescriptionLocKey", _pathSpecification.FlavorDescriptionLocKey);
+            
+            InaccessibilityUtilities.SetInaccessibleField(labeledPrefab, "_displayNameLocKey", _pathSpecification.DisplayNameLocKey);
+            InaccessibilityUtilities.SetInaccessibleField(labeledPrefab, "_descriptionLocKey", _pathSpecification.DescriptionLocKey);
+            InaccessibilityUtilities.SetInaccessibleField(labeledPrefab, "_flavorDescriptionLocKey", _pathSpecification.FlavorDescriptionLocKey);
             
             if (_pathSpecification.PathIcon == null) return;
 
             var sprite2D = Sprite.Create(_spriteTexture2D, labeledPrefab.Image.rect, labeledPrefab.Image.pivot, labeledPrefab.Image.pixelsPerUnit);
-            _morePathsCore.ChangePrivateField(labeledPrefab, "_image", sprite2D);
+            InaccessibilityUtilities.SetInaccessibleField(labeledPrefab, "_image", sprite2D);
         }
 
         private void AddPathCorners()
@@ -159,11 +172,14 @@ namespace MorePaths
             material.SetTexture("_DetailMask", null);
             material.renderQueue -= 1;
 
-            _pathCorner.GetComponentInChildren<MeshRenderer>().material = material;
+            var pathCorner = Instantiate(CustomPathFactory.PathCorner);
+            pathCorner.SetActive(false);
+            
+            pathCorner.GetComponentInChildren<MeshRenderer>().material = material;
 
             if (!GameObjectFast.TryGetComponent(out DynamicPathCorner dynamicPathCorner)) return;
             
-            dynamicPathCorner.CreatePathCorners(_pathCorner);
+            dynamicPathCorner.CreatePathCorners(pathCorner);
         }
     }
 }

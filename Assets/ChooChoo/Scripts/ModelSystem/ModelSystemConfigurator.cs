@@ -1,25 +1,25 @@
 ﻿using Bindito.Core;
-using TimberApi.ConfiguratorSystem;
 using TimberApi.SceneSystem;
+using TobbyTools.UsedImplicitlySystem;
 
-namespace ChooChoo
+namespace ChooChoo.ModelSystem
 {
-  [Configurator(SceneEntrypoint.InGame)]
-  public class ModelSystemIngameConfigurator : IConfigurator
-  {
-    public void Configure(IContainerDefinition containerDefinition)
+    [Configurator(SceneEntrypoint.InGame)]
+    internal class ModelSystemInGameConfigurator : IConfigurator
     {
-      containerDefinition.Bind<TrainModelSpecificationRepository>().AsSingleton();
+        public void Configure(IContainerDefinition containerDefinition)
+        {
+            containerDefinition.Bind<TrainModelSpecificationRepository>().AsSingleton();
+        }
     }
-  }
-  
-  [Configurator(SceneEntrypoint.InGame | SceneEntrypoint.MainMenu)]
-  public class ModelSystemBothConfigurator : IConfigurator
-  {
-    public void Configure(IContainerDefinition containerDefinition)
+
+    [Configurator(SceneEntrypoint.InGame | SceneEntrypoint.MainMenu)]
+    public class ModelSystemBothConfigurator : IConfigurator
     {
-      containerDefinition.Bind<TrainModelSpecificationDeserializer>().AsSingleton();
-      containerDefinition.Bind<WagonModelSpecificationDeserializer>().AsSingleton();
+        public void Configure(IContainerDefinition containerDefinition)
+        {
+            containerDefinition.Bind<TrainModelSpecificationDeserializer>().AsSingleton();
+            containerDefinition.Bind<WagonModelSpecificationDeserializer>().AsSingleton();
+        }
     }
-  }
 }

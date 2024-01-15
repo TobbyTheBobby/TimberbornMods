@@ -3,7 +3,7 @@ using Timberborn.CharacterModelSystem;
 using Timberborn.Common;
 using Timberborn.TickSystem;
 
-namespace ChooChoo
+namespace ChooChoo.Trains
 {
     public class TrainMovingAnimator : TickableComponent
     {
@@ -17,7 +17,7 @@ namespace ChooChoo
             _randomNumberGenerator = randomNumberGenerator;
         }
 
-        void Awake()
+        private void Awake()
         {
             // _characterAnimator = GetComponentFast<CharacterAnimator>();
             // _characterAnimator.SetFloat("MovementSpeed", 1);

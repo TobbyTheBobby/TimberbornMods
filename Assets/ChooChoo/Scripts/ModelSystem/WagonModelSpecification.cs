@@ -1,4 +1,4 @@
-namespace ChooChoo
+namespace ChooChoo.ModelSystem
 {
     public class WagonModelSpecification
     {

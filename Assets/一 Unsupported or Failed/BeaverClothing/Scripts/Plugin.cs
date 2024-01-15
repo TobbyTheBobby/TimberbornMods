@@ -7,7 +7,7 @@ using Timberborn.EntitySystem;
 using Timberborn.LifeSystem;
 using UnityEngine;
 
-namespace BeaverHats
+namespace BeaverClothing
 {
     public class Plugin : IModEntrypoint
     {
@@ -29,8 +29,8 @@ namespace BeaverHats
     {
         public static Transform AdultBeaver;
         public static Transform ChildBeaver;
-        
-        static void Postfix(ref Beaver ____adultPrefab, ref Beaver ____childPrefab)
+
+        private static void Postfix(ref Beaver ____adultPrefab, ref Beaver ____childPrefab)
         {
             AdultBeaver = ____adultPrefab.TransformFast;
             ChildBeaver = ____childPrefab.TransformFast;
@@ -41,8 +41,8 @@ namespace BeaverHats
     public class BotFactoryPatch
     {
         public static Transform Bot;
-        
-        static void Postfix(ref Bot ____botPrefab)
+
+        private static void Postfix(ref Bot ____botPrefab)
         {
             Bot = ____botPrefab.TransformFast;
         }

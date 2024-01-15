@@ -331,7 +331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _componentCache: {fileID: 0}
   _trackDistance: 4
-  DividesSection: 0
+  _dividesSection: 0
 --- !u!114 &1775924103767066142
 MonoBehaviour:
   m_ObjectHideFlags: 0

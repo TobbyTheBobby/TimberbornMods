@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
+using ChooChoo.ModelSystem;
 using Timberborn.BaseComponentSystem;
 using Timberborn.Common;
 using Timberborn.DropdownSystem;
 using UnityEngine;
 
-namespace ChooChoo
+namespace ChooChoo.TrainsUI
 {
     public class TrainTypeDropdownProvider : BaseComponent, IExtendedDropdownProvider
     {

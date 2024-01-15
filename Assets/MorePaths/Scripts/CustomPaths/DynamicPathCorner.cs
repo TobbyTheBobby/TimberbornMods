@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Bindito.Core;
+using MorePaths.Core;
 using Timberborn.BaseComponentSystem;
 using Timberborn.BlockSystem;
 using Timberborn.Buildings;
-using Timberborn.Navigation;
 using Timberborn.PreviewSystem;
 using Timberborn.TerrainSystem;
 using UnityEngine;
@@ -13,7 +13,6 @@ namespace MorePaths
 {
     public class DynamicPathCorner : BaseComponent, IModelUpdater
     {
-        private BuildingModelUpdater _buildingModelUpdater;
         private PreviewBlockService _previewBlockService;
         private ITerrainService _terrainService;
         private MorePathsCore _morePathsCore;
@@ -55,40 +54,37 @@ namespace MorePaths
         };
         
         [Inject]
-        public void InjectDependencies(BuildingModelUpdater buildingModelUpdater, PreviewBlockService previewBlockService, ITerrainService terrainService, MorePathsCore morePathsCore, BlockService blockService)
+        public void InjectDependencies(PreviewBlockService previewBlockService, ITerrainService terrainService, MorePathsCore morePathsCore, BlockService blockService)
         {
-            _buildingModelUpdater = buildingModelUpdater;
             _previewBlockService = previewBlockService;
             _terrainService = terrainService;
             _blockService = blockService;
         }
-        
-        void Awake()
-        {
-            _blockObject = GetComponentFast<BlockObject>();
-        }
 
         public void CreatePathCorners(GameObject pathCorner)
         {
-            var corner1 = Instantiate(pathCorner, TransformFast);
+            _blockObject = GetComponentFast<BlockObject>();
+            
+            var corner1 = Instantiate(pathCorner, TransformFast, true);
+            corner1.transform.position = _blockObject.Transform(Vector3.zero);
             corner1.name = "corner1";
             _cornerDownLeft = corner1;
             corner1.SetActive(false);
             
             var corner2 = Instantiate(pathCorner, TransformFast, true);            
-            corner2.transform.position += new Vector3(0, 0, 0.75f);
+            corner2.transform.position = _blockObject.Transform(new Vector3(0, 0, 0.75f));
             corner2.name = "corner2";
             _cornerUpLeft = corner2;
             corner2.SetActive(false);
 
             var corner3 = Instantiate(pathCorner, TransformFast, true);
-            corner3.transform.position += new Vector3(0.75f, 0, 0.75f);
+            corner3.transform.position = _blockObject.Transform(new Vector3(0.75f, 0, 0.75f));
             corner3.name = "corner3";
             _cornerUpRight = corner3;
             corner3.SetActive(false);
 
             var corner4 = Instantiate(pathCorner, TransformFast, true);
-            corner4.transform.position += new Vector3(0.75f, 0, 0);
+            corner4.transform.position = _blockObject.Transform(new Vector3(0.75f, 0, 0));
             corner4.name = "corner4";
             _cornerDownRight = corner4;
             corner4.SetActive(false);

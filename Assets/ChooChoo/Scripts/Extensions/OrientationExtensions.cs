@@ -2,7 +2,7 @@ using System;
 using Timberborn.Coordinates;
 using UnityEngine;
 
-namespace ChooChoo
+namespace ChooChoo.Extensions
 {
     public static class OrientationExtensions
     {
@@ -24,7 +24,7 @@ namespace ChooChoo
                     throw new ArgumentException($"Unexpected {(object)"Orientation"}: {(object)orientation}");
             }
         }
-        
+
         public static Vector3Int Untransform(this Orientation orientation, Vector3Int vector)
         {
             switch (orientation)

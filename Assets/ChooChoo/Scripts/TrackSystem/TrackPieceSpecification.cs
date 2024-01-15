@@ -1,4 +1,4 @@
-namespace ChooChoo
+namespace ChooChoo.TrackSystem
 {
     public class TrackPieceSpecification
     {
@@ -9,7 +9,7 @@ namespace ChooChoo
             Name = name;
             TrackRoutes = trackRoutes;
         }
-        
+
         public string Name { get; }
         public TrackRoute[] TrackRoutes { get; }
     }

@@ -1,9 +1,11 @@
+using Timberborn.BaseComponentSystem;
 using Timberborn.PrefabSystem;
+using TobbyTools.InaccessibilityUtilitySystem;
 using UnityEngine;
 
-namespace ChooChoo
+namespace ChooChoo.TrackSystemUI
 {
-    public class LabeledPrefabSwitcher : MonoBehaviour
+    public class LabeledPrefabSwitcher : BaseComponent
     {
         [SerializeField]
         private string _displayNameLocKey;
@@ -13,7 +15,7 @@ namespace ChooChoo
         private string _flavorDescriptionLocKey;
         [SerializeField]
         private Sprite _image;
-        
+
         [SerializeField]
         private string _alternativeDisplayNameLocKey;
         [SerializeField]
@@ -25,25 +27,25 @@ namespace ChooChoo
 
         private LabeledPrefab _labeledPrefab;
 
-        void Awake()
+        private void Awake()
         {
-            _labeledPrefab = GetComponent<LabeledPrefab>();
+            _labeledPrefab = GetComponentFast<LabeledPrefab>();
         }
 
         public void SetOriginal()
-        { 
-            ChooChooCore.SetInaccessibleField(_labeledPrefab, "_displayNameLocKey",  _displayNameLocKey);
-            ChooChooCore.SetInaccessibleField(_labeledPrefab, "_descriptionLocKey",  _descriptionLocKey);
-            ChooChooCore.SetInaccessibleField(_labeledPrefab, "_flavorDescriptionLocKey",  _flavorDescriptionLocKey);
-            ChooChooCore.SetInaccessibleField(_labeledPrefab, "_image",  _image);
+        {
+            InaccessibilityUtilities.SetInaccessibleField(_labeledPrefab, "_displayNameLocKey", _displayNameLocKey);
+            InaccessibilityUtilities.SetInaccessibleField(_labeledPrefab, "_descriptionLocKey", _descriptionLocKey);
+            InaccessibilityUtilities.SetInaccessibleField(_labeledPrefab, "_flavorDescriptionLocKey", _flavorDescriptionLocKey);
+            InaccessibilityUtilities.SetInaccessibleField(_labeledPrefab, "_image", _image);
         }
 
         public void SetAlternative()
         {
-            ChooChooCore.SetInaccessibleField(_labeledPrefab, "_displayNameLocKey",  _alternativeDisplayNameLocKey);
-            ChooChooCore.SetInaccessibleField(_labeledPrefab, "_descriptionLocKey",  _alternativeDescriptionLocKey);
-            ChooChooCore.SetInaccessibleField(_labeledPrefab, "_flavorDescriptionLocKey",  _alternativeFlavorDescriptionLocKey);
-            ChooChooCore.SetInaccessibleField(_labeledPrefab, "_image",  _alternativeImage);
+            InaccessibilityUtilities.SetInaccessibleField(_labeledPrefab, "_displayNameLocKey", _alternativeDisplayNameLocKey);
+            InaccessibilityUtilities.SetInaccessibleField(_labeledPrefab, "_descriptionLocKey", _alternativeDescriptionLocKey);
+            InaccessibilityUtilities.SetInaccessibleField(_labeledPrefab, "_flavorDescriptionLocKey", _alternativeFlavorDescriptionLocKey);
+            InaccessibilityUtilities.SetInaccessibleField(_labeledPrefab, "_image", _alternativeImage);
         }
     }
 }

@@ -1,20 +1,21 @@
 ﻿using System.Reflection;
+using ChooChoo.GoodsStations;
 using HarmonyLib;
 using Timberborn.BaseComponentSystem;
+using TobbyTools.UsedImplicitlySystem;
 
-namespace ChooChoo
+namespace ChooChoo.GoodsStationUI
 {
-    [HarmonyPatch]
+    [UsedImplicitlyHarmonyPatch]
     public class InventoryDebugFragmentPatch
     {
-        static MethodInfo TargetMethod()
+        private static MethodInfo TargetMethod()
         {
-            return AccessTools.Method(AccessTools.TypeByName("InventoryDebugFragment"), "ShowFragment", new []{ typeof(BaseComponent)});
+            return AccessTools.Method(AccessTools.TypeByName("InventoryDebugFragment"), "ShowFragment", new[] { typeof(BaseComponent) });
         }
-        
-        static bool Prefix(BaseComponent entity)
-        {
 
+        private static bool Prefix(BaseComponent entity)
+        {
             if (entity.TryGetComponentFast(out GoodsStation _))
             {
                 return false;

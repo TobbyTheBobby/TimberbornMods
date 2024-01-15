@@ -1,14 +1,14 @@
 ﻿using Bindito.Core;
-using TimberApi.ConfiguratorSystem;
 using TimberApi.SceneSystem;
 using Timberborn.BehaviorSystem;
 using Timberborn.PrefabSystem;
 using Timberborn.TemplateSystem;
+using TobbyTools.UsedImplicitlySystem;
 
-namespace ChooChoo
+namespace ChooChoo.Trains
 {
   [Configurator(SceneEntrypoint.InGame)]
-  public class TrainConfigurator : IConfigurator
+  public class TrainsConfigurator : IConfigurator
   {
     public void Configure(IContainerDefinition containerDefinition)
     {
@@ -21,7 +21,7 @@ namespace ChooChoo
     {
       public TemplateModule Get()
       {
-        TemplateModule.Builder builder = new TemplateModule.Builder();
+        var builder = new TemplateModule.Builder();
         builder.AddDecorator<WaitExecutor, TrainSmokeController>();
         return builder.Build();
       }

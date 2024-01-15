@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ChooChoo
+namespace ChooChoo.Extensions
 {
     public static class Vector3Extensions
     {

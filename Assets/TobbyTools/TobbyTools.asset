@@ -105,13 +105,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagingPaths: []
   ModId: 3155916
-  Version: 1.0.0
+  Version: 1.1.0
   SetLive: 1
-  Description: '[Game version 0.4.9.2]
-
-    Release
-
-'
+  Description: "[Game version 0.5]\nMassive code overhaul. \nImproved the imageRepositry.
+    \nImproved the InaccessiblityUtilitySystem.\nAdded some classes to the UsedImplicitlySystem.
+    \nFixed TextureReplacementSystem. \n"
 --- !u!114 &9120418034178625098
 MonoBehaviour:
   m_ObjectHideFlags: 0

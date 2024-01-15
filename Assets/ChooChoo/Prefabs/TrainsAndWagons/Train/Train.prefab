@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _componentCache: {fileID: 0}
-  YRotationSpeedMultiplier: 2
+  _yRotationSpeedMultiplier: 2
 --- !u!114 &3233974189380023757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,6 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc0350b1f27a45d59a11d3b3140e8d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
 --- !u!114 &247477603459737384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,6 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4b4529bf0c48fba8e8092abe2b1cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
 --- !u!114 &436927403675086997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,6 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2589455483a14499a22d9ca1633fe9c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
 --- !u!114 &7240052749719121577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,8 +391,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfce11894a074d3d8dd5dc78ef71a622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowDownDistance: 3
-  baseSlowDownSpeed: 0.3
+  _componentCache: {fileID: 0}
+  _slowDownDistance: 3
+  _baseSlowDownSpeed: 0.3
 --- !u!114 &193700614614068204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,7 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _componentCache: {fileID: 0}
-  TrainCost:
+  _trainCost:
   - _goodId: Plank
     _amount: 20
   - _goodId: ScrapMetal
@@ -420,6 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d521cb7ac05c4beca8d79f007288097b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentCache: {fileID: 0}
 --- !u!114 &791386546745095422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,7 +450,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c37558375147491f8ec2380b432cc54d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MeshyObject: {fileID: 7209136898081765356}
+  _componentCache: {fileID: 0}
+  _meshyObject: {fileID: 7209136898081765356}
 --- !u!1 &7209136898081765356
 GameObject:
   m_ObjectHideFlags: 0

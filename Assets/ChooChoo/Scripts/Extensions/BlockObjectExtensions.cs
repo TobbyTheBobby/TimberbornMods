@@ -2,7 +2,7 @@
 using Timberborn.BlockSystem;
 using UnityEngine;
 
-namespace ChooChoo
+namespace ChooChoo.Extensions
 {
     public static class BlockObjectExtensions
     {

@@ -1,24 +1,24 @@
 ﻿using System.Reflection;
 using HarmonyLib;
-using JetBrains.Annotations;
+using TobbyTools.InaccessibilityUtilitySystem;
+using TobbyTools.UsedImplicitlySystem;
 using UnityEngine;
 
-namespace ChooChoo
+namespace ChooChoo.TrackSystem
 {
-    
-    [HarmonyPatch, UsedImplicitly(ImplicitUseTargetFlags.Members)]
+    [UsedImplicitlyHarmonyPatch]
     public class BoundsNavRangeServicePatch
     {
         public static Material Material;
-        
-        static MethodInfo TargetMethod()
+
+        private static MethodInfo TargetMethod()
         {
             return AccessTools.Method(AccessTools.TypeByName("BoundsNavRangeDrawingService"), "Load");
         }
-        
-        static void Prefix(object ____boundsNavRangeDrawer)
+
+        private static void Prefix(object ____boundsNavRangeDrawer)
         {
-            Material = ChooChooCore.GetInaccessibleField(____boundsNavRangeDrawer, "_material") as Material;
+            Material = (Material)InaccessibilityUtilities.GetInaccessibleField(____boundsNavRangeDrawer, "_material");
         }
     }
 }

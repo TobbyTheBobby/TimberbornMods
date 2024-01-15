@@ -18,7 +18,8 @@ MonoBehaviour:
   Name: BeaverClothing
   Description: 
   Version: 
-  Dependencies: []
+  Dependencies:
+  - {fileID: 11400000, guid: 341623cfe39dc284498271e2322ca4b1, type: 2}
 --- !u!114 &-1800585617083543040
 MonoBehaviour:
   m_ObjectHideFlags: 0

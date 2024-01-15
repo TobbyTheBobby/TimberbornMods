@@ -1,7 +1,6 @@
-namespace ChooChoo
+namespace ChooChoo.TrackSystem
 {
     public class OnTracksUpdatedEvent
     {
-        
     }
 }

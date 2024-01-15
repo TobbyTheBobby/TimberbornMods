@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -200,7 +199,7 @@ namespace DifficultySettingsChanger
                         GenerateSingletonSpecification(value).ToList()
                     );
                 default:
-                    Plugin.Log.LogWarning($"Type {dynamicProperty.Value.GetType()} is not supported.");
+                    // Plugin.Log.LogWarning($"Type {dynamicProperty.Value.GetType()} is not supported.");
                     return null;
             }
         }

@@ -1,17 +1,16 @@
 ﻿using Bindito.Core;
-using TimberApi.ConfiguratorSystem;
 using TimberApi.SceneSystem;
 using Timberborn.ToolSystem;
+using TobbyTools.UsedImplicitlySystem;
 
-namespace ChooChoo
+namespace ChooChoo.UnlockingSystem
 {
-  [Configurator(SceneEntrypoint.InGame)]
-  public class UnlockingSystemConfigurator : IConfigurator
-  {
-    public void Configure(IContainerDefinition containerDefinition)
+    [Configurator(SceneEntrypoint.InGame)]
+    public class UnlockingSystemConfigurator : IConfigurator
     {
-      containerDefinition.Bind<UnlockedTrainService>().AsSingleton();
-      containerDefinition.MultiBind<IToolLocker>().To<TrackPieceBlockObjectToolLocker>().AsSingleton();
+        public void Configure(IContainerDefinition containerDefinition)
+        {
+            containerDefinition.MultiBind<IToolLocker>().To<TrackPieceBlockObjectToolLocker>().AsSingleton();
+        }
     }
-  }
 }

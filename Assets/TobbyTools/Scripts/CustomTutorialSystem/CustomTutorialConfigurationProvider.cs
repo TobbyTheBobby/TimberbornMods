@@ -7,7 +7,6 @@ using TimberApi.DependencyContainerSystem;
 using Timberborn.GameFactionSystem;
 using Timberborn.Localization;
 using Timberborn.Persistence;
-using Timberborn.SingletonSystem;
 using Timberborn.TutorialSystem;
 using TobbyTools.InaccessibilityUtilitySystem;
 
@@ -178,7 +177,7 @@ namespace TobbyTools.CustomTutorialSystem
 
     private TutorialStep FinishedBuildingTutorialStep(int requiredAmount, params string[] prefabNames)
     {
-      return (TutorialStep)InaccessibilityUtilities.InvokeInaccesableMethod(
+      return (TutorialStep)InaccessibilityUtilities.InvokeInaccessibleMethod(
         _buildingTutorialStepFactory, 
         "CreateRequiringFinishedBuildings",
         new object[] { requiredAmount, prefabNames });
@@ -186,7 +185,7 @@ namespace TobbyTools.CustomTutorialSystem
 
     private TutorialStep AnyBuildingTutorialStep(int requiredAmount, params string[] prefabNames)
     {
-      return (TutorialStep)InaccessibilityUtilities.InvokeInaccesableMethod(
+      return (TutorialStep)InaccessibilityUtilities.InvokeInaccessibleMethod(
         _buildingTutorialStepFactory, 
         "CreateRequiringAnyBuildings",
         new object[] { requiredAmount, prefabNames });
@@ -194,7 +193,7 @@ namespace TobbyTools.CustomTutorialSystem
 
     private TutorialStep ConnectBuildingsTutorialStep(int requiredAmount, string prefabName)
     {
-      return (TutorialStep)InaccessibilityUtilities.InvokeInaccesableMethod(
+      return (TutorialStep)InaccessibilityUtilities.InvokeInaccessibleMethod(
         _connectBuildingsTutorialStepFactory, 
         "Create",
         new object[] { requiredAmount, prefabName });
@@ -202,14 +201,14 @@ namespace TobbyTools.CustomTutorialSystem
 
     private TutorialStep MarkTreesTutorialStep()
     {
-      return (TutorialStep)InaccessibilityUtilities.InvokeInaccesableMethod(
+      return (TutorialStep)InaccessibilityUtilities.InvokeInaccessibleMethod(
         _markTreesTutorialStepFactory, 
         "Create");
     }
 
     private TutorialStep MarkPlantablesTutorialStep(int requiredAmount, string prefabName)
     {
-      return (TutorialStep)InaccessibilityUtilities.InvokeInaccesableMethod(
+      return (TutorialStep)InaccessibilityUtilities.InvokeInaccessibleMethod(
         _markPlantablesTutorialStepFactory, 
         "Create",
         new object[] { requiredAmount, prefabName });
@@ -217,7 +216,7 @@ namespace TobbyTools.CustomTutorialSystem
 
     private TutorialStep PowerBuildingsTutorialStep(int requiredAmount, string prefabName)
     {
-      return (TutorialStep)InaccessibilityUtilities.InvokeInaccesableMethod(
+      return (TutorialStep)InaccessibilityUtilities.InvokeInaccessibleMethod(
         _powerBuildingsTutorialStepFactory, 
         "Create",
         new object[] { requiredAmount, prefabName });
@@ -228,7 +227,7 @@ namespace TobbyTools.CustomTutorialSystem
       string prefabName,
       string goodId)
     {
-      return (TutorialStep)InaccessibilityUtilities.InvokeInaccesableMethod(
+      return (TutorialStep)InaccessibilityUtilities.InvokeInaccessibleMethod(
         _selectStockpileGoodTutorialStepFactory, 
         "Create",
         new object[] { prefabName, requiredAmount, goodId });

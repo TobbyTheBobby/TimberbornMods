@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
@@ -11,7 +10,7 @@ using UnityEngine;
 using Object = UnityEngine.Object;
 using Random = System.Random;
 
-namespace BeaverHats
+namespace BeaverClothing
 {
     public class BeaverClothingService : ILoadableSingleton 
     {
@@ -84,7 +83,7 @@ namespace BeaverHats
             get
             {
                 if (_shader == null)
-                    _shader = Resources.Load<Material>("materials/goods/Box").shader;
+                    _shader = Resources.Load<Material>($"materials/goods/Box").shader;
                 return _shader;
             }
         }
@@ -126,21 +125,24 @@ namespace BeaverHats
                 return;
 
             var clothingObject = Object.Instantiate(_resourceAssetLoader.Load<GameObject>(specification.PrefabPath));
-            clothingObject.transform.position = new Vector3(specification.PositionX, specification.PositionY, specification.PositionZ);
-            clothingObject.transform.rotation = Quaternion.Euler(specification.RotationX, specification.RotationY, specification.RotationZ);
+            var transform = clothingObject.transform;
+            transform.position = new Vector3(specification.PositionX, specification.PositionY, specification.PositionZ);
+            transform.rotation = Quaternion.Euler(specification.RotationX, specification.RotationY, specification.RotationZ);
             // Plugin.Log.LogInfo("Adding: " + clothingObject.name);
             clothingObject.name = ("#" + clothingObject.name).Replace("(Clone)", "");
-            ShaderFix(clothingObject.transform);
-            clothingObject.transform.rotation *= bodyPart.rotation;
-            clothingObject.transform.position += bodyPart.position;
-            clothingObject.transform.localScale = new Vector3(specification.ScaleX, specification.ScaleY, specification.ScaleZ);
-            clothingObject.transform.Rotate(5, 0, 0);
+            ShaderFix(transform);
+            // ReSharper disable once Unity.InefficientPropertyAccess
+            transform.rotation *= bodyPart.rotation;
+            // ReSharper disable once Unity.InefficientPropertyAccess
+            transform.position += bodyPart.position;
+            transform.localScale = new Vector3(specification.ScaleX, specification.ScaleY, specification.ScaleZ);
+            transform.Rotate(5, 0, 0);
             
             
             if (bodyPart.Find(clothingObject.name) != null)
                 bodyPart.Find(clothingObject.name).parent = null;
             
-            clothingObject.transform.SetParent(bodyPart.transform);
+            transform.SetParent(bodyPart.transform);
             clothingObject.SetActive(false);
         }
         

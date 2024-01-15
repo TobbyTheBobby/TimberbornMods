@@ -29,6 +29,9 @@ MonoBehaviour:
   m_Name: ExecuteProcess
   m_EditorClassIdentifier: 
   Active: 1
+  PerManifest: 0
+  ListType: 0
+  Manifests: []
   workingDirectory: <BepInExPackDestination>
   executable: <Steam.exe>
   arguments:

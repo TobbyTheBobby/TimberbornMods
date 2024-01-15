@@ -1,5 +1,4 @@
-﻿using System;
-using Timberborn.Persistence;
+﻿using Timberborn.Persistence;
 using UnityEngine;
 
 namespace GlobalMarket

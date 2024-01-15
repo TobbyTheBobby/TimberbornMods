@@ -1,9 +1,5 @@
-using System.Collections.Generic;
 using System.Reflection;
 using HarmonyLib;
-using Timberborn.Beavers;
-using Timberborn.RangedEffectSystem;
-using Timberborn.WalkingSystem;
 
 namespace Ladder
 {

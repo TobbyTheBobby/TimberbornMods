@@ -2,35 +2,35 @@
 using Timberborn.BatchControl;
 using UnityEngine.UIElements;
 
-namespace ChooChoo
+namespace ChooChoo.GoodsStationBatchControl
 {
-  public class DistributionSettingGroup : 
-    IBatchControlRowItem,
-    IUpdateableBatchControlRowItem,
-    IClearableBatchControlRowItem
-  {
-    private readonly List<GoodDistributionSettingItem> _goodDistributionSettingItems;
-
-    public VisualElement Root { get; }
-
-    public DistributionSettingGroup(
-      VisualElement root,
-      List<GoodDistributionSettingItem> goodDistributionSettingItems)
+    public class DistributionSettingGroup :
+        IBatchControlRowItem,
+        IUpdateableBatchControlRowItem,
+        IClearableBatchControlRowItem
     {
-      Root = root;
-      _goodDistributionSettingItems = goodDistributionSettingItems;
-    }
+        private readonly List<GoodDistributionSettingItem> _goodDistributionSettingItems;
 
-    public void UpdateRowItem()
-    {
-      foreach (var goodDistributionSettingItem in _goodDistributionSettingItems)
-        goodDistributionSettingItem.Update();
-    }
+        public VisualElement Root { get; }
 
-    public void ClearRowItem()
-    {
-      foreach (var goodDistributionSettingItem   in _goodDistributionSettingItems)
-        goodDistributionSettingItem.Clear();
+        public DistributionSettingGroup(
+            VisualElement root,
+            List<GoodDistributionSettingItem> goodDistributionSettingItems)
+        {
+            Root = root;
+            _goodDistributionSettingItems = goodDistributionSettingItems;
+        }
+
+        public void UpdateRowItem()
+        {
+            foreach (var goodDistributionSettingItem in _goodDistributionSettingItems)
+                goodDistributionSettingItem.Update();
+        }
+
+        public void ClearRowItem()
+        {
+            foreach (var goodDistributionSettingItem in _goodDistributionSettingItems)
+                goodDistributionSettingItem.Clear();
+        }
     }
-  }
 }

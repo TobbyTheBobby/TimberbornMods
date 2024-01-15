@@ -6,7 +6,6 @@ using Timberborn.BaseComponentSystem;
 using Timberborn.BlockObjectTools;
 using Timberborn.BlockSystem;
 using Timberborn.ConstructionMode;
-using Timberborn.Coordinates;
 using Timberborn.Core;
 using Timberborn.CursorToolSystem;
 using Timberborn.Debugging;
