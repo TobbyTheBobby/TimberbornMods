@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9057f7f601990a4883b2cb295c4f43e, type: 3}
   m_Name: ThunderKitSettings
   m_EditorClassIdentifier: 
-  FirstLoad: 0
+  FirstLoad: 1
   ShowOnStartup: 0
   GameExecutable: Timberborn.exe
   GamePath: C:\Program Files (x86)\Steam\steamapps\common\Timberborn
@@ -24,11 +24,11 @@ MonoBehaviour:
   GenerateAssetsProject: 0
   FixLocalDiskPackages: 0
   ImageCachePath: Library/MarkdownImageCache
-  CachedImageCount: 0
-  CacheSize: 0
+  CachedImageCount: 3
+  CacheSize: 0.16
   MarkdownOpenMode: 1
   SelectedPipeline: {fileID: 11400000, guid: 4dd48049486e9ce49bfcb65be4435455, type: 2}
-  SelectedManifest: {fileID: 11400000, guid: e43a111cf898e77408e9a61537f2c663, type: 2}
+  SelectedManifest: {fileID: 11400000, guid: a91d7742c3dfb0243be974ca0b5e7d78, type: 2}
   QuickAccessPipelines:
   - {fileID: 11400000, guid: 4dd48049486e9ce49bfcb65be4435455, type: 2}
   - {fileID: 11400000, guid: 550958c91afe9844e990bf2acc7db9dd, type: 2}

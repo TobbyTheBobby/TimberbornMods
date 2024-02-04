@@ -23,17 +23,38 @@
       ]
     },
     {
-      "ClassName": "BeaverBust.IronTeeth",
+      "ClassName": "BeaverStatue.Folktails",
       "FieldName": "Building.BuildingCost",
       "Value": [
         {
-          "ClassName": "BeaverBust.IronTeeth",
+          "ClassName": "BeaverStatue.Folktails",
           "FieldName": "Building.BuildingCost",
           "Value": [
             {
               "ClassName": "GoodAmountSpecification",
+              "FieldName": "GoodAmountSpecification.GoodId",
+              "Value": "Log"
+            },
+            {
+              "ClassName": "GoodAmountSpecification",
               "FieldName": "GoodAmountSpecification.Amount",
-              "Value": 100
+              "Value": 60
+            }
+          ]
+        },
+        {
+          "ClassName": "BeaverStatue.Folktails",
+          "FieldName": "Building.BuildingCost",
+          "Value": [
+            {
+              "ClassName": "GoodAmountSpecification",
+              "FieldName": "GoodAmountSpecification.GoodId",
+              "Value": "Plank"
+            },
+            {
+              "ClassName": "GoodAmountSpecification",
+              "FieldName": "GoodAmountSpecification.Amount",
+              "Value": 10
             }
           ]
         }
