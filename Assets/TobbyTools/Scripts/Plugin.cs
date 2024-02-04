@@ -1,7 +1,9 @@
 using System;
-using HarmonyLib;
+using System.Collections.Generic;
 using TimberApi.ConsoleSystem;
 using TimberApi.ModSystem;
+using TobbyTools.CustomTutorialSystem;
+using TobbyTools.HookSystem;
 
 namespace TobbyTools
 {
@@ -18,15 +20,22 @@ namespace TobbyTools
             Log = consoleWriter;
 
             Mod = mod;
-            
-            try
+
+            SubSystemEntryPoints();
+        }
+
+        private static void SubSystemEntryPoints()
+        {
+            var subSystemEntryPoints = new List<Type>()
             {
-                new Harmony(PluginGuid).PatchAll();
-            }
-            catch (Exception e)
+                typeof(CustomTutorialSystemEntryPoint),
+                // typeof(OverrideBaseClassSystemEntryPoint),
+            };
+
+            foreach (var subSystemEntryPoint in subSystemEntryPoints)
             {
-                Console.WriteLine(e);
-                throw;
+                var instance = (ISubSystemEntryPoint)Activator.CreateInstance(subSystemEntryPoint);
+                instance.Entry();
             }
         }
     }

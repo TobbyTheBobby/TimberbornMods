@@ -59,7 +59,8 @@
         "Timberborn.InventorySystem.dll",
         "Timberborn.Coordinates.dll",
         "Timberborn.Meshy.dll",
-        "Timberborn.ConstructibleSystem.dll"
+        "Timberborn.ConstructibleSystem.dll",
+        "MonoMod.RuntimeDetour.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],
