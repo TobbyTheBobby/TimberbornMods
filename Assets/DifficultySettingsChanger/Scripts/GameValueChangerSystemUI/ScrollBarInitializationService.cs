@@ -1,7 +1,7 @@
 ﻿using Timberborn.CoreUI;
 using UnityEngine.UIElements;
 
-namespace DifficultySettingsChanger
+namespace DifficultySettingsChanger.GameValueChangerSystemUI
 {
     public class ScrollBarInitializationService
     {

@@ -1,4 +1,5 @@
-﻿using TimberApi.DependencyContainerSystem;
+﻿using DifficultySettingsChanger.GameValueChangerSystem;
+using TimberApi.DependencyContainerSystem;
 using TimberApi.UiBuilderSystem;
 using TimberApi.UiBuilderSystem.PresetSystem;
 using Timberborn.AssetSystem;
@@ -10,7 +11,7 @@ using Timberborn.SingletonSystem;
 using UnityEngine.UIElements;
 using LocalizableLabel = TimberApi.UiBuilderSystem.CustomElements.LocalizableLabel;
 
-namespace DifficultySettingsChanger
+namespace DifficultySettingsChanger.GameValueChangerSystemUI
 {
     public class DifficultySettingsChangerBox : ILoadableSingleton, IPanelController, IInputProcessor
     {

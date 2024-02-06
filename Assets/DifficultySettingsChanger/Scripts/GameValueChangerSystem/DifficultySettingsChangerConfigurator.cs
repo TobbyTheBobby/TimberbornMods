@@ -1,9 +1,9 @@
 using System;
 using Bindito.Core;
-using TimberApi.ConfiguratorSystem;
 using TimberApi.SceneSystem;
+using TobbyTools.UsedImplicitlySystem;
 
-namespace DifficultySettingsChanger
+namespace DifficultySettingsChanger.GameValueChangerSystem
 {
     [Configurator(SceneEntrypoint.InGame)]
     // [RequiredModDependencies("tobbert.choochoo")]

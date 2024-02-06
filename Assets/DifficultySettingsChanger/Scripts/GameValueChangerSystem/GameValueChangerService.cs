@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using DifficultySettingsChanger.GameValueChangerSystemUI;
 using Newtonsoft.Json;
 using TimberApi.Common.SingletonSystem;
 using Timberborn.SingletonSystem;
 using UnityEngine.UIElements;
 
-namespace DifficultySettingsChanger
+namespace DifficultySettingsChanger.GameValueChangerSystem
 {
     public class GameValueChangerService : IEarlyLoadableSingleton
     {
@@ -15,8 +16,8 @@ namespace DifficultySettingsChanger
         private readonly GameValueChangerUiPresetFactory _gameValueChangerUiPresetFactory;
         private readonly GameValueChangerRepository _gameValueChangerRepository;
         private readonly EventBus _eventBus;
-        
-        GameValueChangerService(
+
+        private GameValueChangerService(
             GameValueSpecificationDeserializer gameValueSpecificationDeserializer,
             GameValueSpecificationRepository gameValueSpecificationRepository,
             GameValueChangerUiPresetFactory gameValueChangerUiPresetFactory, 
@@ -57,8 +58,7 @@ namespace DifficultySettingsChanger
         private void Save()
         {
             var gameValueSpecifications = new List<GameValueSpecification>();
-            foreach (var gameValueChangers in _gameValueChangerRepository.GamevalueChangers
-                         .GroupBy(changer => changer.ClassName))
+            foreach (var gameValueChangers in _gameValueChangerRepository.GamevalueChangers.GroupBy(changer => changer.ClassName))
             {
                 foreach (var gameValueChanger in gameValueChangers
                              .OrderBy(changer => changer.FieldName)
@@ -191,7 +191,6 @@ namespace DifficultySettingsChanger
             }
             
             // Plugin.Log.LogError("Field Changed: " + gameValueChanger.FieldRef.FieldWasChanged);
-            //
             // Plugin.Log.LogError(gameValueChanger.ClassName + " " + gameValueChanger.FieldName + "   " + gameValueChanger.SerializedInitialValue + "   " + gameValueChanger.FieldRef.Value);
             //
             // if (!gameValueChanger.FieldRef.FieldWasChanged)
@@ -207,54 +206,69 @@ namespace DifficultySettingsChanger
         {
             _eventBus.Register(this);
 
-            GameValueChanger[] saveableGameValueChangers = _gameValueChangerRepository.GamevalueChangers.OfType<SaveableGameValueChanger>().ToArray();
+            var saveableGameValueChangers = _gameValueChangerRepository.GamevalueChangers.OfType<SaveableGameValueChanger>().ToArray();
 
-            foreach (var gamevalueSpecification in _gameValueSpecificationRepository.GameValueSpecifications)
+            foreach (var gameValueSpecification in _gameValueSpecificationRepository.GameValueSpecifications)
             {
-                UpdateValues(saveableGameValueChangers, gamevalueSpecification);
-                // var saveableGameValueChanger = saveableGameValueChangers.FirstOrDefault(changer => gamevalueSpecification.ClassName == changer.ClassName &&
-                //     gamevalueSpecification.FieldName == changer.FieldName);
-                //
-                // if(saveableGameValueChanger == null)
-                //     continue;
-                //
-                // saveableGameValueChanger.FieldRef.Value = gamevalueSpecification.Value;
+                var saveableGameValueChanger = saveableGameValueChangers.FirstOrDefault(changer => gameValueSpecification.ClassName == changer.ClassName && gameValueSpecification.FieldName == changer.FieldName);
+            
+                if(saveableGameValueChanger == null)
+                    return;
+                
+                UpdateValues(gameValueSpecification, saveableGameValueChanger);
             }
         }
 
-        private void UpdateValues(GameValueChanger[] list, GameValueSpecification gameValueSpecification)
+        private void UpdateValues(GameValueSpecification gameValueSpecification, SaveableGameValueChanger saveableGameValueChanger)
         {
-            var saveableGameValueChanger = list.FirstOrDefault(changer => gameValueSpecification.ClassName == changer.ClassName && gameValueSpecification.FieldName == changer.FieldName);
-
-            if(saveableGameValueChanger == null)
-                return;
+            // Plugin.Log.LogWarning($"UPDATING: {saveableGameValueChanger?.ClassName}.{saveableGameValueChanger?.FieldName}");
 
             if (saveableGameValueChanger is CollectionSaveableGameValueChanger collectionSaveableGameValueChanger)
             {
-                // var fieldGameValueSpecifications = (List<GameValueSpecification>)gameValueSpecification.Value;
-                //
-                // if (!fieldGameValueSpecifications.Any())
-                //     return;
-                //
-                // collectionSaveableGameValueChanger.ClearCollection();
-                // foreach (var fieldGameValueSpecification in fieldGameValueSpecifications)
-                // {
-                //     
-                //     var test = collectionSaveableGameValueChanger.AddItem();
-                //
-                //     UpdateValues(new[] { test }, fieldGameValueSpecification);
-                //
-                // }
-                // // collectionSaveableGameValueChanger.UpdateCollection();
+                // Plugin.Log.LogInfo("Updating CollectionSaveableGameValueChanger");
+                // Plugin.Log.LogInfo($"{collectionSaveableGameValueChanger.Property.OriginalName}: {collectionSaveableGameValueChanger.Property.Value}");
+                
+                var fieldGameValueSpecifications = (List<GameValueSpecification>)gameValueSpecification.Value;
+                
+                // Plugin.Log.LogInfo("fieldGameValueSpecifications.Any()  " + fieldGameValueSpecifications.Any());
+                
+                if (!fieldGameValueSpecifications.Any())
+                    return;
+                
+                collectionSaveableGameValueChanger.ClearCollection();
+                foreach (var fieldGameValueSpecification in fieldGameValueSpecifications)
+                {
+                    if (collectionSaveableGameValueChanger.GameValueType == typeof(ValueTypeSaveableGameValueChanger))
+                    {
+                        // Plugin.Log.LogInfo($"{fieldGameValueSpecification.ClassName} {fieldGameValueSpecification.FieldName}");
+                        collectionSaveableGameValueChanger.AddValueTypeItem(fieldGameValueSpecification);
+                        continue;
+                    }
+
+                    var item = collectionSaveableGameValueChanger.AddItem();
+                    UpdateValues(fieldGameValueSpecification, item);
+                }
+                
+                collectionSaveableGameValueChanger.UpdateCollection();
                 return;
             }
             
             if (saveableGameValueChanger is ValueTypeSaveableGameValueChanger valueTypeSaveableGameValueChanger)
             {
                 var fieldGameValueSpecifications = (List<GameValueSpecification>)gameValueSpecification.Value;
-                
-                foreach (var fieldGameValueSpecification in fieldGameValueSpecifications) 
-                    UpdateValues(valueTypeSaveableGameValueChanger.Fields.ToArray(), fieldGameValueSpecification);
+
+                foreach (var fieldGameValueSpecification in fieldGameValueSpecifications)
+                {
+                    if (fieldGameValueSpecification == null)
+                        continue;
+
+                    var fieldSaveableGameValueChanger = (SaveableGameValueChanger)valueTypeSaveableGameValueChanger.Fields.FirstOrDefault(changer => changer != null && fieldGameValueSpecification.ClassName == changer.ClassName && fieldGameValueSpecification.FieldName == changer.FieldName);
+                    
+                    if(fieldSaveableGameValueChanger == null)
+                        continue;
+                    
+                    UpdateValues(fieldGameValueSpecification, fieldSaveableGameValueChanger);
+                }
                 return;
             }
 

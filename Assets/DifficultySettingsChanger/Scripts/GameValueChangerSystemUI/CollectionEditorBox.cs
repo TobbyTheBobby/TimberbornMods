@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using DifficultySettingsChanger.GameValueChangerSystem;
 using TimberApi.UiBuilderSystem;
 using TimberApi.UiBuilderSystem.PresetSystem;
 using Timberborn.CoreUI;
 using UnityEngine.UIElements;
 
-namespace DifficultySettingsChanger
+namespace DifficultySettingsChanger.GameValueChangerSystemUI
 {
     public class CollectionEditorBox : IPanelController
     {
@@ -17,7 +18,7 @@ namespace DifficultySettingsChanger
 
         private List<GameValueChanger> _gameValueChangers;
 
-        CollectionEditorBox(GameValueChangerUiPresetFactory gameValueChangerUiPresetFactory, UiPresetFactory uiPresetFactory, PanelStack panelStack, UIBuilder uiBuilder)
+        private CollectionEditorBox(GameValueChangerUiPresetFactory gameValueChangerUiPresetFactory, UiPresetFactory uiPresetFactory, PanelStack panelStack, UIBuilder uiBuilder)
         {
             _gameValueChangerUiPresetFactory = gameValueChangerUiPresetFactory;
             _uiPresetFactory = uiPresetFactory;

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections;
+using DifficultySettingsChanger.GameValueChangerSystem;
 using TimberApi.DependencyContainerSystem;
 using TimberApi.UiBuilderSystem.PresetSystem;
 using Timberborn.CoreUI;
 using UnityEngine.UIElements;
 
-namespace DifficultySettingsChanger
+namespace DifficultySettingsChanger.GameValueChangerSystemUI
 {
     public class GameValueChangerUiPresetFactory
     {
@@ -36,7 +37,6 @@ namespace DifficultySettingsChanger
             root.AddToClassList("mods-box__game-value-changer");
             
             var header = _uiPresetFactory.Labels().GameTextHeading(headerLocKey);
-            // _visualElementInitializer.InitializeVisualElement(header);
             root.Add(header);
             
             var gameValueChangerContainer = new ScrollView()
@@ -67,29 +67,22 @@ namespace DifficultySettingsChanger
         
         public VisualElement GetUiPreset(GameValueChanger gameValueChanger)
         {
-            try
+            switch (gameValueChanger.FieldRef.Value)
             {
-                switch (gameValueChanger.FieldRef.Value)
-                {
-                    case string:
-                        return LabelAndTextField(gameValueChanger);
-                    case int:
-                        return LabelAndIntField(gameValueChanger);
-                    case float:
-                        return LabelAndFloatField(gameValueChanger);
-                    case bool:
-                        return LabelCheckbox(gameValueChanger);
-                    case IEnumerable:
-                        return LabelCollectionBoxButton(gameValueChanger);
-                    case ValueType:
-                        return LabelValueTypeBoxButton(gameValueChanger);
-                    default:
-                        throw new ArgumentOutOfRangeException($"UiTemplate for type '{gameValueChanger.FieldRef.Value.GetType()}' is not supported.");
-                }
-            }
-            catch (Exception)
-            {
-                throw new Exception("Something went wrong during UI generation. Check to make sure you are using the correct preset.");
+                case string:
+                    return LabelAndTextField(gameValueChanger);
+                case int:
+                    return LabelAndIntField(gameValueChanger);
+                case float:
+                    return LabelAndFloatField(gameValueChanger);
+                case bool:
+                    return LabelCheckbox(gameValueChanger);
+                case IEnumerable:
+                    return LabelCollectionBoxButton(gameValueChanger);
+                case ValueType:
+                    return LabelValueTypeBoxButton(gameValueChanger);
+                default:
+                    throw new ArgumentOutOfRangeException($"UiTemplate for type '{gameValueChanger.FieldRef.Value.GetType()}' is not supported. Check to make sure you are using the correct preset.");
             }
         }
         

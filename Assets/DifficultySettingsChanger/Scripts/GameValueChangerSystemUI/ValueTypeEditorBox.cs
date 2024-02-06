@@ -1,9 +1,10 @@
-﻿using TimberApi.UiBuilderSystem;
+﻿using DifficultySettingsChanger.GameValueChangerSystem;
+using TimberApi.UiBuilderSystem;
 using TimberApi.UiBuilderSystem.PresetSystem;
 using Timberborn.CoreUI;
 using UnityEngine.UIElements;
 
-namespace DifficultySettingsChanger
+namespace DifficultySettingsChanger.GameValueChangerSystemUI
 {
     public class ValueTypeEditorBox : IPanelController
     {

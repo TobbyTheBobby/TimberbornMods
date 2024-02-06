@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using DifficultySettingsChanger.GameValueChangerSystem;
 using Timberborn.SingletonSystem;
+using TobbyTools.InaccessibilityUtilitySystem;
 using UnityEngine;
 
 namespace DifficultySettingsChanger
@@ -96,8 +98,8 @@ namespace DifficultySettingsChanger
             // var gameObjectName = component.gameObject.TryGetComponent(out Prefab prefab) ? prefab.PrefabName : component.gameObject.name;
             
             Stopwatch.Start();
-            foreach (var gamevalueChanger in GetGamevalueChangers(component, component.gameObject.name, type.Name, values))
-                yield return gamevalueChanger;
+            foreach (var gameValueChanger in GetGameValueChangers(component, component.gameObject.name, type.Name, values))
+                yield return gameValueChanger;
             Stopwatch.Stop();
         }
 
@@ -108,7 +110,6 @@ namespace DifficultySettingsChanger
             if (SkippableTypes.Types.Contains(type))
                 yield break;
 
-            if (Plugin.LoggingEnabled) Plugin.Log.LogWarning(type + "");
             if (Plugin.LoggingEnabled) Plugin.Log.LogWarning("Name Singleton: " + type);
             
             var values = _dynamicPropertyObtainer.FromSingleton(type, singleton);
@@ -118,11 +119,11 @@ namespace DifficultySettingsChanger
             if (!values.Any())
                 yield break;
 
-            foreach (var gamevalueChanger in GetGamevalueChangers(singleton, typeName, type.Name, values))
-                yield return gamevalueChanger;
+            foreach (var gameValueChanger in GetGameValueChangers(singleton, typeName, type.Name, values))
+                yield return gameValueChanger;
         }
 
-        private IEnumerable<GameValueChanger> GetGamevalueChangers(object instance, string className, string fieldname, DynamicProperty[] dynamicProperties)
+        private IEnumerable<GameValueChanger> GetGameValueChangers(object instance, string className, string fieldName, DynamicProperty[] dynamicProperties)
         {
             foreach (var dynamicProperty in dynamicProperties)
             {
@@ -130,13 +131,13 @@ namespace DifficultySettingsChanger
                     () => InaccessibilityUtilities.GetInaccessibleField(instance, dynamicProperty.OriginalName),
                     value => InaccessibilityUtilities.SetInaccessibleField(instance, dynamicProperty.OriginalName, value));
                 
-                yield return GetGameValueChanger(dynamicProperty.Value, className, fieldname, dynamicProperty, fieldRef);
+                yield return GetGameValueChanger(dynamicProperty.Value, className, fieldName, dynamicProperty, fieldRef);
             }
         }
 
-        public GameValueChanger GetGameValueChanger(object value, string className, string fieldname, DynamicProperty dynamicProperty, FieldRef fieldRef)
+        public GameValueChanger GetGameValueChanger(object value, string className, string fieldName, DynamicProperty dynamicProperty, FieldRef fieldRef)
         {
-            var combinedFieldName = fieldname + "." + dynamicProperty.StyledName;
+            var combinedFieldName = fieldName + "." + dynamicProperty.StyledName;
 
             switch (value)
             {
@@ -174,10 +175,17 @@ namespace DifficultySettingsChanger
                     );
                 case IEnumerable enumerable:
 
+                    var gameValueType = typeof(GameValueChanger);
+                    
                     var list = new List<GameValueChanger>();
                     foreach (var item in enumerable)
                     {
-                        list.Add(GetGameValueChanger(item, className, fieldname, dynamicProperty, FieldRef.GetterOnly(item)));
+                        list.Add(GetGameValueChanger(item, className, fieldName, dynamicProperty, FieldRef.GetterOnly(item)));
+                    }
+
+                    if (list.Any())
+                    {
+                        gameValueType = list.First().GetType();
                     }
 
                     return new CollectionSaveableGameValueChanger(
@@ -187,7 +195,9 @@ namespace DifficultySettingsChanger
                         combinedFieldName + ":",
                         false,
                         dynamicProperty,
-                        list
+                        list,
+                        fieldName,
+                        gameValueType
                     );
                 case not null:
                     return new ValueTypeSaveableGameValueChanger(

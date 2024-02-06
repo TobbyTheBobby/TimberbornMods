@@ -3,7 +3,7 @@ using TimberApi.ConfiguratorSystem;
 using TimberApi.SceneSystem;
 using Timberborn.CoreUI;
 
-namespace DifficultySettingsChanger
+namespace DifficultySettingsChanger.GameValueChangerSystemUI
 {
     [Configurator(SceneEntrypoint.InGame)]
     public class GameValueChangerSystemUIConfigurator : IConfigurator
