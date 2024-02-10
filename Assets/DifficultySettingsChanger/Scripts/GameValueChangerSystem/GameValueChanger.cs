@@ -6,31 +6,31 @@ namespace DifficultySettingsChanger
     public class GameValueChanger
     {
         public readonly FieldRef FieldRef;
-        
-        public readonly string ClassName;
-
+        public readonly Type ParentType;
+        public readonly string ObjectName;
         public readonly string FieldName;
-
-        public readonly string LabelText;
-
         public readonly bool IsLiveUpdateable;
-
+        public readonly DynamicProperty DynamicProperty;
         public readonly string SerializedInitialValue;
 
         public string SerializedValue => Serialize(FieldRef.Value);
-
+        public string ClassFieldNameCombined => $"{ObjectName}.{DynamicProperty.StyledName}";
+        public string LabelText => $"{DynamicProperty.StyledName}";
+        
         public GameValueChanger(
             FieldRef fieldRef,
-            string className,
+            Type parentType,
+            string objectName,
             string fieldName,
-            string labelText,
-            bool isLiveUpdateable)
+            bool isLiveUpdateable,
+            DynamicProperty dynamicProperty)
         {
             FieldRef = fieldRef;
-            ClassName = className;
+            ParentType = parentType;
+            ObjectName = objectName;
             FieldName = fieldName;
-            LabelText = labelText;
             IsLiveUpdateable = isLiveUpdateable;
+            DynamicProperty = dynamicProperty;
             SerializedInitialValue = Serialize(fieldRef.Value);
         }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace DifficultySettingsChanger
 {
@@ -8,18 +9,20 @@ namespace DifficultySettingsChanger
 
         public ValueTypeSaveableGameValueChanger(
             FieldRef fieldRef, 
+            Type parentType,
             string className, 
             string fieldName, 
-            string labelText, 
             bool isLiveUpdateable,
+            DynamicProperty dynamicProperty,
             IEnumerable<GameValueChanger> gameValueChangers) : 
             
             base(
                 fieldRef, 
+                parentType,
                 className, 
                 fieldName, 
-                labelText, 
-                isLiveUpdateable)
+                isLiveUpdateable,
+                dynamicProperty)
         {
             Fields = gameValueChangers;
         }

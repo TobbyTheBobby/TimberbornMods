@@ -10,7 +10,7 @@ namespace DifficultySettingsChanger
 
         private readonly List<GameValueChanger> _gamevalueChangers = new();
 
-        public ImmutableArray<GameValueChanger> GamevalueChangers => _gamevalueChangers.GetRange(0, 40).ToImmutableArray();
+        public ImmutableArray<GameValueChanger> GamevalueChangers => _gamevalueChangers.ToImmutableArray();
 
         GameValueChangerRepository(IEnumerable<IGameValueChangerGenerator> gameValueChangerGenerators)
         {

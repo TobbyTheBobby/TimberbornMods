@@ -16,6 +16,7 @@ namespace DifficultySettingsChanger
             typeof(Transform),
             AccessTools.TypeByName("UniversalAdditionalCameraData"),
             AccessTools.TypeByName("ManualMigrationDistrictSetter"),
+            AccessTools.TypeByName("UniversalAdditionalLightData"),
             AccessTools.TypeByName("TickProgressPropertyUpdater"),
             AccessTools.TypeByName("UniversalAdditionalLightData"),
             AccessTools.TypeByName("ModelMetadata"),

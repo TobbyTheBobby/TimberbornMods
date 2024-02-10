@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using DifficultySettingsChanger.GameValueChangerSystem;
-using TimberApi.DependencyContainerSystem;
+using DifficultySettingsChanger.GameValueChangerSystemUI.Components;
 using TimberApi.UiBuilderSystem.PresetSystem;
 using Timberborn.CoreUI;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace DifficultySettingsChanger.GameValueChangerSystemUI
@@ -11,58 +14,71 @@ namespace DifficultySettingsChanger.GameValueChangerSystemUI
     public class GameValueChangerUiPresetFactory
     {
         private readonly VisualElementInitializer _visualElementInitializer;
-        // private readonly HierarchicalManager _hierarchicalManager;
         private readonly VisualElementLoader _visualElementLoader;
         private readonly UiPresetFactory _uiPresetFactory;
-        private readonly PanelStack _panelStack;
-        
-        
-        GameValueChangerUiPresetFactory(
+
+        private GameValueChangerUiPresetFactory(
             VisualElementInitializer visualElementInitializer, 
-            // HierarchicalManager hierarchicalManager, 
             VisualElementLoader visualElementLoader, 
-            UiPresetFactory uiPresetFactory, 
-            PanelStack panelStack)
+            UiPresetFactory uiPresetFactory)
         {
             _visualElementInitializer = visualElementInitializer;
-            // _hierarchicalManager = hierarchicalManager;
             _visualElementLoader = visualElementLoader;
             _uiPresetFactory = uiPresetFactory;
-            _panelStack = panelStack;
         }
 
+        public VisualElement GetObjectsContainer(string headerLocKey)
+        {
+            var root = new VisualElement();
+            root.AddToClassList("mods-box__objects");
+            root.style.width = new Length(Screen.width / 4f, LengthUnit.Pixel);
+            var header = _uiPresetFactory.Labels().GameTextHeading(headerLocKey);
+            root.Add(header);
+            root.Add(CreateScrollView());
+            return root;
+        }
+        
         public VisualElement GetGameValueChangerContainer(string headerLocKey)
         {
             var root = new VisualElement();
-            root.AddToClassList("mods-box__game-value-changer");
-            
+            root.AddToClassList("mods-box__properties");
+            root.style.width = new Length(Screen.width / 3f, LengthUnit.Pixel);
             var header = _uiPresetFactory.Labels().GameTextHeading(headerLocKey);
             root.Add(header);
-            
-            var gameValueChangerContainer = new ScrollView()
-            {
-                style =
-                {
-                    width = new Length(100, LengthUnit.Percent),
-                    height = new Length(100, LengthUnit.Percent),
-
-                    justifyContent = new StyleEnum<Justify>(Justify.Center),
-                    alignItems = new StyleEnum<Align>(Align.Center),
-                    
-                    marginTop = new Length(20, LengthUnit.Pixel)
-                }
-            };
-            // gameValueChangerContainer.AddToClassList("mods-box__game-value-changer");
-            gameValueChangerContainer.AddToClassList("scroll--green-decorated");
-            
-            root.Add(gameValueChangerContainer);
-            
+            root.Add(CreateScrollView());
             return root;
         }
 
         public VisualElement GetGroupHeader(string header)
         {
             return _uiPresetFactory.Labels().GameTextHeading(text: header);
+        }
+
+        public ObjectWrapper GetObjectWrapper(string header, IGrouping<string, GameValueChanger> groupedValueChangers, ScrollView propertiesRoot, ScrollView gameValueChangerContainer)
+        {
+            var container = CreateContainer();
+            container.Add(CreateLabel(header));
+            var button = CreateButton("Open object");
+            container.Add(button);
+            // var propertiesSubContainer = new VisualElement();
+            // propertiesRoot.Add(propertiesSubContainer);
+            var objectWrapper = ObjectWrapper.Create(this, container, button, groupedValueChangers, propertiesRoot, gameValueChangerContainer);
+            return objectWrapper;
+        }
+        
+        public VisualElement GetPropertyWrapper(GameValueChanger header, ScrollView gameValueChangerContainer)
+        {
+            var container = CreateContainer();
+            container.Add(CreateLabel(header.LabelText));
+            var button = CreateButton("Open property");
+            button.clicked += () =>
+            {
+                gameValueChangerContainer.Clear();
+                gameValueChangerContainer.Add(GetUiPreset(header));
+            };
+            container.Add(button);
+            return container;
+
         }
         
         public VisualElement GetUiPreset(GameValueChanger gameValueChanger)
@@ -82,7 +98,8 @@ namespace DifficultySettingsChanger.GameValueChangerSystemUI
                 case ValueType:
                     return LabelValueTypeBoxButton(gameValueChanger);
                 default:
-                    throw new ArgumentOutOfRangeException($"UiTemplate for type '{gameValueChanger.FieldRef.Value.GetType()}' is not supported. Check to make sure you are using the correct preset.");
+                    Plugin.Log.LogError($"UiTemplate for type '{gameValueChanger.FieldRef.Value.GetType()}' is not supported. Check to make sure you are using the correct preset.");
+                    return new VisualElement();
             }
         }
         
@@ -159,24 +176,12 @@ namespace DifficultySettingsChanger.GameValueChangerSystemUI
             
             container.Add(CreateLabel(collectionSaveableGameValueChanger.LabelText));
 
-            var button = CreateButton("Open Collection");
-
-            var hierarchicalManager = DependencyContainer.GetInstance<HierarchicalManager>();
-            var newIndex = hierarchicalManager.CurrentIndex;
-            Plugin.Log.LogInfo("newIndex: " + newIndex);
+            CollapseButton.Create(
+                this,
+                CreateButton("Open Collection"), 
+                () => collectionSaveableGameValueChanger.GameValueChangers,
+                container);
             
-            button.clicked += () =>
-            {
-                var settingChangerContainer = GetGameValueChangerContainer(collectionSaveableGameValueChanger.FieldName);
-                var settingChangerContainerScrollView = settingChangerContainer.Q<ScrollView>();
-                foreach (var fieldValueChanger in collectionSaveableGameValueChanger.GameValueChangers)
-                    settingChangerContainerScrollView.Add(GetUiPreset(fieldValueChanger));
-
-                var hierarchicalLayer = new HierarchicalLayer(newIndex, settingChangerContainer);
-                hierarchicalManager.OpenNewLayer(hierarchicalLayer);
-            };
-
-            container.Add(button);
             return container;
         }
         
@@ -188,39 +193,48 @@ namespace DifficultySettingsChanger.GameValueChangerSystemUI
             var container = CreateContainer();
             
             container.Add(CreateLabel(valueTypeSaveableGameValueChanger.LabelText));
-
-            var button = CreateButton("Open Value Type");
-
-            var hierarchicalManager = DependencyContainer.GetInstance<HierarchicalManager>();
-            var newIndex = hierarchicalManager.CurrentIndex;
-            Plugin.Log.LogInfo("newIndex: " + newIndex);
             
-            button.clicked += () =>
-            {
-                var settingChangerContainer = GetGameValueChangerContainer(valueTypeSaveableGameValueChanger.FieldName);
-                var settingChangerContainerScrollView = settingChangerContainer.Q<ScrollView>();
-                foreach (var fieldValueChanger in valueTypeSaveableGameValueChanger.Fields)
-                    settingChangerContainerScrollView.Add(GetUiPreset(fieldValueChanger));
-                
-                var hierarchicalLayer = new HierarchicalLayer(newIndex, settingChangerContainer);
-                hierarchicalManager.OpenNewLayer(hierarchicalLayer);
-            };
-
-            container.Add(button);
+            CollapseButton.Create(
+                this,
+                CreateButton("Open Value Type"), 
+                () => (List<GameValueChanger>)valueTypeSaveableGameValueChanger.Fields,
+                container);
+            
             return container;
         }
 
-        private VisualElement CreateContainer()
+        private NineSliceVisualElement CreateContainer()
         {
             var container = new NineSliceVisualElement();
             container.AddToClassList("mods-box__game-value-changer-line");
             return container;
         }
 
+        private ScrollView CreateScrollView()
+        {
+            var gameValueChangerContainer = new ScrollView
+            {
+                style =
+                {
+                    width = new Length(100, LengthUnit.Percent),
+                    height = new Length(100, LengthUnit.Percent),
+
+                    justifyContent = new StyleEnum<Justify>(Justify.Center),
+                    alignItems = new StyleEnum<Align>(Align.Center),
+                    
+                    marginTop = new Length(20, LengthUnit.Pixel)
+                }
+            };
+            // gameValueChangerContainer.AddToClassList("mods-box__game-value-changer");
+            gameValueChangerContainer.AddToClassList("scroll--green-decorated");
+            return gameValueChangerContainer;
+        }
+
         private Button CreateButton(string text)
         {
             var button = _uiPresetFactory.Buttons().ButtonGame(text: text);
             button.style.maxHeight = new Length(20, LengthUnit.Pixel);
+            button.style.width = new Length(100, LengthUnit.Pixel);
             return button;
         }
         
@@ -231,8 +245,12 @@ namespace DifficultySettingsChanger.GameValueChangerSystemUI
 
         private TextField CreateTextField()
         {
-            // return _visualElementLoader.LoadVisualElement("Game/BatchControl/PopulationDistributorBatchControlRowItem").Q<TextField>("MinimumValue");
-            return new TextField();
+            // var input = _uiPresetFactory.TextFields().InGameTextField(new Length(50, LengthUnit.Percent), new Length(30, LengthUnit.Pixel));
+            var visualElement = _visualElementLoader.LoadVisualElement("Core/InputBox");
+            var input = visualElement.Q<TextField>("Input");
+            input.style.height = new Length(30, LengthUnit.Pixel);
+            input.style.width = new Length(50, LengthUnit.Percent);
+            return input;
         }
         
         private IntegerField CreateIntegerField()

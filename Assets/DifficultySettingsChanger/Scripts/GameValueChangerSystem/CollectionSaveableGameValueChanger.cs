@@ -9,16 +9,15 @@ namespace DifficultySettingsChanger.GameValueChangerSystem
     public class CollectionSaveableGameValueChanger : SaveableGameValueChanger
     {
         public readonly List<GameValueChanger> GameValueChangers;
-        public readonly DynamicProperty Property;
         public readonly Type CollectionType;
         public readonly string CollectionFieldName;
         public readonly Type GameValueType;
 
         public CollectionSaveableGameValueChanger(
             FieldRef fieldRef, 
-            string className, 
+            Type parentType,
+            string objectName, 
             string fieldName, 
-            string labelText, 
             bool isLiveUpdateable,
             DynamicProperty dynamicProperty,
             List<GameValueChanger> gameValueChangers,
@@ -27,13 +26,13 @@ namespace DifficultySettingsChanger.GameValueChangerSystem
             
             base(
                 fieldRef, 
-                className, 
+                parentType,
+                objectName, 
                 fieldName, 
-                labelText, 
-                isLiveUpdateable)
+                isLiveUpdateable,
+                dynamicProperty)
         {
             GameValueChangers = gameValueChangers;
-            Property = dynamicProperty;
             CollectionType = GetItemType(fieldRef.Value);
             CollectionFieldName = collectionFieldName;
             GameValueType = gameValueType;
@@ -57,7 +56,7 @@ namespace DifficultySettingsChanger.GameValueChangerSystem
             // var dynamicPropertyObtainer = DependencyContainer.GetInstance<DynamicPropertyObtainer>();
             // var values = dynamicPropertyObtainer.FromSingleton(CollectionType, newInstance);
 
-            var saveableGameValueChanger = dynamicSpecificationGenerator.GetGameValueChanger(newInstance, ClassName, CollectionFieldName, Property, FieldRef.GetterOnly(newInstance));
+            var saveableGameValueChanger = dynamicSpecificationGenerator.GetGameValueChanger(newInstance, null, ObjectName, CollectionFieldName, DynamicProperty, FieldRef.GetterOnly(newInstance));
 
             // Plugin.Log.LogInfo($"saveableGameValueChanger.GetType() {saveableGameValueChanger.GetType()}");
             GameValueChangers.Add(saveableGameValueChanger);
@@ -78,7 +77,7 @@ namespace DifficultySettingsChanger.GameValueChangerSystem
             
             // Plugin.Log.LogInfo($"ClassName {ClassName}  FieldName {FieldName}");
 
-            var saveableGameValueChanger = dynamicSpecificationGenerator.GetGameValueChanger(newInstance, ClassName, CollectionFieldName, Property, FieldRef.GetterOnly(newInstance));
+            var saveableGameValueChanger = dynamicSpecificationGenerator.GetGameValueChanger(newInstance, null, ObjectName, CollectionFieldName, DynamicProperty, FieldRef.GetterOnly(newInstance));
             
             GameValueChangers.Add(saveableGameValueChanger);
 
@@ -94,7 +93,7 @@ namespace DifficultySettingsChanger.GameValueChangerSystem
 
                     foreach (var gameValueChanger in GameValueChangers)
                     {
-                        Plugin.Log.LogInfo($"{gameValueChanger.ClassName} {gameValueChanger.FieldName} {gameValueChanger.FieldRef.Value} ");
+                        Plugin.Log.LogInfo($"{gameValueChanger.ObjectName} {gameValueChanger.FieldName} {gameValueChanger.FieldRef.Value} ");
                         list.Add(gameValueChanger.FieldRef.Value);
                     }
                     

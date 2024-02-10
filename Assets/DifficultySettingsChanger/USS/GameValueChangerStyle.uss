@@ -1,32 +1,44 @@
 .mods-box {
-    padding: 50px;
-    margin: 50px;
+    padding: 40px;
+    margin: 40px;
     flex-grow: 1;
 }
 
 .mods-box__mods {
     height: 100%;
     /*margin-bottom: 20px;*/
-    /*flex-wrap: nowrap;*/
-    /*flex-direction: row;*/
+    flex-wrap: nowrap;
+    flex-direction: row;
 }
 
 .mods-box__value-changer-wrapper {
     /*--background-image: resource('UI/Images/Backgrounds/bg-square-1');*/
     /*--background-slice-scale: 0.5;*/
     /*--background-slice: 10;*/
-    width: 1250px;
-    height: 88%;
+    /*height: 88%;*/
     /*margin: 8px 8px 0 0;*/
     padding: 8px;
     flex-shrink: 0;
 }
 
-.mods-box__game-value-changer {
+.mods-box__objects {
     height: 100%;
-    width: 450px;
+    /*width: 500px;*/
     margin-left: 8px;
     margin-right: 8px;
+}
+
+.mods-box__properties {
+    height: 100%;
+    /*width: 500px;*/
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.mods-box__game-value-changer-sub-container {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .mods-box__game-value-changer-line {
@@ -34,8 +46,8 @@
     --background-slice-scale: 0.5;
     --background-slice: 10;
     width: 100%;
-    padding: 5px;
-    margin-bottom: 5px;
+    padding: 10px;
+    margin-top: 10px;
     margin-right: 4px;
     justify-content: space-between;
     flex-direction: row;
@@ -51,7 +63,7 @@
     --background-image: resource('UI/Images/Backgrounds/bg-square-3');
     --background-slice-scale: 0.5;
     --background-slice: 10;
-    width: 250px;
+    width: 200px;
     height: 100;
     margin: 8px 8px 0 0;
     padding: 8px;

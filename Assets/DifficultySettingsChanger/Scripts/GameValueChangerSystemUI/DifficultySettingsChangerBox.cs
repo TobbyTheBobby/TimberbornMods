@@ -1,5 +1,7 @@
-﻿using DifficultySettingsChanger.GameValueChangerSystem;
-using TimberApi.DependencyContainerSystem;
+﻿using System.Collections.Generic;
+using System.Linq;
+using DifficultySettingsChanger.GameValueChangerSystem;
+using DifficultySettingsChanger.GameValueChangerSystemUI.Components;
 using TimberApi.UiBuilderSystem;
 using TimberApi.UiBuilderSystem.PresetSystem;
 using Timberborn.AssetSystem;
@@ -18,42 +20,45 @@ namespace DifficultySettingsChanger.GameValueChangerSystemUI
         private static readonly string OpenUILocKey = "Tobbert.GameValueChanger.KeyBinding.OpenUi";
         
         private readonly GameValueChangerUiPresetFactory _gameValueChangerUiPresetFactory;
+        private readonly GameValueChangerRepository _gameValueChangerRepository;
         private readonly VisualElementInitializer _visualElementInitializer;
         private readonly IResourceAssetLoader _resourceAssetLoader;
         private readonly VisualElementLoader _visualElementLoader;
-        private readonly UIBuilder _uiBuilder;
-        private readonly UiPresetFactory _uiPresetFactory;
         private readonly PanelStack _panelStack;
-        // private readonly KeyboardController _keyboard;
         private readonly InputService _inputService;
         private readonly ISpecificationService _specificationService;
         private readonly ILoc _loc;
         private readonly GameValueChangerService _gameValueChangerService;
         private readonly EventBus _eventBus;
 
-        private ScrollView _rootScrollView;
+        private GameValueChangersFilter _gameValueChangersFilter;
+        
+        private VisualElement _root;
+        private TextField _searchField;
+        
+        private ScrollView _objectsContainer;
+        private ScrollView _propertiesContainer;
+        public static ScrollView GameValueChangerContainer;
+
+        private ObjectWrapper[] _objectWrappers;
 
         public DifficultySettingsChangerBox(
             GameValueChangerUiPresetFactory gameValueChangerUiPresetFactory,
+            GameValueChangerRepository gameValueChangerRepository,
             VisualElementInitializer visualElementInitializer,
             IResourceAssetLoader resourceAssetLoader,
             VisualElementLoader visualElementLoader,
-            UIBuilder uiBuilder, 
-            UiPresetFactory uiPresetFactory,
             PanelStack panelStack, 
-            // KeyboardController keyboard, 
             InputService inputService,
             GameValueChangerService gameValueChangerService,
             EventBus eventBus)
         {
             _gameValueChangerUiPresetFactory = gameValueChangerUiPresetFactory;
+            _gameValueChangerRepository = gameValueChangerRepository;
             _visualElementInitializer = visualElementInitializer;
             _resourceAssetLoader = resourceAssetLoader;
             _visualElementLoader = visualElementLoader;
-            _uiBuilder = uiBuilder;
-            _uiPresetFactory = uiPresetFactory;
             _panelStack = panelStack;
-            // _keyboard = keyboard;
             _inputService = inputService;
             _gameValueChangerService = gameValueChangerService;
             _eventBus = eventBus;
@@ -76,6 +81,14 @@ namespace DifficultySettingsChanger.GameValueChangerSystemUI
         
         public VisualElement GetPanel()
         {
+            if (_root != null)
+            {
+                ApplyFilter();
+                return _root;
+            }
+            
+            // TODO SHOW DISCLAIMER THAT USING THE MOD CAN BREAK OTHER MODS VERY EASILY AND THEY SHOULD THEREFORE NOT REPORT BUGS WHEN THIS MOD IS INSTALLED. 
+
             // var disclaimer = _uiPresetFactory.Labels().DefaultBold("Tobbert.DifficultySettingsChanger.Disclaimer");
             // disclaimer.style.marginTop = new Length(30, LengthUnit.Pixel);
             // disclaimer.style.unityTextAlign = new StyleEnum<TextAnchor>(TextAnchor.MiddleCenter);
@@ -84,21 +97,6 @@ namespace DifficultySettingsChanger.GameValueChangerSystemUI
             // var button = _uiPresetFactory.Buttons().ButtonGame(locKey: "Tobbert.DifficultySettingsChanger.ApplySettings", name: "SettingsApplierButton");
             // button.style.marginTop = new Length(40, LengthUnit.Pixel);
             // settingChangerContainer.Add(button);
-            
-            // var box = _uiBuilder.CreateBoxBuilder()
-            //     .SetBoxInCenter()
-            //     .AddCloseButton("CloseButton")
-            //
-            //     .AddPreset(_ =>
-            //     {
-            //         var visualElement = new NineSliceVisualElement();
-            //         visualElement.AddToClassList("mods-box__navigation");
-            //         return visualElement;
-            //     })
-            //     
-            //     .AddComponent(settingChangerContainer)
-            //
-            //     .BuildAndInitialize();
 
             var box = new NineSliceVisualElement();
             box.styleSheets.Add(_resourceAssetLoader.Load<StyleSheet>("UI/Views/Core/CoreStyle"));
@@ -131,6 +129,8 @@ namespace DifficultySettingsChanger.GameValueChangerSystemUI
             var searchField = new NineSliceTextField();
             searchField.AddToClassList("mods-box__search");
             searchField.AddToClassList("text-field");
+            searchField.RegisterValueChangedCallback(_ => ApplyFilter());
+            _searchField = searchField;
             searchWrapper.Add(searchField);
 
             // var searchButton = new Button();
@@ -144,38 +144,38 @@ namespace DifficultySettingsChanger.GameValueChangerSystemUI
             var valueChangerWrapper = new VisualElement();
             valueChangerWrapper.AddToClassList("mods-box__value-changer-wrapper");
 
-            _rootScrollView = new ScrollView();
-            _rootScrollView.AddToClassList("mods-box__mods");
-            _rootScrollView.AddToClassList("scroll--green-decorated");
-            _rootScrollView.mode = ScrollViewMode.Horizontal;
+            var root = new VisualElement();
+            root.AddToClassList("mods-box__mods");
+            root.AddToClassList("scroll--green-decorated");
             
-            var settingChangerContainer = _gameValueChangerUiPresetFactory.GetGameValueChangerContainer("Property");
-            var settingChangerContainerScrollView = settingChangerContainer.Q<ScrollView>();
-            foreach (var child in _gameValueChangerService.GetElements()) 
-                settingChangerContainerScrollView.Add(child);
+            var classesContainer = _gameValueChangerUiPresetFactory.GetObjectsContainer("Objects");
+            _objectsContainer = classesContainer.Q<ScrollView>();
+            root.Add(classesContainer);
             
-            var hierarchicalManager = DependencyContainer.GetInstance<HierarchicalManager>();
-            hierarchicalManager.OpenNewLayer(new HierarchicalLayer(1, new VisualElement()));
+            var propertiesWrapper = _gameValueChangerUiPresetFactory.GetObjectsContainer("Property");
+            _propertiesContainer = propertiesWrapper.Q<ScrollView>();
+            root.Add(propertiesWrapper);
             
-            _rootScrollView.Add(settingChangerContainer);
+            var gameValueChangerContainer = _gameValueChangerUiPresetFactory.GetGameValueChangerContainer("Game Value Changer");
+            GameValueChangerContainer = gameValueChangerContainer.Q<ScrollView>();
+            root.Add(gameValueChangerContainer);
 
-            valueChangerWrapper.Add(_rootScrollView);
+            valueChangerWrapper.Add(root);
             
             wrapper.Add(valueChangerWrapper);
 
             box.Add(wrapper);
-            // var scrollView = box.Q<ScrollView>();
-            // var parent = scrollView.parent;
-            // foreach (var child in scrollView.Children().ToList()) 
-            //     parent.Add(child);
-            // parent.Remove(scrollView);
-            //
-            // // LogChildren(box);
+            
+            // LogChildren(box);
             //
             // box.Q<Button>("SettingsApplierButton").RegisterCallback<ClickEvent>(_ => OnUIConfirmed());
             // box.Q<Button>("CloseButton").RegisterCallback<ClickEvent>(_ => OnUICancelled());
 
             _visualElementInitializer.InitializeVisualElement(box);
+            _root = box;
+            
+            PopulateObjects();
+            _gameValueChangersFilter = GameValueChangersFilter.Create(_searchField);
             
             return box;
         }
@@ -191,60 +191,46 @@ namespace DifficultySettingsChanger.GameValueChangerSystemUI
 
         public bool OnUIConfirmed()
         {
+            Clear();
             _panelStack.Pop(this);
             _eventBus.Post(new OnGameValueChangerBoxConfirmed());
-            DependencyContainer.GetInstance<HierarchicalManager>().Clear();
             return true;
         }
 
         public void OnUICancelled()
         {
+            Clear();
             _panelStack.Pop(this);
-            DependencyContainer.GetInstance<HierarchicalManager>().Clear();
         }
 
-        public void AddLayer(VisualElement visualElement)
+        private void Clear()
         {
-            // var scrollView = new ScrollView();
-            // scrollView.AddToClassList("mods-box__game-value-changer");
-            // scrollView.AddToClassList("scroll--green-decorated");
-            // scrollView.Add(visualElement);
-            _rootScrollView.Add(visualElement);
-            
-            
-            // for (var i = 0; i < 4; i++)
-            // {
-            //     var scrollView = new ScrollView();
-            //     scrollView.AddToClassList("mods-box__game-value-changer");
-            //     scrollView.AddToClassList("scroll--green-decorated");
-            //     var settingChangerContainer2 = _gameValueChangerUiPresetFactory.GetGameValueChangerContainer();
-            //     foreach (var child in _gameValueChangerService.GetElements())
-            //     {
-            //         settingChangerContainer2.Add(child);
-            //     }
-            //     scrollView.Add(settingChangerContainer2);
-            //     _rootScrollView.Add(scrollView);
-            // }
+            _objectsContainer.Clear();
+            _propertiesContainer.Clear();
+            _gameValueChangersFilter.Clear();
         }
-        
-        public void RemoveLayer(VisualElement visualElement)
+
+        private void PopulateObjects()
         {
-            _rootScrollView.Remove(visualElement);
-            
-            
-            // for (var i = 0; i < 4; i++)
-            // {
-            //     var scrollView = new ScrollView();
-            //     scrollView.AddToClassList("mods-box__game-value-changer");
-            //     scrollView.AddToClassList("scroll--green-decorated");
-            //     var settingChangerContainer2 = _gameValueChangerUiPresetFactory.GetGameValueChangerContainer();
-            //     foreach (var child in _gameValueChangerService.GetElements())
-            //     {
-            //         settingChangerContainer2.Add(child);
-            //     }
-            //     scrollView.Add(settingChangerContainer2);
-            //     _rootScrollView.Add(scrollView);
-            // }
+            var list = new List<ObjectWrapper>();
+            foreach (var groupedValueChangers in _gameValueChangerRepository.GamevalueChangers
+                         .GroupBy(changer => changer.ObjectName)
+                         .OrderBy(changers => changers.Key))
+            {
+                var child = _gameValueChangerUiPresetFactory.GetObjectWrapper(groupedValueChangers.Key, groupedValueChangers, _propertiesContainer, GameValueChangerContainer);
+                list.Add(child);
+                _objectsContainer.Add(child.Root);
+            }
+
+            _objectWrappers = list.ToArray();
+        }
+
+        private void ApplyFilter()
+        {
+            foreach (var objectWrapper in _objectWrappers)
+            {
+                objectWrapper.ApplyFilter(_gameValueChangersFilter);
+            }
         }
     }
 }

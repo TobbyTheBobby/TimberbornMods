@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace DifficultySettingsChanger
         private readonly DynamicPropertyObtainer _dynamicPropertyObtainer;
         private readonly ISingletonRepository _singletonRepository;
 
-        private Stopwatch Stopwatch = new Stopwatch();
+        private readonly Stopwatch _stopwatch = new();
 
         public DynamicSpecificationGenerator(ActiveComponentRetriever activeComponentRetriever, DynamicPropertyObtainer dynamicPropertyObtainer, ISingletonRepository singletonRepository)
         {
@@ -30,55 +31,22 @@ namespace DifficultySettingsChanger
             var stopwatch = Stopwatch.StartNew();
             foreach (var component in _activeComponentRetriever.GetAllComponents())
             {
-                var gamevalueChangers = GenerateComponentSpecification(component).ToArray();
-                
-                if (!gamevalueChangers.Any())
-                    continue;
-            
-                foreach (var gamevalueChanger in gamevalueChangers)
-                    yield return gamevalueChanger;
+                foreach (var gameValueChanger in GenerateComponentSpecification(component))
+                    yield return gameValueChanger;
             }
 
-            // foreach (var singleton in _singletonRepository.GetSingletons<object>())
+            // var singletonRepository = (SingletonRepository)_singletonRepository;
+            // foreach (var singleton in singletonRepository._singletonListener.Collect())
             // {
             //     Plugin.Log.LogError(singleton.GetType().Name);
-            //     
-            //     var gamevalueChangers = GenerateSingletonSpecification(singleton).ToArray();
-            //     
-            //     if (!gamevalueChangers.Any())
-            //         continue;
-            //
-            //     foreach (var gamevalueChanger in gamevalueChangers)
-            //         yield return gamevalueChanger;
+            //     foreach (var gameValueChanger in GenerateSingletonSpecification(singleton))
+            //         yield return gameValueChanger;
             // }
 
             stopwatch.Stop();
             Plugin.Log.LogWarning($"Finished generation of Dynamic Values in {stopwatch.Elapsed.Ticks} ticks ({stopwatch.Elapsed.Seconds} seconds).");
             // Plugin.Log.LogWarning($"{Stopwatch.Elapsed.Ticks} ticks {Stopwatch.Elapsed.Seconds} seconds");
         }
-        
-        // public void GenerateAllSpecifications()
-        // {
-        //     Plugin.Log.LogInfo("Generation of Dynamic specifications started. Please wait until finished. This can sometimes take several minutes. If it takes longer than 10 minutes, please report.");
-        //     var stopwatch = Stopwatch.StartNew();
-        //     
-        //     var generatedLocation = Path.Combine(Plugin.Mod.DirectoryPath, "GeneratedSpecifications");
-        //     if (!Directory.Exists(generatedLocation)) 
-        //         Directory.CreateDirectory(generatedLocation);
-        //
-        //     foreach (var component in _activeComponentRetriever.GetAllComponents())
-        //     {
-        //         GenerateComponentSpecification(component);
-        //     }
-        //
-        //     foreach (var singleton in _singletonRepository.GetSingletons<object>())
-        //     {
-        //         GenerateSingletonSpecification(singleton);
-        //     }
-        //     
-        //     stopwatch.Stop();
-        //     Plugin.Log.LogInfo($"Finished generation of Dynamic specifications in {stopwatch.Elapsed.Seconds} seconds. You can find them in the '<mods folder>/DynamicSpecifications/GeneratedSpecifications.'");
-        // }
 
         private IEnumerable<GameValueChanger> GenerateComponentSpecification(Component component)
         {
@@ -95,12 +63,10 @@ namespace DifficultySettingsChanger
             if (!values.Any())
                 yield break;
             
-            // var gameObjectName = component.gameObject.TryGetComponent(out Prefab prefab) ? prefab.PrefabName : component.gameObject.name;
-            
-            Stopwatch.Start();
+            _stopwatch.Start();
             foreach (var gameValueChanger in GetGameValueChangers(component, component.gameObject.name, type.Name, values))
                 yield return gameValueChanger;
-            Stopwatch.Stop();
+            _stopwatch.Stop();
         }
 
         public IEnumerable<GameValueChanger> GenerateSingletonSpecification(object singleton)
@@ -130,12 +96,14 @@ namespace DifficultySettingsChanger
                 var fieldRef = new FieldRef(
                     () => InaccessibilityUtilities.GetInaccessibleField(instance, dynamicProperty.OriginalName),
                     value => InaccessibilityUtilities.SetInaccessibleField(instance, dynamicProperty.OriginalName, value));
-                
-                yield return GetGameValueChanger(dynamicProperty.Value, className, fieldName, dynamicProperty, fieldRef);
+
+                var gameValueChanger = GetGameValueChanger(dynamicProperty.Value, instance.GetType(), className, fieldName, dynamicProperty, fieldRef);
+                if (gameValueChanger != null)
+                    yield return gameValueChanger;
             }
         }
 
-        public GameValueChanger GetGameValueChanger(object value, string className, string fieldName, DynamicProperty dynamicProperty, FieldRef fieldRef)
+        public GameValueChanger GetGameValueChanger(object value, Type parentType, string className, string fieldName, DynamicProperty dynamicProperty, FieldRef fieldRef)
         {
             var combinedFieldName = fieldName + "." + dynamicProperty.StyledName;
 
@@ -144,34 +112,38 @@ namespace DifficultySettingsChanger
                 case int:
                     return new SaveableGameValueChanger(
                         fieldRef,
+                        parentType,
                         className,
                         combinedFieldName,
-                        combinedFieldName + ":",
-                        false
+                        false,
+                        dynamicProperty
                     );
                 case float:
                     return new SaveableGameValueChanger(
                         fieldRef,
+                        parentType,
                         className,
                         combinedFieldName,
-                        combinedFieldName + ":",
-                        false
+                        false,
+                        dynamicProperty
                     );
                 case string:
                     return new SaveableGameValueChanger(
                         fieldRef,
+                        parentType,
                         className,
                         combinedFieldName,
-                        combinedFieldName + ":",
-                        false
+                        false,
+                        dynamicProperty
                     );
                 case bool:
                     return new SaveableGameValueChanger(
                         fieldRef,
+                        parentType,
                         className,
                         combinedFieldName,
-                        combinedFieldName + ":",
-                        false
+                        false,
+                        dynamicProperty
                     );
                 case IEnumerable enumerable:
 
@@ -180,7 +152,7 @@ namespace DifficultySettingsChanger
                     var list = new List<GameValueChanger>();
                     foreach (var item in enumerable)
                     {
-                        list.Add(GetGameValueChanger(item, className, fieldName, dynamicProperty, FieldRef.GetterOnly(item)));
+                        list.Add(GetGameValueChanger(item, null, className, fieldName, dynamicProperty, FieldRef.GetterOnly(item)));
                     }
 
                     if (list.Any())
@@ -190,9 +162,9 @@ namespace DifficultySettingsChanger
 
                     return new CollectionSaveableGameValueChanger(
                         fieldRef,
+                        parentType,
                         className,
                         combinedFieldName,
-                        combinedFieldName + ":",
                         false,
                         dynamicProperty,
                         list,
@@ -202,10 +174,11 @@ namespace DifficultySettingsChanger
                 case not null:
                     return new ValueTypeSaveableGameValueChanger(
                         fieldRef,
+                        parentType,
                         className,
                         combinedFieldName,
-                        combinedFieldName + ":",
                         false,
+                        dynamicProperty,
                         GenerateSingletonSpecification(value).ToList()
                     );
                 default:

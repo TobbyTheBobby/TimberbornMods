@@ -1,19 +1,23 @@
-﻿namespace DifficultySettingsChanger
+﻿using System;
+
+namespace DifficultySettingsChanger
 {
     public class SaveableGameValueChanger : GameValueChanger
     {
         public SaveableGameValueChanger(
             FieldRef fieldRef, 
-            string className,
+            Type parentType,
+            string objectName,
             string fieldName,
-            string labelText, 
-            bool isLiveUpdateable) : 
+            bool isLiveUpdateable,
+            DynamicProperty dynamicProperty) : 
             
             base(fieldRef, 
-                className,
+                parentType,
+                objectName,
                 fieldName,
-                labelText, 
-                isLiveUpdateable)
+                isLiveUpdateable,
+                dynamicProperty)
         {
         }
     }

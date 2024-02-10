@@ -61,7 +61,8 @@
         "System.Runtime.DurableInstancing.dll",
         "System.Runtime.CompilerServices.Unsafe.dll",
         "Timberborn.SerializationSystem.dll",
-        "Timberborn.Goods.dll"
+        "Timberborn.Goods.dll",
+        "System.Reflection.TypeExtensions.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],

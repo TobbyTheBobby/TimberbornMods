@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -31,6 +32,7 @@ namespace DifficultySettingsChanger
                 .GetFields(_bindingFlags)
                 .Where(ReflectionUtils.IsAllowedFieldType)
                 .Where(ReflectionUtils.IsAllowedFieldName)
+                .Where(info => !typeof(IDictionary).IsAssignableFrom(info.FieldType))
                 .Select(property => new DynamicProperty(property.Name, property.GetValue(instance)))
                 .ToArray();
         }
