@@ -1,4 +1,5 @@
 using HarmonyLib;
+using JetBrains.Annotations;
 using TimberApi.ConsoleSystem;
 using TimberApi.ModSystem;
 using Timberborn.Beavers;
@@ -25,6 +26,7 @@ namespace BeaverClothing
     
 
     [HarmonyPatch(typeof(BeaverFactory), "InjectDependencies", typeof(EntityService), typeof(LifeService), typeof(BeaverNameService))]
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class BeaverFactoryPatch
     {
         public static Transform AdultBeaver;
@@ -38,6 +40,7 @@ namespace BeaverClothing
     }
     
     [HarmonyPatch(typeof(BotFactory), "Load")]
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class BotFactoryPatch
     {
         public static Transform Bot;

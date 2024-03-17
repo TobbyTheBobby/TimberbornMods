@@ -12,7 +12,7 @@ namespace BeaverClothing
 {
     public class ClothingComponent : BaseComponent
     {
-        private const bool ShouldLog = false;
+        private const bool ShouldLog = true;
         
         private BeaverClothingService _beaverClothingService;
 
