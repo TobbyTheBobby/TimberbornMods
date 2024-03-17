@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using Bindito.Core;
 using ChooChoo.MovementSystem;
 using ChooChoo.NavigationSystem;
 using ChooChoo.Wagons;
@@ -11,16 +10,9 @@ namespace ChooChoo.DistributionSystem
 {
     public class TrainCarryRootBehavior : RootBehavior
     {
-        private ChooChooCarryAmountCalculator _chooChooCarryAmountCalculator;
         private DistributableGoodBringerTrain _distributableGoodBringerTrain;
         private TrainWagonsGoodsManager _trainWagonsGoodsManager;
         private MoveToStationExecutor _moveToStationExecutor;
-
-        [Inject]
-        public void InjectDependencies(ChooChooCarryAmountCalculator chooChooCarryAmountCalculator)
-        {
-            _chooChooCarryAmountCalculator = chooChooCarryAmountCalculator;
-        }
 
         public void Awake()
         {

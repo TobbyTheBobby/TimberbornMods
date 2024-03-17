@@ -13,10 +13,10 @@ namespace ChooChoo.WaitingSystem
     {
         private ClosestTrainWaitingLocationPicker _closestTrainWaitingLocationPicker;
         private BlockService _blockService;
-        
+
         private MoveToStationExecutor _moveToStationExecutor;
         private WaitExecutor _waitExecutor;
-        
+
         private TrainWaitingLocation _currentWaitingLocation;
 
         [Inject]

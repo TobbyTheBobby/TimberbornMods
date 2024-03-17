@@ -12,7 +12,9 @@ namespace ChooChoo.GoodsStations
         private readonly BaseInstantiator _baseInstantiator;
         private readonly IGoodService _goodService;
 
-        public GoodsStationSendingInventoryInitializer(InventoryInitializerFactory inventoryInitializerFactory, BaseInstantiator baseInstantiator,
+        public GoodsStationSendingInventoryInitializer(
+            InventoryInitializerFactory inventoryInitializerFactory, 
+            BaseInstantiator baseInstantiator,
             IGoodService goodService)
         {
             _inventoryInitializerFactory = inventoryInitializerFactory;

@@ -20,14 +20,10 @@ namespace ChooChoo.WaitingSystem
 
         public TrainWaitingLocation ClosestWaitingLocation(Vector3 position)
         {
-            var list = _trainWaitingLocationRegistry.Finished
+            return _trainWaitingLocationRegistry.Finished
                 .Where(location =>
                     !location.Occupied && _trainDestinationService.DestinationReachableOneWay(position, location.GetComponentFast<TrainDestination>()))
-                .OrderBy(location => Vector3.Distance(position, location.TransformFast.position));
-            if (!list.Any())
-                return null;
-            var closestReachableTrainWaitingLocation = list.First();
-            return closestReachableTrainWaitingLocation;
+                .OrderBy(location => Vector3.Distance(position, location.TransformFast.position)).FirstOrDefault();
         }
     }
 }

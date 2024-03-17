@@ -31,19 +31,19 @@ namespace ChooChoo.PassengerSystemUI
                         .SetAlignContent(Align.Center)
                         .SetAlignItems(Align.Center)
                         .SetMargin(new Margin(new Length(5, LengthUnit.Pixel)))
-                        .AddPreset(builder =>
+                        .AddPreset(_ =>
                         {
-                            var label = builder.Labels().GameText("Tobbert.PassengerStation.DistrictObjectToggle");
+                            var label = _uiBuilder.Presets().Labels().GameText("Tobbert.PassengerStation.DistrictObjectToggle");
                             label.style.marginRight = new Length(5, LengthUnit.Pixel);
                             return label;
                         })
-                        .AddPreset(builder => builder.Toggles().Checkbox(name: "DistrictObstacleToggle"))))
+                        .AddPreset(_ => _uiBuilder.Presets().Toggles().Checkbox(name: "DistrictObstacleToggle"))))
                 .AddComponent(builder => builder
                     .SetFlexDirection(FlexDirection.Row)
                     .SetWidth(new Length(100, LengthUnit.Percent))
                     .SetJustifyContent(Justify.Center)
-                    .AddPreset(builder =>
-                        builder.Labels().GameText(name: "CollidingSectionDividerWarningLabel", locKey: "Tobbert.PassengerStation.DistrictObject")))
+                    .AddPreset(_ =>
+                        _uiBuilder.Presets().Labels().GameText(name: "CollidingSectionDividerWarningLabel", locKey: "Tobbert.PassengerStation.DistrictObject")))
                 .BuildAndInitialize();
 
             _sectionDividerToggle = _root.Q<Toggle>("DistrictObstacleToggle");

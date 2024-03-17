@@ -63,21 +63,16 @@ namespace ChooChoo.TrainYardUI
                     .SetFlexDirection(FlexDirection.Column)
                     .SetWidth(new Length(100, LengthUnit.Percent))
                     .SetJustifyContent(Justify.Center)
-                    .AddPreset(builder =>
-                    {
-                        var label = builder.Labels().GameText();
-                        label.name = "CostLabel";
-                        label.style.width = new Length(100, LengthUnit.Percent);
-                        label.style.justifyContent = new StyleEnum<Justify>(Justify.Center);
-                        return label;
-                    })
-                    .AddPreset(builder =>
-                    {
-                        var button = builder.Buttons().Button();
-                        button.name = "CreateButton";
-                        button.text = _loc.T(CreateTrainLocKey);
-                        return button;
-                    }))
+                    .AddPreset(builder => builder
+                        .Labels()
+                        .GameText(
+                            name: "CostLabel",
+                            builder: builder => builder
+                                .SetWidth(new Length(100, LengthUnit.Percent))
+                                .SetJustifyContent(Justify.Center)
+                        )
+                    )
+                    .AddPreset(factory => factory.Buttons().Button(CreateTrainLocKey, name: "CreateButton")))
                 .BuildAndInitialize();
 
             _root.Add(firstFragment);

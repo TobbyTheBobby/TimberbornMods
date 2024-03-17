@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ChooChoo.NavigationSystem;
 using ChooChoo.TrackSystem;
 using Timberborn.CharacterMovementSystem;
 using Timberborn.Navigation;
@@ -11,10 +10,8 @@ namespace ChooChoo.MovementSystem
     public class TrackFollower : ITrackFollower
     {
         private readonly INavigationService _navigationService;
-        private readonly TrainNavigationService _trainNavigationService;
         private readonly MovementAnimator _movementAnimator;
         private readonly Transform _transform;
-        private readonly Machinist _machinist;
         private readonly TrackSectionOccupier _trackSectionOccupier;
         private readonly List<PathCorner> _animatedPathCorners = new(100);
         private List<TrackRoute> _pathCorners;
@@ -27,17 +24,13 @@ namespace ChooChoo.MovementSystem
 
         public TrackFollower(
             INavigationService navigationService,
-            TrainNavigationService trainNavigationService,
             MovementAnimator movementAnimator,
             Transform transform,
-            Machinist machinist,
             TrackSectionOccupier trackSectionOccupier)
         {
             _navigationService = navigationService;
-            _trainNavigationService = trainNavigationService;
             _movementAnimator = movementAnimator;
             _transform = transform;
-            _machinist = machinist;
             _trackSectionOccupier = trackSectionOccupier;
         }
 
@@ -167,7 +160,7 @@ namespace ChooChoo.MovementSystem
             var vector3 = ClampMovement(movement, magnitude1);
             var actualDistance = Vector3.Distance(position, destination);
             var magnitude2 = vector3.magnitude;
-            if ((double)actualDistance >= (double)magnitude2)
+            if (actualDistance >= magnitude2)
             {
                 var num = LeftTime(deltaTime, magnitude2, magnitude1);
                 return (position + vector3, num);
@@ -184,7 +177,7 @@ namespace ChooChoo.MovementSystem
 
         private static float LeftTime(float deltaTime, float actualDistance, float maxDistance)
         {
-            return deltaTime * (float)(1.0 - (double)actualDistance / (double)maxDistance);
+            return deltaTime * (float)(1.0 - actualDistance / maxDistance);
         }
     }
 }
