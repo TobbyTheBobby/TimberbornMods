@@ -60,7 +60,12 @@
         "Timberborn.Coordinates.dll",
         "Timberborn.Meshy.dll",
         "Timberborn.ConstructibleSystem.dll",
-        "MonoMod.RuntimeDetour.dll"
+        "MonoMod.RuntimeDetour.dll",
+        "Timberborn.InventorySystemUI.dll",
+        "Timberborn.InventoryNeedSystem.dll",
+        "Timberborn.Goods.dll",
+        "Timberborn.Hauling.dll",
+        "Timberborn.Emptying.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],
