@@ -109,7 +109,7 @@ MonoBehaviour:
   SetLive: 1
   Description: "[Game version 0.5]\nMassive code overhaul. \nImproved the imageRepositry.
     \nImproved the InaccessiblityUtilitySystem.\nAdded some classes to the UsedImplicitlySystem.
-    \nFixed TextureReplacementSystem. \n"
+    \nFixed TextureReplacementSystem. \nAdded SpecificGoodsStockpileSystem"
 --- !u!114 &9120418034178625098
 MonoBehaviour:
   m_ObjectHideFlags: 0

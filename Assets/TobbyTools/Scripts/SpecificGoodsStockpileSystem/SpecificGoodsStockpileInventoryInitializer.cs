@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Timberborn.BaseComponentSystem;
 using Timberborn.Goods;
 using Timberborn.InventoryNeedSystem;
 using Timberborn.InventorySystem;
@@ -24,11 +23,7 @@ namespace TobbyTools.SpecificGoodsStockpileSystem
         public void Initialize(SpecificGoodsStockpile subject, Inventory decorator)
         {
             var inventoryInitializer = _inventoryInitializerFactory.CreateWithUnlimitedCapacity(decorator, InventoryComponentName);
-            inventoryInitializer.AddAllowedGoods(subject.StorableGoods.Select(specification =>
-            {
-                Plugin.Log.LogError(specification.ToString());
-                return new StorableGoodAmount(StorableGood.CreateGiveableAndTakeable(specification.GoodId), specification.Amount);
-            }));
+            inventoryInitializer.AddAllowedGoods(subject.StorableGoods.Select(specification => new StorableGoodAmount(StorableGood.CreateGiveableAndTakeable(specification.GoodId), specification.Amount)));
             inventoryInitializer.HasPublicOutput();
             inventoryInitializer.HasPublicInput();
             inventoryInitializer.Initialize();
