@@ -2,8 +2,7 @@ using System;
 using System.Collections.Generic;
 using TimberApi.ConsoleSystem;
 using TimberApi.ModSystem;
-using TobbyTools.CustomTutorialSystem;
-using TobbyTools.HookSystem;
+using TobbyTools.NewGameModeValueSystem;
 
 namespace TobbyTools
 {
@@ -28,7 +27,8 @@ namespace TobbyTools
         {
             var subSystemEntryPoints = new List<Type>()
             {
-                typeof(CustomTutorialSystemEntryPoint),
+                // typeof(CustomTutorialSystemEntryPoint),
+                typeof(NewGameModeValueSystemEntryPoint),
                 // typeof(OverrideBaseClassSystemEntryPoint),
             };
 

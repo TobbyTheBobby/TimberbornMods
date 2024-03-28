@@ -65,7 +65,9 @@
         "Timberborn.InventoryNeedSystem.dll",
         "Timberborn.Goods.dll",
         "Timberborn.Hauling.dll",
-        "Timberborn.Emptying.dll"
+        "Timberborn.Emptying.dll",
+        "Timberborn.GameSceneLoading.dll",
+        "Timberborn.MainMenuScene.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],
