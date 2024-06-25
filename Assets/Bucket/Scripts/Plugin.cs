@@ -2,6 +2,7 @@ using System.Reflection;
 using HarmonyLib;
 using TimberApi.ConsoleSystem;
 using TimberApi.ModSystem;
+using TobbyTools.UsedImplicitlySystem;
 using UnityEngine;
 
 namespace Bucket
@@ -20,7 +21,7 @@ namespace Bucket
         }
     }
     
-    [HarmonyPatch]
+    [UsedImplicitlyHarmonyPatch]
     public class SettingsPatch
     {
         private static MethodInfo TargetMethod()

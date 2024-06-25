@@ -14,7 +14,7 @@ namespace DifficultySettingsChanger
         public readonly string SerializedInitialValue;
 
         public string SerializedValue => Serialize(FieldRef.Value);
-        public string ClassFieldNameCombined => $"{ObjectName}.{DynamicProperty.StyledName}";
+        public string ClassFieldNameCombined => $"{ObjectName}.{FieldName}";
         public string LabelText => $"{DynamicProperty.StyledName}";
         
         public GameValueChanger(

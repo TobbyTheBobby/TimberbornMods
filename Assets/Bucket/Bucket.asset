@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagingPaths:
   - <ManifestPluginStaging>
-  Author: Tobbert
+  Author: 
   Name: Bucket
-  Description: Bucket
-  Version: 1.0.0
-  Dependencies: []
+  Description: 
+  Version: 
+  Dependencies:
+  - {fileID: 11400000, guid: 341623cfe39dc284498271e2322ca4b1, type: 2}
 --- !u!114 &-3041366049039997682
 MonoBehaviour:
   m_ObjectHideFlags: 0

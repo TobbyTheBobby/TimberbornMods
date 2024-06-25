@@ -66,15 +66,19 @@ namespace DifficultySettingsChanger.GameValueChangerSystemUI
             return objectWrapper;
         }
         
-        public VisualElement GetPropertyWrapper(GameValueChanger header, ScrollView gameValueChangerContainer)
+        public VisualElement GetPropertyWrapper(GameValueChanger gameValueChanger, ScrollView gameValueChangerContainer)
         {
             var container = CreateContainer();
-            container.Add(CreateLabel(header.LabelText));
+            container.Add(CreateLabel(gameValueChanger.LabelText));
             var button = CreateButton("Open property");
             button.clicked += () =>
             {
                 gameValueChangerContainer.Clear();
-                gameValueChangerContainer.Add(GetUiPreset(header));
+                var descriptionContainer = new VisualElement();
+                descriptionContainer.Add(new Label($"Parent Type: {gameValueChanger.ParentType.Name}"));
+                descriptionContainer.Add(new Label("Description: BLABLABLA"));
+                descriptionContainer.Add(GetUiPreset(gameValueChanger));
+                gameValueChangerContainer.Add(descriptionContainer);
             };
             container.Add(button);
             return container;
@@ -203,14 +207,14 @@ namespace DifficultySettingsChanger.GameValueChangerSystemUI
             return container;
         }
 
-        private NineSliceVisualElement CreateContainer()
+        private static NineSliceVisualElement CreateContainer()
         {
             var container = new NineSliceVisualElement();
             container.AddToClassList("mods-box__game-value-changer-line");
             return container;
         }
 
-        private ScrollView CreateScrollView()
+        private static ScrollView CreateScrollView()
         {
             var gameValueChangerContainer = new ScrollView
             {

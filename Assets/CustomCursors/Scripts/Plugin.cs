@@ -10,13 +10,13 @@ namespace CustomCursors
     public class Plugin : IModEntrypoint
     {
         public const string PluginGuid = "tobbert.customcursors";
-
         public static string MyPath;
+        public static IConsoleWriter Log;
 
         public void Entry(IMod mod, IConsoleWriter consoleWriter)
         {
             MyPath = mod.DirectoryPath;
-
+            Log = consoleWriter;
             new Harmony(PluginGuid).PatchAll();
         }
     }
@@ -25,12 +25,12 @@ namespace CustomCursors
     [HarmonyPatch]
     public class StartGrabbingPatch
     {
-        static MethodInfo TargetMethod()
+        private static MethodInfo TargetMethod()
         {
             return AccessTools.Method(AccessTools.TypeByName("GrabbingCameraTargetPicker"), "StartGrabbing");
         }
-        
-        static void Postfix()
+
+        private static void Postfix()
         {
             DependencyContainer.GetInstance<CustomCursorsService>().StartGrabbing();
         }
@@ -39,12 +39,12 @@ namespace CustomCursors
     [HarmonyPatch]
     public class StopGrabbingPatch
     {
-        static MethodInfo TargetMethod()
+        private static MethodInfo TargetMethod()
         {
             return AccessTools.Method(AccessTools.TypeByName("GrabbingCameraTargetPicker"), "StopGrabbing");
         }
-        
-        static void Postfix()
+
+        private static void Postfix()
         {
             DependencyContainer.GetInstance<CustomCursorsService>().StopGrabbing();
         }
@@ -53,15 +53,15 @@ namespace CustomCursors
     [HarmonyPatch]
     public class SettingsPatch
     {
-        static MethodInfo TargetMethod()
+        private static MethodInfo TargetMethod()
         {
             return AccessTools.Method(AccessTools.TypeByName("GameSavingSettingsController"), "InitializeAutoSavingOnToggle", new []
             {
                 typeof(VisualElement)
             });
         }
-        
-        static void Postfix(ref VisualElement root)
+
+        private static void Postfix(ref VisualElement root)
         {
             DependencyContainer.GetInstance<CustomCursorsService>().InitializeSelectorSettings(ref root);
         }

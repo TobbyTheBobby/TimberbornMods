@@ -20,6 +20,8 @@ namespace ChooChoo.TrackSystem
 
         public void Add(TrackPiece trackPiece)
         {
+            if (_trackPieces.Contains(trackPiece))
+                return;
             _trackPieces.Add(trackPiece);
         }
 
@@ -29,9 +31,10 @@ namespace ChooChoo.TrackSystem
             {
                 trackPiece.TrackSection = this;
             }
+
             _trackPieces.AddRange(trackSection._trackPieces);
         }
-    
+
         public void Dissolve(TrackPiece trackPiece)
         {
             foreach (var track in _trackPieces)
@@ -40,7 +43,7 @@ namespace ChooChoo.TrackSystem
             foreach (var track in _trackPieces)
                 track.LookForTrackSection();
         }
-    
+
         public void Refresh()
         {
             foreach (var track in _trackPieces)

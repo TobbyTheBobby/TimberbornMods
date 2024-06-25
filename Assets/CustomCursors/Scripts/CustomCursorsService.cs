@@ -33,13 +33,9 @@ namespace CustomCursors
         private readonly Dictionary<string, List<Texture2D>> _cursors = new();
         private readonly List<string> _cursorPacks = new();
 
-        private static readonly string CurrentCursorPackKey = nameof (CurrentCursorPack);
+        private static readonly string CurrentCursorPackKey = nameof(CurrentCursorPack);
 
-        public string CurrentCursorPack
-        {
-            get => _settings.GetString(CurrentCursorPackKey, "DefaultCursor");
-            set => _settings.SetString(CurrentCursorPackKey, value);
-        }
+        public string CurrentCursorPack { get => _settings.GetString(CurrentCursorPackKey, "DefaultCursor"); set => _settings.SetString(CurrentCursorPackKey, value); }
 
         public void Load()
         {
@@ -50,10 +46,12 @@ namespace CustomCursors
                 for (var i = 0; i < files.Count; i++)
                 {
                     var filePath = files[i];
-                    var cursorPackName = cursorPackPath.Split("\\").Last();
+                    
+                    var cursorPackName = Path.GetFileName(cursorPackPath);
+                    // Plugin.Log.LogError(cursorPackName);
                     if (i == 0)
                         _cursorPacks.Add(cursorPackName);
-                    
+
                     var bytes = File.ReadAllBytes(filePath);
                     var cursorTexture2D = new Texture2D(150, 150);
                     cursorTexture2D.LoadImage(bytes);
@@ -61,23 +59,33 @@ namespace CustomCursors
                     {
                         _cursors.Add(cursorPackName, new List<Texture2D>());
                     }
+
                     _cursors[cursorPackName].Add(cursorTexture2D);
                     _selectorCursor = cursorTexture2D;
                 }
             }
-            
+
             UpdateCursor(CurrentCursorPack);
-            
+
             Cursor.SetCursor(_selectorCursor, _hotSpot, CursorMode);
             _eventBus.Register(this);
         }
-        
+
         [OnEvent]
-        public void OnToolExited(ToolExitedEvent toolExitedEvent) => UpdateCursor(CurrentCursorPack);
-        
-        public void StartGrabbing() => Cursor.SetCursor(_grabberCursor, _hotSpot, CursorMode);
-        
-        public void StopGrabbing() => Cursor.SetCursor(_selectorCursor, _hotSpot, CursorMode);
+        public void OnToolExited(ToolExitedEvent toolExitedEvent)
+        {
+            UpdateCursor(CurrentCursorPack);
+        }
+
+        public void StartGrabbing()
+        {
+            Cursor.SetCursor(_grabberCursor, _hotSpot, CursorMode);
+        }
+
+        public void StopGrabbing()
+        {
+            Cursor.SetCursor(_selectorCursor, _hotSpot, CursorMode);
+        }
 
         private void OnSelectorChanged(IEnumerable<object> obj)
         {
@@ -114,7 +122,7 @@ namespace CustomCursors
                 .SetAlignContent(Align.Center)
                 .SetAlignItems(Align.Center)
                 .BuildAndInitialize();
-            
+
             var myHeader = _builder.CreateComponentBuilder()
                 .CreateLabel()
                 .SetName("CustomCursorsHeader")
@@ -124,7 +132,7 @@ namespace CustomCursors
                 .SetFontStyle(FontStyle.Bold)
                 .SetWidth(new Length(112, LengthUnit.Pixel))
                 .BuildAndInitialize();
-            
+
             container.Add(myHeader);
             container.Add(listView);
 

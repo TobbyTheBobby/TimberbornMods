@@ -67,7 +67,9 @@ namespace ChooChoo.NavigationSystem
             // }
         }
 
-        private void CheckNextTrackPiece(TrackPiece checkingTrackPiece, List<TrackPiece> checkedTrackPieces,
+        private void CheckNextTrackPiece(
+            TrackPiece checkingTrackPiece,
+            List<TrackPiece> checkedTrackPieces,
             List<TrainDestination> trainDestinationsConnected)
         {
             // Plugin.Log.LogError(checkingTrackPiece.CenterCoordinates + "");

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using HarmonyLib;
+using Newtonsoft.Json;
 using Timberborn.BlockSystem;
 using Timberborn.PrefabOptimization;
+using Timberborn.SingletonSystem;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UIElements;
@@ -24,8 +26,8 @@ namespace DifficultySettingsChanger
             typeof(List<string>),
             //
             
-            
             typeof(AutoAtlasSpecification[]),
+            typeof(JsonSerializerSettings),
             typeof(List<Vector2Int>),
             typeof(ParticleSystem),
             typeof(List<Material>),
@@ -46,7 +48,9 @@ namespace DifficultySettingsChanger
             typeof(Sprite),
             typeof(Image),
             typeof(Color),
+            typeof(void*),
             typeof(Mesh),
+            typeof(Type),
             AccessTools.TypeByName("MechanicalModelVariantSpecification").MakeArrayType(),
             AccessTools.TypeByName("WindRotator").MakeArrayType(),
             AccessTools.TypeByName("YielderSpecification"),

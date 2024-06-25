@@ -39,9 +39,9 @@ namespace DifficultySettingsChanger.GameValueChangerSystem
         private void Save()
         {
             var gameValueSpecifications = new List<GameValueSpecification>();
-            foreach (var gameValueChangers in _gameValueChangerRepository.GamevalueChangers.GroupBy(changer => changer.ObjectName))
+            foreach (var gameValueChangers in _gameValueChangerRepository.GameValueChangers.GroupBy(changer => changer.ObjectName))
             {
-                foreach (var gameValueChanger in gameValueChangers.OrderBy(changer => changer.ClassFieldNameCombined))
+                foreach (var gameValueChanger in gameValueChangers.OrderBy(changer => changer.FieldName))
                 {
                     var gameValueSpecification = GetSpecification(gameValueChanger, out _);
 
@@ -79,7 +79,7 @@ namespace DifficultySettingsChanger.GameValueChangerSystem
                     var gameValueSpecification = GetSpecification(valueChanger, out wasForced, true);
             
                     // Plugin.Log.LogInfo("gameValueSpecification == null " + (gameValueSpecification == null) + "  " +
-                    //                    valueChanger.ClassName + " " + valueChanger.ClassFieldNameCombined + "   " +
+                    //                    valueChanger.ClassName + " " + valueChanger.FieldName + "   " +
                     //                    valueChanger.SerializedInitialValue + "   " + valueChanger.FieldRef.Value);
             
                     // Plugin.Log.LogWarning("Value added");
@@ -102,7 +102,7 @@ namespace DifficultySettingsChanger.GameValueChangerSystem
             
                 return new GameValueSpecification(
                     collectionSaveableGameValueChanger.ObjectName,
-                    collectionSaveableGameValueChanger.ClassFieldNameCombined,
+                    collectionSaveableGameValueChanger.FieldName,
                     values);
             }
             
@@ -114,11 +114,11 @@ namespace DifficultySettingsChanger.GameValueChangerSystem
                 
                 // Plugin.Log.LogWarning("Are the same: " + Equals(valueTypeSaveableGameValueChanger.SerializedValue, valueTypeSaveableGameValueChanger.SerializedInitialValue));
                 
-                // Plugin.Log.LogWarning(gameValueChanger.ClassName + " " + gameValueChanger.ClassFieldNameCombined + "   " + gameValueChanger.SerializedInitialValue + "   " + gameValueChanger.SerializedValue);
+                // Plugin.Log.LogWarning(gameValueChanger.ClassName + " " + gameValueChanger.FieldName + "   " + gameValueChanger.SerializedInitialValue + "   " + gameValueChanger.SerializedValue);
                 
                 foreach (var fieldValueChanger in valueTypeSaveableGameValueChanger.Fields)
                 {
-                    // Plugin.Log.LogInfo("BEFORE: " + fieldValueChanger.ClassName + " " + fieldValueChanger.ClassFieldNameCombined + "   " + fieldValueChanger.SerializedInitialValue + "   " + fieldValueChanger.SerializedValue);
+                    // Plugin.Log.LogInfo("BEFORE: " + fieldValueChanger.ClassName + " " + fieldValueChanger.FieldName + "   " + fieldValueChanger.SerializedInitialValue + "   " + fieldValueChanger.SerializedValue);
                     
                     var gameValueSpecification = GetSpecification(fieldValueChanger, out wasForced, tryForcingSpecification);
 
@@ -139,7 +139,7 @@ namespace DifficultySettingsChanger.GameValueChangerSystem
                         wasForced = true;
                         return new GameValueSpecification(
                             valueTypeSaveableGameValueChanger.ObjectName,
-                            valueTypeSaveableGameValueChanger.ClassFieldNameCombined,
+                            valueTypeSaveableGameValueChanger.FieldName,
                             values);
                     }
 
@@ -148,13 +148,13 @@ namespace DifficultySettingsChanger.GameValueChangerSystem
 
                 return new GameValueSpecification(
                     valueTypeSaveableGameValueChanger.ObjectName,
-                    valueTypeSaveableGameValueChanger.ClassFieldNameCombined,
+                    valueTypeSaveableGameValueChanger.FieldName,
                     values);
             }
 
             // Plugin.Log.LogError("Are the same: " + (gameValueChanger.SerializedValue == gameValueChanger.SerializedInitialValue));
             
-            // Plugin.Log.LogError(gameValueChanger.ClassName + " " + gameValueChanger.ClassFieldNameCombined + "   " + gameValueChanger.SerializedInitialValue + "   " + gameValueChanger.SerializedValue);
+            // Plugin.Log.LogError(gameValueChanger.ClassName + " " + gameValueChanger.FieldName + "   " + gameValueChanger.SerializedInitialValue + "   " + gameValueChanger.SerializedValue);
 
             if (gameValueChanger.SerializedValue == gameValueChanger.SerializedInitialValue)
             {
@@ -163,21 +163,21 @@ namespace DifficultySettingsChanger.GameValueChangerSystem
                     wasForced = true;
                     return new GameValueSpecification(
                         saveableGameValueChanger.ObjectName,
-                        saveableGameValueChanger.ClassFieldNameCombined,
+                        saveableGameValueChanger.FieldName,
                         saveableGameValueChanger.FieldRef.Value);
                 }
                 return null;
             }
             
             // Plugin.Log.LogError("Field Changed: " + gameValueChanger.FieldRef.FieldWasChanged);
-            // Plugin.Log.LogError(gameValueChanger.ClassName + " " + gameValueChanger.ClassFieldNameCombined + "   " + gameValueChanger.SerializedInitialValue + "   " + gameValueChanger.FieldRef.Value);
+            // Plugin.Log.LogError(gameValueChanger.ClassName + " " + gameValueChanger.FieldName + "   " + gameValueChanger.SerializedInitialValue + "   " + gameValueChanger.FieldRef.Value);
             //
             // if (!gameValueChanger.FieldRef.FieldWasChanged)
             //     return null;
 
             return new GameValueSpecification(
                 saveableGameValueChanger.ObjectName,
-                saveableGameValueChanger.ClassFieldNameCombined,
+                saveableGameValueChanger.FieldName,
                 saveableGameValueChanger.FieldRef.Value);
         }
 
@@ -185,11 +185,11 @@ namespace DifficultySettingsChanger.GameValueChangerSystem
         {
             _eventBus.Register(this);
 
-            var saveableGameValueChangers = _gameValueChangerRepository.GamevalueChangers.OfType<SaveableGameValueChanger>().ToArray();
+            var saveableGameValueChangers = _gameValueChangerRepository.GameValueChangers.OfType<SaveableGameValueChanger>().ToArray();
 
             foreach (var gameValueSpecification in _gameValueSpecificationRepository.GameValueSpecifications)
             {
-                var saveableGameValueChanger = saveableGameValueChangers.FirstOrDefault(changer => gameValueSpecification.ClassName == changer.ObjectName && gameValueSpecification.FieldName == changer.ClassFieldNameCombined);
+                var saveableGameValueChanger = saveableGameValueChangers.FirstOrDefault(changer => gameValueSpecification.ClassName == changer.ObjectName && gameValueSpecification.FieldName == changer.FieldName);
             
                 if(saveableGameValueChanger == null)
                     return;
@@ -200,7 +200,7 @@ namespace DifficultySettingsChanger.GameValueChangerSystem
 
         private void UpdateValues(GameValueSpecification gameValueSpecification, SaveableGameValueChanger saveableGameValueChanger)
         {
-            // Plugin.Log.LogWarning($"UPDATING: {saveableGameValueChanger?.ClassName}.{saveableGameValueChanger?.ClassFieldNameCombined}");
+            // Plugin.Log.LogWarning($"UPDATING: {saveableGameValueChanger?.ClassName}.{saveableGameValueChanger?.FieldName}");
 
             if (saveableGameValueChanger is CollectionSaveableGameValueChanger collectionSaveableGameValueChanger)
             {
@@ -219,7 +219,7 @@ namespace DifficultySettingsChanger.GameValueChangerSystem
                 {
                     if (collectionSaveableGameValueChanger.GameValueType == typeof(ValueTypeSaveableGameValueChanger))
                     {
-                        // Plugin.Log.LogInfo($"{fieldGameValueSpecification.ClassName} {fieldGameValueSpecification.ClassFieldNameCombined}");
+                        // Plugin.Log.LogInfo($"{fieldGameValueSpecification.ClassName} {fieldGameValueSpecification.FieldName}");
                         collectionSaveableGameValueChanger.AddValueTypeItem(fieldGameValueSpecification);
                         continue;
                     }
@@ -241,7 +241,7 @@ namespace DifficultySettingsChanger.GameValueChangerSystem
                     if (fieldGameValueSpecification == null)
                         continue;
 
-                    var fieldSaveableGameValueChanger = (SaveableGameValueChanger)valueTypeSaveableGameValueChanger.Fields.FirstOrDefault(changer => changer != null && fieldGameValueSpecification.ClassName == changer.ObjectName && fieldGameValueSpecification.FieldName == changer.ClassFieldNameCombined);
+                    var fieldSaveableGameValueChanger = (SaveableGameValueChanger)valueTypeSaveableGameValueChanger.Fields.FirstOrDefault(changer => changer != null && fieldGameValueSpecification.ClassName == changer.ObjectName && fieldGameValueSpecification.FieldName == changer.FieldName);
                     
                     if(fieldSaveableGameValueChanger == null)
                         continue;

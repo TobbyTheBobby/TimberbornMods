@@ -116,6 +116,9 @@ Tobbert.Trains.UnlockPrompt,You need to unlock {0} to build {1}.,{0} stands for 
 Tobbert.DistributionTrain.MinimumOfItemsToMove,Minimum of items to move: ,-
 
 Tobbert.TrainNavigation.Unstuck,Turn Around,-
+Tobbert.TrainNavigation.NoWaitingStation,No available Waiting Station found.,-
+Tobbert.TrainNavigation.NoWaitingStationShort,No Waiting Station,-
+
 Tobbert.TrainDestination.UnconnectedWarning,Station is not connected to any other station.,-
 Tobbert.TrainDestination.UnconnectedWarningShort,Unconnected station,-
 

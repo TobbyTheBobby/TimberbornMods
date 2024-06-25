@@ -65,7 +65,6 @@ namespace DifficultySettingsChanger.GameValueChangerSystemUI.Components
             if (_groupedGameValueChangers.Key.ToLower().Contains(gameValueChangersFilter.SearchValue.ToLower()))
             {
                 _root.ToggleDisplayStyle(true);
-                
             }
             else
             {

@@ -1,5 +1,6 @@
 using Bindito.Core;
 using ChooChoo.Extensions;
+using JetBrains.Annotations;
 using Timberborn.BaseComponentSystem;
 using Timberborn.BlockSystem;
 using Timberborn.EntitySystem;
@@ -10,6 +11,7 @@ namespace ChooChoo.TrackSystem
     {
         private BlockService _blockService;
 
+        [CanBeNull]
         public TrackSection TrackSection { get; private set; }
 
         [Inject]
@@ -27,7 +29,7 @@ namespace ChooChoo.TrackSystem
         {
             TrackSection?.Leave();
             TrackSection = trackSection;
-            TrackSection.Enter();
+            TrackSection?.Enter();
         }
 
         public void OccupyCurrentTrackSection()

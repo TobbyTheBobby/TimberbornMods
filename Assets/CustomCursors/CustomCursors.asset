@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StagingPaths: []
   ModId: 2438225
-  Version: 1.0.3
+  Version: 1.0.4
   SetLive: 1
-  Description: '[Game Version 0.4.9]
+  Description: '[Game Version 0.5.9]
 
     Fixed an issue where the path would use
     wrong slash on Mac.'

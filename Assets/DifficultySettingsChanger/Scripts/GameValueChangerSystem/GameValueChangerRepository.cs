@@ -8,22 +8,24 @@ namespace DifficultySettingsChanger
     {
         private readonly IEnumerable<IGameValueChangerGenerator> _gameValueChangerGenerators;
 
-        private readonly List<GameValueChanger> _gamevalueChangers = new();
+        private ImmutableArray<GameValueChanger> _gameValueChangers;
 
-        public ImmutableArray<GameValueChanger> GamevalueChangers => _gamevalueChangers.ToImmutableArray();
+        public ImmutableArray<GameValueChanger> GameValueChangers => _gameValueChangers;
 
-        GameValueChangerRepository(IEnumerable<IGameValueChangerGenerator> gameValueChangerGenerators)
+        private GameValueChangerRepository(IEnumerable<IGameValueChangerGenerator> gameValueChangerGenerators)
         {
             _gameValueChangerGenerators = gameValueChangerGenerators;
         }
 
         public void EarlyLoad()
         {
-            _gamevalueChangers.Clear();
+            var list = new List<GameValueChanger>();
             foreach (var gameValueChangerGenerator in _gameValueChangerGenerators)
             {
-                _gamevalueChangers.AddRange(gameValueChangerGenerator.Generate());
+                list.AddRange(gameValueChangerGenerator.Generate());
             }
+
+            _gameValueChangers = list.ToImmutableArray();
         }
     }
 }

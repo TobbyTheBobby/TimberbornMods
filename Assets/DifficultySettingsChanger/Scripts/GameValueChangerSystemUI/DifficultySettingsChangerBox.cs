@@ -2,8 +2,6 @@
 using System.Linq;
 using DifficultySettingsChanger.GameValueChangerSystem;
 using DifficultySettingsChanger.GameValueChangerSystemUI.Components;
-using TimberApi.UiBuilderSystem;
-using TimberApi.UiBuilderSystem.PresetSystem;
 using Timberborn.AssetSystem;
 using Timberborn.CoreUI;
 using Timberborn.InputSystem;
@@ -205,15 +203,15 @@ namespace DifficultySettingsChanger.GameValueChangerSystemUI
 
         private void Clear()
         {
-            _objectsContainer.Clear();
-            _propertiesContainer.Clear();
+            // _objectsContainer.Clear();
+            // _propertiesContainer.Clear();
             _gameValueChangersFilter.Clear();
         }
 
         private void PopulateObjects()
         {
             var list = new List<ObjectWrapper>();
-            foreach (var groupedValueChangers in _gameValueChangerRepository.GamevalueChangers
+            foreach (var groupedValueChangers in _gameValueChangerRepository.GameValueChangers
                          .GroupBy(changer => changer.ObjectName)
                          .OrderBy(changers => changers.Key))
             {

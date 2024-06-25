@@ -28,13 +28,27 @@ namespace DifficultySettingsChanger
         
         public DynamicProperty[] FromSingleton(Type type, object instance)
         {
-            return type
-                .GetFields(_bindingFlags)
+            return 
+                // type
+                // .GetFields(_bindingFlags)
+                _fieldInfosCache
+                .GetOrAdd(type, () => type.GetFields(_bindingFlags))
                 .Where(ReflectionUtils.IsAllowedFieldType)
                 .Where(ReflectionUtils.IsAllowedFieldName)
-                .Where(info => !typeof(IDictionary).IsAssignableFrom(info.FieldType))
+                // .Where(info => !ShouldSkip(info.FieldType, instance)) 
+                // .Where(info => !typeof(IDictionary).IsAssignableFrom(info.FieldType) && !_immutableArrayType.IsAssignableFrom(info.FieldType))
                 .Select(property => new DynamicProperty(property.Name, property.GetValue(instance)))
                 .ToArray();
+        }
+        
+        public bool ShouldSkip(Type type, object dict)
+        {
+            if (!typeof(IDictionary).IsAssignableFrom(type))
+                return false;
+
+            var genericArguments = dict.GetType().GetGenericArguments();
+
+            return genericArguments.Any(type => SkippableTypes.Types.Contains(type) || UnallowedTypes.Types.Contains(type));
         }
     }
 }

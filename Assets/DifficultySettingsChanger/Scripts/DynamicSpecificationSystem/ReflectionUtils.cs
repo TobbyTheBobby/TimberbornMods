@@ -41,5 +41,15 @@ namespace DifficultySettingsChanger
         {
             return !UnallowedFieldNames.Types.Contains(fieldInfo.Name);
         }
+        
+        public static bool IsAllowedFieldType(PropertyInfo propertyInfo)
+        {
+            return !UnallowedTypes.Types.Contains(propertyInfo.PropertyType);
+        }
+        
+        public static bool IsAllowedFieldName(PropertyInfo propertyInfo)
+        {
+            return !UnallowedFieldNames.Types.Contains(propertyInfo.Name);
+        }
     }
 }
