@@ -49,14 +49,11 @@ crashlytics-build.properties
 
 #Timberborn Files
 Packages
-Assets/Timberborn
-Assets/Timberborn 0.2.7.1
-Assets/Unity.VisualScripting.Generated
+Assets/Resources
 ThunderKit
 UserSettings
 .idea
 Assets/ImportantMessages.md
-Assets/CategoryButton
 
 # Remove big files from LFS
 *.blend
