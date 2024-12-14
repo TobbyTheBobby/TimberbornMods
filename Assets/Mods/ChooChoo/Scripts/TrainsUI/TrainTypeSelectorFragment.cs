@@ -1,5 +1,6 @@
 using System.Linq;
-using TimberApi.UiBuilderSystem;
+using ChooChoo.UIPresets;
+using TimberApi.UIBuilderSystem;
 using Timberborn.BaseComponentSystem;
 using Timberborn.CoreUI;
 using Timberborn.DropdownSystem;
@@ -33,7 +34,7 @@ namespace ChooChoo.TrainsUI
 
         public VisualElement InitializeFragment()
         {
-            _root = _uiBuilder.CreateFragmentBuilder().BuildAndInitialize();
+            _root = _uiBuilder.Create<PanelFragment>().BuildAndInitialize();
 
             var fragment = _visualElementLoader.LoadVisualElement("Game/EntityPanel/PlantablePrioritizerFragment");
             var container = new VisualElement();

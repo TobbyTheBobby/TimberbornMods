@@ -1,17 +1,23 @@
+using System;
 using System.Linq;
 using Bindito.Core;
+using Timberborn.BaseComponentSystem;
+using Timberborn.BlockObjectModelSystem;
 using Timberborn.BlockSystem;
-using Timberborn.Clusters;
+using Timberborn.Common;
 using Timberborn.MechanicalSystem;
+using Timberborn.MechanicalSystemUI;
 using Timberborn.SingletonSystem;
 using UnityEngine;
 
 namespace VerticalPowerShaft
 {
-    public class VerticalPowerShaftComponent : MonoBehaviour
+    public class VerticalPowerShaftComponent : BaseComponent, IModelUpdater
     {
         private EventBus _eventBus;
         private BlockService _blockService;
+        
+        private TransputPreviewValidator _transputPreviewValidator;
         
         [Inject]
         public void InjectDependencies(EventBus eventBus, BlockService blockService)
@@ -20,45 +26,57 @@ namespace VerticalPowerShaft
             _blockService = blockService;
         }
 
-        void Start()
+        private void Awake()
+        {
+            _transputPreviewValidator = GetComponentFast<TransputPreviewValidator>();
+        }
+
+        private void Start()
         {
             _eventBus.Register(this);
 
-            foreach (var obj in transform.GetChild(0).GetChild(0).Find("Directions"))
+            foreach (Transform direction in GameObjectFast.FindChildTransform("Directions"))
             {
-                var transform = obj as Transform;
-                transform.gameObject.SetActive(false);
+                direction.gameObject.SetActive(false);
             }
-
-            UpdateDirections(null);
         }
 
         [OnEvent]
         public void UpdateDirections(MechanicalGraphGeneratorAddedEvent mechanicalGraphGeneratorAddedEvent)
         {
-            var directionsParent = transform.GetChild(0).GetChild(0).Find("Directions");
-            
-            var pos = transform.position;
-
-            directionsParent.Find("Up").gameObject.SetActive(IsMechanicalObject(new Vector3(pos.x, pos.z + 1, pos.y)));
-            directionsParent.Find("Down").gameObject.SetActive(IsMechanicalObject(new Vector3(pos.x , pos.z - 1, pos.y)));
-            directionsParent.Find("Right").gameObject.SetActive(IsMechanicalObject(new Vector3(pos.x  + 1, pos.z, pos.y)));
-            directionsParent.Find("Left").gameObject.SetActive(IsMechanicalObject(new Vector3(pos.x - 1, pos.z, pos.y)));
-            directionsParent.Find("TopBottom").gameObject.SetActive(IsOccupied(new Vector3(pos.x, pos.z, pos.y + 1)) || IsMechanicalObject(new Vector3(pos.x, pos.z, pos.y - 1)));
-        }
-
-        private bool IsMechanicalObject(Vector3 coords)
-        {
-            bool flag1 = _blockService.GetObjectsWithComponentAt<TransputSpecificationsProvider>(Vector3Int.FloorToInt(coords)).Any();
-            bool flag2 = _blockService.GetObjectsWithComponentAt<MechanicalNodeSpecification>(Vector3Int.FloorToInt(coords)).Any();
-            bool flag3 = _blockService.GetObjectsWithComponentAt<ClusterElement>(Vector3Int.FloorToInt(coords)).Any();
-            return flag1 || flag2 || flag3;
+            UpdateModel();
         }
         
-        private bool IsOccupied(Vector3 coords)
+        public void UpdateModel()
         {
-            bool flag1 = _blockService.GetFloorObjectAt(Vector3Int.FloorToInt(coords));
-            return flag1 ;
+            try
+            {
+                var directionsParent = GameObjectFast.FindChildTransform("Directions");
+
+                var previewTransputs = _transputPreviewValidator._previewMechanicalNode.PreviewTransputs;
+                directionsParent.Find("Down").gameObject.SetActive(IsValid(previewTransputs[0]));
+                directionsParent.Find("Left").gameObject.SetActive(IsValid(previewTransputs[1]));
+                directionsParent.Find("Up").gameObject.SetActive(IsValid(previewTransputs[2]));
+                directionsParent.Find("Right").gameObject.SetActive(IsValid(previewTransputs[3]));
+                directionsParent.Find("TopBottom").gameObject.SetActive(IsValid(previewTransputs[4]) || IsValid(previewTransputs[5]));
+            }
+            catch (Exception)
+            {
+                // ignored
+            }
+        }
+
+        private bool IsValid(PreviewTransput previewTransput)
+        {
+            var bottomObjectAt = _blockService.GetBottomObjectAt(previewTransput.Target);
+            if (bottomObjectAt == null)
+                return false;
+            
+            var componentFast = bottomObjectAt.GetComponentFast<PreviewMechanicalNode>();
+            if (componentFast == null)
+                return false;
+
+            return componentFast.PreviewTransputs.Any(previewTransput.CanConnectTo);
         }
     }
 }

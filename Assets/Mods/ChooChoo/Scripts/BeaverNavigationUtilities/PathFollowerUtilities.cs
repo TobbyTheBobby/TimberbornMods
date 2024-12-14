@@ -1,11 +1,8 @@
-﻿using System.Collections.Generic;
-using Bindito.Core;
+﻿using Bindito.Core;
 using Timberborn.BaseComponentSystem;
 using Timberborn.BlockSystem;
 using Timberborn.CharacterMovementSystem;
 using Timberborn.WalkingSystem;
-using TobbyTools.InaccessibilityUtilitySystem;
-using UnityEngine;
 
 namespace ChooChoo.BeaverNavigationUtilities
 {
@@ -26,8 +23,9 @@ namespace ChooChoo.BeaverNavigationUtilities
         private void Start()
         {
             var walker = GetComponentFast<Walker>();
-            walker.StartedNewPath += OnStartedNewPath;
-            _pathFollower = (PathFollower)InaccessibilityUtilities.GetInaccessibleField(walker, "_pathFollower");
+            // walker.
+            // walker.StartedNewPath += OnStartedNewPath;
+            _pathFollower = walker.PathFollower;
         }
 
         public BlockObject GetBlockObjectAtIndex(int index)
@@ -40,8 +38,7 @@ namespace ChooChoo.BeaverNavigationUtilities
 
         private void OnStartedNewPath(object sender, StartedNewPathEventArgs e)
         {
-            var pathCorners = (IReadOnlyList<Vector3>)InaccessibilityUtilities.GetInaccessibleField(_pathFollower, "_pathCorners");
-            _toBeVisitedBlockObjects = _pathConverter.ConvertPath(pathCorners);
+            _toBeVisitedBlockObjects = _pathConverter.ConvertPath(_pathFollower._pathCorners);
         }
     }
 }

@@ -1,43 +1,19 @@
-using System.Collections.Generic;
-using System.Linq;
-using MorePaths.Core;
+using ModSettings.Core;
+using Timberborn.Modding;
 using Timberborn.SettingsSystem;
-using Timberborn.SingletonSystem;
 
 namespace MorePaths.Settings
 {
-    public class MorePathsSettings : ILoadableSingleton
+    public class MorePathsSettings : ModSettingsOwner
     {
-        private readonly ISettings _settings;
-        
-        private readonly MorePathsCore _morePathsCore;
+        public MorePathsSettings(ISettings settings, ModSettingsOwnerRegistry modSettingsOwnerRegistry, ModRepository modRepository) : base(settings, modSettingsOwnerRegistry, modRepository)
+        {
+        }
 
-        private readonly EventBus _eventBus;
+        public override string HeaderLocKey => "Tobbert.MorePaths.SettingsHeader";
 
-        public readonly List<MorePathsSetting> Settings = new();
-        
-        MorePathsSettings(ISettings settings, MorePathsCore morePathsCore, EventBus eventBus)
-        {
-            _settings = settings;
-            _morePathsCore = morePathsCore;
-            _eventBus = eventBus;
-        }
-        
-        public void Load()
-        {
-            foreach (var pathSpecification in _morePathsCore.PathsSpecifications)
-            {
-                Settings.Add(new MorePathsSetting(_settings, pathSpecification.Name));
-            }
-        }
-        
-        public MorePathsSetting GetSetting(string name) => Settings.First(setting => setting.PathName == name);
-        
-        public void ChangeSetting(string settingName, bool value)
-        {
-            var setting = GetSetting(settingName);
-            setting.Enabled = value;
-            _eventBus.Post(new MorePathsSettingsChanged());
-        }
+        protected override string ModId => "Tobbert.MorePaths";
+
+        public ModSetting<bool> CornersEnabledSetting { get; } = new(true, ModSettingDescriptor.CreateLocalized("Tobbert.MorePaths.PathCornersEnabled"));
     }
 }

@@ -1,14 +1,12 @@
 ﻿using Bindito.Core;
-using TimberApi.SceneSystem;
 using Timberborn.Emptying;
 using Timberborn.Hauling;
 using Timberborn.TemplateSystem;
 using Timberborn.Workshops;
-using TobbyTools.UsedImplicitlySystem;
 
 namespace ChooChoo.TrainYards
 {
-    [Configurator(SceneEntrypoint.InGame)]
+    [Context("Game")]
     public class TrainYardConfigurator : IConfigurator
     {
         public void Configure(IContainerDefinition containerDefinition)

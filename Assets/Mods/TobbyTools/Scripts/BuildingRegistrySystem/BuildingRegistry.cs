@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using Timberborn.BlockSystem;
 using Timberborn.Common;
-using Timberborn.ConstructibleSystem;
 using Timberborn.SingletonSystem;
 
 namespace TobbyTools.BuildingRegistrySystem
@@ -26,33 +26,33 @@ namespace TobbyTools.BuildingRegistrySystem
         }
 
         [OnEvent]
-        public void OnConstructibleEnteredUnfinishedState(ConstructibleEnteredUnfinishedStateEvent constructibleEnteredUnfinishedStateEvent)
+        public void OnConstructibleEnteredUnfinishedState(EnteredUnfinishedStateEvent enteredUnfinishedStateEvent)
         {
-            if (!constructibleEnteredUnfinishedStateEvent.Constructible.TryGetComponentFast(out T component))
+            if (!enteredUnfinishedStateEvent.BlockObject.TryGetComponentFast(out T component))
                 return;
             AddBuilding(component);
         }
 
         [OnEvent]
-        public void OnConstructibleExitedUnfinishedState(ConstructibleExitedUnfinishedStateEvent constructibleExitedUnfinishedStateEvent)
+        public void OnConstructibleExitedUnfinishedState(ExitedUnfinishedStateEvent exitedUnfinishedStateEvent)
         {
-            if (!constructibleExitedUnfinishedStateEvent.Constructible.TryGetComponentFast(out T component))
+            if (!exitedUnfinishedStateEvent.BlockObject.TryGetComponentFast(out T component))
                 return;
             RemoveBuilding(component);
         }
 
         [OnEvent]
-        public void OnConstructibleEnteredFinishedState(ConstructibleEnteredFinishedStateEvent constructibleEnteredFinishedStateEvent)
+        public void OnConstructibleEnteredFinishedState(EnteredFinishedStateEvent enteredFinishedStateEvent)
         {
-            if (!constructibleEnteredFinishedStateEvent.Constructible.TryGetComponentFast(out T component))
+            if (!enteredFinishedStateEvent.BlockObject.TryGetComponentFast(out T component))
                 return;
             RegisterFinishedBuilding(component);
         }
 
         [OnEvent]
-        public void OnConstructibleExitedFinishedState(ConstructibleExitedFinishedStateEvent constructibleExitedFinishedStateEvent)
+        public void OnConstructibleExitedFinishedState(ExitedFinishedStateEvent exitedFinishedStateEvent)
         {
-            if (!constructibleExitedFinishedStateEvent.Constructible.TryGetComponentFast(out T component))
+            if (!exitedFinishedStateEvent.BlockObject.TryGetComponentFast(out T component))
                 return;
             UnregisterFinishedBuilding(component);
         }

@@ -1,6 +1,5 @@
 using Timberborn.BaseComponentSystem;
-using Timberborn.PrefabSystem;
-using TobbyTools.InaccessibilityUtilitySystem;
+using Timberborn.EntitySystem;
 using UnityEngine;
 
 namespace ChooChoo.TrackSystemUI
@@ -25,27 +24,27 @@ namespace ChooChoo.TrackSystemUI
         [SerializeField]
         private Sprite _alternativeImage;
 
-        private LabeledPrefab _labeledPrefab;
+        private LabeledEntity _labeledEntity;
 
         private void Awake()
         {
-            _labeledPrefab = GetComponentFast<LabeledPrefab>();
+            _labeledEntity = GetComponentFast<LabeledEntity>();
         }
 
         public void SetOriginal()
         {
-            InaccessibilityUtilities.SetInaccessibleField(_labeledPrefab, "_displayNameLocKey", _displayNameLocKey);
-            InaccessibilityUtilities.SetInaccessibleField(_labeledPrefab, "_descriptionLocKey", _descriptionLocKey);
-            InaccessibilityUtilities.SetInaccessibleField(_labeledPrefab, "_flavorDescriptionLocKey", _flavorDescriptionLocKey);
-            InaccessibilityUtilities.SetInaccessibleField(_labeledPrefab, "_image", _image);
+            _labeledEntity._labeledEntitySpec._displayNameLocKey = _displayNameLocKey;
+            _labeledEntity._labeledEntitySpec._descriptionLocKey = _descriptionLocKey;
+            _labeledEntity._labeledEntitySpec._flavorDescriptionLocKey = _flavorDescriptionLocKey;
+            _labeledEntity._image = _image;
         }
 
         public void SetAlternative()
         {
-            InaccessibilityUtilities.SetInaccessibleField(_labeledPrefab, "_displayNameLocKey", _alternativeDisplayNameLocKey);
-            InaccessibilityUtilities.SetInaccessibleField(_labeledPrefab, "_descriptionLocKey", _alternativeDescriptionLocKey);
-            InaccessibilityUtilities.SetInaccessibleField(_labeledPrefab, "_flavorDescriptionLocKey", _alternativeFlavorDescriptionLocKey);
-            InaccessibilityUtilities.SetInaccessibleField(_labeledPrefab, "_image", _alternativeImage);
+            _labeledEntity._labeledEntitySpec._displayNameLocKey = _alternativeDisplayNameLocKey;
+            _labeledEntity._labeledEntitySpec._descriptionLocKey = _alternativeDescriptionLocKey;
+            _labeledEntity._labeledEntitySpec._flavorDescriptionLocKey = _alternativeFlavorDescriptionLocKey;
+            _labeledEntity._image = _alternativeImage;
         }
     }
 }

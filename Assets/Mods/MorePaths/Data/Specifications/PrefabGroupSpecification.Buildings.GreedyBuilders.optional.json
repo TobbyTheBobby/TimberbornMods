@@ -1,0 +1,16 @@
+{
+  "Id": "Buildings.GreedyBuilders",
+  "Paths#append": [
+    "DefaultPath",
+    "BrickPath",
+    "FrogPath",
+    "Gravel1Path",
+    "Gravel2Path",
+    "MetalPath",
+    "PlasteredWoodPath.Folktails",
+    "PlasteredWoodPath.IronTeeth",
+    "StonePath",
+    "WoodPath.Folktails",
+    "WoodPath.IronTeeth"
+  ]
+}

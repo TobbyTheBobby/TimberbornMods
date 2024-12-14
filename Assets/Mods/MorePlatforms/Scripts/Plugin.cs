@@ -1,29 +1,31 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Permissions;
 using HarmonyLib;
-using TimberApi.ConsoleSystem;
+using JetBrains.Annotations;
 using TimberApi.DependencyContainerSystem;
-using TimberApi.ModSystem;
 using Timberborn.BlockObjectAccesses;
 using Timberborn.BlockObjectTools;
 using Timberborn.BlockSystem;
+using Timberborn.ModManagerScene;
 using Timberborn.ToolSystem;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+#pragma warning disable CS0618
+[assembly: SecurityPermission(action: SecurityAction.RequestMinimum, SkipVerification = true)]
+#pragma warning restore CS0618
+
 namespace MorePlatforms
 {
-    public class Plugin : IModEntrypoint
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
+    public class Plugin : IModStarter
     {
         public const string PluginGuid = "tobbert.moreplatforms";
         
-        public static IConsoleWriter Log;
-        
-        public void Entry(IMod mod, IConsoleWriter consoleWriter)
+        public void StartMod(IModEnvironment modEnvironment)
         {
-            Log = consoleWriter;
-            
             new Harmony(PluginGuid).PatchAll();
         }
     }
@@ -45,6 +47,7 @@ namespace MorePlatforms
     }
 
     [HarmonyPatch(typeof(BlockObjectToolButtonFactory), "Create", new Type[] {typeof(PlaceableBlockObject), typeof(ToolGroup), typeof(VisualElement)})]
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     internal class RemoveMiddlePatch
     {
         private static bool Prefix(
@@ -77,7 +80,8 @@ namespace MorePlatforms
     }
     
     [HarmonyPatch(typeof(ParentedNeighborCalculator), "GetParentedNeighbors")]
-    internal class ChangeConstructionSitePatch
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
+    internal class ParentedNeighborCalculatorPatch
     {
         private static void Postfix(IEnumerable<ParentedNeighbor2D> __result, ParentedNeighborCalculator __instance)
         {
@@ -96,7 +100,7 @@ namespace MorePlatforms
                 "HorizontalPlatformEnd4x1.Folktails(Clone)", "HorizontalPlatformEnd4x1.IronTeeth(Clone)",
                 "HorizontalPlatformMiddle1x2.Folktails(Clone)", "HorizontalPlatformMiddle1x2.IronTeeth(Clone)",
             };
-
+    
             Vector3Int coordinate;
             
             if (objectList1.Contains(blockObject.name))
@@ -110,8 +114,10 @@ namespace MorePlatforms
             {
                 return;
             }
-
+    
             __result = DependencyContainer.GetInstance<FakeParentedNeighborCalculator>().FakeGetParentedNeighbors(coordinate);
         }
     }
+    
+    
 }

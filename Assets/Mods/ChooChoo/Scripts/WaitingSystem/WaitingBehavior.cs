@@ -36,7 +36,7 @@ namespace ChooChoo.WaitingSystem
 
         public override Decision Decide(BehaviorAgent agent)
         {
-            var trainWaitingLocation = _blockService.GetFloorObjectComponentAt<TrainWaitingLocation>(TransformFast.position.ToBlockServicePosition());
+            var trainWaitingLocation = _blockService.GetBottomObjectComponentAt<TrainWaitingLocation>(TransformFast.position.ToBlockServicePosition());
             if (_currentWaitingLocation != null && _currentWaitingLocation == trainWaitingLocation)
             {
                 _waitExecutor.LaunchForIdleTime();
@@ -82,7 +82,7 @@ namespace ChooChoo.WaitingSystem
 
         private Decision GoToClosestWaitingLocation()
         {
-            var closestWaitingLocation = _closestTrainWaitingLocationPicker.ClosestWaitingLocation(TransformFast.position);
+            var closestWaitingLocation = _closestTrainWaitingLocationPicker.ClosestWaitingLocation(TransformFast);
             return OccupyWaitingLocation(closestWaitingLocation);
         }
     }

@@ -1,19 +1,18 @@
 using Bindito.Core;
 using ChooChoo.MovementSystem;
 using ChooChoo.NavigationSystem;
-using TimberApi.SceneSystem;
 using Timberborn.Coordinates;
 using Timberborn.Persistence;
 using Timberborn.TemplateSystem;
-using TobbyTools.UsedImplicitlySystem;
 
 namespace ChooChoo.TrackSystem
 {
-    [Configurator(SceneEntrypoint.InGame)]
+    [Context("Game")]
     public class TrackSystemConfigurator : IConfigurator
     {
         public void Configure(IContainerDefinition containerDefinition)
         {
+            containerDefinition.Bind<TracksRecalculator>().AsSingleton();
             containerDefinition.Bind<TrackArrayProvider>().AsSingleton();
             containerDefinition.Bind<TrackRouteWeightCache>().AsSingleton();
             // containerDefinition.Bind<TrackSectionService>().AsSingleton();

@@ -1,0 +1,13 @@
+{
+  "Name": "Custom Cursors",
+  "Version": "2.0.0",
+  "Id": "Tobbert.CustomCursors",
+  "MinimumGameVersion": "0.6.0.0",
+  "Description": "Do not upload",
+  "RequiredMods": [
+    {
+      "Id": "eMka.ModSettings",
+      "MinimumVersion": "0.6.3.0"
+    }
+  ]
+}

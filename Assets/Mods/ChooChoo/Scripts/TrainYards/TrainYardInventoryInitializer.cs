@@ -13,13 +13,13 @@ namespace ChooChoo.TrainYards
         private static readonly string InventoryComponentName = "TrainYard";
         private readonly IGoodService _goodService;
         private readonly BaseInstantiator _baseInstantiator;
-        private readonly IResourceAssetLoader _resourceAssetLoader;
+        private readonly IAssetLoader _assetLoader;
 
-        public TrainYardInventoryInitializer(IGoodService goodService, BaseInstantiator baseInstantiator, IResourceAssetLoader resourceAssetLoader)
+        public TrainYardInventoryInitializer(IGoodService goodService, BaseInstantiator baseInstantiator, IAssetLoader assetLoader)
         {
             _goodService = goodService;
             _baseInstantiator = baseInstantiator;
-            _resourceAssetLoader = resourceAssetLoader;
+            _assetLoader = assetLoader;
         }
 
         public void Initialize(TrainYard subject, Inventory decorator)
@@ -29,7 +29,7 @@ namespace ChooChoo.TrainYards
             inventoryInitializer.HasPublicInput();
             inventoryInitializer.HasPublicOutput();
             AllowEveryGoodAsGiveAndTakeable(inventoryInitializer,
-                _resourceAssetLoader.Load<GameObject>("tobbert.choochoo/tobbert_choochoo/Train").GetComponent<Train>().TrainCost);
+                _assetLoader.Load<GameObject>("Tobbert/Prefabs/Trains/Train").GetComponent<Train>().TrainCost);
             inventoryInitializer.Initialize();
             subject.InitializeInventory(decorator);
         }

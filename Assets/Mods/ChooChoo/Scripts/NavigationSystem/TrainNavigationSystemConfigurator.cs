@@ -1,16 +1,16 @@
 using Bindito.Core;
+using ChooChoo.BuildingRegistrySystem;
+using ChooChoo.TrackSystem;
 using ChooChoo.Wagons;
-using TimberApi.SceneSystem;
-using TobbyTools.BuildingRegistrySystem;
-using TobbyTools.UsedImplicitlySystem;
 
 namespace ChooChoo.NavigationSystem
 {
-    [Configurator(SceneEntrypoint.InGame)]
+    [Context("Game")]
     public class TrainNavigationSystemConfigurator : IConfigurator
     {
         public void Configure(IContainerDefinition containerDefinition)
         {
+            containerDefinition.Bind<BuildingRegistry<TrackPiece>>().AsSingleton();
             containerDefinition.Bind<BuildingRegistry<TrainDestination>>().AsSingleton();
             containerDefinition.Bind<TrainDestinationConnectedRepository>().AsSingleton();
             containerDefinition.Bind<TrackRouteWeightsCalculator>().AsSingleton();

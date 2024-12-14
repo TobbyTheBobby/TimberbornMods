@@ -1,4 +1,0 @@
-ID,Text,Comment
-Tobbert.TestingMod.SpecificGoodsStockpileSystemExample.DisplayName,SpecificGoodsStockpileSystemExample,-
-Tobbert.TestingMod.SpecificGoodsStockpileSystemExample.Description,Description,-
-Tobbert.TestingMod.SpecificGoodsStockpileSystemExample.FlavorDescription,FlavorDescription,-

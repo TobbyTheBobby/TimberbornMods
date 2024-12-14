@@ -1,0 +1,10 @@
+{
+  "Faction": "IronTeeth",
+  "NameLocKey": "Tobbert.TrainModel.BigWooden",
+  "ModelLocation": "Tobbert/Prefabs/Trains/WoodenTrain.IronTeeth",
+  "Length": 1,
+  "MachinistSeatName": "#EmptySeat",
+  "MachinistScale": 0.7,
+  "MachinistAnimationName": "Sitting"
+}
+

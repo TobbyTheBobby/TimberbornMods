@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using Timberborn.SingletonSystem;
 using Timberborn.WalkingSystemUI;
-using TobbyTools.InaccessibilityUtilitySystem;
 using UnityEngine;
 
 namespace ChooChoo.Debugging
@@ -17,10 +16,10 @@ namespace ChooChoo.Debugging
         {
             var walkerDebugger = Object.FindObjectsByType<WalkerDebugger>(FindObjectsInactive.Include, FindObjectsSortMode.None).First();
 
-            WalkerGameObjectMarker = (GameObject)InaccessibilityUtilities.GetInaccessibleField(walkerDebugger, "_walkerGameObjectMarker");
-            WalkerModelMarker = (GameObject)InaccessibilityUtilities.GetInaccessibleField(walkerDebugger, "_walkerModelMarker");
-            DestinationMarker = (GameObject)InaccessibilityUtilities.GetInaccessibleField(walkerDebugger, "_destinationMarker");
-            CornerMarkerPrefab = (GameObject)InaccessibilityUtilities.GetInaccessibleField(walkerDebugger, "_cornerMarkerPrefab");
+            WalkerGameObjectMarker = walkerDebugger._walkerGameObjectMarker;
+            WalkerModelMarker = walkerDebugger._walkerModelMarker;
+            DestinationMarker = walkerDebugger._destinationMarker;
+            CornerMarkerPrefab = walkerDebugger._cornerMarkerPrefab;
         }
     }
 }

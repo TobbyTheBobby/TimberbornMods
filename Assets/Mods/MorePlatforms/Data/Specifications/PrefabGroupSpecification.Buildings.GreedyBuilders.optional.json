@@ -1,0 +1,15 @@
+{
+  "Id": "Buildings.GreedyBuilders",
+  "Paths#append": [
+    "Prefabs/HorizontalPlatformEnds/HorizontalPlatformEnd1x1.Folktails",
+    "Prefabs/HorizontalPlatformEnds/HorizontalPlatformEnd2x1.Folktails",
+    "Prefabs/HorizontalPlatformEnds/HorizontalPlatformEnd3x1.Folktails",
+    "Prefabs/HorizontalPlatformEnds/HorizontalPlatformEnd4x1.Folktails",
+    "Prefabs/HorizontalPlatformMiddle/HorizontalPlatformMiddle1x1.Folktails",
+    "Prefabs/HorizontalPlatformMiddle/HorizontalPlatformMiddle1x2.Folktails",
+//    "Prefabs/ReinforcedLadder.Folktails",
+//    "Prefabs/ReinforcedPlatform.Folktails",
+//    "Prefabs/DoubleReinforcedPlatform.Folktails",
+//    "Prefabs/TripleReinforcedPlatform.Folktails"
+  ]
+}

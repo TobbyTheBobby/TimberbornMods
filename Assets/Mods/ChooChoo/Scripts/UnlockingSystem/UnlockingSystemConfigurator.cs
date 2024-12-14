@@ -1,11 +1,9 @@
 ﻿using Bindito.Core;
-using TimberApi.SceneSystem;
 using Timberborn.ToolSystem;
-using TobbyTools.UsedImplicitlySystem;
 
 namespace ChooChoo.UnlockingSystem
 {
-    [Configurator(SceneEntrypoint.InGame)]
+    [Context("Game")]
     public class UnlockingSystemConfigurator : IConfigurator
     {
         public void Configure(IContainerDefinition containerDefinition)

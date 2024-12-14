@@ -1,35 +1,33 @@
 using System.Collections.Generic;
-using MorePaths.Core;
-using MorePaths.CustomDriveways;
-using TimberApi.Common.SingletonSystem;
+using MorePaths.PathSpecificationSystem;
+using TimberApi.SingletonSystem;
 using Timberborn.PathSystem;
 using Timberborn.SingletonSystem;
 using UnityEngine;
 
-namespace MorePaths
+namespace MorePaths.CustomDriveways
 {
     public class DrivewayService : IEarlyLoadableSingleton, ILoadableSingleton
     {
-        private static MorePathsCore _morePathsCore;
+        private static PathSpecificationRepository _pathSpecificationRepository;
         private static DrivewayFactory _drivewayFactory;
 
         public static Dictionary<Driveway, List<GameObject>> DriveWays { get; private set; }
 
-        DrivewayService(MorePathsCore morePathsCore, DrivewayFactory drivewayFactory)
+        private DrivewayService(PathSpecificationRepository pathSpecificationRepository, DrivewayFactory drivewayFactory)
         {
-            _morePathsCore = morePathsCore;
+            _pathSpecificationRepository = pathSpecificationRepository;
             _drivewayFactory = drivewayFactory;
         }
         
         public void EarlyLoad()
         {
-            DriveWays = _drivewayFactory.CreateDriveways(_morePathsCore.PathsSpecifications);
+            DriveWays = _drivewayFactory.CreateDriveways(_pathSpecificationRepository.GetAll());
         }
-
 
         public void Load()
         {
-            _drivewayFactory.UpdateMaterials(_morePathsCore.PathsSpecifications);
+            _drivewayFactory.UpdateMaterials(_pathSpecificationRepository.GetAll());
         }
     }
 }

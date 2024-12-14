@@ -1,8 +1,0 @@
-{
-  "Name": "Multithreaded Navigation",
-  "Version": "1.0.0",
-  "UniqueId": "tobbert.multithreadednavigation",
-  "MinimumApiVersion": "0.5.0",
-  "MinimumGameVersion": "0.4.9.0",
-  "EntryDll": "MultithreadedNavigation.dll"
-}

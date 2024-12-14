@@ -1,19 +1,16 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Reflection;
 using System.Security.Permissions;
 using ChooChoo.Trains;
 using ChooChoo.Wagons;
 using HarmonyLib;
-using TimberApi.ConsoleSystem;
-using TimberApi.ModSystem;
-using Timberborn.AssetSystem;
+using JetBrains.Annotations;
 using Timberborn.BaseComponentSystem;
 using Timberborn.Characters;
 using Timberborn.GameDistricts;
+using Timberborn.ModManagerScene;
 using Timberborn.PrefabSystem;
-using TobbyTools.UsedImplicitlySystem;
 using UnityEngine;
 
 #pragma warning disable CS0618
@@ -22,21 +19,18 @@ using UnityEngine;
 
 namespace ChooChoo
 {
-    public class Plugin : IModEntrypoint
+    public class Plugin : IModStarter
     {
-        private const string PluginGuid = "tobbert.choochoo";
+        private const string PluginGuid = "Tobbert.ChooChoo";
 
-        public static IConsoleWriter Log;
-
-        public void Entry(IMod mod, IConsoleWriter consoleWriter)
+        public void StartMod()
         {
-            Log = consoleWriter;
-
             new Harmony(PluginGuid).PatchAll();
         }
     }
 
-    [UsedImplicitlyHarmonyPatch]
+    [HarmonyPatch]
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class MigrationTriggerPatch
     {
         public static MethodInfo TargetMethod()
@@ -63,7 +57,8 @@ namespace ChooChoo
         }
     }
 
-    [UsedImplicitlyHarmonyPatch]
+    [HarmonyPatch]
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class InstantiatorPatch
     {
         private static readonly List<string> PreventDecorators = new()
@@ -122,7 +117,8 @@ namespace ChooChoo
         }
     }
 
-    [UsedImplicitlyHarmonyPatch]
+    [HarmonyPatch]
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class GoodCarrierFragmentPatch
     {
         public static MethodInfo TargetMethod()
@@ -136,7 +132,8 @@ namespace ChooChoo
         }
     }
 
-    [UsedImplicitlyHarmonyPatch]
+    [HarmonyPatch]
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class CharacterBatchControlTabPatch
     {
         public static MethodInfo TargetMethod()
@@ -155,27 +152,22 @@ namespace ChooChoo
             return true;
         }
     }
-
-    [UsedImplicitlyHarmonyPatch]
-    public class StatusSpriteLoaderPatch
-    {
-        public static MethodInfo TargetMethod()
-        {
-            return AccessTools.Method(AccessTools.TypeByName("StatusSpriteLoader"), "LoadSprite", new[] { typeof(string) });
-        }
-
-        private static bool Prefix(string spriteName, IResourceAssetLoader ____resourceAssetLoader, ref Sprite __result)
-        {
-            try
-            {
-                __result = ____resourceAssetLoader.Load<Sprite>(Path.Combine("Sprites/StatusIcons", spriteName));
-            }
-            catch (Exception)
-            {
-                __result = ____resourceAssetLoader.Load<Sprite>(spriteName);
-            }
-
-            return false;
-        }
-    }
+    
+    // [HarmonyPatch]
+    // [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
+    // public class TestPatch
+    // {
+    //     public static MethodInfo TargetMethod()
+    //     {
+    //         return AccessTools.Method(AccessTools.TypeByName("StatusIconCyclerFactory"), "CreateAsChild", new[] { typeof(Transform) });
+    //     }
+    //
+    //     private static void Prefix(Transform parent)
+    //     {
+    //         Debug.LogWarning(parent == null);
+    //         Debug.LogWarning(parent);
+    //         Debug.LogWarning(parent.parent ? parent.parent : null);
+    //         Debug.LogWarning(parent.parent.parent ? parent.parent.parent : null);
+    //     }
+    // }
 }

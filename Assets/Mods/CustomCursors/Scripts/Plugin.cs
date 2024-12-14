@@ -1,69 +1,20 @@
-using System.Reflection;
+using System.Security.Permissions;
 using HarmonyLib;
-using TimberApi.ConsoleSystem;
-using TimberApi.DependencyContainerSystem;
-using TimberApi.ModSystem;
-using UnityEngine.UIElements;
+using Timberborn.ModManagerScene;
+
+#pragma warning disable CS0618
+[assembly: SecurityPermission(action: SecurityAction.RequestMinimum, SkipVerification = true)]
+#pragma warning restore CS0618
 
 namespace CustomCursors
 {
-    public class Plugin : IModEntrypoint
+    public class Plugin : IModStarter
     {
-        public const string PluginGuid = "tobbert.customcursors";
-        public static string MyPath;
-        public static IConsoleWriter Log;
+        public const string PluginGuid = "Tobbert.CustomCursors";
 
-        public void Entry(IMod mod, IConsoleWriter consoleWriter)
+        public void StartMod()
         {
-            MyPath = mod.DirectoryPath;
-            Log = consoleWriter;
             new Harmony(PluginGuid).PatchAll();
-        }
-    }
-
-
-    [HarmonyPatch]
-    public class StartGrabbingPatch
-    {
-        private static MethodInfo TargetMethod()
-        {
-            return AccessTools.Method(AccessTools.TypeByName("GrabbingCameraTargetPicker"), "StartGrabbing");
-        }
-
-        private static void Postfix()
-        {
-            DependencyContainer.GetInstance<CustomCursorsService>().StartGrabbing();
-        }
-    }
-    
-    [HarmonyPatch]
-    public class StopGrabbingPatch
-    {
-        private static MethodInfo TargetMethod()
-        {
-            return AccessTools.Method(AccessTools.TypeByName("GrabbingCameraTargetPicker"), "StopGrabbing");
-        }
-
-        private static void Postfix()
-        {
-            DependencyContainer.GetInstance<CustomCursorsService>().StopGrabbing();
-        }
-    }
-    
-    [HarmonyPatch]
-    public class SettingsPatch
-    {
-        private static MethodInfo TargetMethod()
-        {
-            return AccessTools.Method(AccessTools.TypeByName("GameSavingSettingsController"), "InitializeAutoSavingOnToggle", new []
-            {
-                typeof(VisualElement)
-            });
-        }
-
-        private static void Postfix(ref VisualElement root)
-        {
-            DependencyContainer.GetInstance<CustomCursorsService>().InitializeSelectorSettings(ref root);
         }
     }
 }

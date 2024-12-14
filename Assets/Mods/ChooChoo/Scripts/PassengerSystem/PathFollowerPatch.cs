@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using System.Reflection;
 using HarmonyLib;
+using JetBrains.Annotations;
 using Timberborn.CharacterMovementSystem;
 using Timberborn.Common;
-using TobbyTools.UsedImplicitlySystem;
 using UnityEngine;
 
 namespace ChooChoo.PassengerSystem
 {
-  [UsedImplicitlyHarmonyPatch]
+  [HarmonyPatch]
+  [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
   public class RoadNavMeshGraphPatch
   {
     private static readonly Dictionary<Transform, Passenger> PathLinkAwaiters = new();

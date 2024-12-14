@@ -1,8 +1,0 @@
-{
-  "Name": "Dynamic Specifications",
-  "Version": "1.0.3",
-  "UniqueId": "tobbert.dynamicspecifications",
-  "MinimumApiVersion": "0.5.5",
-  "MinimumGameVersion": "0.4.9",
-  "EntryDll": "DynamicSpecifications.dll"
-}

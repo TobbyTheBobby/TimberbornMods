@@ -3,7 +3,7 @@ using Bindito.Core;
 using ChooChoo.Trains;
 using ChooChoo.Wagons;
 using Timberborn.BaseComponentSystem;
-using Timberborn.ConstructibleSystem;
+using Timberborn.BlockSystem;
 using Timberborn.SelectionSystem;
 using Timberborn.SingletonSystem;
 using Timberborn.ToolSystem;
@@ -108,7 +108,7 @@ namespace ChooChoo.TrackSystem
         }
 
         [OnEvent]
-        public void OnTrackUpdate(OnTracksUpdatedEvent onTracksUpdatedEvent)
+        public void OnTracksRecalculated(TracksRecalculatedEvent tracksUpdatedEvent)
         {
             UpdateColor();
             SetActive(ShouldBeActive());

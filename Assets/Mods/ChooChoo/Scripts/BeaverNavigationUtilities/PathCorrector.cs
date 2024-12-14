@@ -31,8 +31,8 @@ namespace ChooChoo.BeaverNavigationUtilities
 
         private bool IsPassengerStation(Vector3 coordinates)
         {
-            return _blockService.GetFloorObjectComponentAt<PassengerStation>(coordinates.ToBlockServicePosition());
-            // return _blockService.GetFloorObjectComponentAt<PassengerStation>(Vector3Int.FloorToInt(coordinates));
+            return _blockService.GetBottomObjectComponentAt<PassengerStation>(coordinates.ToBlockServicePosition());
+            // return _blockService.GetBottomObjectComponentAt<PassengerStation>(Vector3Int.FloorToInt(coordinates));
         }
     }
 }

@@ -15,8 +15,8 @@ namespace ChooChoo.WagonUI
         private readonly string _trainDisplayNameLocKey = "Tobbert.Train.Name";
         private readonly string _ageLocKey = "Beaver.Age";
 
-        private IResourceAssetLoader _resourceAssetLoader;
         private EntitySelectionService _selectionManager;
+        private IAssetLoader _assetLoader;
         private ILoc _loc;
 
         private TrainWagon _trainWagon;
@@ -25,13 +25,13 @@ namespace ChooChoo.WagonUI
 
         [Inject]
         public void InjectDependencies(
-            ILoc loc,
-            IResourceAssetLoader resourceAssetLoader,
-            EntitySelectionService selectionManager)
+            EntitySelectionService selectionManager,
+            IAssetLoader resourceAssetLoader,
+            ILoc loc)
         {
-            _loc = loc;
-            _resourceAssetLoader = resourceAssetLoader;
             _selectionManager = selectionManager;
+            _assetLoader = resourceAssetLoader;
+            _loc = loc;
         }
 
         public int EntityBadgePriority => 1;
@@ -39,7 +39,7 @@ namespace ChooChoo.WagonUI
         public void Awake()
         {
             _character = GetComponentFast<Character>();
-            _sprite = _resourceAssetLoader.Load<Sprite>("tobbert.choochoo/tobbert_choochoo/ToolGroupIcon");
+            _sprite = _assetLoader.Load<Sprite>("tobbert.choochoo/tobbert_choochoo/ToolGroupIcon");
         }
 
         public string GetEntityName()

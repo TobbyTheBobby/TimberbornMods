@@ -1,12 +1,13 @@
 ﻿using System.Reflection;
 using ChooChoo.GoodsStations;
 using HarmonyLib;
+using JetBrains.Annotations;
 using Timberborn.BaseComponentSystem;
-using TobbyTools.UsedImplicitlySystem;
 
 namespace ChooChoo.GoodsStationUI
 {
-    [UsedImplicitlyHarmonyPatch]
+    [HarmonyPatch]
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class InventoryDebugFragmentPatch
     {
         private static MethodInfo TargetMethod()

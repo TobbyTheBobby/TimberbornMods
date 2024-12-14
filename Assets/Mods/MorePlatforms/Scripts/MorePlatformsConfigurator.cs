@@ -1,10 +1,8 @@
 ﻿using Bindito.Core;
-using TimberApi.ConfiguratorSystem;
-using TimberApi.SceneSystem;
 
 namespace MorePlatforms
 {
-    [Configurator(SceneEntrypoint.InGame)]
+    [Context("Game")]
     internal class PluginConfigurator : IConfigurator
     {
         public void Configure(IContainerDefinition containerDefinition)

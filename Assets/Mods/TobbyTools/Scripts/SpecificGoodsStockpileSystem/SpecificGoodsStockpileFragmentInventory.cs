@@ -22,8 +22,8 @@ namespace TobbyTools.SpecificGoodsStockpileSystem
     public void ShowFragment(Inventory inventory)
     {
       _inventory = inventory;
-      foreach (var storableGoodAmount in _inventory.AllowedGoods)
-        _rows.Add(_informationalRowsFactory.CreateInformationalRow(storableGoodAmount.StorableGood, _inventory, _inventoryContent, true));
+      // foreach (var storableGoodAmount in _inventory.AllowedGoods)
+      //   _rows.Add(_informationalRowsFactory.CreateInformationalRow(storableGoodAmount.StorableGood, _inventory, _inventoryContent, true));
     }
 
     public void ClearFragment()

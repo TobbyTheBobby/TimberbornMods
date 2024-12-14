@@ -1,0 +1,11 @@
+{
+  "Name": "Tobby Tools",
+  "Version": "2.0.1",
+  "Id": "Tobbert.TobbyTools",
+  "MinimumGameVersion": "0.6.0.0",
+  "Description": "Do not uploadr",
+  "RequiredMods": [{
+    "Id": "Harmony",
+    "MinimumVersion": "2.3.3"
+  }]
+}

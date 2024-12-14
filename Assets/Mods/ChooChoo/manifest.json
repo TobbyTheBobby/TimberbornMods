@@ -1,0 +1,17 @@
+{
+  "Name": "Choo!Choo!",
+  "Version": "0.10.6",
+  "Id": "Tobbert.ChooChoo",
+  "MinimumGameVersion": "0.6.0.0",
+  "Description": "The current upload is unauthorized by the original author. Distribution, reproduction, or use of this material is prohibited without permission from the author, who retains all rights to the content. Please contact the author directly to obtain the necessary authorization for access or distribution.",
+  "RequiredMods": [
+    {
+      "Id": "Harmony",
+      "MinimumVersion": "2.3.3"
+    },
+    {
+      "Id": "TimberApi",
+      "MinimumVersion": "0.7.0.1"
+    }
+  ]
+}

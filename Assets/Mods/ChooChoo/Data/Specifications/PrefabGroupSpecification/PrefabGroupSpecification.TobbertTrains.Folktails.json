@@ -1,0 +1,18 @@
+{
+  "Id": "Buildings.Folktails",
+  "Paths#append": [
+    "Tobbert/Prefabs/Tracks/TrackOneWay.Folktails",
+    "Tobbert/Prefabs/Tracks/TrackCrossing.Folktails",
+    "Tobbert/Prefabs/Tracks/TrackHill1x2.Folktails",
+    "Tobbert/Prefabs/Tracks/TrackCorner1x1.Folktails",
+    "Tobbert/Prefabs/Tracks/TrackCorner2x2.Folktails",
+    "Tobbert/Prefabs/Tracks/TrackTIntersection1x1.Folktails",
+    "Tobbert/Prefabs/Tracks/TrackTIntersection2x3.Folktails",
+    "Tobbert/Prefabs/Tracks/TrackXIntersection1x1.Folktails",
+    "Tobbert/Prefabs/Tracks/TrackXIntersection3x3.Folktails",
+    "Tobbert/Prefabs/Tracks/TrackRIntersection2x3.Folktails",
+    "Tobbert/Prefabs/Buildings/TrainYard.Folktails",
+    "Tobbert/Prefabs/Buildings/WaitingStation.Folktails",
+    "Tobbert/Prefabs/Buildings/GoodsStation.Folktails"
+  ]
+}

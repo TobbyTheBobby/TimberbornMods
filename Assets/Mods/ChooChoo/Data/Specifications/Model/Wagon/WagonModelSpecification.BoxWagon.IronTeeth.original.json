@@ -1,0 +1,8 @@
+{
+  "Faction": "IronTeeth",
+  "NameLocKey": "Tobbert.WagonModel.BoxWagon",
+  "ModelLocation": "Tobbert/Prefabs/Wagons/BoxWagon.IronTeeth",
+  "DependentModel": "Tobbert.WagonModel.WagonWheels",
+  "Length": 0.96
+} 
+

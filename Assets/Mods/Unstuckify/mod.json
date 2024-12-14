@@ -1,8 +1,0 @@
-{
-  "Name": "Unstuckify",
-  "Version": "1.2.0",
-  "UniqueId": "tobbert.unstuckify",
-  "MinimumApiVersion": "0.5.5",
-  "MinimumGameVersion": "0.4.9.0",
-  "EntryDll": "Unstuckify.dll"
-}

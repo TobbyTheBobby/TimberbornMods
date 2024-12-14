@@ -1,6 +1,0 @@
-ID,Text,Comment
-Tobbert.CottonPlant.DisplayName,Cotton Plant,-
-Tobbert.CottonPlant.FlavorDescription,White as snow,-
-
-Tobbert.Cotton.DisplayName,Cotton,-
-Tobbert.Cotton.PluralDisplayName,Cotton,-

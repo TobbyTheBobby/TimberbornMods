@@ -1,0 +1,18 @@
+{
+  "Id": "Buildings.IronTeeth",
+  "Paths#append": [
+    "Tobbert/Prefabs/Tracks/TrackOneWay.IronTeeth",
+    "Tobbert/Prefabs/Tracks/TrackCrossing.IronTeeth",
+    "Tobbert/Prefabs/Tracks/TrackHill1x2.IronTeeth",
+    "Tobbert/Prefabs/Tracks/TrackCorner1x1.IronTeeth",
+    "Tobbert/Prefabs/Tracks/TrackCorner2x2.IronTeeth",
+    "Tobbert/Prefabs/Tracks/TrackTIntersection1x1.IronTeeth",
+    "Tobbert/Prefabs/Tracks/TrackTIntersection2x3.IronTeeth",
+    "Tobbert/Prefabs/Tracks/TrackXIntersection1x1.IronTeeth",
+    "Tobbert/Prefabs/Tracks/TrackXIntersection3x3.IronTeeth",
+    "Tobbert/Prefabs/Tracks/TrackRIntersection2x3.IronTeeth",
+    "Tobbert/Prefabs/Buildings/TrainYard.IronTeeth",
+    "Tobbert/Prefabs/Buildings/WaitingStation.IronTeeth",
+    "Tobbert/Prefabs/Buildings/GoodsStation.IronTeeth"
+  ]
+}

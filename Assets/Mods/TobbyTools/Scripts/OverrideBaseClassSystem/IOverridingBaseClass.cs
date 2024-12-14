@@ -1,7 +1,7 @@
-﻿namespace TobbyTools.OverrideBaseClassSystem
-{
-    public interface IOverridingBaseClass
-    {
-
-    }
-}
+﻿// namespace TobbyTools.OverrideBaseClassSystem
+// {
+//     public interface IOverridingBaseClass
+//     {
+//
+//     }
+// }

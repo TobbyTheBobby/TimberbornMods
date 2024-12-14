@@ -1,0 +1,12 @@
+{
+  "Name": "StonePath",
+  "PathTexture": "sprites/paths/stonepath/groundtexture",
+  "ToolGroup": "CategoryPaths",
+  "ToolOrder": 40,
+  "PathIcon": "sprites/paths/stonepath/stonepathicon",
+  "DisplayNameLocKey": "Tobbert.StonePath.DisplayName",
+  "DescriptionLocKey": "Tobbert.StonePath.Description",
+  "FlavorDescriptionLocKey": "Tobbert.StonePath.FlavorDescription",
+  
+  "NoiseTexScale": 0.15
+}

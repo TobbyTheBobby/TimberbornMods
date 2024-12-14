@@ -1,0 +1,6 @@
+{
+  "Id": "Buildings.IronTeeth",
+  "Paths#append": [
+    "Tobbert/Ladder.IronTeeth"
+  ]
+}

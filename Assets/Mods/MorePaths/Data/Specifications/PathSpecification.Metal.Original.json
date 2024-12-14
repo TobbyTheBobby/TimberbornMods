@@ -1,0 +1,16 @@
+{
+  "Name": "MetalPath",
+  "PathTexture": "sprites/paths/metalpath/groundtexture",
+  "RailingTexture": "sprites/paths/metalpath/railingtexture",
+  "ToolGroup": "CategoryPaths",
+  "ToolOrder": 50,
+  "PathIcon": "sprites/paths/metalpath/metalpathicon",
+  "DisplayNameLocKey": "Tobbert.MetalPath.DisplayName",
+  "DescriptionLocKey": "Tobbert.MetalPath.Description",
+  "FlavorDescriptionLocKey": "Tobbert.MetalPath.FlavorDescription",
+  
+  "NoiseTexScale": 0.5,
+  "MainColorRed": 0.7,
+  "MainColorGreen": 0.7,
+  "MainColorBlue": 0.7
+}

@@ -1,0 +1,7 @@
+{
+  "Id": "TobbertTrains",
+  "Order": 1500,
+  "Icon": "Tobbert/Icons/ToolBar/ToolGroupIcon",
+  "NameLocKey": "Tobbert.ToolGroup.Trains",
+  "FallbackGroup": false
+}

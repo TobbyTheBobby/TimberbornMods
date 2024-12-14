@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ChooChoo.UIPresets;
 using ChooChoo.Wagons;
-using TimberApi.UiBuilderSystem;
+using TimberApi.UIBuilderSystem;
 using Timberborn.BaseComponentSystem;
 using Timberborn.CoreUI;
 using Timberborn.DropdownSystem;
@@ -15,20 +16,23 @@ namespace ChooChoo.WagonUI
     internal class WagonTypeSelectorFragment : IEntityPanelFragment
     {
         private static readonly string WagonTypeLocKey = "Tobbert.WagonModel.WagonModel";
-        private readonly UIBuilder _uiBuilder;
+        
         private readonly VisualElementLoader _visualElementLoader;
         private readonly DropdownItemsSetter _dropdownItemsSetter;
+        private readonly UIBuilder _uiBuilder;
         private readonly ILoc _loc;
-        private WagonManager _wagonManager;
-        private readonly List<Dropdown> _dropdowns = new();
-        private VisualElement _root;
+        
         private readonly List<VisualElement> _wagonSections = new();
+        private readonly List<Dropdown> _dropdowns = new();
         private readonly int _numberOfWagons = 4;
+        private VisualElement _root;
+        
+        private WagonManager _wagonManager;
 
         public WagonTypeSelectorFragment(
-            UIBuilder uiBuilder,
             VisualElementLoader visualElementLoader,
             DropdownItemsSetter dropdownItemsSetter,
+            UIBuilder uiBuilder,
             ILoc loc)
         {
             _uiBuilder = uiBuilder;
@@ -39,7 +43,8 @@ namespace ChooChoo.WagonUI
 
         public VisualElement InitializeFragment()
         {
-            _root = _uiBuilder.CreateFragmentBuilder().BuildAndInitialize();
+            _root = _uiBuilder.Create<PanelFragment>().BuildAndInitialize();
+            
             for (var i = 0; i < _numberOfWagons; i++)
             {
                 var fragment = _visualElementLoader.LoadVisualElement("Game/EntityPanel/PlantablePrioritizerFragment");

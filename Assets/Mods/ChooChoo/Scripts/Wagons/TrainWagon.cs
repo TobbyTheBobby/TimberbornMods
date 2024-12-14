@@ -45,7 +45,7 @@ namespace ChooChoo.Wagons
 
         public void Move()
         {
-            var speed = 8f;
+            var speed = 6.5f;
             speed *= 1.008f;
             var time = Time.fixedDeltaTime;
             ObjectFollower.MoveTowardsObject(time, _animationName, speed);

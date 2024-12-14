@@ -1,0 +1,10 @@
+{
+  "Faction": "Folktails",
+  "NameLocKey": "Tobbert.TrainModel.SmallLog",
+  "ModelLocation": "Tobbert/Prefabs/Trains/SmallLogTrain.Folktails",
+  "Length": 0.8,
+  "MachinistSeatName": "#Seat",
+  "MachinistScale": 0.9,
+  "MachinistAnimationName": "Sitting"
+}
+

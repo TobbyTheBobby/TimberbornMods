@@ -1,0 +1,14 @@
+{
+  "Name": "WoodPath.IronTeeth",
+  "PathTexture": "sprites/paths/woodpath.ironteeth/groundtexture",
+  "RailingTexture": "sprites/paths/woodpath.ironteeth/groundtexture",
+  "ToolGroup": "CategoryPaths",
+  "ToolOrder": 70,
+  "PathIcon": "sprites/paths/woodpath.ironteeth/woodicon.ironteeth",
+  "DisplayNameLocKey": "Tobbert.WoodIronTeeth.DisplayName",
+  "DescriptionLocKey": "Tobbert.WoodIronTeeth.Description",
+  "FlavorDescriptionLocKey": "Tobbert.WoodIronTeeth.FlavorDescription",
+
+  "MainTextureScale": 0.5,
+  "NoiseTexScale": 2.5
+}

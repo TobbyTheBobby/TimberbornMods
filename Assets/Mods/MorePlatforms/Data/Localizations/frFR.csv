@@ -1,0 +1,33 @@
+ID,Text,Comment
+Tobbert.HorizontalPlatformEnd1x1.DisplayName,Plateforme latérale 1x1,-
+Tobbert.HorizontalPlatformEnd1x1.Description,"Une plateforme qui peut être placée sur le côté d'une falaise, d'une digue, d'une plateforme renforcée ou d'une pièce intermédiaire de plateforme.",-
+Tobbert.HorizontalPlatformEnd1x1.FlavorDescription,Imaginez que vous puissiez les empiler les uns sur les autres.,-
+Tobbert.HorizontalPlatformEnd2x1.DisplayName,Plateforme latérale 2x1,-
+Tobbert.HorizontalPlatformEnd2x1.Description,"Une plateforme qui peut être placée sur le côté d'une falaise, des plateformes renforcées ou des pièces intermédiaires de plateforme.",-
+Tobbert.HorizontalPlatformEnd2x1.FlavorDescription,"Deux fois plus de plateformes, deux fois plus de plaisir !",-
+Tobbert.HorizontalPlatformEnd3x1.DisplayName,Plateforme latérale 3x1,-
+Tobbert.HorizontalPlatformEnd3x1.Description,"Une plateforme qui peut être placée sur le côté d'une falaise, des plateformes renforcées ou des pièces intermédiaires de plateforme.",-
+Tobbert.HorizontalPlatformEnd3x1.FlavorDescription,C'est pour les looooooongs bois.,-
+Tobbert.HorizontalPlatformEnd4x1.DisplayName,Plateforme latérale 4x1,-
+Tobbert.HorizontalPlatformEnd4x1.Description,"Une plateforme qui peut être placée sur le côté d'une falaise, des plateformes renforcées ou des pièces intermédiaires de plateforme.",-
+Tobbert.HorizontalPlatformEnd4x1.FlavorDescription,Ce n'est pas comme ça que la physique fonctionne.,-
+Tobbert.HorizontalPlatformMiddle1x1.DisplayName,Plateforme latérale support dynamique hauteur 1,-
+Tobbert.HorizontalPlatformMiddle1x1.Description,Une plateforme qui peut être placée n'importe où. Laissez libre cours à votre créativité !,-
+Tobbert.HorizontalPlatformMiddle1x1.FlavorDescription,Bâtissons une ville flottante !,-
+Tobbert.HorizontalPlatformMiddle1x2.DisplayName,Plateforme latérale support dynamique hauteur 1.5,-
+Tobbert.HorizontalPlatformMiddle1x2.Description,Une plateforme qui peut être placée n'importe où. Laissez libre cours à votre créativité !,-
+Tobbert.HorizontalPlatformMiddle1x2.FlavorDescription,Pour les cas où une hauteur n'est tout simplement pas suffisante.,-
+Tobbert.ReinforcedLadder.DisplayName,Échelle renforcée,-
+Tobbert.ReinforcedLadder.Description,Il s'agit d'une échelle qui peut également être utilisée en combinaison avec les plates-formes latérales. Il s'agit d'une option plus esthétique que les digues.,-
+Tobbert.ReinforcedLadder.FlavorDescription,"Quand une échelle normale ne suffit pas.",-
+Tobbert.ReinforcedPlatform.DisplayName,Plateforme renforcée,-
+Tobbert.ReinforcedPlatform.Description,Une plateforme qui peut être utilisée en combinaison avec les plateformes latérales. Elle constitue une option plus esthétique que les digues.,-
+Tobbert.ReinforcedPlatform.FlavorDescription,"Empilez-les jusqu'au sommet !",-
+Tobbert.DoubleReinforcedPlatform.DisplayName,Plateforme double renforcée,-
+Tobbert.DoubleReinforcedPlatform.Description,Une plateforme qui peut être utilisée en combinaison avec les plateformes latérales. Elle constitue une option plus esthétique que les digues.,-
+Tobbert.DoubleReinforcedPlatform.FlavorDescription,"Empilez, empilez jusqu'au sommet !",-
+Tobbert.TripleReinforcedPlatform.DisplayName,Plateforme triple renforcée,-
+Tobbert.TripleReinforcedPlatform.Description,Une plateforme qui peut être utilisée en combinaison avec les plateformes latérales. Elle constitue une option plus esthétique que les digues.,-
+Tobbert.TripleReinforcedPlatform.FlavorDescription,"Empilez, empilez, empilez jusqu'au sommet !",-
+Tobbert.CategoryReinforcedPlatforms.DisplayName,"Plateformes renforcées",-
+Tobbert.CategorySidePlatforms.DisplayName,"Plateformes latérales",-

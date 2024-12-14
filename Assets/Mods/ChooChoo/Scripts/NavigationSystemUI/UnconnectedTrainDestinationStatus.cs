@@ -1,7 +1,7 @@
 ﻿using Bindito.Core;
 using ChooChoo.NavigationSystem;
 using ChooChoo.TrackSystem;
-using Timberborn.ConstructibleSystem;
+using Timberborn.BlockSystem;
 using Timberborn.Localization;
 using Timberborn.SingletonSystem;
 using Timberborn.StatusSystem;
@@ -33,7 +33,7 @@ namespace ChooChoo.NavigationSystemUI
         {
             _trainDestination = GetComponentFast<TrainDestination>();
             _unconnectedTrainDestinationStatusToggle = StatusToggle.CreateNormalStatusWithAlertAndFloatingIcon(
-                "tobbert.choochoo/tobbert_choochoo/UnconnectedTrainDestinationStatus", _loc.T(UnconnectedLocKey), _loc.T(UnconnectedShortLocKey));
+                "UnconnectedTrainDestinationStatus", _loc.T(UnconnectedLocKey), _loc.T(UnconnectedShortLocKey));
             enabled = false;
         }
 
@@ -66,7 +66,7 @@ namespace ChooChoo.NavigationSystemUI
         }
 
         [OnEvent]
-        public void OnTrackUpdate(OnTracksUpdatedEvent onTracksUpdatedEvent)
+        public void OnTracksRecalculated(TracksRecalculatedEvent tracksRecalculatedEvent)
         {
             _checkForChanges = true;
         }
@@ -81,8 +81,7 @@ namespace ChooChoo.NavigationSystemUI
 
         private void CheckIfConnectedToTrainDestination()
         {
-            var connectedTrainDestinations = _trainDestinationService.GetConnectedTrainDestinations(_trainDestination);
-            _isUnconnectedToAnyTrainDestination = connectedTrainDestinations.Count <= 1;
+            _isUnconnectedToAnyTrainDestination = _trainDestinationService.CanBeReachedTwoWay(_trainDestination);
         }
     }
 }

@@ -2,7 +2,6 @@
 using ChooChoo.TrackSystem;
 using Timberborn.BaseComponentSystem;
 using Timberborn.BlockSystem;
-using Timberborn.ConstructibleSystem;
 using Timberborn.Navigation;
 using Timberborn.Persistence;
 using Timberborn.SingletonSystem;
@@ -75,7 +74,7 @@ namespace ChooChoo.PassengerSystem
                 Disable();
             }
 
-            _eventBus.Post(new OnTracksUpdatedEvent());
+            _eventBus.Post(new TracksUpdatedEvent());
         }
 
         private void Enable()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Bindito.Core;
+using ChooChoo.BuildingRegistrySystem;
 using ChooChoo.Extensions;
 using ChooChoo.MovementSystem;
 using ChooChoo.NavigationSystem;
@@ -41,7 +42,7 @@ namespace ChooChoo.PassengerSystem
             // Plugin.Log.LogInfo("Trying to move passengers");
             var passengerStations = _trainDestinationRegistry.Finished.Where(destination => destination.TryGetComponentFast(out PassengerStation _));
 
-            var currentPassengerStation = _blockService.GetFloorObjectComponentAt<PassengerStation>(TransformFast.position.ToBlockServicePosition());
+            var currentPassengerStation = _blockService.GetBottomObjectComponentAt<PassengerStation>(TransformFast.position.ToBlockServicePosition());
 
             if (Passengers.Any())
             {

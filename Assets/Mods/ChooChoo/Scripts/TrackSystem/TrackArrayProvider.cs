@@ -1,5 +1,5 @@
 using System.Linq;
-using TimberApi.SpecificationSystem;
+using Timberborn.Persistence;
 using Timberborn.SingletonSystem;
 
 namespace ChooChoo.TrackSystem
@@ -7,20 +7,21 @@ namespace ChooChoo.TrackSystem
     public class TrackArrayProvider : ILoadableSingleton
     {
         private readonly TrackPieceSpecificationDeserializer _trackPieceSpecificationDeserializer;
-        private readonly IApiSpecificationService _apiSpecificationService;
+        private readonly ISpecificationService _specificationService;
 
         private TrackPieceSpecification[] _trackPieceSpecifications;
 
-        private TrackArrayProvider(TrackPieceSpecificationDeserializer trackPieceSpecificationDeserializer,
-            IApiSpecificationService apiSpecificationService)
+        private TrackArrayProvider(
+            TrackPieceSpecificationDeserializer trackPieceSpecificationDeserializer,
+            ISpecificationService specificationService)
         {
             _trackPieceSpecificationDeserializer = trackPieceSpecificationDeserializer;
-            _apiSpecificationService = apiSpecificationService;
+            _specificationService = specificationService;
         }
 
         public void Load()
         {
-            _trackPieceSpecifications = _apiSpecificationService.GetSpecifications(_trackPieceSpecificationDeserializer).ToArray();
+            _trackPieceSpecifications = _specificationService.GetSpecifications(_trackPieceSpecificationDeserializer).ToArray();
         }
 
         public TrackRoute[] GetConnections(string prefabName)

@@ -1,11 +1,11 @@
 ﻿using Bindito.Core;
-using TimberApi.SceneSystem;
+using ChooChoo.GoodsStations;
 using Timberborn.EntityPanelSystem;
-using TobbyTools.UsedImplicitlySystem;
+using Timberborn.TemplateSystem;
 
 namespace ChooChoo.GoodsStationUI
 {
-    [Configurator(SceneEntrypoint.InGame)]
+    [Context("Game")]
     public class GoodsStationUIConfigurator : IConfigurator
     {
         public void Configure(IContainerDefinition containerDefinition)
@@ -18,6 +18,14 @@ namespace ChooChoo.GoodsStationUI
             containerDefinition.Bind<GoodsStationInventoryDebugFragment>().AsSingleton();
 
             containerDefinition.MultiBind<EntityPanelModule>().ToProvider<EntityPanelModuleProvider>().AsSingleton();
+            containerDefinition.MultiBind<TemplateModule>().ToProvider(ProvideTemplateModule).AsSingleton();
+        }
+
+        private static TemplateModule ProvideTemplateModule()
+        {
+            var builder = new TemplateModule.Builder();
+            builder.AddDecorator<GoodsStation, GoodsStationEntityBadge>();
+            return builder.Build();
         }
 
         private class EntityPanelModuleProvider : IProvider<EntityPanelModule>

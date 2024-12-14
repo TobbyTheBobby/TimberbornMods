@@ -1,0 +1,101 @@
+ID,Text,Comment
+Tobbert.TrackStraight.DisplayName,直進線路,-Straight Train Track
+Tobbert.TrackStraight.Description,直進する線路。「閉そく区間を分割」にチェックを入れると一方通行の信号に変更できる。1つの閉そく区間は色つきの線で表示され、一度に1編成だけ列車が入れる。,-A Track Piece that goes straight.
+Tobbert.TrackStraight.FlavorDescription,チューチュー！,原文「Choo! Choo!」は機関車の「ポッポー！」のオノマトペ。
+Tobbert.TrackOneWay.DisplayName,一方通行の信号,-One way signal Track
+Tobbert.TrackOneWay.Description,列車を矢印の方向にしか進めないようにする線路。閉そくを区切る効果もある。1つの閉そく区間は色つきの線で表示され、一度に1編成だけ列車が入れる。,-Wil tell trains that they can only go through the green side.
+Tobbert.TrackOneWay.FlavorDescription,ここへ来てはいけない！すぐ戻れ！,-千と千尋。原文「You... Shall... Pass...」はロード・オブ・ザ・リングの改変
+Tobbert.TrackCrossing.DisplayName,踏切,-Train Track Crossing
+Tobbert.TrackCrossing.Description,ビーバーが線路を渡ることができる。ゲームが著しく重くなるので、踏切事故は未実装。,-Beavers can cross the tracks here. Collision will not be implemented as performance will suffer too much.
+Tobbert.TrackCrossing.FlavorDescription,列車は遠いから渡っちゃえ。アッ！あの列車―――速, -グモ。原文→RIP That train is approaching very fa-
+Tobbert.TrackHillStart.DisplayName,勾配線路,-Slope Track
+Tobbert.TrackHillStart.Description,列車の高さを変えられる線路。,-A track that lets trains go up and down.
+Tobbert.TrackHillStart.FlavorDescription,勾配抵抗にご用心。,-Is the train not to heavy?
+Tobbert.TrackCorner1x1.DisplayName,カーブ線路 1x1,-Corner 1x1 Train Track
+Tobbert.TrackCorner1x1.Description,角を曲がるための線路。,-A Track Piece that around a corner.
+Tobbert.TrackCorner1x1.FlavorDescription,ちょっとキツいかも。,-Might be a little tight.
+Tobbert.TrackCorner2x2.DisplayName,カーブ線路 2x2,-Corner 2x2 Train Track
+Tobbert.TrackCorner2x2.Description,より大きな角を曲がるための線路。,-A Track Piece that around a larger corner.
+Tobbert.TrackCorner2x2.FlavorDescription,なんてオシャレなカーブだ。,-What a nice looking curve.
+Tobbert.TrackTIntersection1x1.DisplayName,丁字形ポイント線路 1x1,-T intersection Train Track
+Tobbert.TrackTIntersection1x1.Description,丁字形のポイント線路。,-A intersection in the form of a T for trains.
+Tobbert.TrackTIntersection1x1.FlavorDescription,どちらの線路を選ぶべきだろうか？,-Which way should I go?
+Tobbert.TrackTIntersection2x3.DisplayName,丁字形ポイント線路 2x3,-T intersection Train Track
+Tobbert.TrackTIntersection2x3.Description,丁字形のポイント線路。,-A intersection in the form of a T for trains.
+Tobbert.TrackTIntersection2x3.FlavorDescription,その線路の先には何がある？,-Where will those paths lead to?
+Tobbert.TrackXIntersection1x1.DisplayName,ダイヤモンドクロス線路 1x1,-
+Tobbert.TrackXIntersection1x1.Description,X字状のポイント線路。,-
+Tobbert.TrackXIntersection1x1.FlavorDescription,選択肢がいっぱい！,-
+Tobbert.TrackXIntersection3x3.DisplayName,ダイヤモンドクロス線路 3x3,-
+Tobbert.TrackXIntersection3x3.Description,X字状のポイント線路。,-
+Tobbert.TrackXIntersection3x3.FlavorDescription,進路が決まらないよ・・・,-
+Tobbert.TrackRIntersection2x3.DisplayName,片開き分岐器 2x3,-
+Tobbert.TrackRIntersection2x3.Description,直進と片方向へ軌道が分かれる分岐器。,-
+Tobbert.TrackRIntersection2x3.FlavorDescription,ポイントは転てつ器がどちらに分岐しているかだ。,原文はダジャレ。Where R we going?-A joke of the letter R
+Tobbert.GoodsStation.DisplayName,貨物駅,-Goods station
+Tobbert.GoodsStation.Description,列車で積み降ろしする貨物の保管施設。「配給を管理」から何をどのくらい積み降ろしするのかを指定できる。受け取る側の駅は「取り寄せる」に設定した倉庫がなければ貨物を運び出さない。,-
+Tobbert.GoodsStation.FlavorDescription,とくとご覧あれ、この収納力の高さを。,-Look at all the goods It can hold.
+Tobbert.PassengerStation.DisplayName,旅客駅,-
+Tobbert.PassengerStation.Description,ビーバーが別の駅へ列車で移動できるようにする。,-
+Tobbert.PassengerStation.FlavorDescription,げっ歯類の旅客列車、これがホントのチューチュートレイン。,-
+Tobbert.PassengerStation.DistrictObjectToggle,地区間の移動のみ許可する:,-
+Tobbert.PassengerStation.DistrictObject,この設定を有効にすると、他の地区かつ、この設定が有効にされた旅客駅にのみビーバーは移動します。,-
+Tobbert.PassengerStation.EmptyStation,今は誰も旅客がいません。,-
+Tobbert.WaitingStation.DisplayName,待避線,-Waiting Station
+Tobbert.WaitingStation.Description,仕事の無い列車が他の列車の妨げにならないように待避する場所。列車はここを通るような経路探索ができないため、重要な経路の上に建てないように注意。,-"Trains can wait here when they have nothing to do. This prevents trains from occupying the tracks. Trains cannot pathfind over this so make sure its not in any crucial paths."
+Tobbert.WaitingStation.FlavorDescription,次の出発はいつかな？,-When can I go again?
+Tobbert.TrainYard.DisplayName,操車場,-Train Yard
+Tobbert.TrainYard.Description,列車を新造するための施設。,-A building that creates trains.
+Tobbert.TrainYard.FlavorDescription,ここで列車が作られる。,-This is where trains are born.
+Tobbert.TrainYard.CostOfTrain,1編成の建造費:,-Cost of 1 train:
+Tobbert.TrainYard.CreateTrain,列車を新造する,-Create train
+Tobbert.Train.PrefabName,機関車,-Train
+Tobbert.Wagon.PrefabName,貨車,-Wagon
+Tobbert.TrainModel.TrainModel,機関車の外観:,-
+Tobbert.TrainModel.SmallLog,小さな丸太,-
+Tobbert.TrainModel.BigWooden,大きな木製,-
+Tobbert.WagonModel.WagonModel,貨車の外観:,-
+Tobbert.WagonModel.BoxWagon,有蓋車,-
+Tobbert.WagonModel.TankWagon,タンク車,-
+Tobbert.WagonModel.FlatWagon,長物車,-
+Tobbert.WagonModel.FlipperWagon,ホッパ車,-
+Tobbert.WagonModel.MetalCart,無蓋車,-
+Tobbert.WagonModel.PassengerWagon,旅客車,-
+Tobbert.BatchControl.Trains,列車,-Trains
+Tobbert.Train.Length,編成両数: ,他候補：編成長-Train Length: 
+Tobbert.Train.Destroy,本当に選択中の列車を撤去しますか？,-Are you sure you want to destroy this train?
+Tobbert.GoodsStation.Distribution.Header,貨物積降設定,-
+Tobbert.GoodsStation.Distribution.Disabled.Info,配給の設定で積み下ろしが無効になっています。,-
+Tobbert.GoodsStation.Distribution.Sending.Info,配給の設定で積むようになっています。,-
+Tobbert.GoodsStation.Distribution.Receiving.Info,配給の設定で降ろすようになっています。,-
+Tobbert.BatchControl.GoodsStation,貨物駅,-
+Tobbert.BatchControl.DistributionDisabledAll,全ての積み下ろしを無効にする,-
+Tobbert.BatchControl.DistributionDisabled,積み下ろしを無効にする,-
+Tobbert.BatchControl.DistributionDisabled.Description,この貨物駅ではこの貨物を一切取り扱いません。,-
+Tobbert.BatchControl.DistributionSendingAll,全ての貨物の荷積みを許可する,-
+Tobbert.BatchControl.DistributionSending,荷積みを許可する,-
+Tobbert.BatchControl.DistributionSending.Description,他の駅に貨物を送り出します。駅内に保持できる最大量は、右側に表示されている数値によって決まります。,-
+Tobbert.BatchControl.DistributionReceivingAll,全ての貨物の荷下ろしを許可する,-
+Tobbert.BatchControl.DistributionReceiving,荷下ろしを許可する,-
+Tobbert.BatchControl.DistributionReceiving.Description,他の駅から送り出された貨物を受け入れます。駅内に保持できる最大量は、右側に表示されている数値によって決まります。,-
+Tobbert.BatchControl.DecreaseMaximum,貨物の最大量を減らす,-
+Tobbert.BatchControl.DecreaseMaximum.Description,駅内に保持できる最大量を減らします。Shiftを押しながらクリックで-10。最大容量は200です。,-
+Tobbert.BatchControl.IncreaseMaximum,貨物の最大量を増やす,-
+Tobbert.BatchControl.IncreaseMaximum.Description,駅内に保持できる最大量を増やします。Shiftを押しながらクリックで+10。最大容量は200です。,-
+Tobbert.TrackSystem.ToggleSectionDivider,閉そく区間を分割： ,-Divides sections: 
+Tobbert.TrackSystem.ButtonChangeDirection,向きを変える,-Change direction
+Tobbert.TrackSystem.CollidingSectionDividers,閉そくを連続して区切る配置はできません,-Cannot connect 2 Section Dividers
+Tobbert.ToolGroup.Trains,鉄道,-Trains
+Tobbert.TrainYard.PreviewErrorMessage,Only 1 Train Yard can be build,-未使用？
+Tobbert.Trains.UnlockPrompt,{1}を建設するには、先に{0}を解放してください。,{0} stands for <Building>.DisplayName {1} stands for <TrackPiece>.DisplayName.
+Tobbert.DistributionTrain.MinimumOfItemsToMove,最小輸送ロット数: ,-Minimum of items to move: 
+Tobbert.TrainNavigation.Unstuck,方向転換する,機回し。分かりやすさ優先-Turn Around
+Tobbert.TrainNavigation.NoWaitingStation,利用可能な待避線が見つかりません。,-
+Tobbert.TrainNavigation.NoWaitingStationShort,待避線なし,-
+Tobbert.TrainDestination.UnconnectedWarning,駅は他の駅と接続されていません。,-
+Tobbert.TrainDestination.UnconnectedWarningShort,未接続の駅,-
+Tobbert.ChooChooSettings.Header,Choo! Choo!,-
+Tobbert.ChooChooSettings.DefaultTrainModel,Default Train model:,-
+Tobbert.ChooChooSettings.DefaultWagonModel,Default Wagon model:,-
+Tobbert.ChooChoo.KeyBindingGroup.ChooChoo,Choo! Choo!,-
+Tobbert.ChooChoo.KeyBinding.GoodsStationDistributionControlTab,Open Goods Stations tab,-

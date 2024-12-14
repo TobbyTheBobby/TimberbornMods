@@ -1,18 +1,17 @@
 using Bindito.Core;
-using TimberApi.SceneSystem;
-using Timberborn.PrefabSystem;
-using TobbyTools.UsedImplicitlySystem;
+using MorePaths.Core;
 
 namespace MorePaths.CustomPaths
 {
-    [Configurator(SceneEntrypoint.InGame)]
+    [Context("Game")]
     public class CustomPathsConfigurator : IConfigurator
     {
         public void Configure(IContainerDefinition containerDefinition)
         {
+            // containerDefinition.Bind<CustomPathToolButtonController>().AsSingleton();
             containerDefinition.Bind<CustomPathFactory>().AsSingleton();
-            containerDefinition.Bind<CustomPathToolButtonController>().AsSingleton();
-            containerDefinition.MultiBind<IObjectCollection>().To<CustomPathsObjectCollection>().AsSingleton();
+            containerDefinition.Bind<CustomPathGenerator>().AsSingleton();
+            containerDefinition.Bind<BaseGamePathToolButtonHider>().AsSingleton();
         }
     }
 }

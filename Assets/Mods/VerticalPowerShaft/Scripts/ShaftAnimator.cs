@@ -47,13 +47,13 @@ namespace VerticalPowerShaft
       }
       catch (Exception e)
       {
-        Plugin.Log.LogError($"Animation Error: {e}");
+        Debug.LogError($"Animation Error: {e}");
       }
     }
     
     private void UpdateDirection()
     {
-      ReversedRotation = _mechanicalNode.Transputs[0].ReversedRotation != _transputSpecificationsProvider.GetTransputSpecifications()[0].ReverseRotation;
+      ReversedRotation = _mechanicalNode.Transputs[0].ReversedRotation != _transputSpecificationsProvider.TransputSpecifications[0].ReverseRotation;
     }
     
     private bool CanAnimate()

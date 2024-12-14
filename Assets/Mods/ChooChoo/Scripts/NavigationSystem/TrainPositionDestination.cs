@@ -18,7 +18,7 @@ namespace ChooChoo.NavigationSystem
 
         public bool GeneratePath(Transform transform, List<TrackRoute> pathCorners)
         {
-            var pathFound = _trainNavigationService.FindRailTrackPath(transform, Destination, pathCorners);
+            var pathFound = _trainNavigationService.FindTrackPath(transform, Destination, pathCorners);
             // Plugin.Log.LogInfo("Path Found: " + pathFound);
             return pathFound;
         }

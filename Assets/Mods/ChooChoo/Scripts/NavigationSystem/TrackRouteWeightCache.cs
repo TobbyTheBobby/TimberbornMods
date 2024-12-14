@@ -1,21 +1,45 @@
 using System.Collections.Generic;
+using ChooChoo.BuildingRegistrySystem;
 using ChooChoo.TrackSystem;
+using Timberborn.SingletonSystem;
 
 namespace ChooChoo.NavigationSystem
 {
-    public class TrackRouteWeightCache
+    public class TrackRouteWeightCache : IPostLoadableSingleton
     {
-        public Dictionary<TrackRoute, int?> TrackRouteWeights { get; } = new();
+        private readonly BuildingRegistry<TrackPiece> _trackPieceRegistry;
+        private readonly EventBus _eventBus;
 
-        public void Add(TrackRoute trackRoute)
+        public TrackRouteWeightCache(BuildingRegistry<TrackPiece> trackPieceRegistry, EventBus eventBus)
         {
-            TrackRouteWeights.Add(trackRoute, null);
+            _trackPieceRegistry = trackPieceRegistry;
+            _eventBus = eventBus;
         }
 
-        public void Remove(TrackRoute[] trackRoutes)
+        public Dictionary<TrackRoute, int?> TrackRouteWeights { get; } = new();
+
+        public void PostLoad()
         {
-            foreach (var trackRoute in trackRoutes)
-                TrackRouteWeights.Remove(trackRoute);
+            _eventBus.Register(this);
+            RefreshCache();
+        }
+
+        [OnEvent]
+        public void OnTracksRecalculated(TracksRecalculatedEvent tracksRecalculatedEvent)
+        {
+            RefreshCache();
+        }
+        
+        private void RefreshCache()
+        {
+            TrackRouteWeights.Clear();
+            foreach (var trackPiece in _trackPieceRegistry.Finished)
+            {
+                foreach (var trackRoute in trackPiece.TrackRoutes)
+                {
+                    TrackRouteWeights.Add(trackRoute, null);
+                }
+            }
         }
     }
 }

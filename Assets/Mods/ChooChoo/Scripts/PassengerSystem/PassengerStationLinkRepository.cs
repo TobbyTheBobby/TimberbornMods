@@ -39,7 +39,7 @@ namespace ChooChoo.PassengerSystem
         }
 
         [OnEvent]
-        public void OnTrackUpdate(OnTracksUpdatedEvent onTracksUpdatedEvent)
+        public void OnTracksRecalculated(TracksRecalculatedEvent tracksRecalculatedEvent)
         {
             _tracksUpdated = true;
         }

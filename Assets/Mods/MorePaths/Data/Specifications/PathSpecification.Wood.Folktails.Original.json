@@ -1,0 +1,14 @@
+{
+  "Name": "WoodPath.Folktails",
+  "PathTexture": "sprites/paths/woodpath.folktails/groundtexture", 
+  "RailingTexture": "sprites/paths/woodpath.folktails/groundtexture",
+  "ToolGroup": "CategoryPaths",
+  "ToolOrder": 60,
+  "PathIcon": "sprites/paths/woodpath.folktails/woodicon.folktails",
+  "DisplayNameLocKey": "Tobbert.WoodFolktails.DisplayName",
+  "DescriptionLocKey": "Tobbert.WoodFolktails.Description",
+  "FlavorDescriptionLocKey": "Tobbert.WoodFolktails.FlavorDescription",
+  
+  "MainTextureScale": 0.5,
+  "NoiseTexScale": 2.5
+}

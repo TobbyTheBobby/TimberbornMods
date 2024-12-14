@@ -1,15 +1,13 @@
 using System.Collections.Generic;
 using Bindito.Core;
+using MorePaths.Core;
 using Timberborn.BaseComponentSystem;
+using Timberborn.BlockObjectModelSystem;
 using Timberborn.BlockSystem;
-using Timberborn.Buildings;
 using Timberborn.Common;
 using Timberborn.Coordinates;
 using Timberborn.PathSystem;
-using Timberborn.PreviewSystem;
 using Timberborn.TerrainSystem;
-using TobbyTools.Extensions;
-using TobbyTools.InaccessibilityUtilitySystem;
 using UnityEngine;
 
 namespace MorePaths.CustomDriveways
@@ -34,7 +32,7 @@ namespace MorePaths.CustomDriveways
           _blockService = blockService;
       }
 
-      void Awake()
+      private void Start()
       {
           GetComponentsFast(_drivewayModels);
           InstantiateDriveways();
@@ -44,8 +42,8 @@ namespace MorePaths.CustomDriveways
       {
           foreach (var drivewayModel in _drivewayModels)
           {
-              var localCoordinates = (Vector3Int)InaccessibilityUtilities.InvokeInaccessibleMethod(drivewayModel, "GetLocalCoordinates");
-              var localDirection = (Direction2D)InaccessibilityUtilities.InvokeInaccessibleMethod(drivewayModel, "GetLocalDirection");
+              var localCoordinates = drivewayModel.GetLocalCoordinates();
+              var localDirection = drivewayModel.GetLocalDirection();
             
               InstantiateModel(drivewayModel, localCoordinates, localDirection, DrivewayService.DriveWays);
           }
@@ -70,7 +68,7 @@ namespace MorePaths.CustomDriveways
 
       private GameObject GetBaseDrivewayModel(DrivewayModel drivewayModel)
       {
-          return _baseGameDrivewayModels.GetOrAdd(drivewayModel, () => (GameObject)InaccessibilityUtilities.GetInaccessibleField(drivewayModel, "_model"));
+          return _baseGameDrivewayModels.GetOrAdd(drivewayModel, () => drivewayModel._model);
       }
       
       public void UpdateModel()
@@ -85,8 +83,8 @@ namespace MorePaths.CustomDriveways
       { 
           var path = GetPath(drivewayModel);
       
-          var positionedDirection = (Direction2D)InaccessibilityUtilities.InvokeInaccessibleMethod(drivewayModel, "GetPositionedDirection");
-          var positionedCoordinates = (Vector3Int)InaccessibilityUtilities.InvokeInaccessibleMethod(drivewayModel, "GetPositionedCoordinates");
+          var positionedDirection = drivewayModel.GetPositionedDirection();
+          var positionedCoordinates = drivewayModel.GetPositionedCoordinates();
           
           var onGround = _terrainService.OnGround(positionedCoordinates);
 
@@ -133,17 +131,19 @@ namespace MorePaths.CustomDriveways
       
       private GameObject GetPath(DrivewayModel drivewayModel)
       {
-          var direction = (Direction2D)InaccessibilityUtilities.InvokeInaccessibleMethod(drivewayModel, "GetPositionedDirection");
-          var coordinates = (Vector3Int)InaccessibilityUtilities.InvokeInaccessibleMethod(drivewayModel, "GetPositionedCoordinates");
+          var direction = drivewayModel.GetPositionedDirection();
+          var coordinates = drivewayModel.GetPositionedCoordinates();
       
           var checkObjectCoordinates = coordinates + direction.ToOffset();
-          var path = _blockService.GetFloorObjectComponentAt<DynamicPathModel>(checkObjectCoordinates);
+          var path = _blockService.GetPathObjectAt(checkObjectCoordinates);
 
           if (path != null)
               return path.GameObjectFast;
 
-          var previewPath = _previewBlockService.GetFloorObjectComponentAt<DynamicPathModel>(checkObjectCoordinates);
-          return previewPath != null ? previewPath.GameObjectFast : null;
+          // var previewPath = _previewBlockService.GetBottomObjectComponentAt<DynamicPathModel>(checkObjectCoordinates);
+          // return previewPath != null ? previewPath.GameObjectFast : null;
+          
+          return null;
       }
   }
 }

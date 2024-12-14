@@ -1,170 +1,58 @@
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using TimberApi.UiBuilderSystem;
-using Timberborn.SettingsSystem;
+using Timberborn.CameraSystem;
+using Timberborn.InputSystem;
 using Timberborn.SingletonSystem;
-using Timberborn.ToolSystem;
-using UnityEngine;
-using UnityEngine.UIElements;
-using Cursor = UnityEngine.Cursor;
 
 namespace CustomCursors
 {
     public class CustomCursorsService : ILoadableSingleton
-
     {
-        private readonly UIBuilder _builder;
-        private readonly ISettings _settings;
-        private readonly EventBus _eventBus;
 
-        private CustomCursorsService(UIBuilder uiBuilder, ISettings settings, EventBus eventBus)
+        private readonly CustomCursorsSettings _customCursorsSettings;
+        private readonly CursorPackRepository _cursorPackRepository;
+        private readonly CursorService _cursorService;
+
+        private CustomCursorsService(CustomCursorsSettings customCursorsSettings, CursorPackRepository cursorPackRepository, CursorService cursorService)
         {
-            _builder = uiBuilder;
-            _settings = settings;
-            _eventBus = eventBus;
+            _customCursorsSettings = customCursorsSettings;
+            _cursorPackRepository = cursorPackRepository;
+            _cursorService = cursorService;
         }
 
-        private Texture2D _selectorCursor = new(150, 150);
-        private Texture2D _grabberCursor = new(150, 150);
-        private const CursorMode CursorMode = UnityEngine.CursorMode.Auto;
-        private readonly Vector2 _hotSpot = Vector2.zero;
+        private string CurrentCursorPackName => _customCursorsSettings.CustomCursorModSetting.Value;
 
-        private readonly Dictionary<string, List<Texture2D>> _cursors = new();
-        private readonly List<string> _cursorPacks = new();
-
-        private static readonly string CurrentCursorPackKey = nameof(CurrentCursorPack);
-
-        public string CurrentCursorPack { get => _settings.GetString(CurrentCursorPackKey, "DefaultCursor"); set => _settings.SetString(CurrentCursorPackKey, value); }
+        private CursorPack _cursorPack;
 
         public void Load()
         {
-            var path = Path.Combine(Plugin.MyPath, "Cursors");
-            foreach (var cursorPackPath in Directory.GetDirectories(path))
-            {
-                var files = Directory.GetFiles(cursorPackPath).Where(s => !s.Contains(".meta")).ToList();
-                for (var i = 0; i < files.Count; i++)
-                {
-                    var filePath = files[i];
-                    
-                    var cursorPackName = Path.GetFileName(cursorPackPath);
-                    // Plugin.Log.LogError(cursorPackName);
-                    if (i == 0)
-                        _cursorPacks.Add(cursorPackName);
-
-                    var bytes = File.ReadAllBytes(filePath);
-                    var cursorTexture2D = new Texture2D(150, 150);
-                    cursorTexture2D.LoadImage(bytes);
-                    if (!_cursors.ContainsKey(cursorPackName))
-                    {
-                        _cursors.Add(cursorPackName, new List<Texture2D>());
-                    }
-
-                    _cursors[cursorPackName].Add(cursorTexture2D);
-                    _selectorCursor = cursorTexture2D;
-                }
-            }
-
-            UpdateCursor(CurrentCursorPack);
-
-            Cursor.SetCursor(_selectorCursor, _hotSpot, CursorMode);
-            _eventBus.Register(this);
+            _customCursorsSettings.CustomCursorModSetting.ValueChanged += OnCustomCursorSettingChanged;
+            UpdateCursor(CurrentCursorPackName);
         }
 
-        [OnEvent]
-        public void OnToolExited(ToolExitedEvent toolExitedEvent)
+        private void OnCustomCursorSettingChanged(object sender, string e)
         {
-            UpdateCursor(CurrentCursorPack);
-        }
-
-        public void StartGrabbing()
-        {
-            Cursor.SetCursor(_grabberCursor, _hotSpot, CursorMode);
-        }
-
-        public void StopGrabbing()
-        {
-            Cursor.SetCursor(_selectorCursor, _hotSpot, CursorMode);
-        }
-
-        private void OnSelectorChanged(IEnumerable<object> obj)
-        {
-            UpdateCursor((string)obj.First());
-        }
-
-        public void InitializeSelectorSettings(ref VisualElement root)
-        {
-            var listView = _builder.CreateComponentBuilder()
-                .CreateListView()
-                .SetName("SelectorList")
-                .SetItemSource(_cursorPacks)
-                .SetMakeItem(() => new Image
-                {
-                    style =
-                    {
-                        width = new StyleLength(112),
-                        height = new StyleLength(112)
-                    }
-                })
-                .SetBindItem((element, i) => element.Q<Image>().image = _cursors[_cursorPacks[i]][0])
-                .SetSelectionChange(OnSelectorChanged)
-                .SetWidth(112)
-                .SetHeight(200)
-                .SetAlignContent(Align.Center)
-                .SetJustifyContent(Justify.Center)
-                .BuildAndInitialize();
-
-            var toggle = root.Q<Toggle>("AutoSavingOn");
-
-            var container = _builder.CreateComponentBuilder().CreateVisualElement()
-                .SetWidth(new Length(100, LengthUnit.Percent))
-                .SetJustifyContent(Justify.Center)
-                .SetAlignContent(Align.Center)
-                .SetAlignItems(Align.Center)
-                .BuildAndInitialize();
-
-            var myHeader = _builder.CreateComponentBuilder()
-                .CreateLabel()
-                .SetName("CustomCursorsHeader")
-                .SetLocKey("Tobbert.CustomCursors.SettingsHeader")
-                .SetColor(new StyleColor(Color.white))
-                .SetFontSize(new Length(16, LengthUnit.Pixel))
-                .SetFontStyle(FontStyle.Bold)
-                .SetWidth(new Length(112, LengthUnit.Pixel))
-                .BuildAndInitialize();
-
-            container.Add(myHeader);
-            container.Add(listView);
-
-            toggle.parent.Add(container);
+            UpdateCursor(CurrentCursorPackName);
         }
 
         private void UpdateCursor(string newCursorPack)
         {
-            CurrentCursorPack = newCursorPack;
-            var texture2Ds = _cursors[newCursorPack];
-            if (texture2Ds.Count == 1)
-            {
-                _selectorCursor = texture2Ds[0];
-                _grabberCursor = texture2Ds[0];
-            }
-            else
-            {
-                for (var i = 0; i < texture2Ds.Count; i++)
-                {
-                    switch (i)
-                    {
-                        case 0:
-                            _selectorCursor = texture2Ds[i];
-                            break;
-                        case 1:
-                            _grabberCursor = texture2Ds[i];
-                            break;
-                    }
-                }
-            }
+            _cursorPack = _cursorPackRepository.CursorPacks.FirstOrDefault(pack => pack.PackName == newCursorPack);
+            if (_cursorPack == null)
+                return;
+            if (_cursorPack.TryGetSelectionCursor(out var selectionCursor))
+                OverwriteCustomCursor(_cursorService.GetCursorForcedLoad(CursorService.DefaultCursorName), selectionCursor);
+            if (_cursorPack.TryGetGrabbingCursor(out var grabbingCursor))
+                OverwriteCustomCursor(_cursorService.GetCursorForcedLoad(GrabbingCameraTargetPicker.CursorKey), grabbingCursor);
+            _cursorService.ResetTemporaryCursor();
+        }
 
-            Cursor.SetCursor(_selectorCursor, _hotSpot, CursorMode);
+        private void OverwriteCustomCursor(CustomCursor oldCursor, CustomCursor newCursor)
+        {
+            oldCursor._smallCursor = newCursor.SmallCursor;
+            oldCursor._largeCursor = newCursor.LargeCursor;
+            // oldCursor._hotspot = newCursor.Hotspot;
+            // oldCursor._smallCursorOffset = newCursor.SmallCursorOffset;
+            // oldCursor._largeCursorOffset = newCursor.LargeCursorOffset;
         }
     }
 }

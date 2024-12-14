@@ -1,6 +1,6 @@
 ﻿using Timberborn.BaseComponentSystem;
+using Timberborn.BlockSystem;
 using Timberborn.Common;
-using Timberborn.ConstructibleSystem;
 using Timberborn.EntitySystem;
 using Timberborn.Goods;
 using Timberborn.InventorySystem;

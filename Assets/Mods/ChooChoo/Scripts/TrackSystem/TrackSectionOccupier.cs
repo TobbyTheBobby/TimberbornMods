@@ -34,7 +34,7 @@ namespace ChooChoo.TrackSystem
 
         public void OccupyCurrentTrackSection()
         {
-            var startTrackPiece = _blockService.GetFloorObjectComponentAt<TrackPiece>(TransformFast.position.ToBlockServicePosition());
+            var startTrackPiece = _blockService.GetBottomObjectComponentAt<TrackPiece>(TransformFast.position.ToBlockServicePosition());
             if (startTrackPiece == null)
                 return;
             if (!startTrackPiece.TrackSection.Occupied)

@@ -1,0 +1,6 @@
+{
+  "Id": "Buildings.Folktails",
+  "Paths#append": [
+    "Tobbert/DutchWindmill.Folktails"
+  ]
+}

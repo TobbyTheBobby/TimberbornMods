@@ -1,7 +1,7 @@
 using System.Linq;
 using Bindito.Core;
 using ChooChoo.TrackSystemUI;
-using Timberborn.ConstructibleSystem;
+using Timberborn.BlockSystem;
 using Timberborn.Coordinates;
 using Timberborn.EntityPanelSystem;
 using Timberborn.EntitySystem;
@@ -110,7 +110,10 @@ namespace ChooChoo.TrackSystem
             UpdateEntityPanel();
         }
 
-        private void RotateBuilding() => Building.transform.RotateAround(CenterCoordinates, new Vector3(0, 1, 0), 180f);
+        private void RotateBuilding()
+        {
+            Building.transform.RotateAround(CenterCoordinates, new Vector3(0, 1, 0), 180f);
+        }
 
         private void UpdateEntityPanel()
         {
@@ -123,8 +126,8 @@ namespace ChooChoo.TrackSystem
 
         private void UpdateTracksAndSectionColors()
         {
-            TrackSection.Refresh();
-            EventBus.Post(new OnTracksUpdatedEvent());
+            // TrackSection.Refresh();
+            EventBus.Post(new TracksUpdatedEvent());
         }
     }
 }

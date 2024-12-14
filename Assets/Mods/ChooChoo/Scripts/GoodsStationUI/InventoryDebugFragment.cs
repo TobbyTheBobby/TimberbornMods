@@ -9,7 +9,6 @@ using Timberborn.Goods;
 using Timberborn.GoodsUI;
 using Timberborn.InventorySystem;
 using Timberborn.InventorySystemUI;
-using TobbyTools.InaccessibilityUtilitySystem;
 using UnityEngine.UIElements;
 
 namespace ChooChoo.GoodsStationUI
@@ -92,7 +91,7 @@ namespace ChooChoo.GoodsStationUI
             if (!(bool)(UnityEngine.Object)inventory1 && inventory1.enabled)
                 return;
             _panelStack.PushOverlay(_modifyInventoryBox);
-            InaccessibilityUtilities.InvokeInaccessibleMethod(_modifyInventoryBox, "Initialize", new object[] { inventory1 });
+            _modifyInventoryBox.Open(inventory1);
         }
 
         private void OnModifyReceivingInventoryButtonClick()
@@ -104,7 +103,7 @@ namespace ChooChoo.GoodsStationUI
             if (!(bool)(UnityEngine.Object)inventory1 && inventory1.enabled)
                 return;
             _panelStack.PushOverlay(_modifyInventoryBox);
-            InaccessibilityUtilities.InvokeInaccessibleMethod(_modifyInventoryBox, "Initialize", new object[] { inventory1 });
+            _modifyInventoryBox.Open(inventory1);
         }
 
         private void UpdateContent()

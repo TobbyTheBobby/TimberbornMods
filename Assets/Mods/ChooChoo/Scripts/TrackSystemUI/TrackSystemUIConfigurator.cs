@@ -1,18 +1,18 @@
 ﻿using Bindito.Core;
 using ChooChoo.Debugging;
 using ChooChoo.TrackSystem;
-using TimberApi.SceneSystem;
 using Timberborn.EntityPanelSystem;
 using Timberborn.TemplateSystem;
-using TobbyTools.UsedImplicitlySystem;
 
 namespace ChooChoo.TrackSystemUI
 {
-    [Configurator(SceneEntrypoint.InGame)]
+    [Context("Game")]
     public class TrackSystemUIConfigurator : IConfigurator
     {
         public void Configure(IContainerDefinition containerDefinition)
         {
+            containerDefinition.Bind<TrackSectionDividerFragmentPreset>().AsTransient();
+            
             containerDefinition.Bind<TrackSectionDividerFragment>().AsSingleton();
             containerDefinition.Bind<TrackPieceDebugger>().AsSingleton();
             containerDefinition.MultiBind<EntityPanelModule>().ToProvider<EntityPanelModuleProvider>().AsSingleton();
@@ -30,7 +30,7 @@ namespace ChooChoo.TrackSystemUI
         private class EntityPanelModuleProvider : IProvider<EntityPanelModule>
         {
             private readonly TrackSectionDividerFragment _trackSectionDividerFragment;
-
+            
             public EntityPanelModuleProvider(TrackSectionDividerFragment trackSectionDividerFragment)
             {
                 _trackSectionDividerFragment = trackSectionDividerFragment;

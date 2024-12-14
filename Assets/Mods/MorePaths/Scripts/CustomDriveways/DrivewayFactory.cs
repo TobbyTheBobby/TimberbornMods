@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using MorePaths.Specifications;
+using MorePaths.CustomPaths;
+using MorePaths.PathSpecificationSystem;
+using Timberborn.AssetSystem;
 using Timberborn.PathSystem;
 using Timberborn.PrefabOptimization;
-using TobbyTools.ImageRepository;
-using TobbyTools.InaccessibilityUtilitySystem;
 using UnityEngine;
 
 namespace MorePaths.CustomDriveways
@@ -15,16 +15,16 @@ namespace MorePaths.CustomDriveways
     {
         private readonly OptimizedPrefabInstantiator _optimizedPrefabInstantiator;
         private readonly DrivewayModelInstantiator _drivewayModelInstantiator;
-        private readonly ImageRepositoryService _imageRepositoryService;
+        private readonly IAssetLoader _assetLoader;
 
         private DrivewayFactory(
             OptimizedPrefabInstantiator optimizedPrefabInstantiator, 
             DrivewayModelInstantiator drivewayModelInstantiator, 
-            ImageRepositoryService imageRepositoryService)
+            IAssetLoader assetLoader)
         {
             _optimizedPrefabInstantiator = optimizedPrefabInstantiator;
             _drivewayModelInstantiator = drivewayModelInstantiator;
-            _imageRepositoryService = imageRepositoryService;
+            _assetLoader = assetLoader;
         }
 
         public Dictionary<Driveway, List<GameObject>> CreateDriveways(ImmutableArray<PathSpecification> pathSpecifications)
@@ -37,7 +37,7 @@ namespace MorePaths.CustomDriveways
                     continue;
 
                 var drivewayList = new List<GameObject>();
-                var originalDrivewayModel = (GameObject)InaccessibilityUtilities.InvokeInaccessibleMethod(_drivewayModelInstantiator, "GetModelPrefab", new object[] { driveway });
+                var originalDrivewayModel = _drivewayModelInstantiator.GetModelPrefab(driveway);
                 originalDrivewayModel.SetActive(false);
 
                 foreach (var pathSpecification in pathSpecifications)
@@ -74,7 +74,7 @@ namespace MorePaths.CustomDriveways
                 
                     var material = new Material(CustomPathFactory.ActivePathMaterial)
                     {
-                        mainTexture = _imageRepositoryService.GetByName(pathSpecification.PathTexture, pathSpecification.Name)
+                        mainTexture = _assetLoader.Load<Texture2D>(pathSpecification.PathTexture)
                     };
 
                     material.SetFloat("_MainTexScale", pathSpecification.MainTextureScale);

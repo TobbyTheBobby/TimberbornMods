@@ -1,0 +1,5 @@
+ID,Text,Comment
+Tobbert.PipetteTool.DisplayName,Pipette,-
+Tobbert.PipetteTool.Description,Click a building to enter construction mode for that building. (Default Shortcut CTRL + CLICK),-
+Tobbert.PipetteTool.KeyBindingGroup.PipetteTool,Pipette Tool,-
+Tobbert.PipetteTool.KeyBinding.PipetteToolShortcut,Pipette Tool,-

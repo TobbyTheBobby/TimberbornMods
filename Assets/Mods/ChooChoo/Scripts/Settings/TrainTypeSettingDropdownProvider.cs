@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using ChooChoo.ModelSystem;
-using TimberApi.SpecificationSystem;
 using Timberborn.DropdownSystem;
 using Timberborn.Localization;
+using Timberborn.Persistence;
 using Timberborn.SingletonSystem;
 using UnityEngine;
 
@@ -12,7 +12,7 @@ namespace ChooChoo.Settings
     public class TrainTypeSettingDropdownProvider : IExtendedDropdownProvider, ILoadableSingleton
     {
         private readonly TrainModelSpecificationDeserializer _trainModelSpecificationDeserializer;
-        private readonly IApiSpecificationService _apiSpecificationService;
+        private readonly ISpecificationService _specificationService;
         private readonly ChooChooSettings _chooChooSettings;
         private readonly ILoc _loc;
 
@@ -20,19 +20,19 @@ namespace ChooChoo.Settings
 
         public TrainTypeSettingDropdownProvider(
             TrainModelSpecificationDeserializer trainModelSpecificationDeserializer,
-            IApiSpecificationService apiSpecificationService,
+            ISpecificationService specificationService,
             ChooChooSettings chooSettings,
             ILoc loc)
         {
             _trainModelSpecificationDeserializer = trainModelSpecificationDeserializer;
-            _apiSpecificationService = apiSpecificationService;
+            _specificationService = specificationService;
             _chooChooSettings = chooSettings;
             _loc = loc;
         }
 
         public void Load()
         {
-            Items = _apiSpecificationService
+            Items = _specificationService
                 .GetSpecifications(_trainModelSpecificationDeserializer)
                 .GroupBy(specification => specification.Faction)
                 .First()

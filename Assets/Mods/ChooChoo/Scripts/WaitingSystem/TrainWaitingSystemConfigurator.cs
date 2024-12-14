@@ -1,13 +1,12 @@
 ﻿using Bindito.Core;
+using ChooChoo.BuildingRegistrySystem;
 using ChooChoo.NavigationSystem;
-using TimberApi.SceneSystem;
 using Timberborn.TemplateSystem;
 using TobbyTools.BuildingRegistrySystem;
-using TobbyTools.UsedImplicitlySystem;
 
 namespace ChooChoo.WaitingSystem
 {
-    [Configurator(SceneEntrypoint.InGame)]
+    [Context("Game")]
     public class TrainWaitingSystemConfigurator : IConfigurator
     {
         public void Configure(IContainerDefinition containerDefinition)

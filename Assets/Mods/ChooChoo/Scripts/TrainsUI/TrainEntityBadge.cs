@@ -12,7 +12,7 @@ namespace ChooChoo.TrainsUI
     {
         private readonly string _ageLocKey = "Beaver.Age";
 
-        private IResourceAssetLoader _resourceAssetLoader;
+        private IAssetLoader _assetLoader;
 
         // private SelectionManager _selectionManager;
         private ILoc _loc;
@@ -22,11 +22,11 @@ namespace ChooChoo.TrainsUI
 
         [Inject]
         public void InjectDependencies(
-            IResourceAssetLoader resourceAssetLoader,
+            IAssetLoader resourceAssetLoader,
             // SelectionManager selectionManager,
             ILoc loc)
         {
-            _resourceAssetLoader = resourceAssetLoader;
+            _assetLoader = resourceAssetLoader;
             // _selectionManager = selectionManager;
             _loc = loc;
         }
@@ -36,7 +36,7 @@ namespace ChooChoo.TrainsUI
         public void Awake()
         {
             _character = GetComponentFast<Character>();
-            _sprite = _resourceAssetLoader.Load<Sprite>("tobbert.choochoo/tobbert_choochoo/ToolGroupIcon");
+            _sprite = _assetLoader.Load<Sprite>("Tobbert/Icons/ToolBar/ToolGroupIcon");
         }
 
         public string GetEntityName()

@@ -2,7 +2,8 @@
 using System.Linq;
 using ChooChoo.Trains;
 using ChooChoo.TrainYards;
-using TimberApi.UiBuilderSystem;
+using ChooChoo.UIPresets;
+using TimberApi.UIBuilderSystem;
 using Timberborn.AssetSystem;
 using Timberborn.BaseComponentSystem;
 using Timberborn.CoreUI;
@@ -19,11 +20,10 @@ namespace ChooChoo.TrainYardUI
 {
     internal class TrainYardFragment : IEntityPanelFragment
     {
-        private const string CreateTrainLocKey = "Tobbert.TrainYard.CreateTrain";
         private readonly InformationalRowsFactory _informationalRowsFactory;
         private readonly VisualElementLoader _visualElementLoader;
-        private readonly IResourceAssetLoader _resourceAssetLoader;
         private readonly GoodDescriber _goodDescriber;
+        private readonly IAssetLoader _assetLoader;
         private readonly UIBuilder _uiBuilder;
         private readonly ILoc _loc;
         private TrainYard _trainYard;
@@ -39,49 +39,52 @@ namespace ChooChoo.TrainYardUI
         public TrainYardFragment(
             InformationalRowsFactory informationalRowsFactory,
             VisualElementLoader visualElementLoader,
-            IResourceAssetLoader resourceAssetLoader,
             GoodDescriber goodDescriber,
+            IAssetLoader assetLoader,
             UIBuilder uiBuilder,
             ILoc loc)
         {
             _informationalRowsFactory = informationalRowsFactory;
             _visualElementLoader = visualElementLoader;
-            _resourceAssetLoader = resourceAssetLoader;
             _goodDescriber = goodDescriber;
+            _assetLoader = assetLoader;
             _uiBuilder = uiBuilder;
             _loc = loc;
         }
 
         public VisualElement InitializeFragment()
         {
-            _train = _resourceAssetLoader.Load<GameObject>("tobbert.choochoo/tobbert_choochoo/Train").GetComponent<Train>();
+            _train = _assetLoader.Load<GameObject>("Tobbert/Prefabs/Trains/Train").GetComponent<Train>();
 
 
             _root = new VisualElement();
-            var firstFragment = _uiBuilder.CreateFragmentBuilder()
-                .AddComponent(builder => builder
-                    .SetFlexDirection(FlexDirection.Column)
-                    .SetWidth(new Length(100, LengthUnit.Percent))
-                    .SetJustifyContent(Justify.Center)
-                    .AddPreset(builder => builder
-                        .Labels()
-                        .GameText(
-                            name: "CostLabel",
-                            builder: builder => builder
-                                .SetWidth(new Length(100, LengthUnit.Percent))
-                                .SetJustifyContent(Justify.Center)
-                        )
-                    )
-                    .AddPreset(factory => factory.Buttons().Button(CreateTrainLocKey, name: "CreateButton")))
-                .BuildAndInitialize();
+
+            var firstFragment = _uiBuilder.Create<TrainYardFragmentPreset>().BuildAndInitialize();
+            
+            // var firstFragment = _uiBuilder.CreateFragmentBuilder()
+            //     .AddComponent(builder => builder
+            //         .SetFlexDirection(FlexDirection.Column)
+            //         .SetWidth(new Length(100, LengthUnit.Percent))
+            //         .SetJustifyContent(Justify.Center)
+            //         .AddPreset(builder => builder
+            //             .Labels()
+            //             .GameText(
+            //                 name: "CostLabel",
+            //                 builder: builder => builder
+            //                     .SetWidth(new Length(100, LengthUnit.Percent))
+            //                     .SetJustifyContent(Justify.Center)
+            //             )
+            //         )
+            //         .AddPreset(factory => factory.Buttons().Button(CreateTrainLocKey, name: "CreateButton")))
+            //     .BuildAndInitialize();
 
             _root.Add(firstFragment);
+            
+            _costLabel = firstFragment.Q<UnityEngine.UIElements.Label>("CostLabel");
+            _createButton = firstFragment.Q<TimberApi.UIBuilderSystem.CustomElements.LocalizableButton>("CreateButton");
+            _createButton.clicked += () => _trainYard.InitializeTrain();
 
-            _costLabel = firstFragment.Q<Label>("CostLabel");
-            _createButton = firstFragment.Q<Button>("CreateButton");
-            _createButton.Q<Button>("CreateButton").clicked += () => _trainYard.InitializeTrain();
-
-            var secondFragment = _uiBuilder.CreateFragmentBuilder().BuildAndInitialize();
+            var secondFragment = _uiBuilder.Create<PanelFragment>().BuildAndInitialize();
             _root.Add(secondFragment);
 
             var manufactoryInventoryFragment = _visualElementLoader.LoadVisualElement("Game/EntityPanel/ManufactoryInventoryFragment");

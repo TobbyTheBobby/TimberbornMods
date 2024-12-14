@@ -20,7 +20,7 @@ namespace ChooChoo.BeaverNavigationUtilities
 
         public BlockObject Get(Vector3 coordinates)
         {
-            return _blockObjects.GetOrAdd(coordinates, () => _blockService.GetFloorObjectAt(coordinates.ToBlockServicePosition()));
+            return _blockObjects.GetOrAdd(coordinates, () => _blockService.GetBottomObjectAt(coordinates.ToBlockServicePosition()));
         }
 
         public void OnNavMeshUpdated(NavMeshUpdate navMeshUpdate)

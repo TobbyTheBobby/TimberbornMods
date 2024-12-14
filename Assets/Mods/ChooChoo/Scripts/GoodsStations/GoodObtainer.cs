@@ -1,5 +1,5 @@
 ﻿using Timberborn.BaseComponentSystem;
-using Timberborn.ConstructibleSystem;
+using Timberborn.BlockSystem;
 
 namespace ChooChoo.GoodsStations
 {

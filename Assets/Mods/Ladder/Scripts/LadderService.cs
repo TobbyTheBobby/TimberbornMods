@@ -9,13 +9,15 @@ namespace Ladder
 {
     public class LadderService : ILoadableSingleton
     {
+        public static LadderService Instance;
 
-        private EventBus _eventBus;
+        private readonly EventBus _eventBus;
 
         private readonly HashSet<Vector3Int> _verticalObjectsList = new ();
 
-        LadderService(EventBus eventBus)
+        private LadderService(EventBus eventBus)
         {
+            Instance = this;
             _eventBus = eventBus;
         }
 
@@ -26,17 +28,13 @@ namespace Ladder
         
         public bool ChangeVertical(ref List<Vector3> pathCorners, int startIndex, int endIndex)
         { 
-            Vector3 pathCorner1 = pathCorners[startIndex];
-            Vector3 pathCorner2 = pathCorners[endIndex];
+            var pathCorner1 = pathCorners[startIndex];
+            var pathCorner2 = pathCorners[endIndex];
 
             if (!(Math.Abs(pathCorner1.y - pathCorner2.y) > 0.5))
                 return false;
 
             pathCorner1 += new Vector3(0, (pathCorner2.y - pathCorner1.y) / 2, 0);
-            
-            // pathCorners.Clear();
-            // pathCorners.Add(new Vector3Int(10, 10, 10));
-            // pathCorners.Add(new Vector3Int(9, 10, 10));
 
             return IsLadder(pathCorner1);
         }
@@ -64,21 +62,14 @@ namespace Ladder
             _verticalObjectsList.Remove(coordinate);
         }
 
-        public bool IsLadder(Vector3 coordinates)
+        private bool IsLadder(Vector3 coordinates)
         {
-            Vector3Int checkCoordinates = new Vector3Int
+            var checkCoordinates = new Vector3Int
             {
                 x = Convert.ToInt32(Math.Floor(coordinates.x)),
                 y = Convert.ToInt32(Math.Floor(coordinates.z)),
                 z = Convert.ToInt32(Math.Floor(coordinates.y))
             };
-
-            // foreach (var vector3Int in _verticalObjectsList)
-            // {
-            //     Plugin.Log.LogFatal(vector3Int);
-            // }
-            //
-            // Plugin.Log.LogInfo(checkCoordinates);
             
             return !_verticalObjectsList.Contains(checkCoordinates);
         }

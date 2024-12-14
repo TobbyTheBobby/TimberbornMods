@@ -1,6 +1,7 @@
 ﻿// using Bindito.Core;
 // using ChooChoo.MovementSystem;
 // using ChooChoo.NavigationSystem;
+// using ChooChoo.WaitingSystem;
 // using Timberborn.BehaviorSystem;
 // using Timberborn.Localization;
 // using Timberborn.StatusSystem;
@@ -12,16 +13,16 @@
 //     {
 //         private static readonly string UnconnectedLocKey = "Tobbert.TrainNavigation.NoWaitingStation";
 //         private static readonly string UnconnectedShortLocKey = "Tobbert.TrainNavigation.NoWaitingStationShort";
-//         private TrainDestinationService _trainDestinationService;
+//         private ClosestTrainWaitingLocationPicker _closestTrainWaitingLocationPicker;
 //         private ILoc _loc;
 //         private BehaviorManager _behaviorManager;
 //         private StatusToggle _unconnectedTrainDestinationStatusToggle;
 //         private bool _isUnconnectedToAnyTrainDestination;
 //         
 //         [Inject]
-//         public void InjectDependencies(TrainDestinationService trainDestinationService, ILoc loc)
+//         public void InjectDependencies(ClosestTrainWaitingLocationPicker closestTrainWaitingLocationPicker, ILoc loc)
 //         {
-//             _trainDestinationService = trainDestinationService;
+//             _closestTrainWaitingLocationPicker = closestTrainWaitingLocationPicker;
 //             _loc = loc;
 //         }
 //
@@ -55,8 +56,7 @@
 //
 //         private void CheckIfConnectedToTrainDestination()
 //         {
-//             var connectedTrainDestinations = _trainDestinationService.GetConnectedTrainDestinations(_behaviorManager);
-//             _isUnconnectedToAnyTrainDestination = connectedTrainDestinations.Count <= 1;
+//             _isUnconnectedToAnyTrainDestination = _closestTrainWaitingLocationPicker.ClosestWaitingLocation(TransformFast.position) == null;
 //         }
 //     }
 // }

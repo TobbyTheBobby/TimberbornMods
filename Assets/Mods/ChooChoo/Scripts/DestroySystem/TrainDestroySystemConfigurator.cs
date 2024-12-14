@@ -1,13 +1,11 @@
 ﻿using Bindito.Core;
 using ChooChoo.Trains;
-using TimberApi.SceneSystem;
 using Timberborn.EntityPanelSystem;
 using Timberborn.TemplateSystem;
-using TobbyTools.UsedImplicitlySystem;
 
 namespace ChooChoo.DestroySystem
 {
-  [Configurator(SceneEntrypoint.InGame)]
+  [Context("Game")]
   internal class TrainDestroySystemConfigurator : IConfigurator
   {
     public void Configure(IContainerDefinition containerDefinition)

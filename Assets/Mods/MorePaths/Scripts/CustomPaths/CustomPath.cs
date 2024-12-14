@@ -1,98 +1,82 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Bindito.Core;
-using MorePaths.Core;
-using MorePaths.Specifications;
+using MorePaths.PathSpecificationSystem;
+using Timberborn.AssetSystem;
 using Timberborn.BaseComponentSystem;
 using Timberborn.BlockSystem;
 using Timberborn.Buildings;
 using Timberborn.Common;
+using Timberborn.EntitySystem;
 using Timberborn.PrefabSystem;
-using TobbyTools.ImageRepository;
-using TobbyTools.InaccessibilityUtilitySystem;
 using UnityEngine;
 
 namespace MorePaths.CustomPaths
 {
     public class CustomPath : BaseComponent
     {
-        private ImageRepositoryService _imageRepositoryService;
-        
-        private PathSpecification _pathSpecification;
+        private IAssetLoader _assetLoader;
+
         private BuildingModel _buildingModel;
         private GameObject _pathCorner;
-
+        
         private Texture2D _groundTexture2D;
         private Texture2D _railingTexture2D;
-        private Texture2D _spriteTexture2D;
-
         private Material _groundMaterial;
-
+        
         private bool IsDefaultPath => GetComponentFast<Prefab>().PrefabName is "Path.Folktails" or "Path.IronTeeth";
-
+        
+        public PathSpecification PathSpecification { get; private set; }
+        
         [Inject]
-        public void InjectDependencies(ImageRepositoryService imageRepositoryService, MorePathsCore morePathsCore)
+        public void InjectDependencies(IAssetLoader assetLoader, PathSpecificationRepository pathSpecificationRepository)
         {
-            var pathSpecification = morePathsCore.PathsSpecifications.First(spec => GetComponentFast<Prefab>().PrefabName.Equals(spec.Name) || (spec.Name == "DefaultPath" && IsDefaultPath));
+            _assetLoader = assetLoader;
             
-            SetSpecification(imageRepositoryService, pathSpecification);
+            var pathSpecification = pathSpecificationRepository.GetAll().First(spec => GetComponentFast<Prefab>().PrefabName.Equals(spec.Name) || (spec.Name == "DefaultPath" && IsDefaultPath));
+            
+            SetSpecification(pathSpecification);
         }
-
+        
         private void Start()
         {
             _buildingModel = GameObjectFast.GetComponent<BuildingModel>();
-            try
-            {
-                OverwriteTextures();
-            }
-            catch (InvalidOperationException)
-            {
-                // Ignored
-            }
+            OverwriteTextures();
         }
 
-        public void SetSpecification(ImageRepositoryService imageRepositoryService, PathSpecification pathSpecification)
+        public void SetSpecification(PathSpecification pathSpecification)
         {
-            _imageRepositoryService = imageRepositoryService;
+            PathSpecification = pathSpecification;
             
-            _pathSpecification = pathSpecification;
-
-            _groundTexture2D = LoadImage(_pathSpecification.PathTexture);
-            _railingTexture2D = LoadImage(_pathSpecification.RailingTexture);
-            _spriteTexture2D = LoadImage(_pathSpecification.PathIcon);
+            _groundTexture2D = LoadImage(PathSpecification.PathTexture);
+            _railingTexture2D = LoadImage(PathSpecification.RailingTexture);
             OverwriteVariables();
         }
 
         private Texture2D LoadImage(string search)
         {
-            if (string.IsNullOrEmpty(search) || string.IsNullOrEmpty(_pathSpecification.Name))
-            {
-                return new Texture2D(0, 0);
-            }
-
-            return _imageRepositoryService.GetByName(search, _pathSpecification.Name);
+            return string.IsNullOrEmpty(search) ? new Texture2D(0, 0) : _assetLoader.Load<Texture2D>(search);
         }
-
+        
         private void OverwriteVariables()
         {
             SetGroundMaterial();
             AddPathCorners();
-            SetToolGroup(_pathSpecification.ToolGroup);
-            if (_pathSpecification.Name == "DefaultPath")
-                return;
-            SetObjectName(_pathSpecification.Name);
-            SetPrefabName(_pathSpecification.Name);
+            SetToolGroup(PathSpecification.ToolGroup);
+            SetObjectName(PathSpecification.Name);
+            SetPrefabName(PathSpecification.Name);
             RemoveBackwardCompatiblePrefabNames();
-            SetToolOrder(_pathSpecification.ToolOrder);
-            SetLocalisationAndSprite();
+            SetToolOrder(PathSpecification.ToolOrder);
+            if (PathSpecification.Name == "DefaultPath")
+                return;
+            SetLabeledEntitySpec();
         }
-
+        
         private void OverwriteTextures()
         {
-            if (_pathSpecification.Name == "DefaultPath")
+            if (PathSpecification.Name == "DefaultPath")
                 return;
-
+        
             var directChildren = _buildingModel.FinishedModel.GetDirectChildren().ToArray();
             
             foreach (var variantString in new List<string> { "Path0000", "Path0010", "Path1010", "Path0011", "Path0111", "Path1111" })
@@ -100,27 +84,22 @@ namespace MorePaths.CustomPaths
                 var originalGroundVariant = directChildren.First(obj => obj.name.Contains("Dirt" + variantString));
                 
                 originalGroundVariant.GetComponentInChildren<MeshRenderer>().material = _groundMaterial;
-
-                if (_pathSpecification.RailingTexture != null)
+        
+                if (PathSpecification.RailingTexture != null)
                 {
                     var originalRoofVariant = directChildren.First(obj => obj.name.Contains("Roof" + variantString));
                     originalRoofVariant.GetComponentInChildren<MeshRenderer>().material.mainTexture = _railingTexture2D;
                 }
-            
-                // if (!_pathSpecification.RailingEnabled)
-                // {
-                //     _morePathsCore.ChangePrivateField(pathModelVariant, "_roofVariant", new GameObject());
-                // }
             }
         }
-
+        
         private void SetGroundMaterial()
         {
             var newGroundMaterial = new Material(CustomPathFactory.ActivePathMaterial);
-            newGroundMaterial.SetFloat("_MainTexScale", _pathSpecification.MainTextureScale);
-            newGroundMaterial.SetFloat("_NoiseTexScale", _pathSpecification.NoiseTexScale);
-            newGroundMaterial.SetVector("_MainColor", new Vector4(_pathSpecification.MainColorRed, _pathSpecification.MainColorGreen, _pathSpecification.MainColorBlue, 1f));
-            if (_pathSpecification.PathTexture != null)
+            newGroundMaterial.SetFloat("_MainTexScale", PathSpecification.MainTextureScale);
+            newGroundMaterial.SetFloat("_NoiseTexScale", PathSpecification.NoiseTexScale);
+            newGroundMaterial.SetVector("_MainColor", new Vector4(PathSpecification.MainColorRed, PathSpecification.MainColorGreen, PathSpecification.MainColorBlue, 1f));
+            if (PathSpecification.PathTexture != null)
                 newGroundMaterial.mainTexture = _groundTexture2D;
             _groundMaterial = newGroundMaterial;
         }
@@ -129,41 +108,37 @@ namespace MorePaths.CustomPaths
         {
             GameObjectFast.name = specificationName;
         }
-
+        
         private void SetPrefabName(string specificationName)
         {
-            InaccessibilityUtilities.SetInaccessibleField(GameObjectFast.GetComponent<Prefab>(), "_prefabName", specificationName);
+            GetComponentFast<Prefab>()._prefabName = specificationName;
         }
-
+        
         private void RemoveBackwardCompatiblePrefabNames()
         {
-            InaccessibilityUtilities.SetInaccessibleField(GameObjectFast.GetComponent<Prefab>(), "_backwardCompatiblePrefabNames", new string[] { });
+            GetComponentFast<Prefab>()._backwardCompatiblePrefabNames = new string[] { };
         }
-
+        
         private void SetToolGroup(string toolGroup)
         {
-            InaccessibilityUtilities.SetInaccessibleField(GameObjectFast.GetComponent<PlaceableBlockObject>(), "_toolGroupId", toolGroup);
+            GetComponentFast<PlaceableBlockObject>()._toolGroupId = toolGroup;
         }
         
         private void SetToolOrder(int toolOrder)
         {
-            InaccessibilityUtilities.SetInaccessibleField(GameObjectFast.GetComponent<PlaceableBlockObject>(), "_toolOrder", toolOrder);
+            GetComponentFast<PlaceableBlockObject>()._toolOrder = toolOrder;
         }
-
-        private void SetLocalisationAndSprite()
+        
+        private void SetLabeledEntitySpec()
         {
-            var labeledPrefab = GameObjectFast.GetComponent<LabeledPrefab>();
-            
-            InaccessibilityUtilities.SetInaccessibleField(labeledPrefab, "_displayNameLocKey", _pathSpecification.DisplayNameLocKey);
-            InaccessibilityUtilities.SetInaccessibleField(labeledPrefab, "_descriptionLocKey", _pathSpecification.DescriptionLocKey);
-            InaccessibilityUtilities.SetInaccessibleField(labeledPrefab, "_flavorDescriptionLocKey", _pathSpecification.FlavorDescriptionLocKey);
-            
-            if (_pathSpecification.PathIcon == null) return;
-
-            var sprite2D = Sprite.Create(_spriteTexture2D, labeledPrefab.Image.rect, labeledPrefab.Image.pivot, labeledPrefab.Image.pixelsPerUnit);
-            InaccessibilityUtilities.SetInaccessibleField(labeledPrefab, "_image", sprite2D);
+            var labeledEntity = GameObjectFast.GetComponent<LabeledEntitySpec>();
+            labeledEntity._displayNameLocKey = PathSpecification.DisplayNameLocKey;
+            labeledEntity._descriptionLocKey = PathSpecification.DescriptionLocKey;
+            labeledEntity._flavorDescriptionLocKey = PathSpecification.FlavorDescriptionLocKey;
+            if (PathSpecification.PathIcon == null) return;
+            labeledEntity._imagePath = PathSpecification.PathIcon;
         }
-
+        
         private void AddPathCorners()
         {
             var material = new Material(_groundMaterial);
@@ -171,14 +146,13 @@ namespace MorePaths.CustomPaths
             material.SetTexture("_NoiseTex", null);
             material.SetTexture("_DetailMask", null);
             material.renderQueue -= 1;
-
+        
             var pathCorner = Instantiate(CustomPathFactory.PathCorner);
             pathCorner.SetActive(false);
-            
             pathCorner.GetComponentInChildren<MeshRenderer>().material = material;
-
-            if (!GameObjectFast.TryGetComponent(out DynamicPathCorner dynamicPathCorner)) return;
-            
+        
+            if (!GameObjectFast.TryGetComponent(out DynamicPathCorner dynamicPathCorner)) 
+                return;
             dynamicPathCorner.CreatePathCorners(pathCorner);
         }
     }

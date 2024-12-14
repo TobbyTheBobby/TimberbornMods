@@ -1,4 +1,0 @@
-ID,Text,Comment
-Tobbert.Bucket.DisplayName,Eimer,-
-Tobbert.Bucket.Description,Ein Eimer enthält ein Flüssigkeit.,-
-Tobbert.Bucket.FlaverDescription,\u201EEIMER EIMER EIMER EIMER EIMER EIMER EIMER EIMER EIMER EIMER EIMER EIMER EIMER EIMER EIMER\u201C \u2013 Eimer,-

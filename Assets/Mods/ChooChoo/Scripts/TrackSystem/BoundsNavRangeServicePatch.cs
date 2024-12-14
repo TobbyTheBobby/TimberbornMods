@@ -1,12 +1,13 @@
 ﻿using System.Reflection;
 using HarmonyLib;
-using TobbyTools.InaccessibilityUtilitySystem;
-using TobbyTools.UsedImplicitlySystem;
+using JetBrains.Annotations;
+using Timberborn.BuildingsNavigation;
 using UnityEngine;
 
 namespace ChooChoo.TrackSystem
 {
-    [UsedImplicitlyHarmonyPatch]
+    [HarmonyPatch]
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class BoundsNavRangeServicePatch
     {
         public static Material Material;
@@ -16,9 +17,9 @@ namespace ChooChoo.TrackSystem
             return AccessTools.Method(AccessTools.TypeByName("BoundsNavRangeDrawingService"), "Load");
         }
 
-        private static void Prefix(object ____boundsNavRangeDrawer)
+        private static void Prefix(BoundsNavRangeDrawer ____boundsNavRangeDrawer)
         {
-            Material = (Material)InaccessibilityUtilities.GetInaccessibleField(____boundsNavRangeDrawer, "_material");
+            Material = ____boundsNavRangeDrawer._material;
         }
     }
 }

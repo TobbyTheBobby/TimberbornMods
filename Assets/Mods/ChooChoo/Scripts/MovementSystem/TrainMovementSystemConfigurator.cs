@@ -1,10 +1,8 @@
 ﻿using Bindito.Core;
-using TimberApi.SceneSystem;
-using TobbyTools.UsedImplicitlySystem;
 
 namespace ChooChoo.MovementSystem
 {
-    [Configurator(SceneEntrypoint.InGame)]
+    [Context("Game")]
     public class TrainMovementSystemConfigurator : IConfigurator
     {
         public void Configure(IContainerDefinition containerDefinition)

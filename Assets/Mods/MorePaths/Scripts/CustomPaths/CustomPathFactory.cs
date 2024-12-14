@@ -1,56 +1,60 @@
-using System.Collections.Generic;
-using System.Linq;
-using MorePaths.Core;
-using MorePaths.CustomPaths;
-using MorePaths.Patches;
+using MorePaths.PathSpecificationSystem;
+using MorePaths.Settings;
 using Timberborn.AssetSystem;
+using Timberborn.BaseComponentSystem;
 using Timberborn.GameFactionSystem;
-using TobbyTools.ImageRepository;
+using Timberborn.PathSystem;
+using Timberborn.TemplateSystem;
 using UnityEngine;
 
-namespace MorePaths
+namespace MorePaths.CustomPaths
 {
     public class CustomPathFactory
     {
-        private static ImageRepositoryService _imageRepositoryService;
-        private static IResourceAssetLoader _resourceAssetLoader;
         private static FactionService _factionService;
-        
-        private readonly MorePathsCore _morePathsCore;
+        private static IAssetLoader _assetLoader;
+        private readonly TemplateInstantiator _templateInstantiator;
+        private readonly MorePathsSettings _morePathsSettings;
+        private readonly BaseInstantiator _baseInstantiator;
 
-        CustomPathFactory(ImageRepositoryService imageRepositoryService, IResourceAssetLoader resourceAssetLoader, FactionService factionService, MorePathsCore morePathsCore)
+        private GameObject customPathPrefab;
+
+        private CustomPathFactory(
+            FactionService factionService,
+            IAssetLoader assetLoader,
+            TemplateInstantiator templateInstantiator,
+            MorePathsSettings morePathsSettings,
+            BaseInstantiator baseInstantiator)
         {
-            _imageRepositoryService = imageRepositoryService;
-            _resourceAssetLoader = resourceAssetLoader;
             _factionService = factionService;
-            _morePathsCore = morePathsCore;
+            _assetLoader = assetLoader;
+            _templateInstantiator = templateInstantiator;
+            _morePathsSettings = morePathsSettings;
+            _baseInstantiator = baseInstantiator;
         }
-        
-        public static GameObject PathCorner => _resourceAssetLoader.Load<GameObject>("tobbert.morepaths/tobbert_morepaths/PathCorner");
 
-        public static Material ActivePathMaterial => _resourceAssetLoader.Load<Material>(_factionService.Current.PathMaterial);
-        
-        public List<CustomPath> CreatePathsFromSpecification()
+        public static GameObject PathCorner => _assetLoader.Load<GameObject>("Tobbert/Prefabs/PathCorner");
+
+        public static Material ActivePathMaterial => _assetLoader.Load<Material>(_factionService.Current.PathMaterial);
+
+        public CustomPath CreateCustomPath(DynamicPathModel dynamicPathModel, PathSpecification pathSpecification)
         {
             // var stopwatch = Stopwatch.StartNew();
 
-            PreventInstantiatePatch.RunInstantiate = false;
-
-            var originalPathGameObject = Resources.Load<GameObject>("Buildings/Paths/Path/Path." + _factionService.Current.Id);
-            originalPathGameObject.AddComponent<DynamicPathCorner>();
-            originalPathGameObject.AddComponent<CustomPath>();
+            Debug.Log($"Creating path: {pathSpecification.Name}");
             
-            var customPaths  = _morePathsCore.PathsSpecifications.Select(specification =>
-            {
-                var customPath = Object.Instantiate(originalPathGameObject, new GameObject().transform).GetComponent<CustomPath>();
-                customPath.SetSpecification(_imageRepositoryService, specification);
-                return customPath;
-            }).ToList();
-            PreventInstantiatePatch.RunInstantiate = true;
-
+            var gameObject = _baseInstantiator.InstantiateInactive(dynamicPathModel.GameObjectFast, new GameObject().transform);
+            // gameObject.name = pathSpecification.Name;
+            // var template =  _templateInstantiator.Instantiate(gameObject, new GameObject().transform);
+            // var customPath = template.GetComponent<CustomPath>();
+            var customPath = _baseInstantiator.AddComponent<CustomPath>(gameObject);
+            _baseInstantiator.AddComponent<DynamicPathCorner>(gameObject);
+            customPath.name = pathSpecification.Name;
+            customPath.SetSpecification(pathSpecification);
+            
             // stopwatch.Stop();
             // Plugin.Log.LogInfo($"Created {customPaths.Count} paths in {stopwatch.ElapsedMilliseconds}ms.");
-            return customPaths;
+            return customPath;
         }
     }
 }

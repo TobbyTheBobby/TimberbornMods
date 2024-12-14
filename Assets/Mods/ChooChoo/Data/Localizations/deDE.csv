@@ -1,0 +1,100 @@
+ID,Text,Comment
+Tobbert.TrackStraight.DisplayName,Gleis Gerade,-
+Tobbert.TrackStraight.Description,"Ein gerades Zuggleis. Kann in ein Einbahngleis umgewandelt werden, indem man auf das Feld klickt. Erzeugt einen Gleisabschnitt zwischen Einbahngleisen, auf dem ein einzelner Zug fahren kann (durch Farben gekennzeichnet).",-
+Tobbert.TrackStraight.FlavorDescription,Tschu-tschu!,-
+Tobbert.TrackOneWay.DisplayName,Einbahngleis,-
+Tobbert.TrackOneWay.Description,"Sagt den Zügen, dass sie nur auf der grünen Seite durchfahren können. Erzeugt einen Gleisabschnitt zwischen Einbahngleisen, auf dem ein einzelner Zug fahren kann (durch Farben gekennzeichnet). Kann in ein Gleis Gerade umgewandelt werden, indem man auf das Feld klickt.",-
+Tobbert.TrackOneWay.FlavorDescription,Du... Sollst... Passieren...,-
+Tobbert.TrackCrossing.DisplayName,Gleisübergang,-
+Tobbert.TrackCrossing.Description,"Biber können hier die Gleise überqueren. Kollisionen werden nicht implementiert, da die Leistung zu sehr leiden würde.",-
+Tobbert.TrackCrossing.FlavorDescription,Dieser Zug nähert sich sehr schn-,RIP
+Tobbert.TrackHillStart.DisplayName,Gleis Steigung,-
+Tobbert.TrackHillStart.Description,"Ein Gleis, auf dem Züge auf und ab fahren.",-
+Tobbert.TrackHillStart.FlavorDescription,Ist der Zug nicht zu schwer?,-
+Tobbert.TrackCorner1x1.DisplayName,Gleis Kurve 1x1,-
+Tobbert.TrackCorner1x1.Description,"Ein Gleisstück, das um eine Ecke führt.",-
+Tobbert.TrackCorner1x1.FlavorDescription,Könnte ein bisschen eng sein.,-
+Tobbert.TrackCorner2x2.DisplayName,Gleis Kurve 2x2,-
+Tobbert.TrackCorner2x2.Description,"Ein Gleisstück, das um eine größere Ecke führt.",-
+Tobbert.TrackCorner2x2.FlavorDescription,Was für eine schön anzusehende Kurve.,-
+Tobbert.TrackTIntersection1x1.DisplayName,Gleis T-Kreuzung 1x1,-
+Tobbert.TrackTIntersection1x1.Description,Eine Kreuzung in Form eines T für Züge.,-
+Tobbert.TrackTIntersection1x1.FlavorDescription,Welchen Weg soll ich einschlagen?,-
+Tobbert.TrackTIntersection2x3.DisplayName,Gleis T-Kreuzung 2x3,-
+Tobbert.TrackTIntersection2x3.Description,Eine Kreuzung in Form eines T für Züge.,-
+Tobbert.TrackTIntersection2x3.FlavorDescription,Wohin werden diese Wege führen?,-
+Tobbert.TrackXIntersection1x1.DisplayName,Gleis X-Kreuzung 1x1,-
+Tobbert.TrackXIntersection1x1.Description,Eine Kreuzung in Form eines X für Züge.,-
+Tobbert.TrackXIntersection1x1.FlavorDescription,So viele Optionen!,-
+Tobbert.TrackXIntersection3x3.DisplayName,Gleis X-Kreuzung 3x3,-
+Tobbert.TrackXIntersection3x3.Description,Eine Kreuzung in Form eines X für Züge.,-
+Tobbert.TrackXIntersection3x3.FlavorDescription,"Ich kann mich einfach nicht entscheiden, wohin ich fahren soll.",-
+Tobbert.TrackRIntersectionLeft2x3.DisplayName,Gleis Abzweigung Links 2x3,-
+Tobbert.TrackRIntersectionLeft2x3.Description,"Eine Abzweigung, die die Züge nach links führt.",-
+Tobbert.TrackRIntersectionLeft2x3.FlavorDescription,"Links ist da, wo der Daumen rechts ist.",-
+Tobbert.TrackRIntersectionRight2x3.DisplayName,Gleis Abzweigung Rechts 2x3,-
+Tobbert.TrackRIntersectionRight2x3.Description,"Eine Abzweigung, die die Züge nach rechts führt.",-
+Tobbert.TrackRIntersectionRight2x3.FlavorDescription,"Rechts ist da, wo der Daumen links ist.",-
+Tobbert.GoodsStation.DisplayName,Güterbahnhof,-
+Tobbert.GoodsStation.Description,"Ermöglicht den Transport von Gütern mit Zügen. Eine Ware kann an einem Güterbahnhof entweder versendet oder empfangen werden. Empfangene Waren werden nur in Speicher transportiert, die auf Empfangen eingestellt sind.",-
+Tobbert.GoodsStation.FlavorDescription,"Schauen Sie sich all die Waren an, die es aufnehmen kann.",-
+Tobbert.PassengerStation.DisplayName,Passagierbahnhof,-
+Tobbert.PassengerStation.Description,"An diesen Passagierbahnhöfen können die Biber in den Zug einsteigen und zu anderen, miteinander verbundenen, Passagierbahnhöfen fahren.",-
+Tobbert.PassengerStation.FlavorDescription,"Biber-Zug!",-
+Tobbert.PassengerStation.DistrictObjectToggle,Geht über Distrikte hinaus: ,-
+Tobbert.PassengerStation.DistrictObject,"Wenn diese Option aktiviert ist, können Biber NUR Passagierbahnhöfe aufsuchen, bei denen diese Einstellung ebenfalls aktiviert ist und die sich in anderen Distrikten befinden.",-
+Tobbert.PassengerStation.EmptyStation,Zurzeit warten keine Passagiere.,-
+Tobbert.WaitingStation.DisplayName,Wartestation,-
+Tobbert.WaitingStation.Description,"Hier können Züge warten, wenn sie nichts zu tun haben. Dadurch wird verhindert, dass Züge die Gleise besetzen. Züge können nicht über diesen Bereich fahren, also stellen Sie sicher, dass er nicht in einem wichtigen Weg liegt.",-
+Tobbert.WaitingStation.FlavorDescription,Wann kann ich wieder fahren?,-
+Tobbert.TrainYard.DisplayName,Zugfabrik,-
+Tobbert.TrainYard.Description,"Ein Gebäude, das Züge herstellt.",-
+Tobbert.TrainYard.FlavorDescription,Hier werden Züge geboren.,-
+Tobbert.TrainYard.CostOfTrain,Kosten für 1 Zug:,-
+Tobbert.TrainYard.CreateTrain,Zug herstellen,-
+Tobbert.Train.PrefabName,Zug,-
+Tobbert.Wagon.PrefabName,Wagen,-
+Tobbert.TrainModel.TrainModel,Zugmodell:,-
+Tobbert.TrainModel.SmallLog,Baumstamm,-
+Tobbert.TrainModel.BigWooden,Holzdach,-
+Tobbert.WagonModel.WagonModel,Wagenmodell:,-
+Tobbert.WagonModel.BoxWagon,Güterwagen,-
+Tobbert.WagonModel.TankWagon,Tankwagen,-
+Tobbert.WagonModel.FlatWagon,Flachwagen,-
+Tobbert.WagonModel.FlipperWagon,Gondelwagen,-
+Tobbert.WagonModel.MetalCart,Metallwagen,-
+Tobbert.WagonModel.PassengerWagon,Passagierwagen,-
+Tobbert.BatchControl.Trains,Züge,-
+Tobbert.Train.Length,Zuglänge: ,-
+Tobbert.Train.Destroy,Soll der Zug wirklich zerstört werden?,-
+Tobbert.GoodsStation.Distribution.Header,Verteilte Güter,-
+Tobbert.GoodsStation.Distribution.Disabled.Info,Verteilung durch Verteilungseinstellungen deaktiviert.,-
+Tobbert.GoodsStation.Distribution.Sending.Info,Verteilung durch Verteilungseinstellungen auf Versenden eingestellt.,-
+Tobbert.GoodsStation.Distribution.Receiving.Info,Verteilung durch Verteilungseinstellungen auf Empfangen eingestellt.,-
+Tobbert.BatchControl.GoodsStation,Güterbahnhöfe,-
+Tobbert.BatchControl.DistributionDisabledAll,Deaktiviere gesamte Verteilung,-
+Tobbert.BatchControl.DistributionDisabled,Verteilung deaktiviert,-
+Tobbert.BatchControl.DistributionDisabled.Description,Verteilung dieser Ware an dieser Station vollständig deaktivieren.,-
+Tobbert.BatchControl.DistributionSendingAll,Versenden aller Waren zulassen,-
+Tobbert.BatchControl.DistributionSending,Versenden zulassen,-
+Tobbert.BatchControl.DistributionSending.Description,"Die Güterbahnhöfe können diese Ware an andere Güterbahnhöfe versenden. Die maximale Menge, die sich im Güterbahnhof befinden kann, wird auf der rechten Seite bestimmt.",-
+Tobbert.BatchControl.DistributionReceivingAll,Empfangen aller Waren zulassen,-
+Tobbert.BatchControl.DistributionReceiving,Empfangen zulassen,-
+Tobbert.BatchControl.DistributionReceiving.Description,"Die Güterbahnhöfe können diese Ware von anderen Güterbahnhöfen empfangen. Die maximale Menge, die sich im Güterbahnhof befinden kann, wird auf der rechten Seite bestimmt.",-
+Tobbert.BatchControl.DecreaseMaximum,Verringerung der maximalen Menge,-
+Tobbert.BatchControl.DecreaseMaximum.Description,"Verringern der maximalen Menge, die sich im Güterbahnhof befinden kann. Klicken ist -1 und Shift-Klicken ist -10. Maximum ist 200.",-
+Tobbert.BatchControl.IncreaseMaximum,Erhöhung der maximalen Menge,-
+Tobbert.BatchControl.IncreaseMaximum.Description,"Erhöhen der maximalen Menge, die sich im Güterbahnhof befinden kann. Klicken ist +1 und Shift-Klicken ist +10. Maximum ist 200.",-
+Tobbert.TrackSystem.ToggleSectionDivider,Trennt Streckenabschnitte: ,-
+Tobbert.TrackSystem.ButtonChangeDirection,Richtung wechseln,-
+Tobbert.TrackSystem.CollidingSectionDividers,2 Streckenabschnittstrenner können nicht verbunden werden,-
+Tobbert.ToolGroup.Trains,Züge,-
+Tobbert.TrainYard.PreviewErrorMessage,Es kann nur 1 Zugfabrik gebaut werden,-
+Tobbert.Trains.UnlockPrompt,"Sie müssen {0} freischalten, um {1} zu bauen.",{0} steht für <Building>.DisplayName {1} steht für <TrackPiece>.DisplayName.
+Tobbert.DistributionTrain.MinimumOfItemsToMove,Minimum an zu bewegenden Gütern: ,-
+Tobbert.TrainNavigation.Unstuck,Wenden,-
+Tobbert.TrainDestination.UnconnectedWarning,Wartestation ist nicht mit einer Strecke verbunden.,-
+Tobbert.TrainDestination.UnconnectedWarningShort,Nichtverbundene Wartestation,-
+Tobbert.ChooChooSettings.Header,Choo! Choo!,- 
+Tobbert.ChooChooSettings.DefaultTrainModel,Standard Zugmodell: ,-
+Tobbert.ChooChooSettings.DefaultWagonModel,Standard Wagenmodell: ,-

@@ -1,0 +1,15 @@
+{
+  "Id": "Buildings.IronTeeth",
+  "Paths#append": [
+    "Prefabs/HorizontalPlatformEnds/HorizontalPlatformEnd1x1.IronTeeth",
+    "Prefabs/HorizontalPlatformEnds/HorizontalPlatformEnd2x1.IronTeeth",
+    "Prefabs/HorizontalPlatformEnds/HorizontalPlatformEnd3x1.IronTeeth",
+    "Prefabs/HorizontalPlatformEnds/HorizontalPlatformEnd4x1.IronTeeth",
+    "Prefabs/HorizontalPlatformMiddle/HorizontalPlatformMiddle1x1.IronTeeth",
+    "Prefabs/HorizontalPlatformMiddle/HorizontalPlatformMiddle1x2.IronTeeth",
+//    "Prefabs/ReinforcedLadder.IronTeeth",
+//    "Prefabs/ReinforcedPlatform.IronTeeth",
+//    "Prefabs/DoubleReinforcedPlatform.IronTeeth",
+//    "Prefabs/TripleReinforcedPlatform.IronTeeth"
+  ]
+}

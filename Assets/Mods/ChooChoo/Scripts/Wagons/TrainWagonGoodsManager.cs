@@ -48,19 +48,19 @@ namespace ChooChoo.Wagons
             ref int remainingToBeReservedAmount)
         {
             var toBeReservedGoodId = goodAmount.GoodId;
-            if (ShouldLog) Plugin.Log.LogInfo("Looking to reserve: " + remainingToBeReservedAmount + " " + toBeReservedGoodId);
+            if (ShouldLog) Debug.Log("Looking to reserve: " + remainingToBeReservedAmount + " " + toBeReservedGoodId);
 
             var carry = _chooChooCarryAmountCalculator.AmountToCarry(GoodCarrier.LiftingCapacity,
                 MaxTakeableAmount(sendingInventory, toBeReservedGoodId, remainingToBeReservedAmount));
-            if (ShouldLog) Plugin.Log.LogInfo("Carry Amount: " + carry.Amount);
+            if (ShouldLog) Debug.Log("Carry Amount: " + carry.Amount);
             if (carry.Amount <= 0)
                 return false;
 
             var maxAmountToCarry = _chooChooCarryAmountCalculator.MaxAmountToCarry(GoodCarrier.LiftingCapacity, toBeReservedGoodId);
-            if (ShouldLog) Plugin.Log.LogInfo("Max Amount able to carry: " + maxAmountToCarry);
+            if (ShouldLog) Debug.Log("Max Amount able to carry: " + maxAmountToCarry);
 
             var maxGiveableAmount = receivingInventory.UnreservedCapacity(toBeReservedGoodId);
-            if (ShouldLog) Plugin.Log.LogInfo("Max giveable amount: " + maxGiveableAmount);
+            if (ShouldLog) Debug.Log("Max giveable amount: " + maxGiveableAmount);
 
             if (maxGiveableAmount == 0)
                 return false;
@@ -74,21 +74,21 @@ namespace ChooChoo.Wagons
             {
                 // Currently not implemented as they are currently limited to using the same sending point. 
                 // Implementation requires being able to use different stations as sending. 
-                if (ShouldLog) Plugin.Log.LogError("Both Carrying AND already has Reserved Stock.");
+                if (ShouldLog) Debug.LogError("Both Carrying AND already has Reserved Stock.");
                 return false;
             }
 
             if (IsCarrying || HasReservedStock)
             {
-                if (ShouldLog) Plugin.Log.LogWarning("Is carrying OR has Reserved");
+                if (ShouldLog) Debug.LogWarning("Is carrying OR has Reserved");
                 var currentAmount = IsCarrying ? GoodCarrier.CarriedGoods.Amount : GoodReserver.StockReservation.GoodAmount.Amount;
                 // 30 = 50 - 20 which means that fillable amount is 30.
                 var fillableAmount = FillableAmount(maxAmountToCarry, currentAmount);
-                if (ShouldLog) Plugin.Log.LogInfo("Fillable amount: " + fillableAmount);
+                if (ShouldLog) Debug.Log("Fillable amount: " + fillableAmount);
                 // 30 > 0 which means that there the wagon can be topped up.
                 if (SameOriginAndDestinationAndGood(sendingInventory, receivingInventory, toBeReservedGoodId) && fillableAmount > 0)
                 {
-                    if (ShouldLog) Plugin.Log.LogInfo("Fillable");
+                    if (ShouldLog) Debug.Log("Fillable");
                     if (carry.Amount > fillableAmount)
                     {
                         // 60 > 30 which means that there is more to reserve than the amount that can be filled. It will try to top up the wagon and there will be a remainder that has to be reserved. 
@@ -104,11 +104,11 @@ namespace ChooChoo.Wagons
                     return true;
                 }
 
-                if (ShouldLog) Plugin.Log.LogInfo("Not fillable");
+                if (ShouldLog) Debug.Log("Not fillable");
                 return false;
             }
 
-            if (ShouldLog) Plugin.Log.LogWarning("Is Empty");
+            if (ShouldLog) Debug.LogWarning("Is Empty");
             // 60 > 50 
             if (remainingToBeReservedAmount > carry.Amount)
             {
@@ -166,19 +166,19 @@ namespace ChooChoo.Wagons
             else
                 capacityReservation.Inventory.Give(goodAmount);
             GoodCarrier.EmptyHands();
-            if (ShouldLog) Plugin.Log.LogInfo("Wagon delivering: " + capacityReservation.GoodAmount);
+            if (ShouldLog) Debug.Log("Wagon delivering: " + capacityReservation.GoodAmount);
         }
 
         private bool SameOriginAndDestinationAndGood(Inventory origin, Inventory destination, string goodId)
         {
-            // Plugin.Log.LogInfo("Same origin: " + (GoodReserver.CapacityReservation.Inventory == destination) + "Same destination: " + (GoodReserver.CapacityReservation.Inventory == destination) + " And goodId: " + (GoodReserver.CapacityReservation.GoodAmount.GoodId == goodId));
+            // Debug.Log("Same origin: " + (GoodReserver.CapacityReservation.Inventory == destination) + "Same destination: " + (GoodReserver.CapacityReservation.Inventory == destination) + " And goodId: " + (GoodReserver.CapacityReservation.GoodAmount.GoodId == goodId));
             return GoodReserver.StockReservation.Inventory == origin && GoodReserver.CapacityReservation.Inventory == destination &&
                    GoodReserver.CapacityReservation.GoodAmount.GoodId == goodId;
         }
 
         private int FillableAmount(int maxAmount, int currentAmount)
         {
-            // if (_shouldLog) Plugin.Log.LogInfo($"Calculate fillable amount (max amount - current amount): {maxAmount} - {currentAmount} = {maxAmount - currentAmount}");
+            // if (_shouldLog) Debug.Log($"Calculate fillable amount (max amount - current amount): {maxAmount} - {currentAmount} = {maxAmount - currentAmount}");
             return maxAmount - currentAmount;
         }
 
@@ -195,7 +195,7 @@ namespace ChooChoo.Wagons
             int goodAmount)
         {
             if (ShouldLog)
-                Plugin.Log.LogInfo("MaxTakeableAmount     UnreservedAmountInStock: " + inventory.UnreservedAmountInStock(goodId) + "   goodAmount: " +
+                Debug.Log("MaxTakeableAmount     UnreservedAmountInStock: " + inventory.UnreservedAmountInStock(goodId) + "   goodAmount: " +
                                    goodAmount);
 
             var amount = Mathf.Min(inventory.UnreservedAmountInStock(goodId), goodAmount);

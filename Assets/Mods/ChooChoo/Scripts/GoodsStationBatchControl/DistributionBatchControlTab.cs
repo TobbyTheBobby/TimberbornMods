@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ChooChoo.BuildingRegistrySystem;
 using ChooChoo.GoodsStations;
 using Timberborn.BatchControl;
 using Timberborn.CoreUI;

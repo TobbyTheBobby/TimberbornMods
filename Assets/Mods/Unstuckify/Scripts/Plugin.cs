@@ -1,20 +1,20 @@
+using System.Security.Permissions;
 using HarmonyLib;
-using TimberApi.ConsoleSystem;
-using TimberApi.ModSystem;
+using Timberborn.ModManagerScene;
+
+#pragma warning disable CS0618
+[assembly: SecurityPermission(action: SecurityAction.RequestMinimum, SkipVerification = true)]
+#pragma warning restore CS0618
 
 namespace Unstuckify
 {
-    public class Plugin : IModEntrypoint
+    public class Unstuckify : IModStarter 
     {
-        private const string PluginGuid = "tobbert.unstuckify";
+        public const string Id = "Tobbert.Unstuckify";
         
-        public static IConsoleWriter Log;
-        
-        public void Entry(IMod mod, IConsoleWriter consoleWriter)
+        public void StartMod()
         {
-            Log = consoleWriter; 
-            
-            new Harmony(PluginGuid).PatchAll();
+            new Harmony(Id).PatchAll();
         }
     }
 }

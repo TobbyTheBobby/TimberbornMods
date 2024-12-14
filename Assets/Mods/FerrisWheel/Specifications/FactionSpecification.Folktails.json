@@ -1,8 +1,0 @@
-{
-  "Buildings": [
-    "tobbert.ferriswheel/tobbert_ferriswheel/FerrisWheel.Folktails"
-  ],
-  "Needs": [
-    "FerrisWheel"
-  ]
-}

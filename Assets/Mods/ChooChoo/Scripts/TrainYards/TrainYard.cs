@@ -6,7 +6,6 @@ using Timberborn.BaseComponentSystem;
 using Timberborn.BlockSystem;
 using Timberborn.Characters;
 using Timberborn.Common;
-using Timberborn.ConstructibleSystem;
 using Timberborn.Coordinates;
 using Timberborn.EntitySystem;
 using Timberborn.GameFactionSystem;
@@ -24,10 +23,10 @@ namespace ChooChoo.TrainYards
         [SerializeField]
         private int _maxCapacity;
 
-        private IResourceAssetLoader _resourceAssetLoader;
         private TrainYardService _trainYardService;
         private IDayNightCycle _dayNightCycle;
         private EntityService _entityService;
+        private IAssetLoader _assetLoader;
         private ILoc _loc;
 
         public Inventory Inventory { get; private set; }
@@ -36,18 +35,18 @@ namespace ChooChoo.TrainYards
 
         [Inject]
         public void InjectDependencies(
-            ILoc loc,
-            EntityService entityService,
-            IResourceAssetLoader resourceAssetLoader,
-            FactionService factionService,
             TrainYardService trainYardService,
-            IDayNightCycle dayNightCycle)
+            FactionService factionService,
+            IDayNightCycle dayNightCycle,
+            EntityService entityService,
+            IAssetLoader assetLoader,
+            ILoc loc)
         {
-            _loc = loc;
-            _entityService = entityService;
-            _resourceAssetLoader = resourceAssetLoader;
             _trainYardService = trainYardService;
             _dayNightCycle = dayNightCycle;
+            _entityService = entityService;
+            _assetLoader = assetLoader;
+            _loc = loc;
         }
 
         public void Awake()
@@ -77,7 +76,7 @@ namespace ChooChoo.TrainYards
 
         public void InitializeTrain()
         {
-            var trainPrefab = _resourceAssetLoader.Load<GameObject>("tobbert.choochoo/tobbert_choochoo/Train").GetComponent<BaseComponent>();
+            var trainPrefab = _assetLoader.Load<GameObject>("Tobbert/Prefabs/Trains/Train").GetComponent<BaseComponent>();
 
             var train = _entityService.Instantiate(trainPrefab);
 

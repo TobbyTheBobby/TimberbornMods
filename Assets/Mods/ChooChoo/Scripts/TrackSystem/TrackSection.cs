@@ -20,36 +20,23 @@ namespace ChooChoo.TrackSystem
 
         public void Add(TrackPiece trackPiece)
         {
-            if (_trackPieces.Contains(trackPiece))
-                return;
-            _trackPieces.Add(trackPiece);
+            lock (_trackPieces)
+            {
+                _trackPieces.Add(trackPiece);
+            }
         }
 
         public void Merge(TrackSection trackSection)
         {
-            foreach (var trackPiece in trackSection._trackPieces)
+            lock (_trackPieces)
             {
-                trackPiece.TrackSection = this;
+                foreach (var trackPiece in trackSection._trackPieces)
+                {
+                    trackPiece.TrackSection = this;
+                }
+                
+                _trackPieces.AddRange(trackSection._trackPieces);
             }
-
-            _trackPieces.AddRange(trackSection._trackPieces);
-        }
-
-        public void Dissolve(TrackPiece trackPiece)
-        {
-            foreach (var track in _trackPieces)
-                track.ResetTrackPiece();
-            _trackPieces.Remove(trackPiece);
-            foreach (var track in _trackPieces)
-                track.LookForTrackSection();
-        }
-
-        public void Refresh()
-        {
-            foreach (var track in _trackPieces)
-                track.ResetTrackPiece();
-            foreach (var track in _trackPieces)
-                track.LookForTrackSection();
         }
 
         public void Enter()

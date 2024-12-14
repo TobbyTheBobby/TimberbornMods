@@ -1,21 +1,21 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Bindito.Core;
 using MorePaths.Core;
+using MorePaths.Settings;
 using Timberborn.BaseComponentSystem;
+using Timberborn.BlockObjectModelSystem;
 using Timberborn.BlockSystem;
-using Timberborn.Buildings;
-using Timberborn.PreviewSystem;
 using Timberborn.TerrainSystem;
 using UnityEngine;
 
-namespace MorePaths
+namespace MorePaths.CustomPaths
 {
     public class DynamicPathCorner : BaseComponent, IModelUpdater
     {
-        private PreviewBlockService _previewBlockService;
+        private MorePathsSettings _morePathsSettings;
         private ITerrainService _terrainService;
-        private MorePathsCore _morePathsCore;
         private BlockService _blockService;
         
         private GameObject _cornerDownLeft;
@@ -54,11 +54,21 @@ namespace MorePaths
         };
         
         [Inject]
-        public void InjectDependencies(PreviewBlockService previewBlockService, ITerrainService terrainService, MorePathsCore morePathsCore, BlockService blockService)
+        public void InjectDependencies(MorePathsSettings morePathsSettings, ITerrainService terrainService, BlockService blockService)
         {
-            _previewBlockService = previewBlockService;
+            _morePathsSettings = morePathsSettings;
             _terrainService = terrainService;
             _blockService = blockService;
+        }
+
+        public void Start()
+        {
+            if (_morePathsSettings.CornersEnabledSetting.Value) 
+                return;
+            _cornerDownLeft.SetActive(false);
+            _cornerUpLeft.SetActive(false);
+            _cornerUpRight.SetActive(false);
+            _cornerDownRight.SetActive(false);
         }
 
         public void CreatePathCorners(GameObject pathCorner)
@@ -92,6 +102,9 @@ namespace MorePaths
 
         public void UpdateModel()
         {
+            if (!_morePathsSettings.CornersEnabledSetting.Value)
+                return;
+            
             if (!isActiveAndEnabled)
                 return;
 
@@ -129,16 +142,10 @@ namespace MorePaths
 
         private DynamicPathCorner AnythingOnFloor(Vector3Int coords)
         {
-            var realObjectOnFloor = _blockService.GetFloorObjectComponentAt<DynamicPathCorner>(coords);
+            var realObjectOnFloor = _blockService.GetPathObjectComponentAt<DynamicPathCorner>(coords);
             if (realObjectOnFloor)
             {
                 return realObjectOnFloor;
-            }
-            
-            var previewObjectOnFloor = _previewBlockService.GetFloorObjectComponentAt<DynamicPathCorner>(coords);
-            if (previewObjectOnFloor)
-            {
-                return previewObjectOnFloor;
             }
 
             return null;

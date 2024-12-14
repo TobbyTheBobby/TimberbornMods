@@ -1,0 +1,11 @@
+{
+  "Id": "CategoryPaths",
+  "GroupId": "Paths",
+  "Order": 15,
+  "Icon": "Tobbert/CategorySprites/PathCategoryIcon",
+  "NameLocKey": "Tobbert.CategoryPaths.DisplayName",
+  "FallbackGroup": false,
+  "GroupInformation": {
+    "BottomBarSection": 1
+  }
+}

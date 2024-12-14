@@ -1,10 +1,9 @@
 using Bindito.Core;
-using TimberApi.SceneSystem;
-using TobbyTools.UsedImplicitlySystem;
 
 namespace ChooChoo.Settings
 {
-    [Configurator(SceneEntrypoint.MainMenu | SceneEntrypoint.InGame)]
+    [Context("MainMenu")]
+    [Context("Game")]
     public class ChooChooSettingsConfigurator : IConfigurator
     {
         public void Configure(IContainerDefinition containerDefinition)
@@ -12,7 +11,7 @@ namespace ChooChoo.Settings
             containerDefinition.Bind<TrainTypeSettingDropdownProvider>().AsSingleton();
             containerDefinition.Bind<WagonTypeSettingDropdownProvider>().AsSingleton();
             containerDefinition.Bind<ChooChooSettings>().AsSingleton();
-            containerDefinition.Bind<ChooChooSettingsUI>().AsSingleton();
+            // containerDefinition.Bind<ChooChooSettingsUI>().AsSingleton();
         }
     }
 }

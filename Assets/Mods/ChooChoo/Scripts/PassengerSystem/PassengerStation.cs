@@ -6,14 +6,12 @@ using ChooChoo.NavigationSystem;
 using Timberborn.BaseComponentSystem;
 using Timberborn.BlockSystem;
 using Timberborn.BlockSystemNavigation;
-using Timberborn.ConstructibleSystem;
 using Timberborn.Coordinates;
 using Timberborn.EntitySystem;
 using Timberborn.GameDistricts;
 using Timberborn.PrefabSystem;
 using Timberborn.SingletonSystem;
 using Timberborn.TimeSystem;
-using TobbyTools.InaccessibilityUtilitySystem;
 using UnityEngine;
 
 namespace ChooChoo.PassengerSystem
@@ -82,8 +80,7 @@ namespace ChooChoo.PassengerSystem
             GetComponentFast<TrainDestination>();
             _blockObject = GetComponentFast<BlockObject>();
             _prefab = GetComponentFast<Prefab>();
-            var navMeshEdgeSpecifications =
-                (BlockObjectNavMeshEdgeSpecification[])InaccessibilityUtilities.GetInaccessibleField(_blockObjectNavMeshSettings, "_addedEdges");
+            var navMeshEdgeSpecifications = _blockObjectNavMeshSettings._addedEdges;
             _cachedSpecifications = navMeshEdgeSpecifications.ToArray();
             enabled = false;
         }
@@ -180,7 +177,7 @@ namespace ChooChoo.PassengerSystem
 
             _blockObjectNavMesh.NavMeshObject?.RemoveFromNavMesh();
             _blockObjectNavMesh.NavMeshObject?.RemoveFromPreviewNavMesh();
-            InaccessibilityUtilities.SetInaccessibleField(_blockObjectNavMeshSettings, "_addedEdges", list.ToArray());
+            _blockObjectNavMeshSettings._addedEdges = list.ToArray();
             _blockObjectNavMesh.RecalculateNavMeshObject();
             _blockObjectNavMesh.NavMeshObject.AddToNavMesh();
         }
@@ -191,9 +188,9 @@ namespace ChooChoo.PassengerSystem
             bool isTwoWay)
         {
             var instance = new BlockObjectNavMeshEdgeSpecification();
-            InaccessibilityUtilities.SetInaccessibleField(instance, "_start", start);
-            InaccessibilityUtilities.SetInaccessibleField(instance, "_end", end);
-            InaccessibilityUtilities.SetInaccessibleField(instance, "_isTwoWay", isTwoWay);
+            instance._start = start;
+            instance._end = end;
+            instance._isTwoWay = isTwoWay;
             return instance;
         }
     }

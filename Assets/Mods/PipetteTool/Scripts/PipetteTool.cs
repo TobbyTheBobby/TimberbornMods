@@ -1,16 +1,15 @@
 using System;
 using System.Reflection;
-using TimberApi.DependencyContainerSystem;
-using TimberApi.ToolSystem;
 using Timberborn.BaseComponentSystem;
 using Timberborn.BlockObjectTools;
 using Timberborn.BlockSystem;
 using Timberborn.ConstructionMode;
-using Timberborn.Core;
 using Timberborn.CursorToolSystem;
 using Timberborn.Debugging;
 using Timberborn.InputSystem;
 using Timberborn.Localization;
+using Timberborn.MapStateSystem;
+using Timberborn.PlantingUI;
 using Timberborn.PrefabSystem;
 using Timberborn.SelectionSystem;
 using Timberborn.SingletonSystem;
@@ -26,7 +25,7 @@ namespace PipetteTool
 
     private static readonly string TitleLocKey = "Tobbert.PipetteTool.DisplayName";
     private static readonly string DescriptionLocKey = "Tobbert.PipetteTool.Description";
-    public static string CursorKey => "PipetteCursor";
+    public static string CursorKey => "PipetteToolCursor";
 
     private readonly EventBus _eventBus;
     private readonly ToolManager _toolManager;
@@ -38,7 +37,6 @@ namespace PipetteTool
     private readonly ILoc _loc;
     private readonly CursorTool _cursorTool;
     private readonly ToolButtonService _toolButtonService;
-    private ToolService _toolService;
     private ToolDescription _toolDescription;
 
     private bool _shouldPipetNextSelection;
@@ -68,7 +66,6 @@ namespace PipetteTool
 
     public void Load()
     {
-      _toolService = DependencyContainer.GetInstance<ToolService>();
       _inputService.AddInputProcessor((IPriorityInputProcessor)this);
       _eventBus.Register(this);
       _toolDescription = new ToolDescription.Builder(_loc.T(TitleLocKey)).AddSection(_loc.T(DescriptionLocKey)).Build();
@@ -84,12 +81,12 @@ namespace PipetteTool
     public override void Enter()
     {
       _shouldPipetNextSelection = true;
-      _cursorService.SetTemporaryCursor(CursorKey);
+      _cursorService.SetCursor(CursorKey);
     }
 
     public override void Exit()
     {
-      _cursorService.ResetTemporaryCursor();
+      _cursorService.ResetCursor();
       _shouldPipetNextSelection = false;
     }
 
@@ -126,7 +123,7 @@ namespace PipetteTool
         PostProcessInput();
         return false;
       }
-
+      
       if (_selectableObjectRaycaster.TryHitSelectableObject(out var hitObject))
       {
         OnSelectableObjectSelected(hitObject);
@@ -149,14 +146,15 @@ namespace PipetteTool
         return;
 
       var selectableObjectName = hitObject.GetComponentFast<Prefab>().PrefabName;
-
+      
       ToolButton toolButton;
       try
       {
-        toolButton = _toolService.GetToolButton(selectableObjectName);
+        toolButton = _toolButtonService.GetToolButton<Tool>(test => ValidTool(test, selectableObjectName));
       }
-      catch (Exception)
+      catch (Exception exception)
       {
+        // Debug.LogError(exception);
         return;
       }
 
@@ -167,6 +165,19 @@ namespace PipetteTool
         return;
 
       SwitchToSelectedBuildingTool(toolButton, hitObject);
+    }
+
+    private bool ValidTool(Tool tool, string selectableObjectName)
+    {
+      switch (tool)
+      {
+        case BlockObjectTool blockObjectTool:
+          return blockObjectTool.Prefab.GetComponentFast<Prefab>().PrefabName == selectableObjectName;
+        case PlantingTool plantingTool:
+          return plantingTool.Plantable.GetComponentFast<Prefab>().PrefabName == selectableObjectName;
+        default:
+          return false;
+      }
     }
 
      private void ChangeToolOrientation(Tool tool, BlockObject blockObject)

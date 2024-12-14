@@ -1,11 +1,13 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Bindito.Core;
+using ChooChoo.BuildingRegistrySystem;
 using ChooChoo.Extensions;
 using ChooChoo.GoodsStations;
 using ChooChoo.NavigationSystem;
+using ChooChoo.TrackSystem;
 using ChooChoo.Wagons;
 using Timberborn.BaseComponentSystem;
-using TobbyTools.BuildingRegistrySystem;
 using UnityEngine;
 
 namespace ChooChoo.DistributionSystem
@@ -16,16 +18,19 @@ namespace ChooChoo.DistributionSystem
 
         private BuildingRegistry<GoodsStation> _goodsStationsRegistry;
         private TrainDestinationService _trainDestinationService;
+        private TrainNavigationService _trainNavigationService;
 
         private TrainWagonsGoodsManager _trainWagonsGoodsManager;
 
         [Inject]
         public void InjectDependencies(
             BuildingRegistry<GoodsStation> goodsStationsRegistry,
-            TrainDestinationService trainDestinationService)
+            TrainDestinationService trainDestinationService,
+            TrainNavigationService trainNavigationService)
         {
             _goodsStationsRegistry = goodsStationsRegistry;
             _trainDestinationService = trainDestinationService;
+            _trainNavigationService = trainNavigationService;
         }
 
         public void Awake()
@@ -35,12 +40,20 @@ namespace ChooChoo.DistributionSystem
 
         public bool BringDistributableGoods()
         {
-            if (_shouldLog) Plugin.Log.LogInfo("Looking to move goods");
+            if (_shouldLog) Debug.Log("Looking to move goods");
+                
+            // var reachableGoodStation = _goodsStationsRegistry.Finished
+            //     .OrderByDescending(station => station.ReceivingInventory.UnreservedCapacity())
+            //     .FirstOrDefault(station =>
+            //         _trainDestinationService.DestinationReachableOneWay(TransformFast.position, station.GetComponentFast<TrainDestination>()) &&
+            //         station.enabled);
+            
             var reachableGoodStation = _goodsStationsRegistry.Finished
                 .OrderByDescending(station => station.ReceivingInventory.UnreservedCapacity())
                 .FirstOrDefault(station =>
-                    _trainDestinationService.DestinationReachableOneWay(TransformFast.position, station.GetComponentFast<TrainDestination>()) &&
+                    _trainNavigationService.FindTrackPath(TransformFast, station.GetComponentFast<TrainDestination>(), new List<TrackRoute>()) &&
                     station.enabled);
+            
             if (reachableGoodStation == null)
                 return false;
 
@@ -60,7 +73,7 @@ namespace ChooChoo.DistributionSystem
             {
                 // Plugin.Log.LogInfo("Sending: " + goodsStation.TransformFast.position + " Receiving: " + reachableGoodStation.TransformFast.position);
                 var goods = goodsStation.SendingInventory.Stock;
-                if (_shouldLog) Plugin.Log.LogInfo("Any items to send: " + goods.Any());
+                if (_shouldLog) Debug.Log("Any items to send: " + goods.Any());
                 foreach (var goodAmount in goods)
                 {
                     if (_trainWagonsGoodsManager.IsFullOrReserved)
@@ -71,11 +84,11 @@ namespace ChooChoo.DistributionSystem
 
             if (_trainWagonsGoodsManager.IsCarryingOrReserved)
             {
-                if (_shouldLog) Plugin.Log.LogInfo("Found goods to move");
+                if (_shouldLog) Debug.Log("Found goods to move");
                 return true;
             }
 
-            if (_shouldLog) Plugin.Log.LogWarning("CANNOT Export");
+            if (_shouldLog) Debug.LogWarning("CANNOT Export");
             return false;
         }
     }

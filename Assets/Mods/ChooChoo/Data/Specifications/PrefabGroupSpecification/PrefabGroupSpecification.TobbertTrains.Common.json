@@ -1,0 +1,7 @@
+{
+  "Id": "Common",
+  "Paths#append": [
+    "Tobbert/Prefabs/Trains/Train",
+    "Tobbert/Prefabs/Wagons/Wagon"
+  ]
+}

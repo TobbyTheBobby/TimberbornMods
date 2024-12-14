@@ -1,0 +1,11 @@
+{
+  "Name": "Ladder",
+  "Version": "2.1.2",
+  "Id": "Tobbert.Ladder",
+  "MinimumGameVersion": "0.6.0.0",
+  "Description": "It's a ladder",
+  "RequiredMods": [{
+    "Id": "Harmony",
+    "MinimumVersion": "2.3.3"
+  }]
+}

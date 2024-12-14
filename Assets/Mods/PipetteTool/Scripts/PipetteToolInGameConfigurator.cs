@@ -1,29 +1,65 @@
 using Bindito.Core;
-using TimberApi.ConfiguratorSystem;
-using TimberApi.SceneSystem;
-using TimberApi.ToolSystem;
+using TimberApi.Tools.ToolSystem;
 
 namespace PipetteTool
 {
-    [Configurator(SceneEntrypoint.InGame)]
+    [Context("Game")]
     public class PipetteToolInGameConfigurator : IConfigurator
     {
         public void Configure(IContainerDefinition containerDefinition)
         {
             containerDefinition.Bind<IPipetteTool>().To<PipetteToolInGame>().AsSingleton();
+            // containerDefinition.Bind<PipetteToolButton>().AsSingleton();
             containerDefinition.MultiBind<IToolFactory>().To<PipetteToolFactory>().AsSingleton();
             // containerDefinition.Bind<CustomSelectableObjectRaycaster>().AsSingleton();
+            // containerDefinition.MultiBind<BottomBarModule>().ToProvider<BottomBarModuleProvider>().AsSingleton();
         }
+
+        // public class BottomBarModuleProvider : IProvider<BottomBarModule>
+        // {
+        //     private readonly PipetteToolButton _pipetteToolButton;
+        //
+        //     public BottomBarModuleProvider(PipetteToolButton pipetteToolButton)
+        //     {
+        //         _pipetteToolButton = pipetteToolButton;
+        //     }
+        //
+        //     public BottomBarModule Get()
+        //     {
+        //         var builder = new BottomBarModule.Builder();
+        //         builder.AddLeftSectionElement(_pipetteToolButton, 1234);
+        //         return builder.Build();
+        //     }
+        // }
     }
-    
-    // [Configurator(SceneEntrypoint.MapEditor)]
-    // public class PipetteToolMapEditorConfigurator : IConfigurator
-    // {
-    //     public void Configure(IContainerDefinition containerDefinition)
-    //     {
-    //         containerDefinition.Bind<IPipetteTool>().To<PipetteTool>().AsSingleton();
-    //         containerDefinition.MultiBind<IToolFactory>().To<PipetteToolFactory>().AsSingleton();
-    //         containerDefinition.Bind<CustomSelectableObjectRaycaster>().AsSingleton();
-    //     }
-    // }
+
+    [Context("MapEditor")]
+    public class PipetteToolMapEditorConfigurator : IConfigurator
+    {
+        public void Configure(IContainerDefinition containerDefinition)
+        {
+            containerDefinition.Bind<IPipetteTool>().To<PipetteTool>().AsSingleton();
+            // containerDefinition.Bind<PipetteToolButton>().AsSingleton();
+            containerDefinition.MultiBind<IToolFactory>().To<PipetteToolFactory>().AsSingleton();
+            // containerDefinition.Bind<CustomSelectableObjectRaycaster>().AsSingleton();
+            // containerDefinition.MultiBind<BottomBarModule>().ToProvider<BottomBarModuleProvider>().AsSingleton();
+        }
+        
+        // public class BottomBarModuleProvider : IProvider<BottomBarModule>
+        // {
+        //     private readonly PipetteToolButton _pipetteToolButton;
+        //
+        //     public BottomBarModuleProvider(PipetteToolButton pipetteToolButton)
+        //     {
+        //         _pipetteToolButton = pipetteToolButton;
+        //     }
+        //
+        //     public BottomBarModule Get()
+        //     {
+        //         var builder = new BottomBarModule.Builder();
+        //         builder.AddLeftSectionElement(_pipetteToolButton, 215);
+        //         return builder.Build();
+        //     }
+        // }
+    }
 }

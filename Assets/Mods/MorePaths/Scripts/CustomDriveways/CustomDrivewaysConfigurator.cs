@@ -1,12 +1,10 @@
 using Bindito.Core;
-using TimberApi.SceneSystem;
 using Timberborn.PathSystem;
 using Timberborn.TemplateSystem;
-using TobbyTools.UsedImplicitlySystem;
 
 namespace MorePaths.CustomDriveways
 {
-    [Configurator(SceneEntrypoint.InGame)]
+    [Context("Game")]
     public class CustomDrivewaysConfigurator : IConfigurator
     {
         public void Configure(IContainerDefinition containerDefinition)

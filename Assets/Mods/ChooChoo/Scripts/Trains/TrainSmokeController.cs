@@ -5,7 +5,6 @@ using ChooChoo.Core;
 using Timberborn.BehaviorSystem;
 using Timberborn.TickSystem;
 using Timberborn.TimeSystem;
-using TobbyTools.InaccessibilityUtilitySystem;
 using UnityEngine;
 
 namespace ChooChoo.Trains
@@ -39,7 +38,7 @@ namespace ChooChoo.Trains
 
         private bool IsWaiting()
         {
-            return !(_dayNightCycle.PartialDayNumber > (float)InaccessibilityUtilities.GetInaccessibleField(_waitExecutor, "_finishTimestamp"));
+            return !(_dayNightCycle.PartialDayNumber > _waitExecutor._finishTimestamp);
         }
     }
 }

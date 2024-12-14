@@ -1,8 +1,0 @@
-{
-  "Buildings": [
-    "tobbert.verticalpowershaft/tobbert_verticalpowershaft/VerticalPowerShaft.WaterBeavers",
-    "tobbert.verticalpowershaft/tobbert_verticalpowershaft/VerticalToStraightPowerShaft.WaterBeavers",
-    "tobbert.verticalpowershaft/tobbert_verticalpowershaft/StraightToVerticalPowerShaft.WaterBeavers",
-    "tobbert.verticalpowershaft/tobbert_verticalpowershaft/UniversalPowerShaft.WaterBeavers"
-  ]
-}

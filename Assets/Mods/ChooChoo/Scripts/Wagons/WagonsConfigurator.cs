@@ -1,11 +1,9 @@
 ﻿using Bindito.Core;
-using TimberApi.SceneSystem;
 using Timberborn.TemplateSystem;
-using TobbyTools.UsedImplicitlySystem;
 
 namespace ChooChoo.Wagons
 {
-  [Configurator(SceneEntrypoint.InGame)]
+  [Context("Game")]
   public class WagonsConfigurator : IConfigurator
   {
     public void Configure(IContainerDefinition containerDefinition)

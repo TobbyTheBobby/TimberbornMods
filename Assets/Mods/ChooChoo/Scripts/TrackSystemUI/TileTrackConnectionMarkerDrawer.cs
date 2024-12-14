@@ -1,9 +1,9 @@
 ﻿using Bindito.Core;
 using ChooChoo.TrackSystem;
 using Timberborn.BaseComponentSystem;
+using Timberborn.BlockObjectModelSystem;
 using Timberborn.BlockSystem;
 using Timberborn.Coordinates;
-using Timberborn.Core;
 using Timberborn.CoreUI;
 using Timberborn.Rendering;
 using Timberborn.SelectionSystem;
@@ -19,7 +19,7 @@ namespace ChooChoo.TrackSystemUI
         private Colors _colors;
         private MeshDrawer _tileMeshDrawer;
         private MeshDrawer _entranceMarkerMeshDrawer;
-        private IBlockObjectModel _blockObjectModel;
+        private BlockObjectModelController _blockObjectModelController;
         private TrackPiece _trackPiece;
         private bool _isPreview;
         private TrackConnection[] _uniqueTrackConnections;
@@ -38,7 +38,7 @@ namespace ChooChoo.TrackSystemUI
 
         public void Start()
         {
-            _blockObjectModel = GetComponentFast<IBlockObjectModel>();
+            _blockObjectModelController = GetComponentFast<BlockObjectModelController>();
             _trackPiece = GetComponentFast<TrackPiece>();
             _tileMeshDrawer = _markerDrawerFactory.CreateTileDrawer();
             _entranceMarkerMeshDrawer = _markerDrawerFactory.CreateEntranceMarkerDrawer();
@@ -46,7 +46,7 @@ namespace ChooChoo.TrackSystemUI
 
         public void LateUpdate()
         {
-            if ((_blockObjectModel != null ? (_blockObjectModel.IsModelShown ? 1 : 0) : 1) == 0)
+            if ((_blockObjectModelController != null ? (_blockObjectModelController.IsAnyModelShown ? 1 : 0) : 1) == 0)
                 return;
 
             DrawTrackConnections();
@@ -80,7 +80,7 @@ namespace ChooChoo.TrackSystemUI
             {
                 var coordinates = trackConnection.Coordinates + trackConnection.Direction2D.ToOffset();
                 var rotation = Quaternion.AngleAxis(trackConnection.Direction2D.ToAngle(), Vector3.up);
-                var color = _isPreview ? _colors.PreviewLandTile : _colors.BuildingLandTile;
+                var color = _isPreview ? _colors.ToolActionTile : _colors.ToolActionTile;
                 _tileMeshDrawer.DrawAtCoordinates(coordinates, TileYOffset, color);
                 _entranceMarkerMeshDrawer.DrawAtCoordinates(coordinates, EntranceMarkerYOffset, rotation);
             }

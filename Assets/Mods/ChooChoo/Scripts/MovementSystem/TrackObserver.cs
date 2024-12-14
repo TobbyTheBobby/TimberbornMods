@@ -42,7 +42,7 @@ namespace ChooChoo.MovementSystem
         }
 
         [OnEvent]
-        public void OnTrackUpdate(OnTracksUpdatedEvent onTracksUpdatedEvent)
+        public void OnTrackUpdate(TracksRecalculatedEvent tracksRecalculatedEvent)
         {
             _tracksUpdated = true;
         }

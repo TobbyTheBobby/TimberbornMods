@@ -1,17 +1,15 @@
 ﻿using Bindito.Core;
+using ChooChoo.BuildingRegistrySystem;
 using ChooChoo.GoodsStationUI;
 using ChooChoo.NavigationSystem;
-using TimberApi.SceneSystem;
 using Timberborn.Emptying;
 using Timberborn.Hauling;
 using Timberborn.Persistence;
 using Timberborn.TemplateSystem;
-using TobbyTools.BuildingRegistrySystem;
-using TobbyTools.UsedImplicitlySystem;
 
 namespace ChooChoo.GoodsStations
 {
-    [Configurator(SceneEntrypoint.InGame)]
+    [Context("Game")]
     internal class GoodsStationConfigurator : IConfigurator
     {
         public void Configure(IContainerDefinition containerDefinition)

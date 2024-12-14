@@ -1,25 +1,25 @@
+using System.Security.Permissions;
 using HarmonyLib;
-using TimberApi.ConsoleSystem;
-using TimberApi.ModSystem;
+using Timberborn.ModManagerScene;
 
-namespace MorePaths
+#pragma warning disable CS0618
+[assembly: SecurityPermission(action: SecurityAction.RequestMinimum, SkipVerification = true)]
+#pragma warning restore CS0618
+
+namespace MorePaths.Core
 {
-    public class Plugin : IModEntrypoint
+    public class Plugin : IModStarter
     {
-        public const string PluginGuid = "tobbert.morepaths";
+        public const string PluginGuid = "Tobbert.MorePaths";
 
-        public static IMod Mod;
+        public static IModEnvironment ModEnvironment;
         
-        public static string Path => Mod.DirectoryPath;
+        public static string Path => ModEnvironment.ModPath;
         
-        public static IConsoleWriter Log;
-        
-        public void Entry(IMod mod, IConsoleWriter consoleWriter)
+        public void StartMod(IModEnvironment modEnvironment)
         {
-            Mod = mod;
+            ModEnvironment = modEnvironment;
             
-            Log = consoleWriter;
-
             new Harmony(PluginGuid).PatchAll();
         }
     }

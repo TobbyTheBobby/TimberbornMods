@@ -1,15 +1,15 @@
 ﻿using Bindito.Core;
-using TimberApi.SceneSystem;
 using Timberborn.EntityPanelSystem;
-using TobbyTools.UsedImplicitlySystem;
 
 namespace ChooChoo.TrainYardUI
 {
-    [Configurator(SceneEntrypoint.InGame)]
+    [Context("Game")]
     public class TrainYardUIConfigurator : IConfigurator
     {
         public void Configure(IContainerDefinition containerDefinition)
         {
+            containerDefinition.Bind<TrainYardFragmentPreset>().AsTransient();
+            
             containerDefinition.Bind<TrainYardFragment>().AsSingleton();
             containerDefinition.MultiBind<EntityPanelModule>().ToProvider<EntityPanelModuleProvider>().AsSingleton();
         }
@@ -17,7 +17,7 @@ namespace ChooChoo.TrainYardUI
         private class EntityPanelModuleProvider : IProvider<EntityPanelModule>
         {
             private readonly TrainYardFragment _trainYardFragment;
-
+            
             public EntityPanelModuleProvider(TrainYardFragment trainYardFragment)
             {
                 _trainYardFragment = trainYardFragment;

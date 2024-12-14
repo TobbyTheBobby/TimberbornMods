@@ -1,0 +1,17 @@
+{
+  "Name": "More Platforms",
+  "Version": "2.0.2",
+  "Id": "Tobbert.MorePlatforms",
+  "MinimumGameVersion": "0.6.0.0",
+  "Description": "",
+  "RequiredMods": [
+    {
+      "Id": "Harmony",
+      "MinimumVersion": "2.3.3"
+    },
+    {
+      "Id": "TimberApi",
+      "MinimumVersion": "0.7.0.1"
+    }
+  ]
+}

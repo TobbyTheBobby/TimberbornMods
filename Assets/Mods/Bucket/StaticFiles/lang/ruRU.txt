@@ -1,4 +1,0 @@
-ID,Text,Comment
-Tobbert.Bucket.DisplayName,Ведро,-
-Tobbert.Bucket.Description,"Ведро, в которое можно налить воду.",-
-Tobbert.Bucket.FlaverDescription,"«ВЕДРО ВЕДРО ВЕДРО ВЕДРО ВЕДРО ВЕДРО ВЕДРО ВЕДРО ВЕДРО ВЕДРО ВЕДРО ВЕДРО ВЕДРО ВЕДРО ВЕДРО» – Ведро",-

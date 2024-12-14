@@ -15,7 +15,7 @@ namespace ChooChoo.ModelSystem
         private readonly TrainModelSpecificationDeserializer _trainModelSpecificationDeserializer;
         private readonly WagonModelSpecificationDeserializer _wagonModelSpecificationDeserializer;
         private readonly ISpecificationService _specificationService;
-        private readonly IResourceAssetLoader _resourceAssetLoader;
+        private readonly IAssetLoader _assetLoader;
         private readonly FactionService _factionService;
 
         private TrainModelSpecification[] _trainModelSpecifications;
@@ -31,13 +31,13 @@ namespace ChooChoo.ModelSystem
             TrainModelSpecificationDeserializer trainModelSpecificationDeserializer,
             WagonModelSpecificationDeserializer wagonModelSpecificationDeserializer,
             ISpecificationService specificationService,
-            IResourceAssetLoader resourceAssetLoader,
+            IAssetLoader assetLoader,
             FactionService factionService)
         {
             _trainModelSpecificationDeserializer = trainModelSpecificationDeserializer;
             _wagonModelSpecificationDeserializer = wagonModelSpecificationDeserializer;
             _specificationService = specificationService;
-            _resourceAssetLoader = resourceAssetLoader;
+            _assetLoader = assetLoader;
             _factionService = factionService;
         }
 
@@ -49,9 +49,9 @@ namespace ChooChoo.ModelSystem
 
         private void InitializeTrainModels()
         {
-            var train = _resourceAssetLoader.Load<GameObject>("tobbert.choochoo/tobbert_choochoo/Train");
+            var train = _assetLoader.Load<GameObject>("Tobbert/Prefabs/Trains/Train");
 
-            var modelsContainer = train.gameObject.FindChild("#HeightOffset");
+            var modelsContainer = train.gameObject.FindChildTransform("#HeightOffset");
             foreach (Transform child in modelsContainer)
                 Object.Destroy(child.gameObject);
 
@@ -63,7 +63,7 @@ namespace ChooChoo.ModelSystem
                 if (_factionService.Current.Id != modelSpecification.Faction)
                     continue;
                 // Plugin.Log.LogInfo(modelSpecification.NameLocKey);
-                var model = _resourceAssetLoader.Load<GameObject>(modelSpecification.ModelLocation);
+                var model = _assetLoader.Load<GameObject>(modelSpecification.ModelLocation);
                 model.transform.SetParent(modelsContainer);
                 model.transform.localPosition = Vector3.zero;
                 activeTrainModels.Add(modelSpecification);
@@ -74,7 +74,7 @@ namespace ChooChoo.ModelSystem
 
         private void InitializeWagonModels()
         {
-            var train = _resourceAssetLoader.Load<GameObject>("tobbert.choochoo/tobbert_choochoo/Wagon");
+            var train = _assetLoader.Load<GameObject>("Tobbert/Prefabs/Wagons/Wagon");
 
             var modelsContainer = ChooChooCore.FindBodyPart(train.transform, "#HeightOffset");
             foreach (Transform child in modelsContainer)
@@ -88,7 +88,7 @@ namespace ChooChoo.ModelSystem
                 if (_factionService.Current.Id != modelSpecification.Faction)
                     continue;
                 // Plugin.Log.LogInfo(modelSpecification.NameLocKey);
-                var model = _resourceAssetLoader.Load<GameObject>(modelSpecification.ModelLocation);
+                var model = _assetLoader.Load<GameObject>(modelSpecification.ModelLocation);
                 model.transform.SetParent(modelsContainer);
                 model.transform.localPosition = Vector3.zero;
                 activeTrainModels.Add(modelSpecification);

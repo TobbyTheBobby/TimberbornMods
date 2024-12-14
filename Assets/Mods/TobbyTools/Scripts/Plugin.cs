@@ -1,41 +1,35 @@
-using System;
 using System.Collections.Generic;
-using TimberApi.ConsoleSystem;
-using TimberApi.ModSystem;
+using System.Security.Permissions;
+using Timberborn.ModManagerScene;
 using TobbyTools.NewGameModeValueSystem;
+
+#pragma warning disable CS0618
+[assembly: SecurityPermission(action: SecurityAction.RequestMinimum, SkipVerification = true)]
+#pragma warning restore CS0618
 
 namespace TobbyTools
 {
-    public class Plugin : IModEntrypoint
+    public class Plugin : IModStarter
     {
         public const string PluginGuid = "tobbert.tobbytools";
         
-        public static IConsoleWriter Log;
-
-        public static IMod Mod;
-        
-        public void Entry(IMod mod, IConsoleWriter consoleWriter)
+        public void StartMod()
         {
-            Log = consoleWriter;
-
-            Mod = mod;
-
             SubSystemEntryPoints();
         }
 
         private static void SubSystemEntryPoints()
         {
-            var subSystemEntryPoints = new List<Type>()
+            var subSystemEntryPoints = new List<ISubSystemEntryPoint>
             {
                 // typeof(CustomTutorialSystemEntryPoint),
-                typeof(NewGameModeValueSystemEntryPoint),
+                new NewGameModeValueSystemEntryPoint(),
                 // typeof(OverrideBaseClassSystemEntryPoint),
             };
 
             foreach (var subSystemEntryPoint in subSystemEntryPoints)
             {
-                var instance = (ISubSystemEntryPoint)Activator.CreateInstance(subSystemEntryPoint);
-                instance.Entry();
+                subSystemEntryPoint.Entry();
             }
         }
     }

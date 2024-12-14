@@ -30,7 +30,7 @@ namespace ChooChoo.TrainYards
 
         public override Decision Decide(BehaviorAgent agent)
         {
-            var currentTrainDestination = _blockService.GetFloorObjectComponentAt<TrainDestination>(TransformFast.position.ToBlockServicePosition());
+            var currentTrainDestination = _blockService.GetBottomObjectComponentAt<TrainDestination>(TransformFast.position.ToBlockServicePosition());
             if (currentTrainDestination == _trainYardSubject.HomeTrainYard)
             {
                 _waitExecutor.LaunchForSpecifiedTime(1);

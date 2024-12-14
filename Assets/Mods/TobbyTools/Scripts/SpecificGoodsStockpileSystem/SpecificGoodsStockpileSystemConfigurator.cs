@@ -1,19 +1,12 @@
-using System.Security.Permissions;
 using Bindito.Core;
-using TimberApi.SceneSystem;
 using Timberborn.Emptying;
 using Timberborn.EntityPanelSystem;
 using Timberborn.Hauling;
 using Timberborn.TemplateSystem;
-using TobbyTools.UsedImplicitlySystem;
-
-#pragma warning disable CS0618
-[assembly: SecurityPermission(action: SecurityAction.RequestMinimum, SkipVerification = true)]
-#pragma warning restore CS0618
 
 namespace TobbyTools.SpecificGoodsStockpileSystem
 {
-    [Configurator(SceneEntrypoint.InGame)]
+    [Context("Game")]
     internal class SpecificGoodsStockpileSystemConfigurator : IConfigurator
     {
         public void Configure(IContainerDefinition containerDefinition)

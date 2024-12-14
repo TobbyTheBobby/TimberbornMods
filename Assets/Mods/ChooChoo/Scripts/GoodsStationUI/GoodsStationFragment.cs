@@ -1,15 +1,14 @@
 ﻿using System.Collections.Immutable;
 using ChooChoo.GoodsStations;
 using ChooChoo.GoodsStationBatchControl;
+using TimberApi.UIBuilderSystem.CustomElements;
 using Timberborn.BaseComponentSystem;
 using Timberborn.BatchControl;
 using Timberborn.CoreUI;
 using Timberborn.EntityPanelSystem;
 using Timberborn.GameDistricts;
 using Timberborn.Localization;
-using TobbyTools.InaccessibilityUtilitySystem;
 using UnityEngine.UIElements;
-using LocalizableLabel = Timberborn.CoreUI.LocalizableLabel;
 
 namespace ChooChoo.GoodsStationUI
 {
@@ -45,10 +44,10 @@ namespace ChooChoo.GoodsStationUI
         public VisualElement InitializeFragment()
         {
             _root = _visualElementLoader.LoadVisualElement("Game/EntityPanel/DistrictCrossingFragment");
-            var header = _root.Q<LocalizableLabel>("Header");
+            var header = _root.Q<Timberborn.CoreUI.LocalizableLabel>("Header");
             header.text = _loc.T(HeaderLocKey);
             _root.ToggleDisplayStyle(false);
-            _root.Q<Button>("DistributionButton")
+            _root.Q<Timberborn.CoreUI.LocalizableButton>("DistributionButton")
                 .RegisterCallback(new EventCallback<ClickEvent>(OnDistributionButtonClicked));
             _importGoodIcons = _importGoodIconFactory.CreateImportGoods(_root.Q<VisualElement>("ImportGoodsWrapper")).ToImmutableArray();
             return _root;
@@ -99,8 +98,7 @@ namespace ChooChoo.GoodsStationUI
         private void OnDistributionButtonClicked(ClickEvent clickEvent)
         {
             _batchControlDistrict.SetDistrict(_goodStation.GetComponentFast<DistrictBuilding>().District);
-            InaccessibilityUtilities.InvokeInaccessibleMethod(_batchControlBox, "OpenTab",
-                new object[] { DistributionBatchControlTab.TabIndex - 1 });
+            _batchControlBox.OpenTab(DistributionBatchControlTab.TabIndex - 1);
         }
     }
 }

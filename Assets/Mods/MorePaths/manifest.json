@@ -1,0 +1,21 @@
+{
+  "Name": "More Paths",
+  "Version": "3.0.3",
+  "Id": "Tobbert.MorePaths",
+  "MinimumGameVersion": "0.6.0.0",
+  "Description": "",
+  "RequiredMods": [
+    {
+      "Id": "Harmony",
+      "MinimumVersion": "2.3.3"
+    },
+    {
+      "Id": "eMka.ModSettings",
+      "MinimumVersion": "0.6.3.0"
+    },
+    {
+      "Id": "TimberApi",
+      "MinimumVersion": "0.7.0.1"
+    }
+  ]
+}

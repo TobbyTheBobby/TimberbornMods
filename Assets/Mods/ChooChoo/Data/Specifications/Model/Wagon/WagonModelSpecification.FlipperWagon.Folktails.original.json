@@ -1,0 +1,8 @@
+{
+  "Faction": "Folktails",
+  "NameLocKey": "Tobbert.WagonModel.FlipperWagon",
+  "ModelLocation": "Tobbert/Prefabs/Wagons/FlipperWagon.Folktails",
+  "DependentModel": "Tobbert.WagonModel.WagonWheels",
+  "Length": 0.96
+} 
+

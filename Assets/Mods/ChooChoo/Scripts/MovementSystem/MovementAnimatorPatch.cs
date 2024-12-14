@@ -4,13 +4,13 @@ using System.Reflection;
 using ChooChoo.Trains;
 using ChooChoo.Wagons;
 using HarmonyLib;
+using JetBrains.Annotations;
 using Timberborn.CharacterMovementSystem;
-using TobbyTools.InaccessibilityUtilitySystem;
-using TobbyTools.UsedImplicitlySystem;
 
 namespace ChooChoo.MovementSystem
 {
-    [UsedImplicitlyHarmonyPatch]
+    [HarmonyPatch]
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class MovementAnimatorPatch
     {
         public static readonly Dictionary<AnimatedPathFollower, bool> IsATrainOrWagon = new();
@@ -30,7 +30,8 @@ namespace ChooChoo.MovementSystem
         }
     }
 
-    [UsedImplicitlyHarmonyPatch]
+    [HarmonyPatch]
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public class AnimatedPathFollowerPatch
     {
         private static MethodInfo TargetMethod()
@@ -48,13 +49,13 @@ namespace ChooChoo.MovementSystem
 
             if (Math.Abs(verticalDistanceBetweenCorners) > 0.005)
             {
-                InaccessibilityUtilities.SetInaccessibleProperty(__instance, "MovedUp", verticalDistanceBetweenCorners > 0.0);
-                InaccessibilityUtilities.SetInaccessibleProperty(__instance, "MovedDown", verticalDistanceBetweenCorners < 0.0);
+                __instance.MovedUp = verticalDistanceBetweenCorners > 0.0;
+                __instance.MovedDown = verticalDistanceBetweenCorners < 0.0;
             }
             else
             {
-                InaccessibilityUtilities.SetInaccessibleProperty(__instance, "MovedUp", false);
-                InaccessibilityUtilities.SetInaccessibleProperty(__instance, "MovedDown", false);
+                __instance.MovedUp = false;
+                __instance.MovedDown = false;
             }
 
             return false;

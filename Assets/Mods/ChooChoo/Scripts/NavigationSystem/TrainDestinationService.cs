@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using ChooChoo.Extensions;
 using ChooChoo.TrackSystem;
 using Timberborn.BlockSystem;
@@ -17,10 +19,14 @@ namespace ChooChoo.NavigationSystem
             _blockService = blockService;
         }
 
-        public List<TrainDestination> GetConnectedTrainDestinations(TrainDestination trainDestination)
+        public bool CanBeReachedTwoWay(TrainDestination trainDestination)
         {
-            _trainDestinationConnectedRepository.TrainDestinations.TryGetValue(trainDestination, out var connectedTrainDestinations);
-            return connectedTrainDestinations ?? new List<TrainDestination>();
+            if (_trainDestinationConnectedRepository.TrainDestinations.TryGetValue(trainDestination, out var connectedTrainDestinations))
+            {
+                return !(connectedTrainDestinations.Any() && _trainDestinationConnectedRepository.TrainDestinations.Any(trainDestinations => trainDestinations.Value.Contains(trainDestination)));
+            }
+
+            return false;
         }
 
         public bool TrainDestinationsConnectedBothWays(TrainDestination a, TrainDestination b)
@@ -38,58 +44,58 @@ namespace ChooChoo.NavigationSystem
             return trainDestinations.ContainsKey(origin) && trainDestinations[origin].Contains(end);
         }
 
-        public bool DestinationReachableOneWay(TrackPiece start, TrainDestination end)
-        {
-            if (start == null || end == null)
-                return false;
-            var checkedTrackPieces = new List<TrackPiece>();
-            var connectedDestination = FindTrainDestination(start, checkedTrackPieces);
-            return TrainDestinationsConnectedOneWay(connectedDestination, end);
-        }
+        // public bool DestinationReachableOneWay(TrackPiece start, TrainDestination end)
+        // {
+        //     if (start == null || end == null)
+        //         return false;
+        //     var checkedTrackPieces = new List<TrackPiece>();
+        //     var connectedDestination = FindTrainDestination(start, checkedTrackPieces);
+        //     return TrainDestinationsConnectedOneWay(connectedDestination, end);
+        // }
 
-        public bool DestinationReachable(Vector3 startPosition, TrainDestination end)
-        {
-            var startTrackPiece = _blockService.GetFloorObjectComponentAt<TrackPiece>(startPosition.ToBlockServicePosition());
-            if (startTrackPiece == null || end == null)
-                return false;
-            var checkedTrackPieces = new List<TrackPiece>();
-            var connectedDestination = FindTrainDestination(startTrackPiece, checkedTrackPieces);
-            return TrainDestinationsConnectedBothWays(connectedDestination, end);
-        }
+        // public bool DestinationReachable(Vector3 startPosition, TrainDestination end)
+        // {
+        //     var startTrackPiece = _blockService.GetBottomObjectComponentAt<TrackPiece>(startPosition.ToBlockServicePosition());
+        //     if (startTrackPiece == null || end == null)
+        //         return false;
+        //     var checkedTrackPieces = new List<TrackPiece>();
+        //     var connectedDestination = FindTrainDestination(startTrackPiece, checkedTrackPieces);
+        //     return TrainDestinationsConnectedBothWays(connectedDestination, end);
+        // }
 
-        public bool DestinationReachableOneWay(Vector3 startPosition, TrainDestination end)
-        {
-            var startTrackPiece = _blockService.GetFloorObjectComponentAt<TrackPiece>(startPosition.ToBlockServicePosition());
-            if (startTrackPiece == null || end == null)
-                return false;
-            var checkedTrackPieces = new List<TrackPiece>();
-            var connectedDestination = FindTrainDestination(startTrackPiece, checkedTrackPieces);
-            return TrainDestinationsConnectedOneWay(connectedDestination, end);
-        }
+        // public bool DestinationReachableOneWay(Vector3 startPosition, TrainDestination end)
+        // {
+        //     var startTrackPiece = _blockService.GetBottomObjectComponentAt<TrackPiece>(startPosition.ToBlockServicePosition());
+        //     if (startTrackPiece == null || end == null)
+        //         return false;
+        //     var checkedTrackPieces = new List<TrackPiece>();
+        //     var connectedDestination = FindTrainDestination(startTrackPiece, checkedTrackPieces);
+        //     return TrainDestinationsConnectedOneWay(connectedDestination, end);
+        // }
 
-        private TrainDestination FindTrainDestination(TrackPiece checkingTrackPiece, List<TrackPiece> checkedTrackPieces)
-        {
-            checkedTrackPieces.Add(checkingTrackPiece);
-
-            if (checkingTrackPiece.TryGetComponentFast(out TrainDestination trainDestination))
-                return trainDestination;
-
-            foreach (var trackConnection in checkingTrackPiece.TrackRoutes)
-            {
-                if (trackConnection.Exit.ConnectedTrackPiece == null)
-                    continue;
-
-                if (checkedTrackPieces.Contains(trackConnection.Exit.ConnectedTrackPiece))
-                    continue;
-
-                var destination = FindTrainDestination(trackConnection.Exit.ConnectedTrackPiece, checkedTrackPieces);
-
-                if (destination != null)
-                    return destination;
-            }
-
-            checkedTrackPieces.Remove(checkingTrackPiece);
-            return null;
-        }
+        // private TrainDestination FindTrainDestination(TrackPiece checkingTrackPiece, List<TrackPiece> checkedTrackPieces)
+        // {
+        //     checkedTrackPieces.Add(checkingTrackPiece);
+        //
+        //     if (checkingTrackPiece.TryGetComponentFast(out TrainDestination trainDestination))
+        //         return trainDestination;
+        //
+        //     foreach (var trackConnection in checkingTrackPiece.TrackRoutes)
+        //     {
+        //         if (trackConnection.Exit.ConnectedTrackPiece == null)
+        //             continue;
+        //
+        //         if (checkedTrackPieces.Contains(trackConnection.Exit.ConnectedTrackPiece))
+        //             continue;
+        //
+        //         var destination = FindTrainDestination(trackConnection.Exit.ConnectedTrackPiece, checkedTrackPieces);
+        //
+        //         if (destination != null)
+        //             return destination;
+        //     }
+        //
+        //     checkedTrackPieces.Remove(checkingTrackPiece);
+        //     return null;
+        // }
     }
 }

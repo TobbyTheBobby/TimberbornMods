@@ -13,9 +13,9 @@ namespace ChooChoo.TrainYards
             _trainDestinationService = trainDestinationService;
         }
 
-        public bool ConnectedToTrainYard(TrainDestination trainDestination)
-        {
-            return _trainDestinationService.TrainDestinationsConnectedBothWays(CurrentTrainYard, trainDestination);
-        }
+        // public bool ConnectedToTrainYard(TrainDestination trainDestination)
+        // {
+        //     return _trainDestinationService.TrainDestinationsConnectedBothWays(CurrentTrainYard, trainDestination);
+        // }
     }
 }

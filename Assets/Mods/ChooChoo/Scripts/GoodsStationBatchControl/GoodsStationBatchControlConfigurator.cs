@@ -1,11 +1,9 @@
 ﻿using Bindito.Core;
-using TimberApi.SceneSystem;
 using Timberborn.BatchControl;
-using TobbyTools.UsedImplicitlySystem;
 
 namespace ChooChoo.GoodsStationBatchControl
 {
-    [Configurator(SceneEntrypoint.InGame)]
+    [Context("Game")]
     public class GoodsStationBatchControlConfigurator : IConfigurator
     {
         public void Configure(IContainerDefinition containerDefinition)

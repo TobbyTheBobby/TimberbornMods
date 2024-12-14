@@ -1,19 +1,16 @@
 ﻿using Bindito.Core;
-using TimberApi.SceneSystem;
 using Timberborn.BehaviorSystem;
-using Timberborn.PrefabSystem;
 using Timberborn.TemplateSystem;
-using TobbyTools.UsedImplicitlySystem;
 
 namespace ChooChoo.Trains
 {
-  [Configurator(SceneEntrypoint.InGame)]
+  [Context("Game")]
   public class TrainsConfigurator : IConfigurator
   {
     public void Configure(IContainerDefinition containerDefinition)
     {
       containerDefinition.Bind<StaticWindService>().AsSingleton();
-      containerDefinition.MultiBind<IObjectCollection>().To<TrainObjectCollector>().AsSingleton();
+      // containerDefinition.MultiBind<IObjectCollection>().To<TrainObjectCollector>().AsSingleton();
       // containerDefinition.MultiBind<TemplateModule>().ToProvider<TemplateModuleProvider>().AsSingleton();
     }
 

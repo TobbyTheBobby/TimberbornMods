@@ -1,0 +1,11 @@
+{
+  "Name": "Example mod",
+  "Version": "0.0.0",
+  "Id": "Tobbert.ExampleMod",
+  "MinimumGameVersion": "0.6.0.0",
+  "Description": "Do not uploadr",
+  "RequiredMods": [{
+    "Id": "Harmony",
+    "MinimumVersion": "2.3.3"
+  }]
+}

@@ -17,17 +17,17 @@ namespace ChooChoo.GoodsStationBatchControl
         private static readonly string DistributionReceivingAllLocKey = "Tobbert.BatchControl.DistributionReceivingAll";
         private readonly ITooltipRegistrar _tooltipRegistrar;
         private readonly VisualElementLoader _visualElementLoader;
-        private readonly IResourceAssetLoader _resourceAssetLoader;
+        private readonly IAssetLoader _assetLoader;
 
         private Texture2D _sendingIcon;
         private Texture2D _receivingIcon;
 
         public DistrictDistributionControlRowItemFactory(ITooltipRegistrar tooltipRegistrar, VisualElementLoader visualElementLoader,
-            IResourceAssetLoader resourceAssetLoader)
+            IAssetLoader assetLoader)
         {
             _tooltipRegistrar = tooltipRegistrar;
             _visualElementLoader = visualElementLoader;
-            _resourceAssetLoader = resourceAssetLoader;
+            _assetLoader = assetLoader;
         }
 
         public IBatchControlRowItem Create(GoodsStationDistributionSettings goodsStationDistributionSettings)
@@ -59,8 +59,8 @@ namespace ChooChoo.GoodsStationBatchControl
 
         public void Load()
         {
-            _sendingIcon = _resourceAssetLoader.Load<Texture2D>("tobbert.choochoo/tobbert_choochoo/empty-icon");
-            _receivingIcon = _resourceAssetLoader.Load<Texture2D>("tobbert.choochoo/tobbert_choochoo/obtain-icon");
+            _sendingIcon = _assetLoader.Load<Texture2D>("Tobbert/Icons/BatchControl/empty-icon");
+            _receivingIcon = _assetLoader.Load<Texture2D>("Tobbert/Icons/BatchControl/obtain-icon");
         }
     }
 }

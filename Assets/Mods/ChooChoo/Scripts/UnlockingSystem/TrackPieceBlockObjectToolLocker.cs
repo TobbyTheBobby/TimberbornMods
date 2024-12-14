@@ -5,8 +5,8 @@ using ChooChoo.TrainYards;
 using Timberborn.BlockObjectTools;
 using Timberborn.Buildings;
 using Timberborn.CoreUI;
+using Timberborn.EntitySystem;
 using Timberborn.Localization;
-using Timberborn.PrefabSystem;
 using Timberborn.ScienceSystem;
 using Timberborn.ToolSystem;
 
@@ -93,7 +93,7 @@ namespace ChooChoo.UnlockingSystem
         private void ShowLockedMessage(BlockObjectTool blockObjectTool, Action failCallback)
         {
             var buildingNameLocKey = "Tobbert.TrainYard.DisplayName";
-            var displayNameLocKey = blockObjectTool.Prefab.GetComponentFast<LabeledPrefab>().DisplayNameLocKey;
+            var displayNameLocKey = blockObjectTool.Prefab.GetComponentFast<LabeledEntitySpec>().DisplayNameLocKey;
             var text = _loc.T(UnlockPromptLocKey, _loc.T(buildingNameLocKey), _loc.T(displayNameLocKey));
             _dialogBoxShower.Create().SetMessage(text).SetConfirmButton(failCallback).Show();
         }

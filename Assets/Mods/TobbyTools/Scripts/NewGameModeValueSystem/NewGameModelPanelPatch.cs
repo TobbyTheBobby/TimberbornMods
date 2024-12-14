@@ -1,8 +1,5 @@
-﻿using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 using HarmonyLib;
-using TimberApi.DependencyContainerSystem;
-using Timberborn.GameSceneLoading;
 using TobbyTools.UsedImplicitlySystem;
 
 namespace TobbyTools.NewGameModeValueSystem
@@ -23,8 +20,8 @@ namespace TobbyTools.NewGameModeValueSystem
             {
                 _firstTimeCalled = true;
                 // Plugin.Log.LogError("I was called");
-                var newGameModeValues = DependencyContainer.GetBoundInstances().OfType<INewGameModeValue>();
-                __instance = new ExtendedNewGameMode((NewGameMode)__instance, newGameModeValues);
+                // var newGameModeValues = DependencyContainer.GetBoundInstances().OfType<INewGameModeValue>();
+                // __instance = new ExtendedNewGameMode((NewGameMode)__instance, newGameModeValues);
             }
             else
             {

@@ -1,11 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Bindito.Core;
-using ChooChoo.NavigationSystem;
 using ChooChoo.WaitingSystem;
 using Timberborn.BaseComponentSystem;
 using Timberborn.BlockSystem;
-using Timberborn.ConstructibleSystem;
 using Timberborn.Coordinates;
 using Timberborn.SingletonSystem;
 using UnityEngine;
@@ -23,8 +21,7 @@ namespace ChooChoo.TrackSystem
 
         private BlockService _blockService;
         private TrackArrayProvider _trackArrayProvider;
-        private TrackRouteWeightCache _trackRouteWeightCache;
-        
+
         private BlockObject _blockObject;
         private BlockObjectCenter _blockObjectCenter;
 
@@ -41,25 +38,24 @@ namespace ChooChoo.TrackSystem
         public void InjectDependencies(
             BlockService blockService,
             EventBus eventBus,
-            TrackArrayProvider trackArrayProvider,
-            TrackRouteWeightCache trackRouteWeightCache)
+            TrackArrayProvider trackArrayProvider)
         {
             _blockService = blockService;
             EventBus = eventBus;
             _trackArrayProvider = trackArrayProvider;
-            _trackRouteWeightCache = trackRouteWeightCache;
         }
 
+        public TrackRoute[] SpecificationTrackRoutes => _trackArrayProvider.GetConnections(GameObjectFast.name);
+        
         public virtual TrackRoute[] TrackRoutes
         {
             get
             {
-                if (_trackRoutes != null && Application.isPlaying)
+                if (_trackRoutes != null)
                     return _trackRoutes;
-                var trackRoutes = _trackArrayProvider.GetConnections(GameObjectFast.name);
+                var trackRoutes = SpecificationTrackRoutes;
                 foreach (var trackRoute in trackRoutes)
                 {
-                    _trackRouteWeightCache.Add(trackRoute);
                     var position = _blockObjectCenter.WorldCenterGrounded;
                     trackRoute.RouteCorners = trackRoute.RouteCorners.Select(vector3 =>
                     {
@@ -83,13 +79,8 @@ namespace ChooChoo.TrackSystem
             {
                 if (_positionedTrackConnections != null)
                     return _positionedTrackConnections;
-                var entrances = TrackRoutes.Select(route => route.Entrance);
-                var exits = TrackRoutes.Select(route => route.Exit);
-                var trackConnections = entrances.Concat(exits);
-                var uniqueTrackConnections = trackConnections.GroupBy(connection => connection.Direction).SelectMany(directionGroup => directionGroup.GroupBy(connection => connection.Coordinates).Select(group => group.First())).ToArray();
-                // foreach (var trackConnection in uniqueTrackConnections)
                 //     Plugin.Log.LogInfo(trackConnection.Coordinates + "   " + trackConnection.Direction);
-                _positionedTrackConnections = uniqueTrackConnections.Select((trackConnection) =>
+                _positionedTrackConnections = UniqueTrackConnections.Select((trackConnection) =>
                 {
                     trackConnection.Coordinates = _blockObject.FlipMode.Transform(trackConnection.Coordinates, _blockObject.Blocks.Size.x);
                     return PositionedTrackConnection.From(trackConnection, _blockObject.Coordinates, _blockObject.Orientation);
@@ -98,6 +89,18 @@ namespace ChooChoo.TrackSystem
                 return _positionedTrackConnections;
             }
         }
+
+        public TrackConnection[] UniqueTrackConnections
+        {
+            get
+            {
+                var entrances = TrackRoutes.Select(route => route.Entrance);
+                var exits = TrackRoutes.Select(route => route.Exit);
+                var trackConnections = entrances.Concat(exits);
+                return trackConnections.GroupBy(connection => connection.Direction).SelectMany(directionGroup => directionGroup.GroupBy(connection => connection.Coordinates).Select(group => group.First())).ToArray();
+            }
+        }
+
 
         public void Awake()
         {
@@ -114,56 +117,24 @@ namespace ChooChoo.TrackSystem
 
         public void OnEnterFinishedState()
         {
+            // var stopwatch = Stopwatch.StartNew();
+            
             enabled = true;
-            LookForTrackSection();
-            RefreshConnectedTrackPieces();
             CenterCoordinates = GetComponentFast<BlockObjectCenter>().WorldCenterGrounded;
-            EventBus.Post(new OnTracksUpdatedEvent());
-
-            // foreach (var track in TrackSection.TrackPieces)
-            // {
-            //     if (track != null)
-            //     {
-            //         Plugin.Log.LogInfo(track.transform.position.ToString());
-            //     }
-            //     else
-            //     {
-            //         Plugin.Log.LogWarning("");
-            //     }
-            // }
-
-
-            // foreach (var trackRoute in TrackRoutes)
-            // {
-            //     if (trackRoute.Exit.ConnectedTrackRoutes == null)
-            //         continue;
-            //
-            //     Plugin.Log.LogWarning($"{trackRoute.Exit.Coordinates} {trackRoute.Exit.Direction}: {trackRoute.Exit.ConnectedTrackRoutes.Length}");
-            //
-            //     foreach (var trackRoute1 in trackRoute.Exit.ConnectedTrackRoutes)
-            //     {
-            //         if (trackRoute1.Exit.ConnectedTrackPiece != null)
-            //         {
-            //             Plugin.Log.LogInfo(trackRoute1.Exit.ConnectedTrackPiece.GetComponent<BlockObjectCenter>().WorldCenterGrounded + "");
-            //         }
-            //         else
-            //         {
-            //             Plugin.Log.LogInfo("");
-            //         }
-            //     }
-            // }
+            EventBus.Post(new TracksUpdatedEvent());
+            
+            // stopwatch.Stop();
+            // Debug.LogWarning("ElapsedTicks: " + stopwatch.ElapsedTicks + " (10.000 Ticks = 1ms)");
         }
 
         public void OnExitFinishedState()
         {
             enabled = false;
-            TrackSection.Dissolve(this);
-            EventBus.Post(new OnTracksUpdatedEvent());
+            EventBus.Post(new TracksUpdatedEvent());
         }
 
         public void ResetTrackPiece()
         {
-            _trackRouteWeightCache.Remove(TrackRoutes);
             TrackSection = new TrackSection(this);
             _trackRoutes = null;
             _positionedTrackConnections = null;
@@ -171,68 +142,25 @@ namespace ChooChoo.TrackSystem
 
         public void LookForTrackSection()
         {
-            if (!this)
-                return;
+            if (!this) return;
 
             foreach (var directionalTrackRoute in TrackRoutes)
             {
-                // Plugin.Log.LogWarning(directionalTrackRoute.Exit.Direction.ToString());
-                // _trackConnectionService.CanConnectInDirection(trackConnection.Coordinates, trackConnection.Direction);
-                // Plugin.Log.LogInfo("Offset " + trackConnection.Coordinates);
-                // Plugin.Log.LogInfo("Direciton offset " + trackConnection.Direction.ToOffset());
-                // Plugin.Log.LogInfo("Together " + (trackConnection.Coordinates - trackConnection.Direction.ToOffset()));
-                // Plugin.Log.LogInfo("Final" + _blockObject.Transform(trackConnection.Coordinates - trackConnection.Direction.ToOffset()));
-
-                if (!TrackConnectionCanConnect(directionalTrackRoute.Exit, out var trackPiece)) 
+                if (!TrackConnectionCanConnect(directionalTrackRoute.Exit, out var trackPiece))
                     continue;
                 var myTrackRouteEntrances = CheckAndGetEntrances(trackPiece).ToArray();
                 var myTrackRouteExits = CheckAndGetExits(trackPiece).ToArray();
-
-                // var connection = GetConnection(trackPiece, trackConnection.Direction);
                 var otherTrackRoutesEntrances = trackPiece.CheckAndGetEntrances(this).ToArray();
-                // Plugin.Log.LogInfo(obj.Coordinates.ToString());
-                // Plugin.Log.LogError(
-                //     "My Entrances: " + myTrackRouteEntrances.Length + 
-                //     " My Exits: " + myTrackRouteExits.Length + 
-                //     " Other Entrances: " + otherTrackRoutesEntrances.Length);
-                // if (myTrackRouteEntrances.Length < 1 || myTrackRouteExits.Length < 1 || otherTrackRoutesEntrances.Length < 1 || otherTrackRoutesExits.Length < 1)
-                // if ((myTrackRouteEntrances.Length < 1 && otherTrackRoutesExits.Length) < 1 || (otherTrackRoutesEntrances.Length < 1 && myTrackRouteExits.Length < 1))
-                //     continue;
-                if (myTrackRouteExits.Length < 1 || otherTrackRoutesEntrances.Length < 1)
-                {
-                    continue;
-                }
-
                 MakeConnection(trackPiece, myTrackRouteEntrances, myTrackRouteExits, otherTrackRoutesEntrances);
             }
 
             foreach (var directionalTrackRoute in TrackRoutes)
             {
-                // Plugin.Log.LogWarning(directionalTrackRoute.Exit.Direction.ToString());
-                // _trackConnectionService.CanConnectInDirection(trackConnection.Coordinates, trackConnection.Direction);
-                // Plugin.Log.LogInfo("Offset " + trackConnection.Coordinates);
-                // Plugin.Log.LogInfo("Direciton offset " + trackConnection.Direction.ToOffset());
-                // Plugin.Log.LogInfo("Together " + (trackConnection.Coordinates - trackConnection.Direction.ToOffset()));
-                // Plugin.Log.LogInfo("Final" + _blockObject.Transform(trackConnection.Coordinates - trackConnection.Direction.ToOffset()));
-            
-                if (!TrackConnectionCanConnect(directionalTrackRoute.Entrance, out var trackPiece)) 
+                if (!TrackConnectionCanConnect(directionalTrackRoute.Entrance, out var trackPiece))
                     continue;
                 var myTrackRouteEntrances = CheckAndGetEntrances(trackPiece).ToArray();
                 var myTrackRouteExits = CheckAndGetExits(trackPiece).ToArray();
-            
-                // var connection = GetConnection(trackPiece, trackConnection.Direction);
                 var otherTrackRoutesEntrances = trackPiece.CheckAndGetEntrances(this).ToArray();
-                // Plugin.Log.LogInfo(obj.Coordinates.ToString());
-                // Plugin.Log.LogWarning(
-                //     "My Entrances: " + myTrackRouteEntrances.Length + 
-                //     " My Exits: " + myTrackRouteExits.Length + 
-                //     " Other Entrances: " + otherTrackRoutesEntrances.Length);
-                // if (myTrackRouteEntrances.Length < 1 || myTrackRouteExits.Length < 1 || otherTrackRoutesEntrances.Length < 1 || otherTrackRoutesExits.Length < 1)
-                if (myTrackRouteEntrances.Length < 1 || otherTrackRoutesEntrances.Length < 1)
-                {
-                    continue;
-                }
-            
                 MakeConnection(trackPiece, myTrackRouteEntrances, myTrackRouteExits, otherTrackRoutesEntrances);
             }
         }
@@ -241,7 +169,7 @@ namespace ChooChoo.TrackSystem
         {
             foreach (var trackRoute in TrackRoutes)
             {
-                if (!TrackConnectionCanConnect(trackRoute.Entrance, out var trackPiece)) 
+                if (!TrackConnectionCanConnect(trackRoute.Entrance, out var trackPiece))
                     continue;
                 if (trackPiece == previousTrackPiece)
                     yield return trackRoute;
@@ -252,7 +180,7 @@ namespace ChooChoo.TrackSystem
         {
             foreach (var trackRoute in TrackRoutes)
             {
-                if (!TrackConnectionCanConnect(trackRoute.Exit, out var trackPiece)) 
+                if (!TrackConnectionCanConnect(trackRoute.Exit, out var trackPiece))
                     continue;
                 if (trackPiece == previousTrackPiece)
                     yield return trackRoute;
@@ -261,8 +189,6 @@ namespace ChooChoo.TrackSystem
 
         private void MakeConnection(TrackPiece trackPiece, TrackRoute[] myTrackRouteEntrances, TrackRoute[] myTrackRouteExits, TrackRoute[] otherTrackRoutesEntrances)
         {
-            // Plugin.Log.LogWarning("Connecting");
-
             foreach (var trackRoute in myTrackRouteExits)
             {
                 trackRoute.Exit.ConnectedTrackPiece = trackPiece;
@@ -299,26 +225,12 @@ namespace ChooChoo.TrackSystem
                 trackPiece.TrackSection.Merge(TrackSection);
         }
 
-        private void RefreshConnectedTrackPieces()
-        {
-            foreach (var trackConnection in TrackRoutes.SelectMany(route => new List<TrackConnection> { route.Entrance, route.Exit }))
-            {
-                if (TrackConnectionCanConnect(trackConnection, out var trackPiece))
-                {
-                    trackPiece.LookForTrackSection();
-                }
-            }
-        }
-
         private bool TrackConnectionCanConnect(TrackConnection trackConnection, out TrackPiece trackPiece)
         {
             trackPiece = null;
             // Plugin.Log.LogError(_blockObject.Transform(trackConnection.Coordinates - trackConnection.Direction.ToOffset()) + " Entrance");
-            var floorObjectAt = _blockService.GetFloorObjectAt(_blockObject.Transform(trackConnection.Coordinates - trackConnection.Direction.ToOffset()));
-            if (!floorObjectAt || !floorObjectAt.TryGetComponentFast(out TrackPiece potentialTrackPiece))
-                return false;
-            trackPiece = potentialTrackPiece;
-            return true;
+            trackPiece = _blockService.GetObjectsWithComponentAt<TrackPiece>(_blockObject.Transform(trackConnection.Coordinates - trackConnection.Direction.ToOffset())).FirstOrDefault();
+            return trackPiece;
         }
     }
 }

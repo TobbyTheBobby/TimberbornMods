@@ -1,0 +1,17 @@
+<Project>
+    <PropertyGroup>
+        <Nullable>disable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.2" PrivateAssets="all"/>
+
+        <!--        &lt;!&ndash; Publicize directly when referencing &ndash;&gt;-->
+        <!--        <Reference Include="C:\Users\jordy\SynologyDrive\Unity Projecten\TimberbornMods\Assets\Plugins\Timberborn" Publicize="true"/>-->
+        <!--        <ProjectReference Include="../TestProject/TestProject.csproj" Publicize="true" />-->
+        <!--        <PackageReference Include="TestProject" Publicize="true" />-->
+
+        <!--        &lt;!&ndash; Publicize by assembly name &ndash;&gt;-->
+        <!--        <Publicize Include="TestProject" />-->
+    </ItemGroup>
+</Project>

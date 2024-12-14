@@ -1,12 +1,10 @@
 ﻿using Bindito.Core;
-using TimberApi.SceneSystem;
 using Timberborn.TemplateSystem;
 using Timberborn.WalkingSystem;
-using TobbyTools.UsedImplicitlySystem;
 
 namespace ChooChoo.BeaverNavigationUtilities
 {
-    [Configurator(SceneEntrypoint.InGame)]
+    [Context("Game")]
     public class BeaverNavigationUtilitiesConfigurator : IConfigurator
     {
         public void Configure(IContainerDefinition containerDefinition)

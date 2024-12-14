@@ -1,20 +1,23 @@
 using System.Collections.Generic;
+using System.Linq;
+using ChooChoo.BuildingRegistrySystem;
 using ChooChoo.TrackSystem;
 using Timberborn.SingletonSystem;
-using TobbyTools.BuildingRegistrySystem;
+using UnityEngine;
 
 namespace ChooChoo.NavigationSystem
 {
     public class TrainDestinationConnectedRepository : IPostLoadableSingleton
     {
         private readonly BuildingRegistry<TrainDestination> _trainDestinationRegistry;
+        private readonly TrainNavigationService _trainNavigationService;
         private readonly EventBus _eventBus;
 
-        private readonly Dictionary<TrainDestination, List<TrainDestination>> _trainDestinationConnections = new();
+        private readonly Dictionary<TrainDestination, IEnumerable<TrainDestination>> _trainDestinationConnections = new();
 
         private bool _tracksUpdated = true;
 
-        public Dictionary<TrainDestination, List<TrainDestination>> TrainDestinations
+        public Dictionary<TrainDestination, IEnumerable<TrainDestination>> TrainDestinations
         {
             get
             {
@@ -26,20 +29,22 @@ namespace ChooChoo.NavigationSystem
 
         public TrainDestinationConnectedRepository(
             BuildingRegistry<TrainDestination> trainDestinationRegistry,
+            TrainNavigationService trainNavigationService,
             EventBus eventBus)
         {
             _trainDestinationRegistry = trainDestinationRegistry;
+            _trainNavigationService = trainNavigationService;
             _eventBus = eventBus;
         }
 
         public void PostLoad()
         {
             _eventBus.Register(this);
-            Update();
+            _tracksUpdated = true;
         }
 
         [OnEvent]
-        public void OnTrackUpdate(OnTracksUpdatedEvent onTracksUpdatedEvent)
+        public void OnTracksRecalculated(TracksRecalculatedEvent tracksRecalculatedEvent)
         {
             _tracksUpdated = true;
         }
@@ -56,38 +61,30 @@ namespace ChooChoo.NavigationSystem
             foreach (var checkingDestination in _trainDestinationRegistry.Finished)
             {
                 var trainDestinationsConnected = new List<TrainDestination>();
-                var checkedTrackPieces = new List<TrackPiece>();
-                CheckNextTrackPiece(checkingDestination.GetComponentFast<TrackPiece>(), checkedTrackPieces, trainDestinationsConnected);
-                _trainDestinationConnections.Add(checkingDestination, trainDestinationsConnected);
+                // var checkedTrackPieces = new List<TrackPiece>();   
+                foreach (var otherDestination in _trainDestinationRegistry.Finished)
+                {
+                    if (checkingDestination == otherDestination)
+                        continue;
+                    
+                    foreach (var trackConnection in checkingDestination.TrackPiece.TrackRoutes.Select(route => route.Exit))
+                    {
+                        if (_trainNavigationService.FindPath(trackConnection.Direction, checkingDestination.TrackPiece, otherDestination.TrackPiece, new List<TrackRoute>()))
+                        {
+                            trainDestinationsConnected.Add(otherDestination);
+                        }
+                    }
+                }
+                
+                // CheckNextTrackPiece(checkingDestination.GetComponentFast<TrackPiece>(), checkedTrackPieces, trainDestinationsConnected);
+                _trainDestinationConnections.Add(checkingDestination, trainDestinationsConnected.Distinct());
             }
-            // Plugin.Log.LogWarning(list.Count + "");
-            // foreach (var l in list)
+            
+            // Debug.LogWarning(_trainDestinationConnections.Count + "");
+            // foreach (var l in _trainDestinationConnections)
             // {
-            //     Plugin.Log.LogInfo(l.Count + "");
+            //     Debug.Log(l.Value.Count() + "");
             // }
-        }
-
-        private void CheckNextTrackPiece(
-            TrackPiece checkingTrackPiece,
-            List<TrackPiece> checkedTrackPieces,
-            List<TrainDestination> trainDestinationsConnected)
-        {
-            // Plugin.Log.LogError(checkingTrackPiece.CenterCoordinates + "");
-            checkedTrackPieces.Add(checkingTrackPiece);
-
-            if (checkingTrackPiece.TryGetComponentFast(out TrainDestination trainDestination))
-                trainDestinationsConnected.Add(trainDestination);
-
-            foreach (var trackRoute in checkingTrackPiece.TrackRoutes)
-            {
-                if (trackRoute.Exit.ConnectedTrackPiece == null)
-                    continue;
-
-                if (checkedTrackPieces.Contains(trackRoute.Exit.ConnectedTrackPiece))
-                    continue;
-
-                CheckNextTrackPiece(trackRoute.Exit.ConnectedTrackPiece, checkedTrackPieces, trainDestinationsConnected);
-            }
         }
     }
 }

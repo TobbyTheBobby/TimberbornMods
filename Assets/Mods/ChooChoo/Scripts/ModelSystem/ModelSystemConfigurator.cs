@@ -1,10 +1,8 @@
 ﻿using Bindito.Core;
-using TimberApi.SceneSystem;
-using TobbyTools.UsedImplicitlySystem;
 
 namespace ChooChoo.ModelSystem
 {
-    [Configurator(SceneEntrypoint.InGame)]
+    [Context("Game")]
     internal class ModelSystemInGameConfigurator : IConfigurator
     {
         public void Configure(IContainerDefinition containerDefinition)
@@ -13,7 +11,8 @@ namespace ChooChoo.ModelSystem
         }
     }
 
-    [Configurator(SceneEntrypoint.InGame | SceneEntrypoint.MainMenu)]
+    [Context("Game")]
+    [Context("MainMenu")]
     public class ModelSystemBothConfigurator : IConfigurator
     {
         public void Configure(IContainerDefinition containerDefinition)

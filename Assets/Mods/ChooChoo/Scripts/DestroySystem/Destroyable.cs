@@ -1,32 +1,35 @@
 using System.Collections.Generic;
 using System.Linq;
+using Bindito.Core;
 using ChooChoo.Trains;
 using ChooChoo.Wagons;
-using HarmonyLib;
 using Timberborn.BaseComponentSystem;
 using Timberborn.Carrying;
 using Timberborn.Characters;
 using Timberborn.Goods;
 using Timberborn.InventorySystem;
-using TobbyTools.InaccessibilityUtilitySystem;
+using Timberborn.RecoveredGoodSystem;
 using UnityEngine;
 
 namespace ChooChoo.DestroySystem
 {
     public class Destroyable : BaseComponent
     {
-        private object _recoveredGoodStackSpawner;
+        private RecoveredGoodStackSpawner _recoveredGoodStackSpawner;
         private GoodReserver _goodReserver;
         private Character _character;
         private Train _train;
 
-        private IEnumerable<GoodCarrier> GoodCarriers =>
-            GetComponentFast<WagonManager>().Wagons.Select(wagon => wagon.GetComponentFast<GoodCarrier>());
+        private IEnumerable<GoodCarrier> GoodCarriers => GetComponentFast<WagonManager>().Wagons.Select(wagon => wagon.GetComponentFast<GoodCarrier>());
 
+        [Inject]
+        public void InjectDependencies(RecoveredGoodStackSpawner recoveredGoodStackSpawner)
+        {
+            _recoveredGoodStackSpawner = recoveredGoodStackSpawner;
+        }
+        
         public void Awake()
         {
-            _recoveredGoodStackSpawner =
-                TimberApi.DependencyContainerSystem.DependencyContainer.GetInstance(AccessTools.TypeByName("RecoveredGoodStackSpawner"));
             _goodReserver = GetComponentFast<GoodReserver>();
             _character = GetComponentFast<Character>();
             _train = GetComponentFast<Train>();
@@ -35,13 +38,12 @@ namespace ChooChoo.DestroySystem
         public void Destroy()
         {
             _goodReserver.UnreserveStock();
-            InaccessibilityUtilities.SetInaccessibleProperty(_goodReserver, "CapacityReservation", new GoodReservation());
+            _goodReserver.CapacityReservation = new GoodReservation();
             GameObjectFast.SetActive(false);
             _character.DestroyCharacter();
             var position = TransformFast.position;
             var wrongPosition = new Vector3(position.x, position.z, position.y);
-            InaccessibilityUtilities.InvokeInaccessibleMethod(_recoveredGoodStackSpawner, "AddAwaitingGoods",
-                new object[] { Vector3Int.RoundToInt(wrongPosition), GetAllGoods() });
+            _recoveredGoodStackSpawner.AddAwaitingGoods(Vector3Int.RoundToInt(wrongPosition), GetAllGoods());
         }
 
         private List<GoodAmount> GetAllGoods()

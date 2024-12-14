@@ -1,10 +1,8 @@
 using Bindito.Core;
-using TimberApi.SceneSystem;
-using TobbyTools.UsedImplicitlySystem;
 
 namespace ChooChoo.Debugging
 {
-    [Configurator(SceneEntrypoint.InGame)]
+    [Context("Game")]
     public class DebuggingConfigurator : IConfigurator
     {
         public void Configure(IContainerDefinition containerDefinition)

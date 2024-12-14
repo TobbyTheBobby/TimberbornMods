@@ -1,0 +1,13 @@
+{
+  "Enabled": true,
+  "Name": "FrogPath",
+  "PathTexture": "sprites/paths/frogpath/frog1k",
+  "ToolGroup": "CategoryPaths",
+  "ToolOrder": 80,
+  "PathIcon": "sprites/paths/frogpath/frogpathicon",
+  "DisplayNameLocKey": "Tobbert.FrogPath.DisplayName",
+  "DescriptionLocKey": "Tobbert.FrogPath.Description",
+  "FlavorDescriptionLocKey": "Tobbert.FrogPath.FlavorDescription",
+
+  "NoiseTexScale": 0.5
+}

@@ -1,8 +1,0 @@
-{
-  "Buildings": [
-    "tobbert.verticalpowershaft/tobbert_verticalpowershaft/VerticalPowerShaft.IronTeeth",
-    "tobbert.verticalpowershaft/tobbert_verticalpowershaft/VerticalToStraightPowerShaft.IronTeeth",
-    "tobbert.verticalpowershaft/tobbert_verticalpowershaft/StraightToVerticalPowerShaft.IronTeeth",
-    "tobbert.verticalpowershaft/tobbert_verticalpowershaft/UniversalPowerShaft.IronTeeth"
-  ]
-}
