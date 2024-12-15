@@ -1,9 +1,6 @@
-using ChooChoo.TrainYards;
 using Timberborn.AssetSystem;
 using Timberborn.BaseComponentSystem;
-using Timberborn.BlockSystem;
 using Timberborn.Characters;
-using Timberborn.Coordinates;
 using Timberborn.EntitySystem;
 using Timberborn.Localization;
 using Timberborn.SingletonSystem;
@@ -14,7 +11,6 @@ namespace ChooChoo.Wagons
 {
     public class WagonInitializer : ILoadableSingleton
     {
-        private readonly TrainYardService _trainYardService;
         private readonly IDayNightCycle _dayNightCycle;
         private readonly EntityService _entityService;
         private readonly IAssetLoader _assetLoader;
@@ -23,13 +19,11 @@ namespace ChooChoo.Wagons
         private BaseComponent _trainWagonPrefab;
 
         private WagonInitializer(
-            TrainYardService trainYardService,
             IDayNightCycle dayNightCycle,
             EntityService entityService,
             IAssetLoader assetLoader,
             ILoc loc)
         {
-            _trainYardService = trainYardService;
             _dayNightCycle = dayNightCycle;
             _entityService = entityService;
             _assetLoader = assetLoader;
@@ -58,10 +52,10 @@ namespace ChooChoo.Wagons
 
         private void SetInitialWagonPosition(BaseComponent train, BaseComponent wagon, int cartNumber)
         {
-            wagon.TransformFast.rotation = _trainYardService.CurrentTrainYard.GetComponentFast<BlockObject>().Orientation.ToWorldSpaceRotation();
-            var transform1 = train.TransformFast;
-            var offset = transform1.rotation * new Vector3(0, 0f, -0.6f * cartNumber - 1);
-            var spawnLocation = transform1.position + offset;
+            var trainTransform = train.TransformFast;
+            wagon.TransformFast.rotation = trainTransform.rotation;
+            var offset = trainTransform.rotation * new Vector3(0, 0f, -0.6f * cartNumber - 1);
+            var spawnLocation = trainTransform.position + offset;
             // Plugin.Log.LogInfo("Spawning wagon " + cartNumber + " at: " + spawnLocation);
             wagon.TransformFast.position = spawnLocation;
         }

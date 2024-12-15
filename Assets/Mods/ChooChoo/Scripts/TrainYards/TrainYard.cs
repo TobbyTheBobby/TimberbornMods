@@ -29,6 +29,8 @@ namespace ChooChoo.TrainYards
         private IAssetLoader _assetLoader;
         private ILoc _loc;
 
+        private BlockObject _blockObject;
+        
         public Inventory Inventory { get; private set; }
 
         public int MaxCapacity => _maxCapacity;
@@ -51,6 +53,7 @@ namespace ChooChoo.TrainYards
 
         public void Awake()
         {
+            _blockObject = GetComponentFast<BlockObject>();
             enabled = false;
             if (!name.ToLower().Contains("preview"))
                 _trainYardService.CurrentTrainYard = GetComponentFast<TrainDestination>();
@@ -92,7 +95,7 @@ namespace ChooChoo.TrainYards
 
         private void SetInitialTrainLocation(BaseComponent train)
         {
-            train.TransformFast.rotation = GetComponentFast<BlockObject>().Orientation.ToWorldSpaceRotation();
+            train.TransformFast.rotation = _blockObject.Orientation.ToWorldSpaceRotation();
             var position = train.TransformFast.position;
             position += GetSpawnOffset();
             position += TransformFast.position;
@@ -101,7 +104,7 @@ namespace ChooChoo.TrainYards
 
         private Vector3 GetSpawnOffset()
         {
-            return GetComponentFast<BlockObject>().Orientation.TransformInWorldSpace(new Vector3(0.5f, 0f, 2.8f));
+            return _blockObject.FlipMode.Transform(_blockObject.Orientation.TransformInWorldSpace(new Vector3(0.5f, 0f, 2.8f)), 2);
         }
 
         private void SetTrainName(BaseComponent train)
