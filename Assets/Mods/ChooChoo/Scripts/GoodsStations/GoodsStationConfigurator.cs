@@ -1,11 +1,11 @@
 ﻿using Bindito.Core;
-using ChooChoo.BuildingRegistrySystem;
 using ChooChoo.GoodsStationUI;
 using ChooChoo.NavigationSystem;
 using Timberborn.Emptying;
 using Timberborn.Hauling;
 using Timberborn.Persistence;
 using Timberborn.TemplateSystem;
+using TobbyTools.BuildingRegistrySystem;
 
 namespace ChooChoo.GoodsStations
 {

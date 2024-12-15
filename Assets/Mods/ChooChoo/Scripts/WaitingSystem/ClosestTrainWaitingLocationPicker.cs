@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using ChooChoo.BuildingRegistrySystem;
 using ChooChoo.NavigationSystem;
 using ChooChoo.TrackSystem;
+using TobbyTools.BuildingRegistrySystem;
 using UnityEngine;
 
 namespace ChooChoo.WaitingSystem

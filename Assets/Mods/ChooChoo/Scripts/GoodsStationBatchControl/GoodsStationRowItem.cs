@@ -1,9 +1,6 @@
 ﻿using ChooChoo.GoodsStations;
-using ChooChoo.GoodsStationUI;
 using Timberborn.BatchControl;
 using Timberborn.EntityPanelSystem;
-using Timberborn.GameDistrictsUI;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ChooChoo.GoodsStationBatchControl
