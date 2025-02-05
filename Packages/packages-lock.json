@@ -9,7 +9,7 @@
         "com.unity.render-pipelines.universal": "17.0.3",
         "com.unity.services.analytics": "6.0.1"
       },
-      "hash": "45243ae47d54e93a6d8a05acccdd4c96986cedad"
+      "hash": "b00143bb6db002fa651e193ff596f188a63a3dae"
     },
     "com.unity.burst": {
       "version": "1.8.15",
