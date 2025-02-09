@@ -20,7 +20,7 @@ namespace PipetteTool
 {
   public class PipetteTool : Tool, IPriorityInputProcessor, IInputProcessor, ILoadableSingleton, IPipetteTool
   {
-    public static readonly string PipetteToolShortcutKey = "Tobbert.PipetteTool.KeyBinding.PipetteToolShortcut";
+    public static readonly string PipetteToolShortcutKey = "Tobbert.PipetteTool.KeyBinding.PipetteTool";
     public static readonly string PipetteStartKey = "MouseLeft";
 
     private static readonly string TitleLocKey = "Tobbert.PipetteTool.DisplayName";
@@ -145,12 +145,12 @@ namespace PipetteTool
       if (!_inputService.IsKeyHeld(PipetteToolShortcutKey) && !_shouldPipetNextSelection)
         return;
 
-      var selectableObjectName = hitObject.GetComponentFast<Prefab>().PrefabName;
+      var selectableObjectName = hitObject.GetComponentFast<PrefabSpec>().PrefabName;
       
       ToolButton toolButton;
       try
       {
-        toolButton = _toolButtonService.GetToolButton<Tool>(test => ValidTool(test, selectableObjectName));
+        toolButton = _toolButtonService.GetToolButton<Tool>(tool => ValidTool(tool, selectableObjectName));
       }
       catch (Exception exception)
       {
@@ -167,15 +167,16 @@ namespace PipetteTool
       SwitchToSelectedBuildingTool(toolButton, hitObject);
     }
 
-    private bool ValidTool(Tool tool, string selectableObjectName)
+    private static bool ValidTool(Tool tool, string selectableObjectName)
     {
       switch (tool)
       {
         case BlockObjectTool blockObjectTool:
-          return blockObjectTool.Prefab.GetComponentFast<Prefab>().PrefabName == selectableObjectName;
+          return blockObjectTool.Prefab.GetComponentFast<PrefabSpec>().PrefabName == selectableObjectName;
         case PlantingTool plantingTool:
-          return plantingTool.Plantable.GetComponentFast<Prefab>().PrefabName == selectableObjectName;
-        default:
+          return plantingTool.PlantableSpec.GetComponentFast<PrefabSpec>().PrefabName == selectableObjectName;
+        default 
+        :
           return false;
       }
     }

@@ -1,65 +1,65 @@
 using Bindito.Core;
-using TimberApi.Tools.ToolSystem;
+using Timberborn.BottomBarSystem;
 
 namespace PipetteTool
 {
     [Context("Game")]
-    public class PipetteToolInGameConfigurator : IConfigurator
+    public class PipetteToolInGameConfigurator : Configurator
     {
-        public void Configure(IContainerDefinition containerDefinition)
+        protected override void Configure()
         {
-            containerDefinition.Bind<IPipetteTool>().To<PipetteToolInGame>().AsSingleton();
-            // containerDefinition.Bind<PipetteToolButton>().AsSingleton();
-            containerDefinition.MultiBind<IToolFactory>().To<PipetteToolFactory>().AsSingleton();
-            // containerDefinition.Bind<CustomSelectableObjectRaycaster>().AsSingleton();
-            // containerDefinition.MultiBind<BottomBarModule>().ToProvider<BottomBarModuleProvider>().AsSingleton();
+            Bind<IPipetteTool>().To<PipetteToolInGame>().AsSingleton();
+            Bind<PipetteToolButton>().AsSingleton();
+            // MultiBind<IToolFactory>().To<PipetteToolFactory>().AsSingleton();
+            // Bind<CustomSelectableObjectRaycaster>().AsSingleton();
+            MultiBind<BottomBarModule>().ToProvider<BottomBarModuleProvider>().AsSingleton();
         }
 
-        // public class BottomBarModuleProvider : IProvider<BottomBarModule>
-        // {
-        //     private readonly PipetteToolButton _pipetteToolButton;
-        //
-        //     public BottomBarModuleProvider(PipetteToolButton pipetteToolButton)
-        //     {
-        //         _pipetteToolButton = pipetteToolButton;
-        //     }
-        //
-        //     public BottomBarModule Get()
-        //     {
-        //         var builder = new BottomBarModule.Builder();
-        //         builder.AddLeftSectionElement(_pipetteToolButton, 1234);
-        //         return builder.Build();
-        //     }
-        // }
+        public class BottomBarModuleProvider : IProvider<BottomBarModule>
+        {
+            private readonly PipetteToolButton _pipetteToolButton;
+        
+            public BottomBarModuleProvider(PipetteToolButton pipetteToolButton)
+            {
+                _pipetteToolButton = pipetteToolButton;
+            }
+        
+            public BottomBarModule Get()
+            {
+                var builder = new BottomBarModule.Builder();
+                builder.AddLeftSectionElement(_pipetteToolButton, 1234);
+                return builder.Build();
+            }
+        }
     }
 
     [Context("MapEditor")]
-    public class PipetteToolMapEditorConfigurator : IConfigurator
+    public class PipetteToolMapEditorConfigurator : Configurator
     {
-        public void Configure(IContainerDefinition containerDefinition)
+        protected override void Configure()
         {
-            containerDefinition.Bind<IPipetteTool>().To<PipetteTool>().AsSingleton();
-            // containerDefinition.Bind<PipetteToolButton>().AsSingleton();
-            containerDefinition.MultiBind<IToolFactory>().To<PipetteToolFactory>().AsSingleton();
-            // containerDefinition.Bind<CustomSelectableObjectRaycaster>().AsSingleton();
-            // containerDefinition.MultiBind<BottomBarModule>().ToProvider<BottomBarModuleProvider>().AsSingleton();
+            Bind<IPipetteTool>().To<PipetteTool>().AsSingleton();
+            Bind<PipetteToolButton>().AsSingleton();
+            // MultiBind<IToolFactory>().To<PipetteToolFactory>().AsSingleton();
+            // Bind<CustomSelectableObjectRaycaster>().AsSingleton();
+            MultiBind<BottomBarModule>().ToProvider<BottomBarModuleProvider>().AsSingleton();
         }
         
-        // public class BottomBarModuleProvider : IProvider<BottomBarModule>
-        // {
-        //     private readonly PipetteToolButton _pipetteToolButton;
-        //
-        //     public BottomBarModuleProvider(PipetteToolButton pipetteToolButton)
-        //     {
-        //         _pipetteToolButton = pipetteToolButton;
-        //     }
-        //
-        //     public BottomBarModule Get()
-        //     {
-        //         var builder = new BottomBarModule.Builder();
-        //         builder.AddLeftSectionElement(_pipetteToolButton, 215);
-        //         return builder.Build();
-        //     }
-        // }
+        public class BottomBarModuleProvider : IProvider<BottomBarModule>
+        {
+            private readonly PipetteToolButton _pipetteToolButton;
+        
+            public BottomBarModuleProvider(PipetteToolButton pipetteToolButton)
+            {
+                _pipetteToolButton = pipetteToolButton;
+            }
+        
+            public BottomBarModule Get()
+            {
+                var builder = new BottomBarModule.Builder();
+                builder.AddLeftSectionElement(_pipetteToolButton, 215);
+                return builder.Build();
+            }
+        }
     }
 }
