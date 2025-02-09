@@ -45,7 +45,6 @@ namespace Ladder
     {
         public static bool Prefix(ConstructionSiteAccessible __instance, ref int __result)
         {
-            // TODO: just check for ladder component
             if (__instance._blockObject.TryGetComponentFast(out Ladder _))
             {
                 __result = __instance._blockObject.CoordinatesAtBaseZ.z - __instance.MaxZ;
