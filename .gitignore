@@ -80,4 +80,5 @@ Assets/Other
 *.obj*
 *.mtl*
 *.meshy*
+*.timbermesh*
 *.mat*
