@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using Timberborn.BlockObjectTools;
 using Timberborn.BlockSystem;
+using Timberborn.EntitySystem;
+using Timberborn.GameFactionSystem;
 using Timberborn.PrefabSystem;
 using Timberborn.SingletonSystem;
 using UnityEngine;
@@ -11,55 +14,86 @@ namespace Ladder
     {
         public static LadderService Instance;
 
+        private readonly BlockObjectPlacerService _blockObjectPlacerService;
+        private readonly PrefabNameMapper _prefabNameMapper;
+        private readonly FactionService _factionService;
+        private readonly EntityService _entityService;
+        private readonly BlockService _blockService;
         private readonly EventBus _eventBus;
 
-        private readonly HashSet<Vector3Int> _verticalObjectsList = new ();
+        private readonly HashSet<Vector3Int> _verticalObjectsList = new();
+        private IBlockObjectPlacer _blockObjectPlacer;
+        private BlockObjectSpec _blockObjectSpec;
 
-        private LadderService(EventBus eventBus)
+        private LadderService(BlockObjectPlacerService blockObjectPlacerService, PrefabNameMapper prefabNameMapper, FactionService factionService, EntityService entityService, BlockService blockService, EventBus eventBus)
         {
             Instance = this;
+            _blockObjectPlacerService = blockObjectPlacerService;
+            _prefabNameMapper = prefabNameMapper;
+            _factionService = factionService;
+            _entityService = entityService;
+            _blockService = blockService;
             _eventBus = eventBus;
         }
 
         public void Load()
         {
-            _eventBus.Register( this);
+            var prefabSpec = _prefabNameMapper.GetPrefab(_prefabNameMapper.TryGetPrefabName($"Path.{_factionService.Current.Id}", out var prefabName) ? prefabName : "Path.Folktails");
+            _blockObjectSpec = prefabSpec.GetComponentFast<BlockObjectSpec>();
+            _blockObjectPlacer = _blockObjectPlacerService.GetMatchingPlacer(_blockObjectSpec);
+            _eventBus.Register(this);
         }
-        
-        public bool ChangeVertical(ref List<Vector3> pathCorners, int startIndex, int endIndex)
-        { 
-            var pathCorner1 = pathCorners[startIndex];
-            var pathCorner2 = pathCorners[endIndex];
 
-            if (!(Math.Abs(pathCorner1.y - pathCorner2.y) > 0.5))
-                return false;
+        public bool IsLadder(Vector3 nodePosition, Vector3 neighborNodePosition)
+        {
+            nodePosition += new Vector3(0, (nodePosition.y - neighborNodePosition.y) / 2, 0);
 
-            pathCorner1 += new Vector3(0, (pathCorner2.y - pathCorner1.y) / 2, 0);
-
-            return IsLadder(pathCorner1);
+            return IsLadder(nodePosition);
         }
 
         [OnEvent]
         public void OnBlockObjectSet(BlockObjectSetEvent blockObjectSetEvent)
         {
-            if (blockObjectSetEvent.BlockObject.GetComponentFast<Prefab>() == null)
+            if (blockObjectSetEvent.BlockObject.GetComponentFast<PrefabSpec>() == null)
                 return;
-            
-            if (blockObjectSetEvent.BlockObject.GetComponentFast<Prefab>().PrefabName.ToLower().Contains("ladder"))
+
+            if (blockObjectSetEvent.BlockObject.GetComponentFast<Ladder>())
             {
+                ReplacePathObject(blockObjectSetEvent.BlockObject);
+                
                 var coordinate = blockObjectSetEvent.BlockObject.Coordinates;
                 _verticalObjectsList.Add(coordinate);
             }
         }
-        
+
+        [OnEvent]
+        public void OnConstructibleEnteredFinishedState(EnteredFinishedStateEvent enteredFinishedStateEvent)
+        {
+            if (enteredFinishedStateEvent.BlockObject.GetComponentFast<Ladder>())
+            {
+                ReplacePathObject(enteredFinishedStateEvent.BlockObject);
+            }
+        }
+
         [OnEvent]
         public void OnBlockObjectUnset(BlockObjectUnsetEvent blockObjectUnsetEvent)
         {
             if (blockObjectUnsetEvent.BlockObject == null)
                 return;
-            
+
             var coordinate = blockObjectUnsetEvent.BlockObject.Coordinates;
             _verticalObjectsList.Remove(coordinate);
+        }
+
+        private void ReplacePathObject(BlockObject blockObject)
+        {
+            var pathObjectAt = _blockService.GetPathObjectAt(blockObject.Placement.Coordinates);
+            if (pathObjectAt != null)
+            {
+                _entityService.Delete(pathObjectAt);
+            }
+
+            _blockObjectPlacer.Place(_blockObjectSpec, blockObject.Placement);
         }
 
         private bool IsLadder(Vector3 coordinates)
@@ -70,7 +104,7 @@ namespace Ladder
                 y = Convert.ToInt32(Math.Floor(coordinates.z)),
                 z = Convert.ToInt32(Math.Floor(coordinates.y))
             };
-            
+
             return !_verticalObjectsList.Contains(checkCoordinates);
         }
     }

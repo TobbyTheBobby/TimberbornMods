@@ -1,10 +1,14 @@
-using System.Collections.Generic;
 using System.Reflection;
+using System.Security.Permissions;
 using HarmonyLib;
 using Timberborn.BuildingsNavigation;
 using Timberborn.ModManagerScene;
-using Timberborn.PrefabSystem;
+using Timberborn.PathSystem;
 using UnityEngine;
+
+#pragma warning disable CS0618
+[assembly: SecurityPermission(action: SecurityAction.RequestMinimum, SkipVerification = true)]
+#pragma warning restore CS0618
 
 namespace Ladder
 {
@@ -41,7 +45,8 @@ namespace Ladder
     {
         public static bool Prefix(ConstructionSiteAccessible __instance, ref int __result)
         {
-            if (__instance._blockObject.TryGetComponentFast(out Prefab prefab) && prefab.PrefabName == "Ladder")
+            // TODO: just check for ladder component
+            if (__instance._blockObject.TryGetComponentFast(out Ladder _))
             {
                 __result = __instance._blockObject.CoordinatesAtBaseZ.z - __instance.MaxZ;
                 return false;
@@ -56,12 +61,19 @@ namespace Ladder
     {
         public static MethodInfo TargetMethod()
         {
-            return AccessTools.Method(AccessTools.TypeByName("PathReconstructor"), "TiltVerticalEdge", new[] { typeof(List<Vector3>), typeof(int), typeof(int)});
+            return AccessTools.Method(typeof(StairsPathTransformer), "IsVerticalNeighbor", new[] { typeof(Vector3), typeof(Vector3)});
         }
         
-        public static bool Prefix(ref List<Vector3> pathCorners, int startIndex, int endIndex)
-        { 
-            return LadderService.Instance.ChangeVertical(ref pathCorners, startIndex, endIndex);
+        public static void Postfix(Vector3 nodePosition, Vector3 neighborNodePosition, ref bool __result)
+        {
+            if (LadderService.Instance.IsLadder(nodePosition, neighborNodePosition))
+            {
+                __result = false;
+            }
+            else
+            {
+                __result = true;
+            }
         }
     }
 }

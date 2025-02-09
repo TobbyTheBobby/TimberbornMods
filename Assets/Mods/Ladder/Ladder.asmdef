@@ -5,7 +5,7 @@
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": true,
-    "overrideReferences": true,
+    "overrideReferences": false,
     "precompiledReferences": [
         "Bindito.Core.dll",
         "0Harmony.dll",
