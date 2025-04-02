@@ -5,7 +5,7 @@ using Timberborn.BaseComponentSystem;
 using Timberborn.BlockObjectModelSystem;
 using Timberborn.BlockSystem;
 using Timberborn.PathSystem;
-using Timberborn.Persistence;
+using Timberborn.WorldPersistence;
 using UnityEngine;
 
 namespace Ladder
