@@ -1,4 +1,5 @@
 using Bindito.Core;
+using TimberApi.Tools.ToolSystem;
 using Timberborn.BottomBarSystem;
 
 namespace PipetteTool
@@ -10,7 +11,7 @@ namespace PipetteTool
         {
             Bind<IPipetteTool>().To<PipetteToolInGame>().AsSingleton();
             Bind<PipetteToolButton>().AsSingleton();
-            // MultiBind<IToolFactory>().To<PipetteToolFactory>().AsSingleton();
+            MultiBind<IToolFactory>().To<PipetteToolFactory>().AsSingleton();
             // Bind<CustomSelectableObjectRaycaster>().AsSingleton();
             MultiBind<BottomBarModule>().ToProvider<BottomBarModuleProvider>().AsSingleton();
         }
@@ -40,7 +41,7 @@ namespace PipetteTool
         {
             Bind<IPipetteTool>().To<PipetteTool>().AsSingleton();
             Bind<PipetteToolButton>().AsSingleton();
-            // MultiBind<IToolFactory>().To<PipetteToolFactory>().AsSingleton();
+            MultiBind<IToolFactory>().To<PipetteToolFactory>().AsSingleton();
             // Bind<CustomSelectableObjectRaycaster>().AsSingleton();
             MultiBind<BottomBarModule>().ToProvider<BottomBarModuleProvider>().AsSingleton();
         }

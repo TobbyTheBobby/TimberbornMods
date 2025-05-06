@@ -1,13 +1,13 @@
 {
   "Name": "Pipette Tool",
-  "Version": "2.0.5",
+  "Version": "2.0.6",
   "Id": "tobbert.pipettetool",
   "MinimumGameVersion": "0.7.0.0",
   "Description": "The current upload is unauthorized by the original author. Distribution, reproduction, or use of this material is prohibited without permission from the author, who retains all rights to the content. Please contact the author directly to obtain the necessary authorization for access or distribution.",
   "RequiredMods": [
-//    {
-//      "Id": "TimberApi",
-//      "MinimumVersion": "0.7.0.1"
-//    }
+    {
+      "Id": "TimberApi",
+      "MinimumVersion": "0.7.0.1"
+    }
   ]
 }

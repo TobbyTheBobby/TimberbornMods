@@ -4,9 +4,12 @@
     "GroupId": "PipetteTool",
     "LocKey": "Tobbert.PipetteTool.KeyBinding.PipetteTool",
     "Order": 10,
-    "PrimaryInputBindingSpec": {
-      "Path": "/Keyboard/leftCtrl"
-    },
-    "AllowOtherModifiers": true
+    "AllowOtherModifiers": true,
+    "DevModeOnly": false
+  },
+  "PrimaryInputBindingSpec": {
+    "Path": "/Keyboard/leftCtrl",
+    "InputModifiers": "None",
+    "Unchangeable": false
   }
 }

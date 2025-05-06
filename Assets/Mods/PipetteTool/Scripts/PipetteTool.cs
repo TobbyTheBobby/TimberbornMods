@@ -25,7 +25,7 @@ namespace PipetteTool
 
     private static readonly string TitleLocKey = "Tobbert.PipetteTool.DisplayName";
     private static readonly string DescriptionLocKey = "Tobbert.PipetteTool.Description";
-    public static string CursorKey => "PipetteToolCursor";
+    private static string CursorKey => "PipetteToolCursor";
 
     private readonly EventBus _eventBus;
     private readonly ToolManager _toolManager;
@@ -81,7 +81,7 @@ namespace PipetteTool
     public override void Enter()
     {
       _shouldPipetNextSelection = true;
-      _cursorService.SetCursor(CursorKey);
+      _cursorService.SetTemporaryCursor(CursorKey);
     }
 
     public override void Exit()

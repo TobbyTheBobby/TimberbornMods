@@ -1,14 +1,14 @@
 {
-  "Id": "PipetteTool",
-  "Type": "PipetteTool",
-  "Layout": "blue",
-  "Order": 81,
-  "Icon": "Tobbert/PipetteToolIcon",
-  "NameLocKey": "Tobbert.PipetteTool.DisplayName",
-  "DescriptionLocKey": "Tobbert.PipetteTool.Description",
-  "DevMode": false,
-  "Hidden": false,
-  "ToolInformation": {
-    "BottomBarSection": 0
+  "ToolSpec": {
+    "Id": "PipetteTool",
+    "Type": "PipetteTool",
+    "Layout": "Blue",
+    "Order": 81,
+    "Icon": "Tobbert/PipetteToolIcon",
+    "NameLocKey": "Tobbert.PipetteTool.DisplayName",
+    "DescriptionLocKey": "Tobbert.PipetteTool.Description"
+  },
+  "BottomBarSpec": {
+    "Section": 0
   }
 }

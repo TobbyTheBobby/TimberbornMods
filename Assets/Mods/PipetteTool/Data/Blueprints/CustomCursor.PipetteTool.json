@@ -1,17 +1,17 @@
 {
   "CustomCursorSpec": {
     "Id": "PipetteToolCursor",
-    "SmallCursor": "Tobbert/PipetteToolCursorLarge",
-    "LargeCursor": "Tobbert/PipetteToolCursorLarge",
+    "WindowsCursor": "Tobbert/PipetteToolCursorLarge",
+    "MacOsCursor": "Tobbert/PipetteToolCursorLarge",
     "Hotspot": {
       "X": 0,
       "Y": 0
     },
-    "SmallCursorOffset": {
+    "WindowsCursorOffset": {
       "X": 10.0,
       "Y": 30.0
     },
-    "LargeCursorOffset": {
+    "MacOsCursorOffset": {
       "X": 10.0,
       "Y": 30.0
     }
