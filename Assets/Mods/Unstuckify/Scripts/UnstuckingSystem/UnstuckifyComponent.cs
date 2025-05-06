@@ -9,9 +9,9 @@ namespace Unstuckify.UnstuckingSystem
     {
         private UnstuckifySettingsOwner _unstuckifySettingsOwner;
         private UnstuckifyService _unstuckifyService;
-        
+
         private Citizen _citizen;
-        
+
         [Inject]
         public void InjectDependencies(UnstuckifySettingsOwner unstuckifySettingsOwner, UnstuckifyService unstuckifyService)
         {

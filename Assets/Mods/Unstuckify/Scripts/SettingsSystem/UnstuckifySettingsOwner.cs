@@ -8,13 +8,15 @@ namespace Unstuckify.SettingsSystem
     {
         private const string LabelLocKey = "Tobbert.Unstuckify.Setting.Label";
 
-        public ModSetting<bool> UnstuckifyEnabledSetting { get; } = new(LabelLocKey, true);
+        public ModSetting<bool> UnstuckifyEnabledSetting { get; } = new(true, ModSettingDescriptor.CreateLocalized(LabelLocKey));
 
         public UnstuckifySettingsOwner(ISettings settings, ModSettingsOwnerRegistry modSettingsOwnerRegistry, ModRepository modRepository) : base(settings, modSettingsOwnerRegistry, modRepository)
         {
         }
 
         public override string HeaderLocKey => "Tobbert.Unstuckify.Setting.Header";
+        
+        public override ModSettingsContext ChangeableOn => ModSettingsContext.MainMenu | ModSettingsContext.Game;
 
         protected override string ModId => Unstuckify.Id;
     }

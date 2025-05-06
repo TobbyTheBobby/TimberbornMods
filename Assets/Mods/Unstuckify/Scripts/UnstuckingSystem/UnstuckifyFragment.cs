@@ -7,52 +7,52 @@ using UnityEngine.UIElements;
 using Unstuckify.UIPresets;
 using Object = UnityEngine.Object;
 
-namespace Unstuckify
+namespace Unstuckify.UnstuckingSystem
 {
-  internal class UnstuckifyFragment : IEntityPanelFragment
-  {
-    private readonly UnstuckifyService _unstuckifyService;
-    private readonly UIBuilder _uiBuilder;
-    private Citizen _citizen;
-    private VisualElement _root;
-    private Button _button;
-
-    public UnstuckifyFragment(UnstuckifyService unstuckifyService, UIBuilder uiBuilder)
+    internal class UnstuckifyFragment : IEntityPanelFragment
     {
-      _unstuckifyService = unstuckifyService;
-      _uiBuilder = uiBuilder;
-    }
+        private readonly UnstuckifyService _unstuckifyService;
+        private readonly UIBuilder _uiBuilder;
+        private Citizen _citizen;
+        private VisualElement _root;
+        private Button _button;
 
-    public VisualElement InitializeFragment()
-    {
-      _root = _uiBuilder.Create<UnstuckifyPanel>().BuildAndInitialize();
-      _root.Q<Button>("button").clicked += OnClick;
-      _root.ToggleDisplayStyle(false);
-      return _root;
-    }
+        public UnstuckifyFragment(UnstuckifyService unstuckifyService, UIBuilder uiBuilder)
+        {
+            _unstuckifyService = unstuckifyService;
+            _uiBuilder = uiBuilder;
+        }
 
-    public void ShowFragment(BaseComponent entity)
-    {
-      _citizen = entity.GetComponentFast<Citizen>();
-    }
+        public VisualElement InitializeFragment()
+        {
+            _root = _uiBuilder.Create<UnstuckifyPanel>().BuildAndInitialize();
+            _root.Q<Button>("button").clicked += OnClick;
+            _root.ToggleDisplayStyle(false);
+            return _root;
+        }
 
-    public void ClearFragment()
-    {
-      _root.ToggleDisplayStyle(false);
-    }
+        public void ShowFragment(BaseComponent entity)
+        {
+            _citizen = entity.GetComponentFast<Citizen>();
+        }
 
-    public void UpdateFragment()
-    {
-      if (!(bool)(Object)_citizen) 
-        return;
-      _root.ToggleDisplayStyle(!_citizen.HasAssignedDistrict);
-    }
+        public void ClearFragment()
+        {
+            _root.ToggleDisplayStyle(false);
+        }
 
-    private void OnClick()
-    {
-      if (!(bool)(Object)_citizen) 
-        return;
-      _unstuckifyService.Unstuckify(_citizen);
+        public void UpdateFragment()
+        {
+            if (!(bool)(Object)_citizen)
+                return;
+            _root.ToggleDisplayStyle(!_citizen.HasAssignedDistrict);
+        }
+
+        private void OnClick()
+        {
+            if (!(bool)(Object)_citizen)
+                return;
+            _unstuckifyService.Unstuckify(_citizen);
+        }
     }
-  }
 }

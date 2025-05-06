@@ -3,44 +3,43 @@ using Timberborn.Beavers;
 using Timberborn.Bots;
 using Timberborn.EntityPanelSystem;
 using Timberborn.TemplateSystem;
-using Unstuckify.UnstuckingSystem;
 
-namespace Unstuckify
+namespace Unstuckify.UnstuckingSystem
 {
-  [Context("Game")]
-  public class UnstuckifyConfigurator : IConfigurator
-  {
-    public void Configure(IContainerDefinition containerDefinition)
+    [Context("Game")]
+    public class UnstuckifyConfigurator : IConfigurator
     {
-      containerDefinition.Bind<UnstuckifyService>().AsSingleton();
-      containerDefinition.Bind<UnstuckifyFragment>().AsSingleton();
-      containerDefinition.MultiBind<TemplateModule>().ToProvider(ProvideTemplateModule).AsSingleton();
-      containerDefinition.MultiBind<EntityPanelModule>().ToProvider<EntityPanelModuleProvider>().AsSingleton();
-    }
-    
-    private static TemplateModule ProvideTemplateModule()
-    {
-      TemplateModule.Builder builder = new TemplateModule.Builder();
-      builder.AddDecorator<Beaver, UnstuckifyComponent>();
-      builder.AddDecorator<Bot, UnstuckifyComponent>();
-      return builder.Build();
-    }
+        public void Configure(IContainerDefinition containerDefinition)
+        {
+            containerDefinition.Bind<UnstuckifyService>().AsSingleton();
+            containerDefinition.Bind<UnstuckifyFragment>().AsSingleton();
+            containerDefinition.MultiBind<TemplateModule>().ToProvider(ProvideTemplateModule).AsSingleton();
+            containerDefinition.MultiBind<EntityPanelModule>().ToProvider<EntityPanelModuleProvider>().AsSingleton();
+        }
 
-    private class EntityPanelModuleProvider : IProvider<EntityPanelModule>
-    {
-      private readonly UnstuckifyFragment _unstuckifyFragment;
+        private static TemplateModule ProvideTemplateModule()
+        {
+            var builder = new TemplateModule.Builder();
+            builder.AddDecorator<BeaverSpec, UnstuckifyComponent>();
+            builder.AddDecorator<BotSpec, UnstuckifyComponent>();
+            return builder.Build();
+        }
 
-      public EntityPanelModuleProvider(UnstuckifyFragment unstuckifyFragment)
-      {
-        _unstuckifyFragment = unstuckifyFragment;
-      }
+        private class EntityPanelModuleProvider : IProvider<EntityPanelModule>
+        {
+            private readonly UnstuckifyFragment _unstuckifyFragment;
 
-      public EntityPanelModule Get()
-      {
-        EntityPanelModule.Builder builder = new EntityPanelModule.Builder();
-        builder.AddMiddleFragment(_unstuckifyFragment);
-        return builder.Build();
-      }
+            public EntityPanelModuleProvider(UnstuckifyFragment unstuckifyFragment)
+            {
+                _unstuckifyFragment = unstuckifyFragment;
+            }
+
+            public EntityPanelModule Get()
+            {
+                var builder = new EntityPanelModule.Builder();
+                builder.AddMiddleFragment(_unstuckifyFragment);
+                return builder.Build();
+            }
+        }
     }
-  }
 }

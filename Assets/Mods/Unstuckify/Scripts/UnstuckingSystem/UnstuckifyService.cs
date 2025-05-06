@@ -5,7 +5,7 @@ using Timberborn.GameDistricts;
 using Timberborn.WalkingSystem;
 using UnityEngine;
 
-namespace Unstuckify
+namespace Unstuckify.UnstuckingSystem
 {
     public class UnstuckifyService
     {
