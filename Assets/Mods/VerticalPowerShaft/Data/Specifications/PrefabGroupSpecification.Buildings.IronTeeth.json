@@ -1,7 +1,0 @@
-{
-  "Id": "Buildings.IronTeeth",
-  "Paths#append": [
-    "Tobbert/Prefabs/StraightToVerticalPowerShaft.IronTeeth",
-    "Tobbert/Prefabs/UniversalPowerShaft.IronTeeth"
-  ]
-}

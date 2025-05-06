@@ -1,7 +1,0 @@
-{
-  "Id": "Buildings.GreedyBuilders",
-  "Paths#append": [
-    "Tobbert/Prefabs/StraightToVerticalPowerShaft.Folktails",
-    "Tobbert/Prefabs/UniversalPowerShaft.Folktails"
-  ]
-}
