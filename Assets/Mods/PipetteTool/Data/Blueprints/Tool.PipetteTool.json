@@ -12,6 +12,6 @@
     "Section": 0
   },
   "GenericToolSpec": {
-    "ClassName": "PipetteTool.IPipetteTool"
+    "ClassName": "PipetteTool.PipetteToolSystem.PipetteTool"
   }
 }
