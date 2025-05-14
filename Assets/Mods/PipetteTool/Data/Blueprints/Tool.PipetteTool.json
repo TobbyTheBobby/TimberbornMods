@@ -1,7 +1,7 @@
 {
   "ToolSpec": {
     "Id": "PipetteTool",
-    "Type": "PipetteTool",
+    "Type": "GenericTool",
     "Layout": "Blue",
     "Order": 81,
     "Icon": "Tobbert/PipetteToolIcon",
@@ -10,5 +10,8 @@
   },
   "BottomBarSpec": {
     "Section": 0
+  },
+  "GenericToolSpec": {
+    "ClassName": "PipetteTool.IPipetteTool"
   }
 }

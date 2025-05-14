@@ -2,4 +2,19 @@ ID,Text,Comment
 Tobbert.PipetteTool.DisplayName,Pipette,-
 Tobbert.PipetteTool.Description,Click a building to enter construction mode for that building. (Default Shortcut CTRL + CLICK),-
 Tobbert.PipetteTool.KeyBindingGroup.PipetteTool,Pipette Tool,-
-Tobbert.PipetteTool.KeyBinding.PipetteTool,Pipette Tool,-
+Tobbert.PipetteTool.KeyBinding.PipetteTool,Pipette Tool Keybind,-
+Tobbert.PipetteTool.Setting.Header,Pipette Tool Settings,-
+Tobbert.PipetteTool.Setting.PipetteToolMode,Pipetting Mode,-
+Tobbert.PipetteTool.Setting.PipetteToolModeToolTip,"Hold Mode: Hold the Pipette Tool Keybind button and use the Mouse Selection button to start pipetting.
+Press Mode: Pipette Tool is activated after the Pipette Tool Keybind is pressed and released.
+Direct Mode (Key Bind): This setting allows for direct pipetting without having to click. Using the key bind above it will directly switch to the relevant building (Factorio player approved).
+Direct Mode (Middle Mouse Button): This setting allows for direct pipetting without having to use the Key bind. Using the Middle Mouse Button will directly switch to the relevant building (Minecraft player approved).
+Inverted Mode: When a building is selected, press the Pipette Tool Key Bind to switch the relevant object.",-
+Tobbert.PipetteTool.Setting.MouseSelectionButton,Mouse Selection Button,-
+Tobbert.PipetteTool.Setting.HoldMode,Hold Mode,-
+Tobbert.PipetteTool.Setting.PressMode,Press Mode,-
+Tobbert.PipetteTool.Setting.DirectModeKeyBind,Direct Mode (Keybind),-
+Tobbert.PipetteTool.Setting.DirectModeMiddleMouseButton,Direct Mode (Middle Mouse Button),-
+Tobbert.PipetteTool.Setting.ForcePipette,Force Pipetting,-
+Tobbert.PipetteTool.Setting.ForcePipetteTooltip,Forces the pipetting tool even when another tool is currently active.,-
+Tobbert.PipetteTool.Setting.InvertedMode,Inverted Mode,
